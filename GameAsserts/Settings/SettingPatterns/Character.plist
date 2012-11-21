@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Characters</key>
+	<dict>
+		<key>Enemy</key>
+		<dict>
+			<key>Name</key>
+			<string>TestEnemy0001</string>
+			<key>HealthPoint</key>
+			<integer>100</integer>
+			<key>Parts</key>
+			<array/>
+			<key>Modes</key>
+			<array/>
+		</dict>
+		<key>Bullet</key>
+		<dict>
+			<key>Name</key>
+			<string>TestBullet0001</string>
+			<key>Parts</key>
+			<array>
+				<dict>
+					<key>AnimationName</key>
+					<string></string>
+					<key>Collisions</key>
+					<array>
+						<dict>
+							<key>Center</key>
+							<string>{0,0}</string>
+							<key>Radius</key>
+							<string>0</string>
+						</dict>
+					</array>
+					<key>Name</key>
+					<string>Default &lt;-- Bullet 使用</string>
+					<key>RelativePosition</key>
+					<string>{0,0}</string>
+				</dict>
+			</array>
+		</dict>
+		<key>Player</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Modes</key>
+	<dict>
+		<key>Modes</key>
+		<array>
+			<dict>
+				<key>Motions</key>
+				<array/>
+				<key>Name</key>
+				<string>TestMode1 </string>
+				<key>Duration</key>
+				<integer>10</integer>
+				<key>PartControls</key>
+				<array/>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

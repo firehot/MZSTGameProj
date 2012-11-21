@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>system</key>
+	<dict>
+		<key>FPS</key>
+		<integer>30</integer>
+		<key>PlayRange</key>
+		<string>{{0,0},{320,480}}</string>
+	</dict>
+	<key>gamePlay</key>
+	<dict>
+		<key>playerBoundary</key>
+		<string>{{0,60},{320,390}}</string>
+		<key>enrageRanges</key>
+		<dict>
+			<key>top</key>
+			<string>{{0,450},{320,70}}</string>
+			<key>leftUp</key>
+			<string>{{-60,330},{60,120}}</string>
+			<key>rightUp</key>
+			<string>{{320,330},{60,120}}</string>
+		</dict>
+		<key>levels</key>
+		<array>
+			<string>new_ver_test</string>
+		</array>
+	</dict>
+	<key>debug</key>
+	<dict>
+		<key>ShowLoadingStates</key>
+		<false/>
+		<key>ShowFPS</key>
+		<true/>
+		<key>ShowMemoryUsage</key>
+		<false/>
+		<key>ShowCharactersNumber</key>
+		<false/>
+		<key>ShowCharacterSpawnInfo</key>
+		<false/>
+		<key>ShowScenarioInfo</key>
+		<false/>
+		<key>ShowEventInfo</key>
+		<false/>
+		<key>DrawCollisionRange</key>
+		<false/>
+		<key>DrawBoundary</key>
+		<true/>
+		<key>DrawBGEventsInfo</key>
+		<true/>
+	</dict>
+</dict>
+</plist>

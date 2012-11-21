@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>TestBullet0002</key>
+	<dict>
+		<key>name</key>
+		<string>TestBullet0002</string>
+		<key>parts</key>
+		<dict>
+			<key>Default</key>
+			<dict>
+				<key>animationName</key>
+				<string>test_bullet_0002</string>
+				<key>collisions</key>
+				<array>
+					<dict>
+						<key>center</key>
+						<string>{0,0}</string>
+						<key>radius</key>
+						<string>3</string>
+					</dict>
+				</array>
+				<key>relativePosition</key>
+				<string>{0,0}</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>green_arrow_bullet</key>
+	<dict>
+		<key>name</key>
+		<string>green_arrow_bullet</string>
+		<key>parts</key>
+		<dict>
+			<key>Default</key>
+			<dict>
+				<key>animationName</key>
+				<string>green_arrow_bullet</string>
+				<key>collisions</key>
+				<array>
+					<dict>
+						<key>center</key>
+						<string>{0,0}</string>
+						<key>radius</key>
+						<string>3</string>
+					</dict>
+				</array>
+				<key>relativePosition</key>
+				<string>{0,0}</string>
+				<key>scale</key>
+				<string>1.0</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

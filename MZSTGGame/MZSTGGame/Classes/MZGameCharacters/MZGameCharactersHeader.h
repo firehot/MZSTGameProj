@@ -1,0 +1,8 @@
+#import "MZSTGCharactersHeader.h"
+#import "MZCharactersFactory.h"
+#import "MZCharacterTypeStrings.h"
+#import "MZPlayerControlCharacter.h"
+#import "MZPlayerBullet.h"
+#import "MZEventControlCharacter.h"
+#import "MZEnemy.h"
+#import "MZEnemyBullet.h"

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Acceleration</key>
+	<dict>
+		<key>Linear</key>
+		<dict>
+			<key>Acceleration</key>
+			<string>{0,0}</string>
+			<key>InitVelocity</key>
+			<integer>10</integer>
+			<key>Duration</key>
+			<integer>1</integer>
+			<key>IsRepeatForever</key>
+			<false/>
+			<key>IsUsingPrevious</key>
+			<false/>
+			<key>MaxAcceleration</key>
+			<string>0</string>
+			<key>MotionType</key>
+			<string>Linear</string>
+			<key>MovingVector</key>
+			<string></string>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Attacks</key>
+	<dict>
+		<key>Idle</key>
+		<dict>
+			<key>Type</key>
+			<string>Idle</string>
+			<key>Duration</key>
+			<integer>0</integer>
+		</dict>
+		<key>OddWay</key>
+		<dict>
+			<key>Colddown</key>
+			<integer>0</integer>
+			<key>IntervalDegree</key>
+			<integer>0</integer>
+			<key>IsRunOnce</key>
+			<false/>
+			<key>Motions</key>
+			<array/>
+			<key>NumberOfWays</key>
+			<integer>0</integer>
+			<key>Type</key>
+			<string>OddWay</string>
+			<key>BulletName</key>
+			<string></string>
+			<key>Target</key>
+			<string></string>
+		</dict>
+	</dict>
+</dict>
+</plist>

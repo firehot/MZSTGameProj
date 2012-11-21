@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>eventMetadatas</key>
+	<array>
+		<dict>
+			<key>eventDefineName</key>
+			<string>PT01FixedShooterToRight</string>
+			<key>position</key>
+			<string>{-12, 480}</string>
+		</dict>
+	</array>
+</dict>
+</plist>

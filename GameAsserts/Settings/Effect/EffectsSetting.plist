@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>spriteSheets</key>
+	<string>explosion.plist</string>
+	<key>animations</key>
+	<array>
+		<dict>
+			<key>end</key>
+			<integer>7</integer>
+			<key>extendedType</key>
+			<string>png</string>
+			<key>frameNamePattern</key>
+			<string>explosion</string>
+			<key>intervalTime</key>
+			<real>0.05</real>
+			<key>name</key>
+			<string>explosion</string>
+			<key>start</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>define</key>
+	<dict>
+		<key>effectName</key>
+		<dict/>
+	</dict>
+</dict>
+</plist>

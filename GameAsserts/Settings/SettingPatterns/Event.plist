@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Events</key>
+	<dict>
+		<key>CreateEnemy</key>
+		<dict>
+			<key>EnemyName</key>
+			<string></string>
+			<key>Occur</key>
+			<integer>0</integer>
+			<key>Position</key>
+			<string></string>
+			<key>Type</key>
+			<string>CreateEnemy</string>
+		</dict>
+		<key>BatchCreateEnemiesInOrder</key>
+		<dict>
+			<key>EnemyName</key>
+			<string></string>
+			<key>Occur</key>
+			<integer>0</integer>
+			<key>NumberOfEnemies</key>
+			<integer>0</integer>
+			<key>Position</key>
+			<string></string>
+			<key>IntervalSpawnTime</key>
+			<integer>0</integer>
+			<key>ChangePositionEverySpawn</key>
+			<string></string>
+			<key>Type</key>
+			<string>BatchCreateEnemiesInOrder</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
