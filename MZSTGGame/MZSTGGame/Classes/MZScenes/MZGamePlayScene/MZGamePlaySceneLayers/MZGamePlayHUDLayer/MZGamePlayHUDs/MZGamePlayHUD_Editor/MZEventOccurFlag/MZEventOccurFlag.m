@@ -122,9 +122,10 @@
 {
     [super _initValues];
 
-    NSDictionary *iconSettingDict = [[levelComponentsRef.eventDefinesDictionary objectForKey: eventMetadataRef.eventDefineName] objectForKey: @"icon"];
+    NSString *eventDefineName = eventMetadataRef.eventDefineName;
+    NSDictionary *iconSettingDict = [[levelComponentsRef.eventDefinesDictionary objectForKey: eventDefineName] objectForKey: @"icon"];
 
-    MZAssert( iconSettingDict, @"iconSettingDict is nil" );
+    MZAssert( iconSettingDict, @"iconSettingDict is nil, eventDefine name = %@", eventDefineName );
 
     flag = [CCSprite node];
     [flag retain];
