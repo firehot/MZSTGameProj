@@ -1,8 +1,7 @@
 /*
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
- * Copyright (c) 2008-2010 Ricardo Quesada
- * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2012 Zynga Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,12 +22,18 @@
  * THE SOFTWARE.
  */
 
+extern unsigned char cc_fps_images_png[];
+extern unsigned char cc_fps_images_hd_png[];
+extern unsigned char cc_fps_images_ipadhd_png[];
 
-#import <Foundation/Foundation.h>
-#import "cocos2d.h"
-static NSString *version = @"cocos2d v2.1-beta4";
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-NSString *cocos2dVersion()
-{
-	return version;
+unsigned int cc_fps_images_len(void);
+unsigned int cc_fps_images_hd_len(void);
+unsigned int cc_fps_images_ipadhd_len(void);
+
+#ifdef __cplusplus
 }
+#endif
