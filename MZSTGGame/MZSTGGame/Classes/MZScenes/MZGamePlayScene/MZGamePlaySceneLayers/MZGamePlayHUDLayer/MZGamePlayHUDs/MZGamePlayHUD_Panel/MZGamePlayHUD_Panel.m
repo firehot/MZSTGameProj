@@ -28,7 +28,7 @@
 {
     [super _init];
     
-    [[MZFramesManager sharedFramesManager] addFrameWithFrameName: @"hud_bottom.png"];
+    [[MZFramesManager sharedInstance] addFrameWithFrameName: @"hud_bottom.png"];
     
     top = [CCSprite spriteWithSpriteFrameName: @"hud_bottom.png"];
     [top retain];

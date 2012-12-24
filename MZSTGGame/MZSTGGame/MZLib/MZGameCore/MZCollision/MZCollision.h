@@ -1,7 +1,10 @@
 #import <Foundation/Foundation.h>
-#import "MZCollisionProtocol.h"
 
 @class MZColor;
+
+@protocol MZCollisionProtocol <NSObject>
+-(CGPoint)getRealPosition;
+@end
 
 @interface MZCircle : NSObject
 {
@@ -12,8 +15,8 @@
 +(id)circleWithCenter:(CGPoint)aCenter radius:(float)aRadius;
 -(id)initWithCenter:(CGPoint)aCenter radius:(float)aRadius;
 
-@property (nonatomic, assign, readwrite) float radius;
-@property (nonatomic, assign, readwrite) CGPoint center;
+@property (nonatomic, readwrite) float radius;
+@property (nonatomic, readwrite) CGPoint center;
 @end
 
 @interface MZCollision : NSObject 

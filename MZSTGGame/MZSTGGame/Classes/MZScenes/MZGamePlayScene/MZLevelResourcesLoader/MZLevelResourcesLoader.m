@@ -65,7 +65,7 @@
                                       nil];
     
     for( NSString *systemFrameName in systemFrameNamesArray )
-        [[MZFramesManager sharedFramesManager] addFrameWithFrameName: systemFrameName];
+        [[MZFramesManager sharedInstance] addFrameWithFrameName: systemFrameName];
 }
 
 -(void)_loadTexturesFromSpriteSheetNamesArray:(NSArray *)textureNamesArray
@@ -76,7 +76,7 @@
         MZLog( @"" );
     
     for( NSString *textureName in textureNamesArray )
-        [[MZFramesManager sharedFramesManager] addFrameWithFrameName: textureName];
+        [[MZFramesManager sharedInstance] addFrameWithFrameName: textureName];
 }
 
 -(void)_loadSpriteSheetsFromSpriteSheetNamesArray:(NSArray *)spriteSheetNamesArray
@@ -87,7 +87,7 @@
         MZLog( @"" );
     
     for( NSString *spriteSheetName in spriteSheetNamesArray )
-        [[MZFramesManager sharedFramesManager] addSpriteSheetWithFileName: spriteSheetName];
+        [[MZFramesManager sharedInstance] addSpriteSheetWithFileName: spriteSheetName];
 }
 
 -(void)_loadAnimationsSettingsFromAnimationsSettingFileNamesArray:(NSArray *)animationsSettingFileNamesArray

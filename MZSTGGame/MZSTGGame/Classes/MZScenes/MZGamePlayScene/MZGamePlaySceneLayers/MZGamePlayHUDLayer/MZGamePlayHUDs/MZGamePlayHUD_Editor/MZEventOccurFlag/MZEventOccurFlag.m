@@ -117,7 +117,6 @@
 @implementation MZEventOccurFlag (Protected)
 
 #pragma mark - override
-
 -(void)_initValues
 {
     [super _initValues];
@@ -131,6 +130,18 @@
     [flag retain];
     [self setSprite: flag parentLayer: bgLayerRef];
     [self setPropertiesWithDictionary: iconSettingDict];
+
+
+
+
+
+
+
+
+
+
+
+    
     
     flagBound = [CCDrawNode node];
     [flagBound retain];

@@ -242,7 +242,6 @@
 		D3B48F1A14D93D73004FC4D7 /* MZEnemyBulletsActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E5414D93D73004FC4D7 /* MZEnemyBulletsActionControl.m */; };
 		D3B48F1B14D93D73004FC4D7 /* MZPlayerActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E5714D93D73004FC4D7 /* MZPlayerActionControl.m */; };
 		D3B48F1C14D93D73004FC4D7 /* MZPlayerBulletsActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E5A14D93D73004FC4D7 /* MZPlayerBulletsActionControl.m */; };
-		D3B48F1D14D93D73004FC4D7 /* MZCollision.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E5D14D93D73004FC4D7 /* MZCollision.m */; };
 		D3B48F1E14D93D73004FC4D7 /* MZScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E6014D93D73004FC4D7 /* MZScenario.m */; };
 		D3B48F2E14D93D73004FC4D7 /* MZScenesFlowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E9714D93D73004FC4D7 /* MZScenesFlowController.m */; };
 		D3B48F3014D93D73004FC4D7 /* MZAccelerometerState.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E9F14D93D73004FC4D7 /* MZAccelerometerState.m */; };
@@ -323,6 +322,7 @@
 		DF30EC31160A1D3E006966A9 /* MZCCSpritesPool.m in Sources */ = {isa = PBXBuildFile; fileRef = DF30EC30160A1D3E006966A9 /* MZCCSpritesPool.m */; };
 		DF30EC3A160A1DE7006966A9 /* MZGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DF30EC38160A1DE7006966A9 /* MZGameObject.m */; };
 		DF48CD9D160A8EA000EB1FD3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF48CD9C160A8EA000EB1FD3 /* Default-568h@2x.png */; };
+		DF74324E168882F900865738 /* MZCollision.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74324D168882F900865738 /* MZCollision.m */; };
 		DF9166031514C9340094C96A /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DF9166021514C9340094C96A /* fps_images-ipadhd.png */; };
 		DF9F51EB150DDE9C00698E26 /* MZEventsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9F51EA150DDE9C00698E26 /* MZEventsFactory.m */; };
 		DFB4511B160FCE5B005530CB /* MZFaceToControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB4511A160FCE5B005530CB /* MZFaceToControl.m */; };
@@ -769,7 +769,6 @@
 		D3B48DDB14D93D73004FC4D7 /* MZCCCameraFunctionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCCCameraFunctionHeader.h; sourceTree = "<group>"; };
 		D3B48DEE14D93D73004FC4D7 /* MZCCScenesFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCCScenesFactory.h; sourceTree = "<group>"; };
 		D3B48DEF14D93D73004FC4D7 /* MZCCScenesFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCCScenesFactory.m; sourceTree = "<group>"; };
-		D3B48E0214D93D73004FC4D7 /* MZCollisionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCollisionProtocol.h; sourceTree = "<group>"; };
 		D3B48E0414D93D73004FC4D7 /* MZTypeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTypeDefine.h; sourceTree = "<group>"; };
 		D3B48E0814D93D73004FC4D7 /* MZEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEvent.h; sourceTree = "<group>"; };
 		D3B48E0914D93D73004FC4D7 /* MZEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEvent.m; sourceTree = "<group>"; };
@@ -819,8 +818,6 @@
 		D3B48E5714D93D73004FC4D7 /* MZPlayerActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerActionControl.m; sourceTree = "<group>"; };
 		D3B48E5914D93D73004FC4D7 /* MZPlayerBulletsActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerBulletsActionControl.h; sourceTree = "<group>"; };
 		D3B48E5A14D93D73004FC4D7 /* MZPlayerBulletsActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerBulletsActionControl.m; sourceTree = "<group>"; };
-		D3B48E5C14D93D73004FC4D7 /* MZCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCollision.h; sourceTree = "<group>"; };
-		D3B48E5D14D93D73004FC4D7 /* MZCollision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCollision.m; sourceTree = "<group>"; };
 		D3B48E5F14D93D73004FC4D7 /* MZScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZScenario.h; sourceTree = "<group>"; };
 		D3B48E6014D93D73004FC4D7 /* MZScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZScenario.m; sourceTree = "<group>"; };
 		D3B48E9614D93D73004FC4D7 /* MZScenesFlowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZScenesFlowController.h; sourceTree = "<group>"; };
@@ -936,6 +933,8 @@
 		DF30EC37160A1DE7006966A9 /* MZGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGameObject.h; sourceTree = "<group>"; };
 		DF30EC38160A1DE7006966A9 /* MZGameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZGameObject.m; sourceTree = "<group>"; };
 		DF48CD9C160A8EA000EB1FD3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
+		DF74324C168882F900865738 /* MZCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCollision.h; sourceTree = "<group>"; };
+		DF74324D168882F900865738 /* MZCollision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCollision.m; sourceTree = "<group>"; };
 		DF9166021514C9340094C96A /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-ipadhd.png"; path = "Resources/fps_images-ipadhd.png"; sourceTree = "<group>"; };
 		DF9F51E9150DDE9C00698E26 /* MZEventsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEventsFactory.h; sourceTree = "<group>"; };
 		DF9F51EA150DDE9C00698E26 /* MZEventsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEventsFactory.m; sourceTree = "<group>"; };
@@ -2251,7 +2250,6 @@
 		D3B48E0114D93D73004FC4D7 /* MZCommonHeaders */ = {
 			isa = PBXGroup;
 			children = (
-				D3B48E0214D93D73004FC4D7 /* MZCollisionProtocol.h */,
 				D3B48E0414D93D73004FC4D7 /* MZTypeDefine.h */,
 			);
 			path = MZCommonHeaders;
@@ -2471,7 +2469,6 @@
 			children = (
 				D3B48E4414D93D73004FC4D7 /* MZCharactersActionManager */,
 				D3B48E4714D93D73004FC4D7 /* MZCharactersActions */,
-				D3B48E5B14D93D73004FC4D7 /* MZCollision */,
 				D3B48E5E14D93D73004FC4D7 /* MZScenario */,
 			);
 			path = MZGamePlayComponenets;
@@ -2552,15 +2549,6 @@
 				D3B48E5A14D93D73004FC4D7 /* MZPlayerBulletsActionControl.m */,
 			);
 			path = MZPlayerBulletsActionControl;
-			sourceTree = "<group>";
-		};
-		D3B48E5B14D93D73004FC4D7 /* MZCollision */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E5C14D93D73004FC4D7 /* MZCollision.h */,
-				D3B48E5D14D93D73004FC4D7 /* MZCollision.m */,
-			);
-			path = MZCollision;
 			sourceTree = "<group>";
 		};
 		D3B48E5E14D93D73004FC4D7 /* MZScenario */ = {
@@ -3040,6 +3028,7 @@
 			isa = PBXGroup;
 			children = (
 				DF30EC2D160A1CD8006966A9 /* MZGameCoreHeader.h */,
+				DF74324B168882F900865738 /* MZCollision */,
 				D3E1A7C6164BAF17005E52B2 /* MZEffect */,
 				D391556E16423C4C0011F3D6 /* MZGameSetting */,
 				D35107C21622A13F003EBD6B /* MZControl_Base */,
@@ -3151,6 +3140,15 @@
 				DF174E9616340287002638AE /* MZEventOccurFlag.m */,
 			);
 			path = MZEventOccurFlag;
+			sourceTree = "<group>";
+		};
+		DF74324B168882F900865738 /* MZCollision */ = {
+			isa = PBXGroup;
+			children = (
+				DF74324C168882F900865738 /* MZCollision.h */,
+				DF74324D168882F900865738 /* MZCollision.m */,
+			);
+			path = MZCollision;
 			sourceTree = "<group>";
 		};
 		DF9F51E7150DDE8F00698E26 /* MZEventsFactory */ = {
@@ -3398,7 +3396,6 @@
 				D3B48F1A14D93D73004FC4D7 /* MZEnemyBulletsActionControl.m in Sources */,
 				D3B48F1B14D93D73004FC4D7 /* MZPlayerActionControl.m in Sources */,
 				D3B48F1C14D93D73004FC4D7 /* MZPlayerBulletsActionControl.m in Sources */,
-				D3B48F1D14D93D73004FC4D7 /* MZCollision.m in Sources */,
 				D3B48F1E14D93D73004FC4D7 /* MZScenario.m in Sources */,
 				D3B48F2E14D93D73004FC4D7 /* MZScenesFlowController.m in Sources */,
 				D3B48F3014D93D73004FC4D7 /* MZAccelerometerState.m in Sources */,
@@ -3598,6 +3595,7 @@
 				D3964F871670359B00D54340 /* vec2.c in Sources */,
 				D3964F881670359B00D54340 /* vec3.c in Sources */,
 				D3964F891670359B00D54340 /* vec4.c in Sources */,
+				DF74324E168882F900865738 /* MZCollision.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

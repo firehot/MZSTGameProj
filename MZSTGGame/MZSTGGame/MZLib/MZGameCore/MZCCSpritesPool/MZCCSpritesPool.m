@@ -138,7 +138,7 @@
     int numbers = [[settingDictionary objectForKey: @"Number"] intValue];
     NSString *textureName = [settingDictionary objectForKey: @"TextureName"];
     
-    CCTexture2D *texture = [[MZFramesManager sharedFramesManager] textureByName: textureName];
+    CCTexture2D *texture = [[MZFramesManager sharedInstance] textureByName: textureName];
     
     CCSpriteBatchNode *spriteBatchNode = [CCSpriteBatchNode batchNodeWithTexture: texture capacity: numbers];
     

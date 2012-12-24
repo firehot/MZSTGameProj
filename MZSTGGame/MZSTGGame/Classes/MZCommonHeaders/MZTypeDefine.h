@@ -1,26 +1,23 @@
 #define MZ_INVAILD_POINT CGPointMake( -999, -999 )
 
-//typedef float mzTime;
 typedef double mzTime;
-
-//typedef struct 
-//{
-//    int start;
-//    int end;
-//    int currentIndex;
-//}MZVisitRange;
 
 typedef enum
 {
     kMZCharacterType_Unknow,
     kMZCharacterType_None,
-    kMZCharacterType_Player,
+
     kMZCharacterType_EventControlCharacter,
+
+    kMZCharacterType_Player,
     kMZCharacterType_PlayerBullet,
     kMZCharacterType_Enemy,
     kMZCharacterType_EnemyBullet,
+
     kMZCharacterType_Background,
+
     kMZCharacterType_Effect,
+
     kMZCharacterType_EventFlag,
     
 }MZCharacterType;

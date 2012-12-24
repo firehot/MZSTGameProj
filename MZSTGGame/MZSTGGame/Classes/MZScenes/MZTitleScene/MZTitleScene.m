@@ -34,7 +34,7 @@
 {
     self = [super init];
 
-    [[MZFramesManager sharedFramesManager] addFrameWithFrameName: @"TestPic.png"];
+    [[MZFramesManager sharedInstance] addFrameWithFrameName: @"TestPic.png"];
     
     CCLabelTTF *lbl = [CCLabelTTF labelWithString: @"Title" fontName: @"Arial" fontSize: 50];
     lbl.position = [[MZCCDisplayHelper sharedInstance] realPositionFromStandard: mzp( 160, 240 )];

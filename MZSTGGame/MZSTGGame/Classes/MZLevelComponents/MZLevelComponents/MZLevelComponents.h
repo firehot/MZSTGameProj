@@ -27,7 +27,7 @@
 @property (nonatomic, readonly) MZCharactersActionManager *charactersActionManager;
 @property (nonatomic, readonly) MZEventsExecutor *eventsExecutor;
 @property (nonatomic, readonly) MZScenario *scenario; // 暫時用不到 ...
-@property (nonatomic, readonly) MZEffectsManager *effectsManager;
+@property (nonatomic, readonly) MZEffectsManager *effectsManager; // 暫時用不到 ...
 @property (nonatomic, readonly) MZPlayerControlCharacter *player;
 @property (nonatomic, readonly) MZCCSpritesPool *spritesPool;
 

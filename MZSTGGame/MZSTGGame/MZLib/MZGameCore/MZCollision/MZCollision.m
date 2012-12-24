@@ -20,18 +20,12 @@
 
 -(id)initWithCenter:(CGPoint)aCenter radius:(float)aRadius
 {
-    if( (self=[super init]) )
-    {
-        radius = aRadius;
-        center = aCenter;
-    }
+    self = [super init];
+
+    radius = aRadius;
+    center = aCenter;
     
     return self;
-}
-
--(void)dealloc
-{
-    [super dealloc];
 }
 
 @end

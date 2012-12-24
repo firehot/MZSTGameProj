@@ -343,7 +343,7 @@
 {
     MZAssert( spriteRef, @"spriteRef is nil" );
     
-    MZFrame *frameControl = [[MZFramesManager sharedFramesManager] frameByName: frameName];
+    MZFrame *frameControl = [[MZFramesManager sharedInstance] frameByName: frameName];
     MZAssert( frameControl, @"FrameControl(%@) is nil", frameName );
     
     frameSize = frameControl.frameSize;

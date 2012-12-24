@@ -1,14 +1,12 @@
-#import <Foundation/Foundation.h>
-
 @class MZFrame;
 @class CCTexture2D;
 
-@interface MZFramesManager : NSObject 
+@interface MZFramesManager : NSObject
 {
     NSMutableDictionary *framesByNameDictionary;
 }
 
-+(MZFramesManager *)sharedFramesManager;
++(MZFramesManager *)sharedInstance;
 
 -(void)addFrameWithFrameName:(NSString *)frameName;
 -(void)addSpriteSheetWithFileName:(NSString *)spriteSheetFileName;

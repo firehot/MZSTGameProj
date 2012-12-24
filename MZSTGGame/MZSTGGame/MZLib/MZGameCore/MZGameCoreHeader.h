@@ -1,6 +1,8 @@
 #import "MZAnimationHeader.h"
 #import "MZCCSpritesPool.h"
 
+#import "MZCollision.h"
+
 #import "MZBehavior_Base.h"
 #import "MZGameObject.h"
 
