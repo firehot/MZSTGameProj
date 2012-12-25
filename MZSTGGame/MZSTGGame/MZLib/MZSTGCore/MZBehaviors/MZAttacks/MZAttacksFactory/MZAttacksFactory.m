@@ -34,11 +34,10 @@ MZAttacksFactory *sharedInstance_ = nil;
 
 }
 
--(MZAttack_Base*)getAttackBySetting:(MZAttackSetting *)setting controlTarget:(MZGameObject *)controlTarget
+-(MZAttack_Base *)getAttackWithDelegate:(id<MZAttackDelegate>)aDelegate setting:(MZAttackSetting *)setting
 {
     NSString *className = [NSString stringWithFormat: @"MZAttack_%@", setting.attackTypeString];
-    MZAttack_Base*attack = [NSClassFromString( className ) attackWithAttackSetting: setting controlTarget: controlTarget];
-    
+    MZAttack_Base*attack = [NSClassFromString( className ) attackWithDelegate: aDelegate setting: setting];
     MZAssert( attack, @"Create attack fail, class name=(%@)", className );
     
     return attack;

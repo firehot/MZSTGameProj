@@ -1,11 +1,13 @@
 #import "MZGameObject.h"
 #import "MZTypeDefine.h"
+#import "MZCharacterPartControl.h"
+#import "MZAttack_Base.h"
 
 @class MZCharacterPartSetting;
 
 @class MZLevelComponents;
 
-@interface MZCharacterPart : MZGameObject
+@interface MZCharacterPart : MZGameObject <MZCharacterPartDelegate, MZAttackDelegate>
 {
     MZCharacterPartSetting *setting;
 }

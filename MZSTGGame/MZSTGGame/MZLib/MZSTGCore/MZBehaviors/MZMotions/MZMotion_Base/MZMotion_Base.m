@@ -101,15 +101,15 @@
 
 -(void)_setControlTargetWithMovement:(CGPoint)movement
 {
-    controlTargetRef.position = CGPointMake( controlTargetRef.position.x + movement.x, controlTargetRef.position.y + movement.y );
+    moveDelegate.position = CGPointMake( moveDelegate.position.x + movement.x, moveDelegate.position.y + movement.y );
 
-    MZAssert( [NSStringFromCGPoint( controlTargetRef.position ) isEqualToString: @"{nan, nan}"] == false,
+    MZAssert( [NSStringFromCGPoint( moveDelegate.position ) isEqualToString: @"{nan, nan}"] == false,
              @"new position is {nan}" );
 }
 
 -(void)_firstUpdate
 {
-    fakeCenterCharacter.position = controlTargetRef.spawnPosition;
+    fakeCenterCharacter.position = moveDelegate.spawnPosition;
     [fakeCenterCharacter enable];
 }
 
@@ -126,10 +126,10 @@
             return CGPointZero;
             
         case kMZRotatedCenterType_Spawn:
-            return controlTargetRef.spawnPosition;
+            return moveDelegate.spawnPosition;
             
         case kMZRotatedCenterType_Self:
-            return controlTargetRef.position;
+            return moveDelegate.position;
             
         case kMZRotatedCenterType_Motion:
             return fakeCenterCharacter.position;
@@ -143,8 +143,7 @@
 
 -(CGPoint)_getLeaderMovingVector
 {
-    MZAssert( [controlTargetRef isKindOfClass: [MZCharacter class]], @"control target is not MZCharacter" );
-    MZCharacter *controlCharacter = (MZCharacter *)controlTargetRef;
+    MZCharacter *controlCharacter = (MZCharacter *)moveDelegate;
     
     return ( controlCharacter.leaderCharacterRef != nil )? controlCharacter.leaderCharacterRef.currentMovingVector : currentMovingVector;
 }

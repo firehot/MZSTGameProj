@@ -22,7 +22,7 @@
 -(void)_updateMotion;
 -(void)_updateCharacterPartControls;
 
--(MZMotion_Base *)_getNextMotionWithSetting:(MZMotionSetting *)nextMotionSetting controlTarget:(MZGameObject *)controlTarget;
+-(MZMotion_Base *)_getNextMotionWithSetting:(MZMotionSetting *)nextMotionSetting;
 @end
 
 #pragma mark
@@ -35,17 +35,17 @@
 
 #pragma mark - init and dealloc
 
-+(MZMode *)modeWithModeSetting:(MZModeSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
++(MZMode *)modeWithDelegate:(id<MZModeDelegate>)aDelegate setting:(MZModeSetting *)aSetting
 {
-    return [[[self alloc] initWithModeSetting: aSetting controlTarget: aControlTarget] autorelease];
+    return [[[self alloc] initWithDelegate: aDelegate setting: aSetting] autorelease];
 }
 
--(id)initWithModeSetting:(MZModeSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
+-(id)initWithDelegate:(id<MZModeDelegate>)aDelegate setting:(MZModeSetting *)aSetting
 {
-    MZAssert( aSetting, @"Setting is nil" );
-    setting = [aSetting retain];
-    
-    self = [super initWithTarget: aControlTarget];
+    self = [super initWithDelegate: aDelegate];
+
+    setting = ( aSetting != nil )? [aSetting retain] : nil;
+    modeDelegate = aDelegate;
     disableAttack = false;
     
     return self;
@@ -158,7 +158,7 @@
             nextMotionSetting.movingVector = lastMovingVector;
         }
 
-        currentMotion = [self _getNextMotionWithSetting: nextMotionSetting controlTarget: controlTargetRef];
+        currentMotion = [self _getNextMotionWithSetting: nextMotionSetting];
         [currentMotion retain];
         [currentMotion enable];
                       
@@ -182,13 +182,11 @@
     {
         for( MZCharacterPartControlSetting *characterPartControlSetting in characterPartControlSettingsArray )
         {        
-            MZCharacterPart *controlCharacterPart =
-            (MZCharacterPart *)[controlTargetRef getChildWithName: characterPartControlSetting.controlPartName];
+            MZCharacterPart *characterPart = [modeDelegate getChildWithName: characterPartControlSetting.controlPartName];
 
-            if( controlCharacterPart == nil ) continue;
+            if( characterPart == nil ) continue;
 
-            MZCharacterPartControl *characterPartControl = [MZCharacterPartControl characterControlPartWithSetting: characterPartControlSetting
-                                                                                                     characterPart: controlCharacterPart];
+            MZCharacterPartControl *characterPartControl = [MZCharacterPartControl                                                 characterPartControlWithDelegate: characterPart setting: characterPartControlSetting ];
             characterPartControl.disableAttack = disableAttack;
             [characterPartControl enable];
             [currentCharacterPartControls addObject: characterPartControl];
@@ -222,21 +220,18 @@
     }
 }
 
--(MZMotion_Base *)_getNextMotionWithSetting:(MZMotionSetting *)nextMotionSetting controlTarget:(MZGameObject *)controlTarget
+-(MZMotion_Base *)_getNextMotionWithSetting:(MZMotionSetting *)nextMotionSetting
 {
     if( nextMotionSetting.isReferenceLeader )
     {
-        MZAssert( [controlTarget isKindOfClass: [MZCharacter class]], @"Object Reference to leader must be MZCharacter" );
-        MZCharacter *controlTargetCharacter = (MZCharacter *)controlTarget;
-        
-        if( controlTargetCharacter.leaderCharacterRef != nil )
-        {
+//        if( controlTargetCharacter.leaderCharacterRef != nil )
+//        {
             return [[MZMotionsFactory sharedMZMotionsFactory] getReferenceToLeaderLinearMotionWithSetting: nextMotionSetting
-                                                                                            controlTarget: controlTarget];
-        }
+                                                                                            controlTarget: (MZGameObject *)modeDelegate];
+//        }
     }
     
-    return [[MZMotionsFactory sharedMZMotionsFactory] getMotionBySetting: nextMotionSetting controlTarget: controlTargetRef];
+    return [[MZMotionsFactory sharedMZMotionsFactory] getMotionBySetting: nextMotionSetting controlTarget: (MZGameObject *)modeDelegate];
 }
 
 @end

@@ -47,14 +47,14 @@
 {
     [super _firstUpdate];
     
-    spawnPosition = controlTargetRef.spawnPosition;
+    spawnPosition = moveDelegate.spawnPosition;
     lastCenter = spawnPosition;
     
-    CGPoint vector = [MZMath unitVectorFromPoint1: [self _center] toPoint2: controlTargetRef.position];
+    CGPoint vector = [MZMath unitVectorFromPoint1: [self _center] toPoint2: moveDelegate.position];
     float degree = [MZMath degreesFromXAxisToVector: vector];
     
     currentTheta = degree;
-    currentRadians = [MZMath distanceFromP1: [self _center] toPoint2: controlTargetRef.position];
+    currentRadians = [MZMath distanceFromP1: [self _center] toPoint2: moveDelegate.position];
 }
 
 -(void)_updateMotion
@@ -67,7 +67,7 @@
     float x = [self _center].x + currentRadians*cos( [MZMath degreesToRadians: currentTheta] );
     float y = [self _center].y + currentRadians*sin( [MZMath degreesToRadians: currentTheta] );
     
-    controlTargetRef.position = CGPointMake( x, y );
+    moveDelegate.position = CGPointMake( x, y );
 }
 
 @end

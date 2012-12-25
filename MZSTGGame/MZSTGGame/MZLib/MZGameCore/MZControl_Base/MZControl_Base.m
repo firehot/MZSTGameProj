@@ -5,29 +5,29 @@
 
 @implementation MZControl_Base
 
-@synthesize referenceTargetRef;
+//@synthesize referenceTargetRef;
 
 #pragma mark - init and dealloc
 
-+(MZControl_Base *)controlWithTarget:(MZGameObject *)aControlTarget
++(MZControl_Base *)controlWithDelegate:(id<MZControlDelegate>)aControlDelegate
 {
-    return [[[self alloc] initWithTarget: aControlTarget] autorelease];
+    return [[[self alloc] initWithDelegate: aControlDelegate] autorelease];
 }
 
--(id)initWithTarget:(MZGameObject *)aControlTarget;
+-(id)initWithDelegate:(id<MZControlDelegate>)aControlDelegate
 {
-    MZAssert( aControlTarget, @"aControlTarget is nil" );
-    controlTargetRef = aControlTarget;
-    
     self = [super init];
+
+    controlDelegate = aControlDelegate;
     
     return self;
 }
 
 -(void)dealloc
 {
-    controlTargetRef = nil;
-    referenceTargetRef = nil;
+//    controlTargetRef = nil;
+    controlDelegate = nil;
+//    referenceTargetRef = nil;
     [super dealloc];
 }
 

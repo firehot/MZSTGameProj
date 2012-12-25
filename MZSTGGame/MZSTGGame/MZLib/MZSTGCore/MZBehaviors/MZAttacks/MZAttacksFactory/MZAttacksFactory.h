@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
+#import "MZAttack_Base.h"
 
-@class MZAttack_Base;
 @class MZAttackSetting;
 @class MZGameObject;
 
@@ -10,5 +10,5 @@
 }
 +(MZAttacksFactory *)sharedInstance;
 -(void)removeFromLevel;
--(MZAttack_Base *)getAttackBySetting:(MZAttackSetting *)setting controlTarget:(MZGameObject *)controlTarget;
+-(MZAttack_Base *)getAttackWithDelegate:(id<MZAttackDelegate>)aDelegate setting:(MZAttackSetting *)setting;
 @end

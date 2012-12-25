@@ -30,24 +30,20 @@
 
 #pragma mark - override
 
-+(MZCharacterPartControl *)characterControlPartWithSetting:(MZCharacterPartControlSetting *)aSetting
-                                             characterPart:(MZCharacterPart *)aCharacterPart
++(MZCharacterPartControl *)characterPartControlWithDelegate:(id<MZCharacterPartDelegate>)aDelegate
+                                                    setting:(MZCharacterPartControlSetting *)aSetting;
 {
-    return [[[self alloc] initWithSetting: aSetting characterPart: aCharacterPart] autorelease];
+    return [[[self alloc] initWithDelegate: aDelegate setting: aSetting] autorelease];
 }
 
--(id)initWithSetting:(MZCharacterPartControlSetting *)aSetting characterPart:(MZCharacterPart *)aCharacterPart
+-(id)initWithDelegate:(id<MZCharacterPartDelegate>)aDelegate
+              setting:(MZCharacterPartControlSetting *)aSetting;
 {
-    MZAssert( aSetting, @"aSetting is nil" );
-    MZAssert( aCharacterPart, @"aCharacterPart is nil" );
-    
     setting = [aSetting retain];
-    characterPartRef = aCharacterPart;
-    
-    self = [super initWithTarget: aCharacterPart];
-    
+    characterPartDelegate = aDelegate;
     disableAttack = false;
     
+    self = [super initWithDelegate: aDelegate];
     return self;
 }
 
@@ -61,7 +57,7 @@
     [attackSettingsQueue release];
     [motionsSettingsQueue release];
     
-    characterPartRef = nil;
+    characterPartDelegate = nil;
     
     [super dealloc];
 }
@@ -70,32 +66,32 @@
 
 -(void)setVisible:(bool)aVisible
 {
-    characterPartRef.visible = aVisible;
+    characterPartDelegate.visible = aVisible;
 }
 
 -(bool)visible
 {
-    return characterPartRef.visible;
+    return characterPartDelegate.visible;
 }
 
 -(void)setRotation:(float)aRotation
 {
-    characterPartRef.rotation = aRotation;
+    characterPartDelegate.rotation = aRotation;
 }
 
 -(float)rotation
 {
-    return characterPartRef.rotation;
+    return characterPartDelegate.rotation;
 }
 
 -(CGPoint)standardPosition
 {
-    return characterPartRef.standardPosition;
+    return characterPartDelegate.standardPosition;
 }
 
 -(CGPoint)currentMovingVector
 {
-    return characterPartRef.currentMovingVector;
+    return characterPartDelegate.currentMovingVector;
 }
 
 -(CGPoint)targetPosition
@@ -180,7 +176,8 @@
     if( [attackSettingsQueue peek] != nil )
     {
         MZAttackSetting *nextAttackSetting = (MZAttackSetting *)[attackSettingsQueue pop];
-        currentAttack = [[MZAttacksFactory sharedInstance] getAttackBySetting: nextAttackSetting controlTarget: controlTargetRef];
+        currentAttack = [[MZAttacksFactory sharedInstance] getAttackWithDelegate: characterPartDelegate setting: nextAttackSetting];
+
         [currentAttack retain];
         [currentAttack enable];
         
@@ -196,7 +193,7 @@
     if( [motionsSettingsQueue peek] != nil )
     {
         MZMotionSetting *nextMotionSetting = [motionsSettingsQueue pop];
-        currentMotion = [[MZMotionsFactory sharedMZMotionsFactory] getMotionBySetting: nextMotionSetting controlTarget: controlTargetRef];
+        currentMotion = [[MZMotionsFactory sharedMZMotionsFactory] getMotionBySetting: nextMotionSetting controlTarget: controlDelegate];
         [currentMotion retain];
         [currentMotion enable];
         
@@ -238,7 +235,7 @@
 -(void)_updateFaceTo
 {
     [faceToControl update];
-    characterPartRef.visible = faceToControl.hasVaildValue;
+    characterPartDelegate.visible = faceToControl.hasVaildValue;
 }
 
 @end

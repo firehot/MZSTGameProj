@@ -15,7 +15,7 @@
 
 -(void)_firstUpdate
 {
-    beginPosition = controlTargetRef.position;
+    beginPosition = moveDelegate.position;
 }
 
 -(void)_updateMotion
@@ -28,7 +28,7 @@
     float deltaX = velocityXY.x*self.lifeTimeCount + setting.accelerationXY.x*lifeTimePow2Div2;
     float deltaY = velocityXY.y*self.lifeTimeCount + setting.accelerationXY.y*lifeTimePow2Div2;
     
-    controlTargetRef.position = mzpAdd( beginPosition, mzp( deltaX, deltaY ) );
+    moveDelegate.position = mzpAdd( beginPosition, mzp( deltaX, deltaY ) );
 }
 
 @end

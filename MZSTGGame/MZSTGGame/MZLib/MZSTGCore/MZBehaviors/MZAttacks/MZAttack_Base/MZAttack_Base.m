@@ -18,18 +18,17 @@
 
 #pragma mark - init and dealloc
 
-+(MZAttack_Base*)attackWithAttackSetting:(MZAttackSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
++(MZAttack_Base*)attackWithDelegate:(id<MZAttackDelegate>)aControlDelegate setting:(MZAttackSetting *)aSetting
 {
-    return [[[self alloc] initWithAttackSetting: aSetting controlTarget: aControlTarget] autorelease];
+    return [[[self alloc] initWithDelegate: aControlDelegate setting: aSetting] autorelease];
 }
 
--(id)initWithAttackSetting:(MZAttackSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
+-(id)initWithDelegate:(id<MZAttackDelegate>)aControlDelegate setting:(MZAttackSetting *)aSetting
 {
-    MZAssert( aSetting, @"aSetting is nil" );
-    
-    setting = [aSetting retain];
-    self = [super initWithTarget: aControlTarget];
-    
+    setting = ( aSetting != nil )? [aSetting retain] : nil;
+
+    self = [super initWithDelegate: aControlDelegate];
+    attackDelegate = aControlDelegate;
     return self;
 }
 
@@ -55,8 +54,9 @@
     launchCount = 0;
     colddownCount = 0;
     currentAdditionalVelocity = 0;
-    
-    attackTargetHelpKit = [[MZAttackTargetHelpKit alloc] initWithAttackSetting: setting controlTarget: controlTargetRef];
+
+    // need re-design
+    attackTargetHelpKit = [[MZAttackTargetHelpKit alloc] initWithAttackSetting: setting controlTarget: controlDelegate];
 }
 
 -(void)_checkActiveCondition
@@ -127,10 +127,8 @@
 
 -(MZCharacterType)_getBulletType
 {
-    // 不良喔 ... controlTarget 可能是 MZCharacter or MZCharacterPart
-    MZCharacterType characterType = ( [controlTargetRef class] == [MZCharacter class] )?
-    ((MZCharacter *)controlTargetRef).characterType : ((MZCharacterPart *)controlTargetRef).parentCharacterType;
-    
+    MZCharacterType characterType = [attackDelegate characterType];
+
     switch( characterType )
     {
         case kMZCharacterType_Player:
@@ -172,8 +170,10 @@
     
     MZAssert( bullet != nil, @"bullet is nil(name=%@)", setting.bulletSettingName );
     
-    bullet.position = controlTargetRef.standardPosition;
-    [bullet setSpawnWithaParentCharacterPart: (MZCharacterPart *)controlTargetRef spawnPosition: controlTargetRef.standardPosition];
+    bullet.position = [attackDelegate standardPosition];
+
+    // need fix: set bullet spawn info ...
+    [bullet setSpawnWithaParentCharacterPart: (MZCharacterPart *)attackDelegate spawnPosition: [attackDelegate standardPosition]];
     
     [self _addMotionSettingToBullet: bullet];
     MZMotionSetting *firstMotionSetting = [bullet getMotionSettingWithIndex: 0];

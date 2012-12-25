@@ -34,9 +34,9 @@
 
     [MZLevelResourcesLoader levelResourcesLoaderWithLevelSettingNSDicitonary: levelSettingDictioanry];
 
-    [self _initLayersWithLevelSettingDictionary: levelSettingDictioanry];
-    [self _initLevelComponentsWithLevelSettingDictionary: levelSettingDictioanry levelName: @"new_ver_test"];
-    [self _initScheduleAndDispatcher];
+//    [self _initLayersWithLevelSettingDictionary: levelSettingDictioanry];
+//    [self _initLevelComponentsWithLevelSettingDictionary: levelSettingDictioanry levelName: @"new_ver_test"];
+//    [self _initScheduleAndDispatcher];
 
     defaultEyeZ = -1;
 

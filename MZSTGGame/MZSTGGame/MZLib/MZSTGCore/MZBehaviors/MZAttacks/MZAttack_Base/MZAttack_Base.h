@@ -1,6 +1,11 @@
 #import "MZControl_Base.h"
 #import "MZTypeDefine.h"
 
+@protocol MZAttackDelegate <MZControlDelegate>
+@property (nonatomic, readonly) MZCharacterType characterType;
+@property (nonatomic, readonly) CGPoint standardPosition;
+@end
+
 @class MZAttackSetting;
 @class MZCharacter;
 @class MZCharacterPart;
@@ -17,10 +22,13 @@
     mzTime colddownCount;
     MZAttackSetting *setting;
     MZAttackTargetHelpKit *attackTargetHelpKit;
+
+    id<MZAttackDelegate> attackDelegate;
 }
 
-+(MZAttack_Base*)attackWithAttackSetting:(MZAttackSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget;
--(id)initWithAttackSetting:(MZAttackSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget;
++(MZAttack_Base*)attackWithDelegate:(id<MZAttackDelegate>)aControlDelegate setting:(MZAttackSetting *)aSetting;
+-(id)initWithDelegate:(id<MZAttackDelegate>)aControlDelegate setting:(MZAttackSetting *)aSetting;
+
 @end
 
 @interface MZAttack_Base(Protected)

@@ -33,7 +33,7 @@
 {
     [super _firstUpdate];
     
-    beginDegreeFromXAxis = [MZMath degreesFromXAxisToVector: controlTargetRef.position];
+    beginDegreeFromXAxis = [MZMath degreesFromXAxisToVector: moveDelegate.position];
     
     
     
@@ -49,7 +49,7 @@
     float nextX = [self _center].x + setting.ellipseRadiansX*cos( currentRadiansFromXAxis );
     float nextY = [self _center].y + setting.ellipseRadiansY*sin( currentRadiansFromXAxis );
     
-    controlTargetRef.position = mzp( nextX, nextY );
+    moveDelegate.position = mzp( nextX, nextY );
 }
 
 @end

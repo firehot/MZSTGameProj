@@ -57,12 +57,12 @@
     if( !hasInitMovingVector )
     {
         hasInitMovingVector = true;
-        initMovingVector = [MZMath unitVectorFromPoint1: controlTargetRef.position toPoint2: [self _getTargetPosition]];
+        initMovingVector = [MZMath unitVectorFromPoint1: moveDelegate.position toPoint2: [self _getTargetPosition]];
         return initMovingVector;
     }
     
     return ( setting.isAlwaysToTarget )? 
-    initMovingVector = [MZMath unitVectorFromPoint1: controlTargetRef.position toPoint2: [self _getTargetPosition]] :
+    initMovingVector = [MZMath unitVectorFromPoint1: moveDelegate.position toPoint2: [self _getTargetPosition]] :
     initMovingVector;
 }
 
@@ -77,12 +77,14 @@
             return [MZLevelComponents sharedInstance].player.position;
             
         case kMZTargetType_ReferenceTarget:
-            return referenceTargetRef.position;
-            
+//            return referenceTargetRef.position;
+            return CGPointZero;
+
         case kMZTargetType_AbsolutePosition:
-            return ( ((MZCharacter *)controlTargetRef).isUsingDynamicSetting )?
-            ((MZCharacter *)controlTargetRef).characterDynamicSetting.absolutePosition : setting.assignPosition;
-            
+//            return ( ((MZCharacter *)controlTargetRef).isUsingDynamicSetting )?
+//            ((MZCharacter *)controlTargetRef).characterDynamicSetting.absolutePosition : setting.assignPosition;
+            return CGPointZero;
+
         case kMZTargetType_AssignPositionAddParentPosition:
             return [self _getAssignPositionAddParentPosition];
             
@@ -100,12 +102,12 @@
 
 -(CGPoint)_getAssignPositionAddParentPosition
 {    
-    return CGPointMake( controlTargetRef.position.x + setting.assignPosition.x, controlTargetRef.position.y + setting.assignPosition.y );
+    return CGPointMake( moveDelegate.position.x + setting.assignPosition.x, moveDelegate.position.y + setting.assignPosition.y );
 }
 
 -(CGPoint)_getAssignPositionAddSpawnPosition
 {        
-    return CGPointMake( controlTargetRef.spawnPosition.x + setting.assignPosition.x, controlTargetRef.spawnPosition.y + setting.assignPosition.y );
+    return CGPointMake( moveDelegate.spawnPosition.x + setting.assignPosition.x, moveDelegate.spawnPosition.y + setting.assignPosition.y );
 }
 
 @end

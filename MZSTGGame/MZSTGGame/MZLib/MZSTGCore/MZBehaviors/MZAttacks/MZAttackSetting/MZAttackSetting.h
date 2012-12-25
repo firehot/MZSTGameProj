@@ -17,39 +17,39 @@ typedef enum
 +(MZAttackSetting *)settingWithNSDictionary:(NSDictionary *)nsDictionary;
 -(id)initWithNSDictionary:(NSDictionary *)nsDictionary;
 
-@property (nonatomic, readonly) bool isRepeatForever;
-@property (nonatomic, readonly) bool isRunOnce;
-@property (nonatomic, readonly) bool isAimTargetEveryWave;
+@property (nonatomic, readwrite) bool isRepeatForever;
+@property (nonatomic, readwrite) bool isRunOnce;
+@property (nonatomic, readwrite) bool isAimTargetEveryWave;
 
-@property (nonatomic, readonly) int numberOfWays;
-@property (nonatomic, readonly) int additionalWaysPerLaunch;
+@property (nonatomic, readwrite) int numberOfWays;
+@property (nonatomic, readwrite) int additionalWaysPerLaunch;
 
-@property (nonatomic, readonly) int strength;
+@property (nonatomic, readwrite) int strength;
 
-@property (nonatomic, readonly) float duration;
-@property (nonatomic, readonly) float colddownTime;
+@property (nonatomic, readwrite) float duration;
+@property (nonatomic, readwrite) float colddownTime;
 
-@property (nonatomic, readonly) float intervalDegree;
+@property (nonatomic, readwrite) float intervalDegree;
 
-@property (nonatomic, readonly) float additionalVelocity;
-@property (nonatomic, readonly) float additionalVelocityLimited;
+@property (nonatomic, readwrite) float additionalVelocity;
+@property (nonatomic, readwrite) float additionalVelocityLimited;
 
-@property (nonatomic, readonly) float additionalDegreePerWaveForLinear;
+@property (nonatomic, readwrite) float additionalDegreePerWaveForLinear;
 
-@property (nonatomic, readonly) MZTargetType targetType;
-@property (nonatomic, readonly) MZFaceToType faceTo;
+@property (nonatomic, readwrite) MZTargetType targetType;
+@property (nonatomic, readwrite) MZFaceToType faceTo;
 
-@property (nonatomic, readonly) CGPoint assignPosition;
+@property (nonatomic, readwrite) CGPoint assignPosition;
 
-@property (nonatomic, readonly) MZattackType *attackType;
-@property (nonatomic, readonly) NSString *attackTypeString;
-@property (nonatomic, readonly) NSString *bulletSettingName;
+@property (nonatomic, readwrite) MZattackType *attackType;
+@property (nonatomic, retain, readwrite) NSString *attackTypeString;
+@property (nonatomic, retain, readwrite) NSString *bulletSettingName;
 
-@property (nonatomic, readonly) NSMutableArray *motionSettingNsDictionariesArray;
+@property (nonatomic, retain, readwrite) NSMutableArray *motionSettingNsDictionariesArray;
 
 // for vortex only
-@property (nonatomic, readonly) bool resetAtRest;
-@property (nonatomic, readonly) float timePerWave;
-@property (nonatomic, readonly) float restTime;
+@property (nonatomic, readwrite) bool resetAtRest;
+@property (nonatomic, readwrite) float timePerWave;
+@property (nonatomic, readwrite) float restTime;
 
 @end

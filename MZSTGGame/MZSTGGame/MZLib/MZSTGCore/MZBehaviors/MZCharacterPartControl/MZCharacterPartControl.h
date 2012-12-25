@@ -2,6 +2,13 @@
 #import "MZTypeDefine.h"
 #import "MZFaceToControlProtocol.h"
 
+@protocol MZCharacterPartDelegate <MZControlDelegate>
+@property (nonatomic, readwrite) bool visible;
+@property (nonatomic, readwrite) float rotation;
+@property (nonatomic, readwrite) CGPoint standardPosition;
+@property (nonatomic, readwrite) CGPoint currentMovingVector;
+@end
+
 @class MZCharacterPartControlSetting;
 @class MZCharacterPart;
 @class MZAttack_Base;
@@ -10,7 +17,7 @@
 
 @interface MZCharacterPartControl : MZControl_Base <MZFaceToControlProtocol>
 {
-    MZCharacterPart *characterPartRef;
+    id<MZCharacterPartDelegate> characterPartDelegate;
     
     MZCharacterPartControlSetting *setting;
     
@@ -23,9 +30,10 @@
     MZFaceToControl *faceToControl;
 }
 
-+(MZCharacterPartControl *)characterControlPartWithSetting:(MZCharacterPartControlSetting *)aSetting
-                                             characterPart:(MZCharacterPart *)aCharacterPart;
--(id)initWithSetting:(MZCharacterPartControlSetting *)aSetting characterPart:(MZCharacterPart *)aCharacterPart;
++(MZCharacterPartControl *)characterPartControlWithDelegate:(id<MZCharacterPartDelegate>)aDelegate
+                                                    setting:(MZCharacterPartControlSetting *)aSetting;
+-(id)initWithDelegate:(id<MZCharacterPartDelegate>)aDelegate
+              setting:(MZCharacterPartControlSetting *)aSetting;
 
 @property (nonatomic, readwrite) bool disableAttack;
 @end
