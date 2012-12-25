@@ -355,7 +355,7 @@
 {
     MZAssert( spriteRef, @"spriteRef is nil" );
     
-    MZAnimation *animationControl = [[MZAnimationsManager sharedAnimationsManager] getAnimationControlWithAnimationName: animationName];
+    MZAnimation *animationControl = [[MZAnimationsManager sharedInstance] getAnimationControlWithAnimationName: animationName];
     MZAssert( animationControl, @"AnimationControl(%@), is nil", animationName );
     
     frameSize = animationControl.frameSize; 

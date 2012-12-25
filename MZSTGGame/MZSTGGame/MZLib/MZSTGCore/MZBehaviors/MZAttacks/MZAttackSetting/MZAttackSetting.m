@@ -15,7 +15,8 @@
 @synthesize targetType;
 @synthesize faceTo;
 @synthesize assignPosition;
-@synthesize attackType, bulletSettingName;
+@synthesize attackType;
+@synthesize attackTypeString, bulletSettingName;
 @synthesize motionSettingNsDictionariesArray;
 @synthesize timePerWave, resetAtRest, restTime;
 
@@ -50,7 +51,7 @@
         faceTo = [MZSTGGameHelper getFaceToByNSString: [nsDictionary objectForKey: @"faceTo"]];
         
         assignPosition = CGPointFromString( [nsDictionary objectForKey: @"assignPosition"] );
-        attackType = [[nsDictionary objectForKey: @"type"] retain];
+        attackTypeString = [[nsDictionary objectForKey: @"type"] retain];
         
         bulletSettingName = [[nsDictionary objectForKey: @"bulletName"] retain];
         motionSettingNsDictionariesArray = [[nsDictionary objectForKey: @"motions"] retain];
@@ -67,7 +68,7 @@
 
 -(void)dealloc
 {
-    [attackType release];
+    [attackTypeString release];
     [bulletSettingName release];
     [motionSettingNsDictionariesArray release];
     [super dealloc];
@@ -86,7 +87,7 @@
     MZAssert( !(isRepeatForever == false && duration == 0), @"isRepeatForever == false && duration == 0" );
     
     // 當 None 時, 可以使用 movingVector ... 
-//    if( ![attackType isEqualToString: @"Idle"] )
+//    if( ![attackTypeString isEqualToString: @"Idle"] )
 //        MZAssert( targetType != kMZTargetType_None, @"target type can't be none when idle" );
 }
 

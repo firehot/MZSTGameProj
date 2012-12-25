@@ -10,6 +10,8 @@
 #import "MZEventMetadata.h"
 #import "MZEffectHeader.h"
 
+static MZLevelComponents *_sharedLevelComponents = nil;
+
 @interface MZLevelComponents (Private)
 -(void)_initMemberComponentsWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary;
 -(void)_initEventsMetadatasArray;
@@ -38,39 +40,58 @@
 
 #pragma mark - init and deallc
 
--(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictionary
-                          levelName:(NSString *)aLevelName
-                      gamePlayScene:(MZGamePlayScene *)aGamePlayScene
++(MZLevelComponents *)sharedInstance
 {
-    MZAssert( aLevelSettingDictionary, @"aLevelSettingDictionary is nil" );
-    MZAssert( aGamePlayScene, @"aGamePlayScene is nil" );
-    MZAssert( aLevelName, @"aLevelName is nil" );
-    
+    if( _sharedLevelComponents == NULL )
+        _sharedLevelComponents = [[self alloc] init];
+
+    return _sharedLevelComponents;
+}
+
+-(id)init
+{
+    MZAssert( _sharedLevelComponents == NULL, @"I am Singtelon!!!!");
     self = [super init];
-    
-    gamePlaySceneRef = aGamePlayScene;
-    levelName = [aLevelName retain];
-    
-    [self _initMemberComponentsWithLevelSettingDictionary: aLevelSettingDictionary];
-    
     return self;
 }
+
+//-(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictionary
+//                          levelName:(NSString *)aLevelName
+//                      gamePlayScene:(MZGamePlayScene *)aGamePlayScene
+//{
+//    MZAssert( aLevelSettingDictionary, @"aLevelSettingDictionary is nil" );
+//    MZAssert( aGamePlayScene, @"aGamePlayScene is nil" );
+//    MZAssert( aLevelName, @"aLevelName is nil" );
+//    
+//    self = [super init];
+//    
+//    gamePlaySceneRef = aGamePlayScene;
+//    levelName = [aLevelName retain];
+//    
+//    [self _initMemberComponentsWithLevelSettingDictionary: aLevelSettingDictionary];
+//    
+//    return self;
+//}
 
 -(void)dealloc
 {
     [[MZCharactersFactory sharedCharactersFactory] removeFromLevel];
 
-    [eventMetadatasArray release];
-    [charactersActionManager release];
-    [eventsExecutor release];
-    [scenario release];
-    [effectsManager release];
-    [player release];
-    [levelName release];
-    [spritesPool release];
-    [eventDefinesDictionary release];
-    
-    gamePlaySceneRef = nil;
+//    [eventMetadatasArray release];
+//    [charactersActionManager release];
+//    [eventsExecutor release];
+//    [scenario release];
+//    [effectsManager release];
+//    [player release];
+//    [levelName release];
+//    [spritesPool release];
+//    [eventDefinesDictionary release];
+//    
+//    gamePlaySceneRef = nil;
+
+
+    [_sharedLevelComponents release];
+    _sharedLevelComponents = NULL;
     [super dealloc];
 }
 
@@ -87,6 +108,33 @@
 }
 
 #pragma mark - methods
+
+-(void)setWithLevelName:(NSString *)aLevelName levelSettingDictionary:(NSDictionary *)aLevelSettingDictionary playScene:(MZGamePlayScene *)aPlayScene
+{
+    MZAssert( aLevelSettingDictionary, @"aLevelSettingDictionary is nil" );
+    MZAssert( aPlayScene, @"aPlayScene is nil" );
+    MZAssert( aLevelName, @"aLevelName is nil" );
+
+    gamePlaySceneRef = aPlayScene;
+    levelName = [aLevelName retain];
+
+    [self _initMemberComponentsWithLevelSettingDictionary: aLevelSettingDictionary];
+}
+
+-(void)removeFromLevel
+{
+    [eventMetadatasArray release];
+    [charactersActionManager release];
+    [eventsExecutor release];
+    [scenario release];
+    [effectsManager release];
+    [player release];
+    [levelName release];
+    [spritesPool release];
+    [eventDefinesDictionary release];
+
+    gamePlaySceneRef = nil;
+}
 
 -(void)update
 {

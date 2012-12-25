@@ -12,7 +12,7 @@
     
     NSMutableDictionary *layersDictionary;
     MZLevelComponents *levelComponents;
-    
+
     bool isPause;
 }
 

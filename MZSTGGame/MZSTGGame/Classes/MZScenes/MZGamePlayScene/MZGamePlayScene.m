@@ -123,6 +123,7 @@
     [layersDictionary release];
     
     [levelComponents release];
+//    [[MZLevelComponents sharedInstance] removeFromLevel];
 }
 
 -(void)switchSceneTo:(MZSceneType)sceneType
@@ -165,7 +166,7 @@
     levelComponents = [[MZLevelComponents alloc] initWithLevelSettingDictionary: levelSettingDictionary
                                                                       levelName: aLevelName
                                                                   gamePlayScene: self];
-    
+
     for( NSNumber *typeKey in [layersDictionary allKeys] )
     {
         MZGamePlaySceneLayerBase *layer = [layersDictionary objectForKey: typeKey];

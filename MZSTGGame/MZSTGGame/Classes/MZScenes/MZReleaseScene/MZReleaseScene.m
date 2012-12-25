@@ -69,7 +69,7 @@
     if( [MZGameSetting sharedInstance].debug.showMemoryUsage )
         MZLog( @"MemUsage: %0.2fMB(pre-release)", memUsagePreAllRemove );
     
-    [[MZAnimationsManager sharedAnimationsManager] releaseAllAnimations];
+    [[MZAnimationsManager sharedInstance] releaseAllAnimations];
     [[MZFramesManager sharedInstance] releaseAllFrames];
 	[CCLabelBMFont purgeCachedData];	
     [[CCTextureCache sharedTextureCache] removeAllTextures];    

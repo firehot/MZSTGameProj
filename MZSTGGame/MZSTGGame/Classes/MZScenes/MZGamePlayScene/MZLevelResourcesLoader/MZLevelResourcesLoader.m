@@ -95,14 +95,14 @@
     if( [MZGameSetting sharedInstance].debug.showLoadingStates )
         MZLog( @"Load default animation from %@", DEFAULT_ANIMATION_DEFINE_FILE_NAME );
     
-    [[MZAnimationsManager sharedAnimationsManager] addAnimationsFromPlistFile: DEFAULT_ANIMATION_DEFINE_FILE_NAME];
+    [[MZAnimationsManager sharedInstance] addAnimationsFromPlistFile: DEFAULT_ANIMATION_DEFINE_FILE_NAME];
     
     for( NSString *animationsSettingFileName in animationsSettingFileNamesArray )
     {
         if( [MZGameSetting sharedInstance].debug.showLoadingStates )
             MZLog( @"Load animation from %@", animationsSettingFileName );
         
-        [[MZAnimationsManager sharedAnimationsManager] addAnimationsFromPlistFile: animationsSettingFileName];
+        [[MZAnimationsManager sharedInstance] addAnimationsFromPlistFile: animationsSettingFileName];
     }
 }
 

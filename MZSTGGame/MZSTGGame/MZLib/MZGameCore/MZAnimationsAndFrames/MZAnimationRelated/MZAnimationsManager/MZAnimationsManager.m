@@ -6,25 +6,35 @@
 #import "MZGameSettingsHeader.h"
 #import "cocos2d.h"
 
-@implementation MZAnimationsManager
+static MZAnimationsManager *_sharedAnimationsManager = nil;
 
-static MZAnimationsManager *sharedAnimationsManager_ = nil;
+@interface MZAnimationsManager (Private)
+-(NSArray *)_getFrameNamesWithNamePattern:(NSString *)namePattern
+                             extendedName:(NSString *)extendedName
+                                    start:(int)start
+                                      end:(int)end;
+-(NSMutableArray *)_getAnimationFramesWithFrameNames:(NSArray *)frameNames;
+@end
+
+#pragma mark
+
+@implementation MZAnimationsManager
 
 #pragma mark - init and dealloc
 
-+(MZAnimationsManager *)sharedAnimationsManager
++(MZAnimationsManager *)sharedInstance
 {
-    if( sharedAnimationsManager_ == nil )
-        sharedAnimationsManager_ = [[MZAnimationsManager alloc] init];
-    return sharedAnimationsManager_;
+    if( _sharedAnimationsManager == nil )
+        _sharedAnimationsManager = [[MZAnimationsManager alloc] init];
+    return _sharedAnimationsManager;
 }
 
 -(void)dealloc
 {
     [MZObjectHelper releaseAndSetNilToObject: &animationControls];
     
-    [sharedAnimationsManager_ release];
-    sharedAnimationsManager_ = nil;
+    [_sharedAnimationsManager release];
+    _sharedAnimationsManager = nil;
     [super dealloc];
 }
 

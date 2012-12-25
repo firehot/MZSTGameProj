@@ -1,6 +1,14 @@
 #import <Foundation/Foundation.h>
 #import "MZTypeDefine.h"
 
+typedef enum
+{
+    Idle,
+    OddWay,
+    EvenWay,
+    Vortex,
+}MZattackType;
+
 @interface MZAttackSetting : NSObject 
 {
     
@@ -33,7 +41,8 @@
 
 @property (nonatomic, readonly) CGPoint assignPosition;
 
-@property (nonatomic, readonly) NSString *attackType;
+@property (nonatomic, readonly) MZattackType *attackType;
+@property (nonatomic, readonly) NSString *attackTypeString;
 @property (nonatomic, readonly) NSString *bulletSettingName;
 
 @property (nonatomic, readonly) NSMutableArray *motionSettingNsDictionariesArray;

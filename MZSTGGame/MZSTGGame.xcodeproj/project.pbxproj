@@ -69,7 +69,6 @@
 		D39155EA16424C150011F3D6 /* MZCharacterCollisionColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155E116424C150011F3D6 /* MZCharacterCollisionColor.m */; };
 		D39155EB16424C150011F3D6 /* MZCharacterDynamicSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155E416424C150011F3D6 /* MZCharacterDynamicSetting.m */; };
 		D39155EC16424C150011F3D6 /* MZCharacterPart.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155E716424C150011F3D6 /* MZCharacterPart.m */; };
-		D391560716424E8C0011F3D6 /* MZAttackSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155F016424E8C0011F3D6 /* MZAttackSetting.m */; };
 		D391560816424E8C0011F3D6 /* MZCharacterPartControlSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155F316424E8C0011F3D6 /* MZCharacterPartControlSetting.m */; };
 		D391560916424E8C0011F3D6 /* MZCharacterPartSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155F616424E8C0011F3D6 /* MZCharacterPartSetting.m */; };
 		D391560A16424E8C0011F3D6 /* MZCharacterSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155F916424E8C0011F3D6 /* MZCharacterSetting.m */; };
@@ -323,6 +322,7 @@
 		DF30EC3A160A1DE7006966A9 /* MZGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DF30EC38160A1DE7006966A9 /* MZGameObject.m */; };
 		DF48CD9D160A8EA000EB1FD3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF48CD9C160A8EA000EB1FD3 /* Default-568h@2x.png */; };
 		DF74324E168882F900865738 /* MZCollision.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74324D168882F900865738 /* MZCollision.m */; };
+		DF74325C1688A42D00865738 /* MZAttackSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74325B1688A42D00865738 /* MZAttackSetting.m */; };
 		DF9166031514C9340094C96A /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DF9166021514C9340094C96A /* fps_images-ipadhd.png */; };
 		DF9F51EB150DDE9C00698E26 /* MZEventsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9F51EA150DDE9C00698E26 /* MZEventsFactory.m */; };
 		DFB4511B160FCE5B005530CB /* MZFaceToControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB4511A160FCE5B005530CB /* MZFaceToControl.m */; };
@@ -459,8 +459,6 @@
 		D39155E616424C150011F3D6 /* MZCharacterPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharacterPart.h; sourceTree = "<group>"; };
 		D39155E716424C150011F3D6 /* MZCharacterPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacterPart.m; sourceTree = "<group>"; };
 		D39155E816424C150011F3D6 /* MZSTGCharactersHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZSTGCharactersHeader.h; sourceTree = "<group>"; };
-		D39155EF16424E8C0011F3D6 /* MZAttackSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAttackSetting.h; sourceTree = "<group>"; };
-		D39155F016424E8C0011F3D6 /* MZAttackSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAttackSetting.m; sourceTree = "<group>"; };
 		D39155F216424E8C0011F3D6 /* MZCharacterPartControlSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharacterPartControlSetting.h; sourceTree = "<group>"; };
 		D39155F316424E8C0011F3D6 /* MZCharacterPartControlSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacterPartControlSetting.m; sourceTree = "<group>"; };
 		D39155F516424E8C0011F3D6 /* MZCharacterPartSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharacterPartSetting.h; sourceTree = "<group>"; };
@@ -935,6 +933,8 @@
 		DF48CD9C160A8EA000EB1FD3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
 		DF74324C168882F900865738 /* MZCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCollision.h; sourceTree = "<group>"; };
 		DF74324D168882F900865738 /* MZCollision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCollision.m; sourceTree = "<group>"; };
+		DF74325A1688A42D00865738 /* MZAttackSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAttackSetting.h; sourceTree = "<group>"; };
+		DF74325B1688A42D00865738 /* MZAttackSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAttackSetting.m; sourceTree = "<group>"; };
 		DF9166021514C9340094C96A /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-ipadhd.png"; path = "Resources/fps_images-ipadhd.png"; sourceTree = "<group>"; };
 		DF9F51E9150DDE9C00698E26 /* MZEventsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEventsFactory.h; sourceTree = "<group>"; };
 		DF9F51EA150DDE9C00698E26 /* MZEventsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEventsFactory.m; sourceTree = "<group>"; };
@@ -1332,6 +1332,7 @@
 		D39155841642422A0011F3D6 /* MZAttacks */ = {
 			isa = PBXGroup;
 			children = (
+				DF7432591688A42D00865738 /* MZAttackSetting */,
 				D39155851642422A0011F3D6 /* MZAttack_Base */,
 				D39155881642422A0011F3D6 /* MZAttack_EvenWay */,
 				D391558B1642422A0011F3D6 /* MZAttack_Idle */,
@@ -1603,7 +1604,6 @@
 		D39155ED16424E8B0011F3D6 /* MZSTGSettings */ = {
 			isa = PBXGroup;
 			children = (
-				D39155EE16424E8C0011F3D6 /* MZAttackSetting */,
 				D39155F116424E8C0011F3D6 /* MZCharacterPartControlSetting */,
 				D39155F416424E8C0011F3D6 /* MZCharacterPartSetting */,
 				D39155F716424E8C0011F3D6 /* MZCharacterSetting */,
@@ -1614,15 +1614,6 @@
 				D391560616424E8C0011F3D6 /* MZSTGSettingsHeader.h */,
 			);
 			path = MZSTGSettings;
-			sourceTree = "<group>";
-		};
-		D39155EE16424E8C0011F3D6 /* MZAttackSetting */ = {
-			isa = PBXGroup;
-			children = (
-				D39155EF16424E8C0011F3D6 /* MZAttackSetting.h */,
-				D39155F016424E8C0011F3D6 /* MZAttackSetting.m */,
-			);
-			path = MZAttackSetting;
 			sourceTree = "<group>";
 		};
 		D39155F116424E8C0011F3D6 /* MZCharacterPartControlSetting */ = {
@@ -3151,6 +3142,15 @@
 			path = MZCollision;
 			sourceTree = "<group>";
 		};
+		DF7432591688A42D00865738 /* MZAttackSetting */ = {
+			isa = PBXGroup;
+			children = (
+				DF74325A1688A42D00865738 /* MZAttackSetting.h */,
+				DF74325B1688A42D00865738 /* MZAttackSetting.m */,
+			);
+			path = MZAttackSetting;
+			sourceTree = "<group>";
+		};
 		DF9F51E7150DDE8F00698E26 /* MZEventsFactory */ = {
 			isa = PBXGroup;
 			children = (
@@ -3477,7 +3477,6 @@
 				D39155EA16424C150011F3D6 /* MZCharacterCollisionColor.m in Sources */,
 				D39155EB16424C150011F3D6 /* MZCharacterDynamicSetting.m in Sources */,
 				D39155EC16424C150011F3D6 /* MZCharacterPart.m in Sources */,
-				D391560716424E8C0011F3D6 /* MZAttackSetting.m in Sources */,
 				D391560816424E8C0011F3D6 /* MZCharacterPartControlSetting.m in Sources */,
 				D391560916424E8C0011F3D6 /* MZCharacterPartSetting.m in Sources */,
 				D391560A16424E8C0011F3D6 /* MZCharacterSetting.m in Sources */,
@@ -3596,6 +3595,7 @@
 				D3964F881670359B00D54340 /* vec3.c in Sources */,
 				D3964F891670359B00D54340 /* vec4.c in Sources */,
 				DF74324E168882F900865738 /* MZCollision.m in Sources */,
+				DF74325C1688A42D00865738 /* MZAttackSetting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

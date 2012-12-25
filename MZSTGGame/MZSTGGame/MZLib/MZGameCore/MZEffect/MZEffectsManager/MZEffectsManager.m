@@ -9,7 +9,7 @@
     self = [super init];
     
     NSDictionary *effectSettingDictionary = [MZFileHelper plistContentFromBundleWithName: @"EffectSetting.plist"];
-    [[MZAnimationsManager sharedAnimationsManager] addAnimationsFromNSDictionary: effectSettingDictionary[@"animations"]];
+    [[MZAnimationsManager sharedInstance] addAnimationsFromNSDictionary: effectSettingDictionary[@"animations"]];
     
     return self;
 }

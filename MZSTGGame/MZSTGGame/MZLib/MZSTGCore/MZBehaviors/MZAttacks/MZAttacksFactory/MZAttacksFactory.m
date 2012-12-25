@@ -42,7 +42,7 @@ MZAttacksFactory *sharedInstance_ = nil;
 
 -(MZAttack_Base*)getAttackBySetting:(MZAttackSetting *)setting controlTarget:(MZGameObject *)controlTarget
 {
-    NSString *className = [NSString stringWithFormat: @"MZAttack_%@", setting.attackType];
+    NSString *className = [NSString stringWithFormat: @"MZAttack_%@", setting.attackTypeString];
     MZAttack_Base*attack = [NSClassFromString( className ) attackWithAttackSetting: setting
                                                                    levelComponents: levelComponentsRef
                                                                      controlTarget: controlTarget];
@@ -55,4 +55,13 @@ MZAttacksFactory *sharedInstance_ = nil;
 @end
 
 @implementation MZAttacksFactory (Private)
+
+-(NSString *)_getAttackClassNameWithSetting:(MZAttackSetting *)setting
+{
+//    if( setting.attackTypeString )
+
+//        NSString *className = [NSString stringWithFormat: @"MZAttack_%@", setting.attackTypeString];
+    return  @"";
+}
+
 @end

@@ -18,9 +18,13 @@
     NSString *levelName;
 }
 
--(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictionary
-                          levelName:(NSString *)aLevelName
-                      gamePlayScene:(MZGamePlayScene *)aGamePlayScene;
++(MZLevelComponents *)sharedInstance;
+
+//-(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictionary
+//                          levelName:(NSString *)aLevelName
+//                      gamePlayScene:(MZGamePlayScene *)aGamePlayScene;
+-(void)setWithLevelName:(NSString *)aLevelName levelSettingDictionary:(NSDictionary *)aLevelSettingDictionary playScene:(MZGamePlayScene *)aPlayScene;
+-(void)removeFromLevel;
 -(void)update;
 
 @property (nonatomic, readonly) MZGamePlayLayer *gamePlayLayer;
