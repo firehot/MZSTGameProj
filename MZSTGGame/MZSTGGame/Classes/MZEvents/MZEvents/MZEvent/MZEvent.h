@@ -8,8 +8,8 @@
     CGPoint position;
 }
 
-+(MZEvent *)eventWithLevelComponents:(MZLevelComponents *)aLevelComponents nsDictionary:(NSDictionary *)nsDictionary;
--(id)initWithLevelComponents:(MZLevelComponents *)aLevelComponents nsDictionary:(NSDictionary *)nsDictionary;
++(MZEvent *)eventWithDictionary:(NSDictionary *)dictionary;
+-(id)initWithDictionary:(NSDictionary *)dictionary;
 -(void)draw;
 -(void)forceToEnd;
 -(NSObject *)getResultObject;

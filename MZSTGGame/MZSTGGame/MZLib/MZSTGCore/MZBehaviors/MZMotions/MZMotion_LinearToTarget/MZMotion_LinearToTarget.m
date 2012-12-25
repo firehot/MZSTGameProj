@@ -74,7 +74,7 @@
     switch( targetType )
     {
         case kMZTargetType_Player:
-            return levelComponentsRef.player.position;
+            return [MZLevelComponents sharedInstance].player.position;
             
         case kMZTargetType_ReferenceTarget:
             return referenceTargetRef.position;

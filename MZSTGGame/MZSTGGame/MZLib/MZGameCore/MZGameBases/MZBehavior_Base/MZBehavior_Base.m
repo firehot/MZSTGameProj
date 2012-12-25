@@ -1,5 +1,4 @@
 #import "MZBehavior_Base.h"
-#import "MZLevelComponents.h"
 #import "MZObjectHelper.h"
 #import "MZTime.h"
 #import "MZLogMacro.h"
@@ -13,20 +12,15 @@
 
 #pragma mark - init and dealloc
 
-+(MZBehavior_Base *)behaviorWithLevelComponenets:(MZLevelComponents *)aLevelComponents
++(MZBehavior_Base *)behavior
 {
-    return [[[self alloc] initWithLevelComponenets: aLevelComponents] autorelease];
+    return [[[self alloc] init] autorelease];
 }
 
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents
+-(id)init
 {
-    MZAssert( aLevelComponents, @"aLevelComponents is nil" );
-    levelComponentsRef = aLevelComponents;
-    
-    if( ( self = [super init] ) )
-    {
-        [self _initValues];
-    }
+    self = [super init];
+    [self _initValues];
     
     return self;
 }
@@ -36,8 +30,7 @@
     [self disable];
     
     [childrenDictionary release];
-    
-    levelComponentsRef = nil;
+
     parentRef = nil;
     
     [super dealloc];

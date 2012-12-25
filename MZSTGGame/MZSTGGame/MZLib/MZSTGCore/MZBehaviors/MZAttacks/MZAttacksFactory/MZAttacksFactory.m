@@ -29,23 +29,15 @@ MZAttacksFactory *sharedInstance_ = nil;
 
 #pragma mark - methods
 
--(void)setOnLevelWithComponemts:(MZLevelComponents *)aLevelComponents
-{
-    MZAssert( aLevelComponents, @"aLevelComponents is nil" );
-    levelComponentsRef = aLevelComponents;
-}
-
 -(void)removeFromLevel
 {
-    levelComponentsRef = nil;
+
 }
 
 -(MZAttack_Base*)getAttackBySetting:(MZAttackSetting *)setting controlTarget:(MZGameObject *)controlTarget
 {
     NSString *className = [NSString stringWithFormat: @"MZAttack_%@", setting.attackTypeString];
-    MZAttack_Base*attack = [NSClassFromString( className ) attackWithAttackSetting: setting
-                                                                   levelComponents: levelComponentsRef
-                                                                     controlTarget: controlTarget];
+    MZAttack_Base*attack = [NSClassFromString( className ) attackWithAttackSetting: setting controlTarget: controlTarget];
     
     MZAssert( attack, @"Create attack fail, class name=(%@)", className );
     

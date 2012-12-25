@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MZTypeDefine.h"
 
-@class MZLevelComponents;
 @class MZEvent;
 
 typedef enum
@@ -14,14 +13,11 @@ typedef enum
 
 @interface MZEventsExecutor : NSObject 
 {
-    MZLevelComponents *levelComponentsRef;
-    
     NSMutableArray *prepareToAddEventsTempArray;
     NSMutableArray *onExecutingEventsArray;
     NSMutableArray *doNotResetEventClassesArray;
 }
 
--(id)initWithLevelComponents:(MZLevelComponents *)aLevelComponents;
 -(void)addDoNotResetEventClass:(Class)eventClass;
 -(void)executeEvent:(MZEvent *)event;
 -(void)executeEventWithTypeString:(NSString *)eventTypeString

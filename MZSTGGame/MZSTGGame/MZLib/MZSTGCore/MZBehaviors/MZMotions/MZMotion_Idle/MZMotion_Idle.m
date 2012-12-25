@@ -7,10 +7,8 @@
 #pragma mark - override
 
 // 必要性???
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents 
-                controlTarget:(MZGameObject *)aControlTarget 
-                motionSetting:(MZMotionSetting *)aMotionSetting
-{    
+-(id)initWithControlTarget:(MZGameObject *)aControlTarget motionSetting:(MZMotionSetting *)aMotionSetting
+{
     
     currentVelocity = ( aMotionSetting )? aMotionSetting.initVelocity : 0;
 
@@ -31,11 +29,7 @@
 //        currentSpeed = setting.beginSpeed;
 //    }
 
-    if( ( self = [super initWithLevelComponenets: aLevelComponents controlTarget: aControlTarget motionSetting: aMotionSetting] ) )
-    {        
-        
-    }
-    
+    self = [super initWithControlTarget: aControlTarget motionSetting: aMotionSetting];
     return self;
 }
 

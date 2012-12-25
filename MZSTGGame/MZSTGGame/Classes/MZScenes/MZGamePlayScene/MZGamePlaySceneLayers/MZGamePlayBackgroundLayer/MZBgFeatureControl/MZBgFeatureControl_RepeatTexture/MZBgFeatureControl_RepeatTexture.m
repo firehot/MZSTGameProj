@@ -35,7 +35,7 @@
     CCSprite *repeatSprite = [CCSprite node];
     [parentLayerRef addChild: repeatSprite];
 
-    repeatTexture = [[MZGameObject alloc] initWithLevelComponenets: levelComponentsRef];
+    repeatTexture = [[MZGameObject alloc] init];
     [repeatTexture setSprite: repeatSprite parentLayer: parentLayerRef];
     
     [repeatTexture setPropertiesWithDictionary: settingDictionary];

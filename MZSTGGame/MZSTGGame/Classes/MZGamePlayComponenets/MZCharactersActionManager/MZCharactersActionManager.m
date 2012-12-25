@@ -19,12 +19,10 @@
 
 #pragma mark - init and dealloc
 
--(id)initWithLevelComponents:(MZLevelComponents *)aLevelComponents
+-(id)init
 {
-    MZAssert( aLevelComponents, @"aLevelComponents is nil" );
     self = [super init];
-    
-    levelComponentsRef = aLevelComponents;
+
     [self _initActiveCharactersArray];
     [self _initCharactersActionControls];
     
@@ -33,8 +31,6 @@
 
 -(void)dealloc
 {
-    levelComponentsRef = nil;
-    
     [playerActionControl release];
     [playerBulletsActionControl release];
     [enemiesActionControl release];
@@ -110,7 +106,7 @@
 -(void)_initCharactersActionControls
 {
     MZCharactersActionParamters *charactersActionParamters = [MZCharactersActionParamters charactersActionParamters];
-    charactersActionParamters.playerRef = levelComponentsRef.player;
+    charactersActionParamters.playerRef = [MZLevelComponents sharedInstance].player;
     charactersActionParamters.activePlayerBulletsRef = activePlayerBullets;
     charactersActionParamters.activeEnemiesRef = activeEnemies;
     charactersActionParamters.activeEnemyBulletsRef = activeEnemyBullets;

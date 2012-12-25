@@ -6,7 +6,6 @@
 @class MZCharacterPart;
 @class MZEventControlCharacter;
 @class MZAttackTargetHelpKit;
-@class MZLevelComponents;
 
 @interface MZAttack_Base: MZControl_Base
 {
@@ -20,12 +19,8 @@
     MZAttackTargetHelpKit *attackTargetHelpKit;
 }
 
-+(MZAttack_Base*)attackWithAttackSetting:(MZAttackSetting *)aSetting
-                         levelComponents:(MZLevelComponents *)aLevelComponents
-                           controlTarget:(MZGameObject *)aControlTarget;
--(id)initWithAttackSetting:(MZAttackSetting *)aSetting
-           levelComponents:(MZLevelComponents *)aLevelComponents
-             controlTarget:(MZGameObject *)aControlTarget;
++(MZAttack_Base*)attackWithAttackSetting:(MZAttackSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget;
+-(id)initWithAttackSetting:(MZAttackSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget;
 @end
 
 @interface MZAttack_Base(Protected)

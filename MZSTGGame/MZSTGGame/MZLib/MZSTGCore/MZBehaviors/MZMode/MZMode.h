@@ -14,12 +14,8 @@
     NSMutableArray *currentCharacterPartControls;
 }
 
-+(MZMode *)modeWithModeSetting:(MZModeSetting *)aSetting
-              levelComponenets:(MZLevelComponents *)aLevelComponents
-                 controlTarget:(MZGameObject *)aControlTarget;
--(id)initWithModeSetting:(MZModeSetting *)aSetting
-        levelComponenets:(MZLevelComponents *)aLevelComponents 
-           controlTarget:(MZGameObject *)aControlTarget;
++(MZMode *)modeWithModeSetting:(MZModeSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget;
+-(id)initWithModeSetting:(MZModeSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget;
 
 @property (nonatomic, readwrite) bool disableAttack;
 @property (nonatomic, readonly) NSMutableArray *motionSettingsQueue;

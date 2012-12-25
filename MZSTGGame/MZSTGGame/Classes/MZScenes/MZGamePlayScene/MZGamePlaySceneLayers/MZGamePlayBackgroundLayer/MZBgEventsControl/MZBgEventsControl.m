@@ -21,12 +21,12 @@
 
 #pragma mark - init and dealloc
 
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents parentBgLayer:(MZGamePlayBackgroundLayer *)aParentBgLayer
+-(id)initWithParentBgLayer:(MZGamePlayBackgroundLayer *)aParentBgLayer
 {
     MZAssert( aParentBgLayer, @"aParentBgLayer is nil" );
     parentBackgroundLayerRef = aParentBgLayer;
     
-    self = [super initWithLevelComponenets: aLevelComponents];
+    self = [super init];
     
     return self;
 }
@@ -76,22 +76,22 @@
 
 -(void)_updateEventMetadatas
 {
-    for( int i = 0; i < [levelComponentsRef.eventMetadatasArray count]; i++ )
+    for( int i = 0; i < [[MZLevelComponents sharedInstance].eventMetadatasArray count]; i++ )
     {
-        MZEventMetadata *metadata = [levelComponentsRef.eventMetadatasArray objectAtIndex: i];
+        MZEventMetadata *metadata = [[MZLevelComponents sharedInstance].eventMetadatasArray objectAtIndex: i];
         
         if( metadata.hasExecuted == false && [enrageRangeManage isInEnrageRangeWithEventMetadata: metadata] )
         {
-            NSDictionary *eventsDefineDictionary = parentBackgroundLayerRef.levelComponentsRef.eventDefinesDictionary;
+            NSDictionary *eventsDefineDictionary = [MZLevelComponents sharedInstance].eventDefinesDictionary;
             NSDictionary *eventDictionary = [eventsDefineDictionary objectForKey: metadata.eventDefineName];
-            MZEvent *event = [[MZEventsFactory sharedEventsFactory] eventByDcitionary: eventDictionary];
+            MZEvent *event = [[MZEventsFactory sharedInstance] eventByDcitionary: eventDictionary];
             event.position = [self _eventPositionInScreenWithMetaMetadata: metadata];
-            [levelComponentsRef.eventsExecutor executeEvent: event];
+            [[MZLevelComponents sharedInstance].eventsExecutor executeEvent: event];
             
             metadata.hasExecuted = true;
             if( [MZGameSetting sharedInstance].system.isEditMode == false )
             {
-                [levelComponentsRef.eventMetadatasArray removeObjectAtIndex: i];
+                [[MZLevelComponents sharedInstance].eventMetadatasArray removeObjectAtIndex: i];
                 i--;
             }
         }

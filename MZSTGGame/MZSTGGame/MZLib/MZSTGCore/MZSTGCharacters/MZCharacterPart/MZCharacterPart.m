@@ -21,25 +21,19 @@
 
 #pragma mark - init and dealloc
 
-+(MZCharacterPart *)characterPartWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                                              setting:(MZCharacterPartSetting *)aSetting
-                                  parentCharacterType:(MZCharacterType)aParentCharacterType
++(MZCharacterPart *)characterPartWithSetting:(MZCharacterPartSetting *)aSetting parentCharacterType:(MZCharacterType)aParentCharacterType
 {
-    return [[[self alloc] initWithLevelComponenets: aLevelComponents setting: aSetting parentCharacterType: aParentCharacterType] autorelease];
+    return [[[self alloc] initWithSetting: aSetting parentCharacterType: aParentCharacterType] autorelease];
 }
 
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                      setting:(MZCharacterPartSetting *)aSetting
-          parentCharacterType:(MZCharacterType)aParentCharacterType
+-(id)initWithSetting:(MZCharacterPartSetting *)aSetting parentCharacterType:(MZCharacterType)aParentCharacterType
 {
-    MZAssert( aLevelComponents, @"aLevelComponents is nil" );
     MZAssert( aSetting, @"aSetting is nil" );
     
     setting = [aSetting retain];
     parentCharacterType = aParentCharacterType;
     
-    self = [super initWithLevelComponenets: aLevelComponents];
-
+    self = [super init];
     return self;
 }
 
@@ -82,7 +76,7 @@
     
     MZAssert( setting != nil, @"Setting is nil" );
     
-    [self setSpriteFromPool: levelComponentsRef.spritesPool characterType: parentCharacterType];
+    [self setSpriteFromPool: [MZLevelComponents sharedInstance].spritesPool characterType: parentCharacterType];
     
     self.position = setting.relativePosition;
     self.scale = setting.scale;

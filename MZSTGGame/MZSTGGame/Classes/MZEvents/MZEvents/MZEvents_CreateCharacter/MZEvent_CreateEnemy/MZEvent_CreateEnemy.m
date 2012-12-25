@@ -26,7 +26,8 @@
                                                                                       settingName: enemyName];
     MZAssert( enemy != nil, @"Can't create enemy(%@)", enemyName );
     enemy.position = position;
-    [levelComponentsRef.charactersActionManager addCharacterWithType: kMZCharacterType_Enemy character: enemy];
+    
+    [[MZLevelComponents sharedInstance].charactersActionManager addCharacterWithType: kMZCharacterType_Enemy character: enemy];
     
     if( [MZGameSetting sharedInstance].debug.showEventInfo )
         MZLog( @"CreateEnemy(%@) at %@", enemyName, NSStringFromCGPoint( position ) );

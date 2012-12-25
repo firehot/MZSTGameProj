@@ -12,10 +12,8 @@
 {
     mzTime scenarioTimeCount;
     NSMutableArray *eventsQueue;
-    MZLevelComponents *levelComponentsRef;
 }
 
--(id)initWithLevelComponents:(MZLevelComponents *)aLevelComponents;
 -(void)setEventsWithNSArray:(NSArray *)nsArray;
 -(void)addEvent:(MZEvent *)event;
 -(void)update;

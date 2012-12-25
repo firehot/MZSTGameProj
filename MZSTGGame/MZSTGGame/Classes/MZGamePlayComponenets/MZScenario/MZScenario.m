@@ -9,22 +9,8 @@
 
 #pragma mark - init and dealloc
 
--(id)initWithLevelComponents:(MZLevelComponents *)aLevelComponents
-{
-    MZAssert( aLevelComponents != nil, @"aLevelComponents is nil" );
-    
-    if( ( self = [super init] ) )
-    {
-        levelComponentsRef = aLevelComponents;
-    }
-    
-    return self;
-}
-
 -(void)dealloc
 {
-    levelComponentsRef = nil;
-    
     [eventsQueue release];
     
     [super dealloc];
@@ -39,7 +25,7 @@
     
     for( NSDictionary *eventNSDictionary in nsArray )
     {        
-        MZEvent *event = [[MZEventsFactory sharedEventsFactory] eventByDcitionary: eventNSDictionary];
+        MZEvent *event = [[MZEventsFactory sharedInstance] eventByDcitionary: eventNSDictionary];
         [self addEvent: event];
     }
 }
@@ -56,7 +42,7 @@
 {
     scenarioTimeCount += [MZTime sharedInstance].deltaTime;
     
-    MZEventsExecutor *eventsExecutor = levelComponentsRef.eventsExecutor;
+    MZEventsExecutor *eventsExecutor = [MZLevelComponents sharedInstance].eventsExecutor;
     
     if( eventsQueue == nil || eventsExecutor == nil )
         return;

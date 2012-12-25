@@ -4,7 +4,6 @@
 #import "CCTexture2D.h"
 #import "ccTypes.h"
 
-@class MZLevelComponents;
 @class MZColor;
 @class MZCCSpritesPool;
 @class CCNode;
@@ -24,8 +23,7 @@
 @protected
 }
 
-+(MZGameObject *)gameObjectWithLevelComponenets:(MZLevelComponents *)aLevelComponents;
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents;
++(MZGameObject *)gameObject;
 
 //
 -(void)setPropertiesWithDictionary:(NSDictionary *)propertiesDictionary;

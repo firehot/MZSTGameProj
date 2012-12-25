@@ -7,7 +7,7 @@
     MZEventControlCharacterSetting *eventControlCharacterSetting;
 }
 
-+(MZEventControlCharacter *)characterWithLevelComponenets:(MZLevelComponents *)aLevelComponents;
++(MZEventControlCharacter *)character;
 -(void)setSetting:(MZEventControlCharacterSetting *)aSetting characterType:(MZCharacterType)aCharacterType;
 
 @end

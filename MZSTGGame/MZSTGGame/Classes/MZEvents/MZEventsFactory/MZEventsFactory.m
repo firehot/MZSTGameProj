@@ -8,7 +8,7 @@
 
 MZEventsFactory *sharedEventsFactory_ = nil;
 
-+(MZEventsFactory *)sharedEventsFactory
++(MZEventsFactory *)sharedInstance
 {
     if( sharedEventsFactory_ == nil )
         sharedEventsFactory_ = [[MZEventsFactory alloc] init];
@@ -17,9 +17,7 @@ MZEventsFactory *sharedEventsFactory_ = nil;
 }
 
 -(void)dealloc
-{
-    levelComponentsRef = nil;
-    
+{    
     [sharedEventsFactory_ release];
     sharedEventsFactory_ = nil;
     
@@ -28,25 +26,13 @@ MZEventsFactory *sharedEventsFactory_ = nil;
 
 #pragma mark - methods
 
--(void)setOnLevelWithComponemts:(MZLevelComponents *)aLevelComponents
-{
-    MZAssert( aLevelComponents, @"aLevelComponents is nil" );
-    levelComponentsRef = aLevelComponents;
-}
-
--(void)removeFromLevel
-{
-    levelComponentsRef = nil;
-}
-
 -(MZEvent *)eventByDcitionary:(NSDictionary *)eventDictionary
 {
     NSString *eventType = [eventDictionary objectForKey: @"type"];
     MZAssert( eventType != nil, @"Event Type can not be nil" );    
     
     NSString *eventClassName = [NSString stringWithFormat: @"MZEvent_%@", eventType];
-    MZEvent *event = [NSClassFromString( eventClassName ) eventWithLevelComponents: levelComponentsRef
-                                                                      nsDictionary: eventDictionary];
+    MZEvent *event = [NSClassFromString( eventClassName ) eventWithDictionary: eventDictionary];
     
     MZAssert( event, @"event is nil (name=%@)", eventClassName );
 

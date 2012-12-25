@@ -25,29 +25,24 @@
 #pragma mark - init and dealloc
 
 +(MZFaceToControl *)controlWithControlTarget:(NSObject<MZFaceToControlProtocol> *)aControlTarget
-                             levelComponents:(MZLevelComponents *)aLevelComponents
                                       faceTo:(MZFaceToType)aFaceTo
                            previousDirection:(CGPoint)aPreviousDirection
 {
     return [[[self alloc] initWithControlTarget: aControlTarget
-                                levelComponents: aLevelComponents
                                          faceTo: aFaceTo
                               previousDirection: aPreviousDirection] autorelease];
 }
 
 -(id)initWithControlTarget:(NSObject<MZFaceToControlProtocol> *)aControlTarget
-           levelComponents:(MZLevelComponents *)aLevelComponents
                     faceTo:(MZFaceToType)aFaceTo
          previousDirection:(CGPoint)aPreviousDirection
 {
     MZAssert( aControlTarget, @"aControlGameObject is nil" );
-    MZAssert( aLevelComponents, @"aLevelComponents is nil" );
     
     if( ( self = [super init] ) )
     {
         faceToType = aFaceTo;
         controlTargetRef = aControlTarget;
-        levelComponentsRef = aLevelComponents;
         previousDirection = aPreviousDirection;
         
         previousPosition = MZ_INVAILD_POINT;
@@ -59,7 +54,6 @@
 
 -(void)dealloc
 {
-    levelComponentsRef = nil;
     controlTargetRef = nil;
     
     [super dealloc];

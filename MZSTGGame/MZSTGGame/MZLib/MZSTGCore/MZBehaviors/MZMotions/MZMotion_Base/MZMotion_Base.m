@@ -26,22 +26,17 @@
 
 #pragma mark - init and dealloc
 
-+(MZMotion_Base *)motionWithWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                                   controlTarget:(MZGameObject *)aControlTarget
-                                   motionSetting:(MZMotionSetting *)aMotionSetting
++(MZMotion_Base *)motionWithControlTarget:(MZGameObject *)aControlTarget motionSetting:(MZMotionSetting *)aMotionSetting
 {
-    return [[[self alloc] initWithLevelComponenets: aLevelComponents controlTarget: aControlTarget motionSetting: aMotionSetting] autorelease];
+    return [[[self alloc] initWithControlTarget: aControlTarget motionSetting: aMotionSetting] autorelease];
 }
 
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents 
-                controlTarget:(MZGameObject *)aControlTarget 
-                motionSetting:(MZMotionSetting *)aMotionSetting
+-(id)initWithControlTarget:(MZGameObject *)aControlTarget motionSetting:(MZMotionSetting *)aMotionSetting
 {
     MZAssert( aMotionSetting != nil, @"MotionSetting is nil" );
     setting = [aMotionSetting retain];
     
-    self = [super initWithLevelComponenets: aLevelComponents controlTarget: aControlTarget];
-    if( self == nil ) return nil;
+    self = [super initWithTarget: aControlTarget];
     
     removeControl = [[MZRemoveOutOfScreen alloc] initWithControlCharacter: (MZCharacter *)aControlTarget];
     [self _initFakeCenterCharacter];
@@ -162,7 +157,7 @@
 
 -(void)_initFakeCenterCharacter
 {
-    fakeCenterCharacter = [MZCharacter characterWithLevelComponenets: levelComponentsRef];
+    fakeCenterCharacter = [MZCharacter character];
     [fakeCenterCharacter retain];
     fakeCenterCharacter.position = setting.assignPosition;
     

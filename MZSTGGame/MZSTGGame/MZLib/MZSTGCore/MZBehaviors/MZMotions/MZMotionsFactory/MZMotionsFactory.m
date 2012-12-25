@@ -28,23 +28,10 @@ MZMotionsFactory *sharedMZMotionsFactory_ = nil;
 
 #pragma mark - methods
 
--(void)setOnLevelWithComponemts:(MZLevelComponents *)aLevelComponents
-{
-    MZAssert( aLevelComponents, @"aLevelComponents is nil" );
-    levelComponentsRef = aLevelComponents;
-}
-
--(void)removeFromLevel
-{
-    levelComponentsRef = nil;
-}
-
 -(MZMotion_Base *)getMotionBySetting:(MZMotionSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
 {
     NSString *motionClassName = [NSString stringWithFormat: @"MZMotion_%@", aSetting.motionType];
-    MZMotion_Base *motion = [NSClassFromString( motionClassName ) motionWithWithLevelComponenets: levelComponentsRef
-                                                                              controlTarget: aControlTarget
-                                                                              motionSetting: aSetting];
+    MZMotion_Base *motion = [NSClassFromString( motionClassName ) motionWithControlTarget: aControlTarget motionSetting: aSetting];
     MZAssert( motion != nil, @"Create motion fail, class name=(%@)", motionClassName );
     
     return motion;

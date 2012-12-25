@@ -51,8 +51,8 @@
 {
     for( NSDictionary *eventSettingDictionary in includedEventsSettingArray )
     {        
-        MZEvent *event = [[MZEventsFactory sharedEventsFactory] eventByDcitionary: eventSettingDictionary];
-        [levelComponentsRef.eventsExecutor executeEvent: event];
+        MZEvent *event = [[MZEventsFactory sharedInstance] eventByDcitionary: eventSettingDictionary];
+        [[MZLevelComponents sharedInstance].eventsExecutor executeEvent: event];
     }
 }
 

@@ -4,7 +4,6 @@
 @class MZAttackSetting;
 @class MZCharacter;
 @class MZGameObject;
-@class MZLevelComponents;
 
 @interface MZAttackTargetHelpKit : NSObject
 {
@@ -12,12 +11,9 @@
     CGPoint movingVectorToTarget;
     MZAttackSetting *settingRef;
     MZGameObject *controlTargetRef;
-    MZLevelComponents *levelComponentsRef;
 }
 
--(id)initWithAttackSetting:(MZAttackSetting *)aSetting 
-             controlTarget:(MZGameObject *)aControlTarget
-          levelComponenets:(MZLevelComponents *)aLevelComponenets;
+-(id)initWithAttackSetting:(MZAttackSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget;
 -(float)getDegreeToTarget;
 -(CGPoint)getTargetPosition;
 -(CGPoint)getMovingVectorToTarget;

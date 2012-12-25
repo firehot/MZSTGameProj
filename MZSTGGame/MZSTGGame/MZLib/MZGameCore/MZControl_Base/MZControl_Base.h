@@ -9,8 +9,8 @@
     MZGameObject *referenceTargetRef;
 }
 
-+(MZControl_Base *)controlWithLevelComponenets:(MZLevelComponents *)aLevelComponents controlTarget:(MZGameObject *)aControlTarget;
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents controlTarget:(MZGameObject *)aControlTarget;
++(MZControl_Base *)controlWithTarget:(MZGameObject *)aControlTarget;
+-(id)initWithTarget:(MZGameObject *)aControlTarget;
 
 @property (nonatomic, readwrite, assign) MZGameObject *referenceTargetRef;
 

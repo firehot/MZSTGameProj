@@ -35,19 +35,17 @@
 
 #pragma mark - init and dealloc
 
-+(MZMode *)modeWithModeSetting:(MZModeSetting *)aSetting levelComponenets:(MZLevelComponents *)aLevelComponents controlTarget:(MZGameObject *)aControlTarget
++(MZMode *)modeWithModeSetting:(MZModeSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
 {
-    return [[[self alloc] initWithModeSetting: aSetting levelComponenets: aLevelComponents controlTarget: aControlTarget] autorelease];
+    return [[[self alloc] initWithModeSetting: aSetting controlTarget: aControlTarget] autorelease];
 }
 
--(id)initWithModeSetting:(MZModeSetting *)aSetting levelComponenets:(MZLevelComponents *)aLevelComponents controlTarget:(MZGameObject *)aControlTarget
+-(id)initWithModeSetting:(MZModeSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
 {
     MZAssert( aSetting, @"Setting is nil" );
     setting = [aSetting retain];
     
-    self = [super initWithLevelComponenets: aLevelComponents controlTarget: aControlTarget];
-    if( self == nil ) return nil;
-    
+    self = [super initWithTarget: aControlTarget];
     disableAttack = false;
     
     return self;
@@ -184,11 +182,12 @@
     {
         for( MZCharacterPartControlSetting *characterPartControlSetting in characterPartControlSettingsArray )
         {        
-            MZCharacterPart *controlCharacterPart = (MZCharacterPart *)[controlTargetRef getChildWithName: characterPartControlSetting.controlPartName];
+            MZCharacterPart *controlCharacterPart =
+            (MZCharacterPart *)[controlTargetRef getChildWithName: characterPartControlSetting.controlPartName];
+
             if( controlCharacterPart == nil ) continue;
 
             MZCharacterPartControl *characterPartControl = [MZCharacterPartControl characterControlPartWithSetting: characterPartControlSetting
-                                                                                                  levelComponenets: levelComponentsRef
                                                                                                      characterPart: controlCharacterPart];
             characterPartControl.disableAttack = disableAttack;
             [characterPartControl enable];

@@ -1,8 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MZTypeDefine.h"
 
-@class MZLevelComponents;
-
 @interface MZBehavior_Base : NSObject
 {
 @private
@@ -10,12 +8,10 @@
     float lifeTimeCount;
 @protected
     NSMutableDictionary *childrenDictionary;
-    MZLevelComponents *levelComponentsRef;
     MZBehavior_Base *parentRef;
 }
 
-+(MZBehavior_Base *)behaviorWithLevelComponenets:(MZLevelComponents *)aLevelComponents;
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents;
++(MZBehavior_Base *)behavior;
 
 -(void)setPropertiesWithDictionary:(NSDictionary *)propertiesDictionary;
 

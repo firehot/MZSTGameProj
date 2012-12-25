@@ -24,7 +24,7 @@
     }
     else
     {
-//        complementaryColor.position = levelComponentsRef.player.position;
+//        complementaryColor.position = [MZLevelComponents sharedInstance].player.position;
 //        [complementaryColor enable];
         isUnderComplementaryColor = true;
     }
@@ -47,7 +47,8 @@
 
 -(void)_initWithDictionary:(NSDictionary *)dictionary
 {   
-//    complementaryColor = [[MZEffect_ComplementaryColor alloc] initWithNSDictionary: dictionary levelComponenets: levelComponentsRef];
+//    complementaryColor = [[MZEffect_ComplementaryColor alloc] initWithNSDictionary: dictionary
+//                                                                  levelComponenets: [MZLevelComponents sharedInstance]];
 }
 
 -(void)_initValues

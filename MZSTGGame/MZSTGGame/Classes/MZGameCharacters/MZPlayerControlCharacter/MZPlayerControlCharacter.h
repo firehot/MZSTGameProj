@@ -10,6 +10,7 @@
     MZUserControlPlayerStyleBase *userControlPlayerStyle;
 }
 
++(MZPlayerControlCharacter *)character;
 -(void)touchBeganWithPosition:(CGPoint)touchPosition;
 -(void)touchMovedWithPosition:(CGPoint)touchPosition;
 -(void)touchEndedWithPosition:(CGPoint)touchPosition;

@@ -30,21 +30,18 @@
 
 #pragma mark - init and dealloc
 
-+(MZEventOccurFlag *)flagWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                                eventMetadata:(MZEventMetadata *)aEventMetadata
-                                      bgLayer:(MZGamePlayBackgroundLayer *)aBgLayer
-                                      handler:(id<MZEventOccurFlagHandler>)aHandler
++(MZEventOccurFlag *)flagWithEventMetadata:(MZEventMetadata *)aEventMetadata
+                                   bgLayer:(MZGamePlayBackgroundLayer *)aBgLayer
+                                   handler:(id<MZEventOccurFlagHandler>)aHandler
 {
-    return [[[self alloc] initWithLevelComponenets: aLevelComponents
-                                     eventMetadata: aEventMetadata
-                                           bgLayer: aBgLayer
-                                           handler: aHandler] autorelease];
+    return [[[self alloc] initWithEventMetadata: aEventMetadata
+                                        bgLayer: aBgLayer
+                                        handler: aHandler] autorelease];
 }
 
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                eventMetadata:(MZEventMetadata *)aEventMetadata
-                      bgLayer:(MZGamePlayBackgroundLayer *)aBgLayer
-                      handler:(id<MZEventOccurFlagHandler>)aHandler;
+-(id)initWithEventMetadata:(MZEventMetadata *)aEventMetadata
+                   bgLayer:(MZGamePlayBackgroundLayer *)aBgLayer
+                   handler:(id<MZEventOccurFlagHandler>)aHandler
 {
     MZAssert( aBgLayer, @"aBgLayer is nil" );
     MZAssert( aEventMetadata, @"aEventMetadata is nil" );
@@ -52,7 +49,7 @@
     handler = aHandler;
     eventMetadataRef = aEventMetadata;
 
-    self = [super initWithLevelComponenets: aLevelComponents];
+    self = [super init];
 
     return self;
 }
@@ -62,7 +59,7 @@
     [flag release];
     [bgLayerRef removeChild: flagBound cleanup: false]; [flagBound release];
     
-    [levelComponentsRef removeEventMetadata: eventMetadataRef];
+    [[MZLevelComponents sharedInstance] removeEventMetadata: eventMetadataRef];
     eventMetadataRef = nil;
     
     bgLayerRef = nil;
@@ -122,7 +119,7 @@
     [super _initValues];
 
     NSString *eventDefineName = eventMetadataRef.eventDefineName;
-    NSDictionary *iconSettingDict = [[levelComponentsRef.eventDefinesDictionary objectForKey: eventDefineName] objectForKey: @"icon"];
+    NSDictionary *iconSettingDict = [[[MZLevelComponents sharedInstance].eventDefinesDictionary objectForKey: eventDefineName] objectForKey: @"icon"];
 
     MZAssert( iconSettingDict, @"iconSettingDict is nil, eventDefine name = %@", eventDefineName );
 

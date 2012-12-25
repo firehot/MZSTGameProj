@@ -11,17 +11,15 @@
 
 #pragma mark - init and dealloc
 
-+(MZEvent *)eventWithLevelComponents:(MZLevelComponents *)aLevelComponents nsDictionary:(NSDictionary *)nsDictionary
++(MZEvent *)eventWithDictionary:(NSDictionary *)dictionary
 {
-    return [[[self alloc] initWithLevelComponents: aLevelComponents nsDictionary: nsDictionary] autorelease];
+    return [[[self alloc] initWithDictionary: dictionary] autorelease];
 }
 
--(id)initWithLevelComponents:(MZLevelComponents *)aLevelComponents nsDictionary:(NSDictionary *)nsDictionary
+-(id)initWithDictionary:(NSDictionary *)dictionary
 {
-    if( ( self = [super initWithLevelComponenets: aLevelComponents] ) )
-    {
-        [self _initWithDictionary: nsDictionary];
-    }
+    self = [super init];
+    [self _initWithDictionary: dictionary];
     
     return self;
 }

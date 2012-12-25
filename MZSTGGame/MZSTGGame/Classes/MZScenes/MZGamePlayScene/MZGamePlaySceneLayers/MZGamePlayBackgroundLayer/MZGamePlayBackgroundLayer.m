@@ -91,9 +91,8 @@
         MZAssert( [bgFeatureControlDic objectForKey: @"type"], @"bgFeatureControlDic do not have type" );
         NSString *className = [NSString stringWithFormat: @"MZBgFeatureControl_%@", [bgFeatureControlDic objectForKey: @"type"]];
         
-        MZBgFeatureControl_Base *bgFeatureControl = [NSClassFromString( className ) controlWithLevelComponenets: levelComponentsRef
-                                                                                              settingDictionary: bgFeatureControlDic
-                                                                                                    parentLayer: self];
+        MZBgFeatureControl_Base *bgFeatureControl = [NSClassFromString( className ) controlWithSettingDictionary: bgFeatureControlDic
+                                                                                                     parentLayer: self];
         MZAssert( bgFeatureControl, @"bgFeatureControl create fail with class name(%@)", className );
         
         [bgFeatureControlsArray addObject: bgFeatureControl];
@@ -105,7 +104,7 @@
     for( MZBgFeatureControl_Base *bgFeature in bgFeatureControlsArray )
         [bgFeature enable];
     
-    bgEventsControl = [[MZBgEventsControl alloc] initWithLevelComponenets: levelComponentsRef parentBgLayer: self];
+    bgEventsControl = [[MZBgEventsControl alloc] initWithParentBgLayer: self];
     [bgEventsControl enable];
 }
 

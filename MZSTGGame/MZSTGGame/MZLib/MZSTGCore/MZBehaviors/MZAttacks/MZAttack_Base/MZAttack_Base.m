@@ -18,24 +18,17 @@
 
 #pragma mark - init and dealloc
 
-+(MZAttack_Base *)attackWithAttackSetting:(MZAttackSetting *)aSetting
-                          levelComponents:(MZLevelComponents *)aLevelComponents
-                            controlTarget:(MZGameObject *)aControlTarget
++(MZAttack_Base*)attackWithAttackSetting:(MZAttackSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
 {
-    return [[[self alloc] initWithAttackSetting: aSetting
-                                levelComponents: aLevelComponents
-                                  controlTarget: aControlTarget] autorelease];
+    return [[[self alloc] initWithAttackSetting: aSetting controlTarget: aControlTarget] autorelease];
 }
 
--(id)initWithAttackSetting:(MZAttackSetting *)aSetting
-           levelComponents:(MZLevelComponents *)aLevelComponents
-             controlTarget:(MZGameObject *)aControlTarget
+-(id)initWithAttackSetting:(MZAttackSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
 {
-    
     MZAssert( aSetting, @"aSetting is nil" );
     
     setting = [aSetting retain];
-    self = [super initWithLevelComponenets: aLevelComponents controlTarget: aControlTarget];
+    self = [super initWithTarget: aControlTarget];
     
     return self;
 }
@@ -63,9 +56,7 @@
     colddownCount = 0;
     currentAdditionalVelocity = 0;
     
-    attackTargetHelpKit = [[MZAttackTargetHelpKit alloc] initWithAttackSetting: setting
-                                                                 controlTarget: controlTargetRef
-                                                              levelComponenets: levelComponentsRef];
+    attackTargetHelpKit = [[MZAttackTargetHelpKit alloc] initWithAttackSetting: setting controlTarget: controlTargetRef];
 }
 
 -(void)_checkActiveCondition
@@ -119,7 +110,7 @@
 -(void)_enableBulletAndAddToActionManager:(MZEventControlCharacter *)bullet
 {
     [bullet enable];
-    [levelComponentsRef.charactersActionManager addCharacterWithType: [self _getBulletType] character: bullet];
+    [[MZLevelComponents sharedInstance].charactersActionManager addCharacterWithType: [self _getBulletType] character: bullet];
 }
 
 -(void)_setBulletLeader:(MZEventControlCharacter *)bulletLeader

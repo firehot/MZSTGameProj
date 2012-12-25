@@ -16,16 +16,13 @@
 
 #pragma mark - init and dealloc
 
--(id)initWithLevelComponents:(MZLevelComponents *)aLevelComponents
+-(id)init
 {
-    if( ( self = [super init] ) )
-    {
-        levelComponentsRef = aLevelComponents;
+    self = [super init];
         
-        onExecutingEventsArray = [[NSMutableArray alloc] initWithCapacity: 1];
-        prepareToAddEventsTempArray = [[NSMutableArray alloc] initWithCapacity: 1];
-    }
-    
+    onExecutingEventsArray = [[NSMutableArray alloc] initWithCapacity: 1];
+    prepareToAddEventsTempArray = [[NSMutableArray alloc] initWithCapacity: 1];
+
     return self;
 }
 
@@ -265,10 +262,8 @@
 
 -(MZEvent *)_getEventWithString:(NSString *)eventTypeString nsDictionary:(NSDictionary *)nsDictionary
 {
-    MZAssert( levelComponentsRef, @"levelComponentsRef is nil" );
-    
     NSString *className = [NSString stringWithFormat: @"MZEvent_%@", eventTypeString];
-    MZEvent *event = [NSClassFromString( className ) eventWithLevelComponents: levelComponentsRef nsDictionary: nsDictionary];
+    MZEvent *event = [NSClassFromString( className ) eventWithDictionary: nsDictionary];
     
     MZAssert( event, @"can not create new event with type string(%@)", eventTypeString );
     

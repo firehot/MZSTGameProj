@@ -34,9 +34,9 @@
 
 #pragma mark - init and dealloc
 
-+(MZCharacter *)characterWithLevelComponenets:(MZLevelComponents *)aLevelComponents
++(MZCharacter *)character
 {
-    return [[[self alloc] initWithLevelComponenets: aLevelComponents] autorelease];
+    return [[[self alloc] init] autorelease];
 }
 
 -(void)dealloc
@@ -67,7 +67,6 @@
     
     // 當設定為 none 時, 則歸還( not yet, 目前開發中, 所以使用 Assert )    
     MZAssert( characterType != kMZCharacterType_Unknow, @"characterType can not be kMZCharacterType_None" );
-    MZAssert( levelComponentsRef.spritesPool, @"levelComponentsRef.spritesPool is nil" );
         
     for( MZCharacter *child in [childrenDictionary allValues] )
         child.characterType = characterType;
@@ -222,13 +221,10 @@
     if( [settingDictionary isKindOfClass: [NSDictionary class]] == false ) return;
     
     for( NSString *partName in [settingDictionary allKeys] )
-
     {
         MZCharacterPartSetting *partSetting = [settingDictionary objectForKey: partName];
         
-        MZCharacterPart *characterPart = [MZCharacterPart characterPartWithLevelComponenets: levelComponentsRef
-                                                                                    setting: partSetting
-                                                                        parentCharacterType: self.characterType];
+        MZCharacterPart *characterPart = [MZCharacterPart characterPartWithSetting: partSetting parentCharacterType: self.characterType];
         [self addChild: characterPart name: partSetting.name];
     }
 }
@@ -254,7 +250,7 @@
     
     MZModeSetting *nextModeSetting = [modeSettingsQueue pop];
     if( !nextModeSetting.isRunOnce ) [modeSettingsQueue push: nextModeSetting];
-    currentMode = [[MZMode alloc] initWithModeSetting: nextModeSetting levelComponenets: levelComponentsRef controlTarget: self];
+    currentMode = [[MZMode alloc] initWithModeSetting: nextModeSetting controlTarget: self];
     currentMode.disableAttack = disableAttack;
     [currentMode enable];
 }

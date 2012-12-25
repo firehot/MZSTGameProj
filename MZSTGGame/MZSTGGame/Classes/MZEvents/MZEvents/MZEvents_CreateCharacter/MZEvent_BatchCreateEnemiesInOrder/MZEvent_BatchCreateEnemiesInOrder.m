@@ -103,9 +103,9 @@
 {
     NSDictionary *tempDictionaryForSpawnEnemy = [tempDictionariesArrayForSpawnEnemies objectAtIndex: currentSpawnCount];
     
-    MZEvent *createEnemy = [[MZEventsFactory sharedEventsFactory] eventByDcitionary: tempDictionaryForSpawnEnemy];
+    MZEvent *createEnemy = [[MZEventsFactory sharedInstance] eventByDcitionary: tempDictionaryForSpawnEnemy];
     createEnemy.position = mzpAdd( position, createEnemy.position );
-    [levelComponentsRef.eventsExecutor executeEvent: createEnemy];
+    [[MZLevelComponents sharedInstance].eventsExecutor executeEvent: createEnemy];
     
     currentSpawnCount++;
 }

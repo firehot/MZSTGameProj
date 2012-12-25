@@ -9,17 +9,17 @@
 
 #pragma mark - init and dealloc
 
-+(MZControl_Base *)controlWithLevelComponenets:(MZLevelComponents *)aLevelComponents controlTarget:(MZGameObject *)aControlTarget
++(MZControl_Base *)controlWithTarget:(MZGameObject *)aControlTarget
 {
-    return [[[self alloc] initWithLevelComponenets: aLevelComponents controlTarget: aControlTarget] autorelease];
+    return [[[self alloc] initWithTarget: aControlTarget] autorelease];
 }
 
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents controlTarget:(MZGameObject *)aControlTarget
+-(id)initWithTarget:(MZGameObject *)aControlTarget;
 {
     MZAssert( aControlTarget, @"aControlTarget is nil" );
     controlTargetRef = aControlTarget;
     
-    self = [super initWithLevelComponenets: aLevelComponents];
+    self = [super init];
     
     return self;
 }

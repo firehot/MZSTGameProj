@@ -47,15 +47,8 @@ static MZCharactersFactory *sharedCharactersFactory_ = nil;
 
 #pragma mark - methods
 
--(void)setOnLevelWithComponemts:(MZLevelComponents *)aLevelComponents
-{
-    MZAssert( aLevelComponents, @"aLevelComponents is nil" );
-    levelComponentsRef = aLevelComponents;
-}
-
 -(void)removeFromLevel
-{    
-    levelComponentsRef = nil;
+{
     [MZObjectHelper releaseAndSetNilToObject: &playerControlCharactersSettingDictionary];
     [MZObjectHelper releaseAndSetNilToObject: &enemiesSettingDictionary];
     [MZObjectHelper releaseAndSetNilToObject: &bulletsSettingDictionary];
@@ -101,7 +94,7 @@ static MZCharactersFactory *sharedCharactersFactory_ = nil;
     
     NSString *className = [[MZCharacterTypeStrings sharedCharacterTypeStrings] getCharacterClassNameByType: characterType];
     
-    MZCharacter *targetCharacter = [NSClassFromString( className ) characterWithLevelComponenets: levelComponentsRef];
+    MZCharacter *targetCharacter = [NSClassFromString( className ) character];
     
     targetCharacter.collisionColor = collisionColor;
     

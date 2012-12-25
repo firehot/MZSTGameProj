@@ -1,12 +1,10 @@
 #import "CCLayer.h"
 
 @class MZGamePlayScene;
-@class MZLevelComponents;
 
 @interface MZGamePlaySceneLayerBase : CCLayer
 {
     MZGamePlayScene *parentSceneRef;
-    MZLevelComponents *levelComponentsRef;
 }
 
 +(MZGamePlaySceneLayerBase *)layerWithLevelSettingDictionary:(NSDictionary *)aLevelSettingNSDictioanry parentScene:(MZGamePlayScene *)aParentScene;
@@ -20,7 +18,6 @@
 -(void)beforeRelease;
 
 @property (nonatomic, readonly) NSNumber *layerTypeInNSNumber;
-@property (nonatomic, assign) MZLevelComponents *levelComponentsRef;
 
 @end
 

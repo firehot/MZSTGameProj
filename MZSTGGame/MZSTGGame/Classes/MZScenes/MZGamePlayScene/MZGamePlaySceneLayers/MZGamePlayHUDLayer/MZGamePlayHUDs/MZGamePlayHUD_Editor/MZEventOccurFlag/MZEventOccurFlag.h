@@ -2,7 +2,6 @@
 #import "MZEventOccurFlagHandlerProtocol.h"
 
 @class MZGamePlayBackgroundLayer;
-@class MZLevelComponents;
 @class MZEventMetadata;
 @class CCSprite;
 @class CCDrawNode;
@@ -20,14 +19,12 @@
     CCDrawNode *flagBound;
 }
 
-+(MZEventOccurFlag *)flagWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                                eventMetadata:(MZEventMetadata *)aEventMetadata
-                                      bgLayer:(MZGamePlayBackgroundLayer *)aBgLayer
-                                      handler:(id<MZEventOccurFlagHandler>)aHandler;
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                eventMetadata:(MZEventMetadata *)aEventMetadata
-                      bgLayer:(MZGamePlayBackgroundLayer *)aBgLayer
-                      handler:(id<MZEventOccurFlagHandler>)aHandler;
++(MZEventOccurFlag *)flagWithEventMetadata:(MZEventMetadata *)aEventMetadata
+                                   bgLayer:(MZGamePlayBackgroundLayer *)aBgLayer
+                                   handler:(id<MZEventOccurFlagHandler>)aHandler;
+-(id)initWithEventMetadata:(MZEventMetadata *)aEventMetadata
+                   bgLayer:(MZGamePlayBackgroundLayer *)aBgLayer
+                   handler:(id<MZEventOccurFlagHandler>)aHandler;
 
 -(bool)isInTouchRangeWithStandardTouch:(CGPoint)standardTouch;
 

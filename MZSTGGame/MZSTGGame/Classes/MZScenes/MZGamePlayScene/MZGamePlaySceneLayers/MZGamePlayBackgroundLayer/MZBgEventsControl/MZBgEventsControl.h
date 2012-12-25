@@ -11,6 +11,6 @@
     MZEnrageRangeManage *enrageRangeManage;
 }
 
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents parentBgLayer:(MZGamePlayBackgroundLayer *)aParentBgLayer;
+-(id)initWithParentBgLayer:(MZGamePlayBackgroundLayer *)aParentBgLayer;
 
 @end

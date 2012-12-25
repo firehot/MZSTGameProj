@@ -10,12 +10,8 @@
     MZCharacterPartSetting *setting;
 }
 
-+(MZCharacterPart *)characterPartWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                                              setting:(MZCharacterPartSetting *)aSetting
-                                  parentCharacterType:(MZCharacterType)aParentCharacterType;
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                      setting:(MZCharacterPartSetting *)aSetting
-          parentCharacterType:(MZCharacterType)aParentCharacterType;
++(MZCharacterPart *)characterPartWithSetting:(MZCharacterPartSetting *)aSetting parentCharacterType:(MZCharacterType)aParentCharacterType;
+-(id)initWithSetting:(MZCharacterPartSetting *)aSetting parentCharacterType:(MZCharacterType)aParentCharacterType;
 @property (nonatomic, readonly) MZCharacterType parentCharacterType;
 @end
 

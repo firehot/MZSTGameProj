@@ -166,11 +166,9 @@ const float ZOOM_OUT_SCALE_VALUE_FOR_IPAD = 1.225;
 
 -(void)setEventOccurFlagsAfterGetLevelComponenet
 {
-    MZAssert( targetLayerRef.levelComponentsRef, @"LevelComponenet is nil" );
-    
     [self _initEventItemsList];
             
-    for( MZEventMetadata *metadata in targetLayerRef.levelComponentsRef.eventMetadatasArray )
+    for( MZEventMetadata *metadata in [MZLevelComponents sharedInstance].eventMetadatasArray )
     {
         [self _addEventOccurFlagWithEventMetadata: metadata];
     }
@@ -299,10 +297,8 @@ const float ZOOM_OUT_SCALE_VALUE_FOR_IPAD = 1.225;
 
 -(void)_initEventItemsList
 {
-    eventsDefineDictionary = targetLayerRef.levelComponentsRef.eventDefinesDictionary;
-    //[[MZFileHelper plistContentFromBundleWithName: @"[test]events_define.plist"] objectForKey: @"EventsDefine"];
-//    [eventsDefineDictionary retain];
-    
+    eventsDefineDictionary = [MZLevelComponents sharedInstance].eventDefinesDictionary;
+
     NSMutableArray *eventButtonsArray = [NSMutableArray arrayWithCapacity: 0];
     float interval = 25;
     CGPoint startPos = mzp( 300, 120 + interval );
@@ -367,11 +363,11 @@ const float ZOOM_OUT_SCALE_VALUE_FOR_IPAD = 1.225;
 
 -(void)_onTimeBackClick:(id)sender
 {
-    [targetLayerRef.levelComponentsRef resetEventMeatadatas];
+    [[MZLevelComponents sharedInstance] resetEventMeatadatas];
     
-    [targetLayerRef.levelComponentsRef.charactersActionManager clearAllWithType: kMZCharacterType_EnemyBullet];
-    [targetLayerRef.levelComponentsRef.charactersActionManager clearAllWithType: kMZCharacterType_Enemy];
-    [targetLayerRef.levelComponentsRef.charactersActionManager clearAllWithType: kMZCharacterType_PlayerBullet];
+    [[MZLevelComponents sharedInstance].charactersActionManager clearAllWithType: kMZCharacterType_EnemyBullet];
+    [[MZLevelComponents sharedInstance].charactersActionManager clearAllWithType: kMZCharacterType_Enemy];
+    [[MZLevelComponents sharedInstance].charactersActionManager clearAllWithType: kMZCharacterType_PlayerBullet];
     
     [[MZTime sharedInstance] back: ((CCMenuItem *)sender).tag];
 }
@@ -394,7 +390,7 @@ const float ZOOM_OUT_SCALE_VALUE_FOR_IPAD = 1.225;
 
 -(void)_onSaveClick:(id)sender
 {
-    [targetLayerRef.levelComponentsRef saveEventMetadata];
+    [[MZLevelComponents sharedInstance] saveEventMetadata];
 }
 
 -(void)_onEventListItemClick:(id)sender
@@ -500,12 +496,9 @@ const float ZOOM_OUT_SCALE_VALUE_FOR_IPAD = 1.225;
     
     MZGamePlayBackgroundLayer *bgLayer = (MZGamePlayBackgroundLayer *)[parentSceneRef layerByType: kMZGamePlayLayerType_BackgroundLayer];
     
-    MZEventOccurFlag *occurFlag = [MZEventOccurFlag flagWithLevelComponenets: targetLayerRef.levelComponentsRef
-                                                               eventMetadata: eventMetadata
-                                                                     bgLayer: bgLayer
-                                                                     handler: self];
-    
-    [eventOccurFlagsArray addObject: occurFlag];    
+    MZEventOccurFlag *occurFlag = [MZEventOccurFlag flagWithEventMetadata: eventMetadata bgLayer: bgLayer handler: self];
+
+    [eventOccurFlagsArray addObject: occurFlag];
     [occurFlag enable];
 }
 
@@ -520,14 +513,11 @@ const float ZOOM_OUT_SCALE_VALUE_FOR_IPAD = 1.225;
     NSString *eventDefineName = [self _eventNameByIndex: currentEventIndex];
     MZEventMetadata *eventMetadata = [MZEventMetadata metadataWithEventDefineName: eventDefineName position: CGPointZero];
     
-    MZEventOccurFlag *occurFlag = [MZEventOccurFlag flagWithLevelComponenets: targetLayerRef.levelComponentsRef
-                                                               eventMetadata: eventMetadata
-                                                                     bgLayer: bgLayer
-                                                                     handler: self];
+    MZEventOccurFlag *occurFlag = [MZEventOccurFlag flagWithEventMetadata: eventMetadata bgLayer: bgLayer handler: self];
     occurFlag.screenPosition = stdTouchPosition;
     
     [eventOccurFlagsArray addObject: occurFlag];
-    [targetLayerRef.levelComponentsRef addEventMetadata: eventMetadata];
+    [[MZLevelComponents sharedInstance] addEventMetadata: eventMetadata];
     
     [occurFlag enable];
 }
@@ -552,9 +542,9 @@ const float ZOOM_OUT_SCALE_VALUE_FOR_IPAD = 1.225;
     
     isPauseForEdit = true;
     
-    [targetLayerRef.levelComponentsRef.charactersActionManager clearAllWithType: kMZCharacterType_PlayerBullet];
-    [targetLayerRef.levelComponentsRef.charactersActionManager clearAllWithType: kMZCharacterType_EnemyBullet];
-    [targetLayerRef.levelComponentsRef.charactersActionManager clearAllWithType: kMZCharacterType_Enemy];
+    [[MZLevelComponents sharedInstance].charactersActionManager clearAllWithType: kMZCharacterType_PlayerBullet];
+    [[MZLevelComponents sharedInstance].charactersActionManager clearAllWithType: kMZCharacterType_EnemyBullet];
+    [[MZLevelComponents sharedInstance].charactersActionManager clearAllWithType: kMZCharacterType_Enemy];
     
     [parentSceneRef pause];
     gameTimeLabelRef.color = ccc3( 255, 255, 255 );

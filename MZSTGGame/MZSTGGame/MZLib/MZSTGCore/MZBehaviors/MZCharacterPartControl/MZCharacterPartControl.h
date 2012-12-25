@@ -24,11 +24,8 @@
 }
 
 +(MZCharacterPartControl *)characterControlPartWithSetting:(MZCharacterPartControlSetting *)aSetting
-                                          levelComponenets:(MZLevelComponents *)aLevelComponents
                                              characterPart:(MZCharacterPart *)aCharacterPart;
--(id)initWithSetting:(MZCharacterPartControlSetting *)aSetting
-    levelComponenets:(MZLevelComponents *)aLevelComponents
-       characterPart:(MZCharacterPart *)aCharacterPart;
+-(id)initWithSetting:(MZCharacterPartControlSetting *)aSetting characterPart:(MZCharacterPart *)aCharacterPart;
 
 @property (nonatomic, readwrite) bool disableAttack;
 @end

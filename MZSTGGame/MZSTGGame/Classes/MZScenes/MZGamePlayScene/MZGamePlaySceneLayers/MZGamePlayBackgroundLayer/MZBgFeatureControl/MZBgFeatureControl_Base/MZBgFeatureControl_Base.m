@@ -6,25 +6,20 @@
 
 #pragma mark - init and dealloc
 
-+(MZBgFeatureControl_Base *)controlWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                                      settingDictionary:(NSDictionary *)aSettingDictionary
-                                            parentLayer:(MZGamePlayBackgroundLayer *)aParentLayer
++(MZBgFeatureControl_Base *)controlWithSettingDictionary:(NSDictionary *)aSettingDictionary parentLayer:(MZGamePlayBackgroundLayer *)aParentLayer
 {
-    return [[[self alloc] initWithLevelComponenets: aLevelComponents settingDictionary: aSettingDictionary parentLayer: aParentLayer] autorelease];
+    return [[[self alloc] initWithWithSettingDictionary: aSettingDictionary parentLayer: aParentLayer] autorelease];
 }
 
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-            settingDictionary:(NSDictionary *)aSettingDictionary
-                  parentLayer:(MZGamePlayBackgroundLayer *)aParentLayer
+-(id)initWithWithSettingDictionary:(NSDictionary *)aSettingDictionary parentLayer:(MZGamePlayBackgroundLayer *)aParentLayer
 {
-    MZAssert( aLevelComponents, @"aLevelComponents is nil" );
     MZAssert( aSettingDictionary, @"aSettingDictionary is nil" );
     MZAssert( aParentLayer, @"aParentLayer is nil" );
     
     settingDictionary = [aSettingDictionary retain];
     parentLayerRef = aParentLayer;
     
-    self = [super initWithLevelComponenets: aLevelComponents];
+    self = [super init];
     return  self;
 }
 

@@ -3,7 +3,6 @@
 #import "MZTypeDefine.h"
 
 @class MZGameObject;
-@class MZLevelComponents;
 
 @interface MZFaceToControl : NSObject
 {
@@ -12,15 +11,12 @@
     MZFaceToType faceToType;
     
     NSObject<MZFaceToControlProtocol> *controlTargetRef;
-    MZLevelComponents *levelComponentsRef;
 }
 
 +(MZFaceToControl *)controlWithControlTarget:(NSObject<MZFaceToControlProtocol> *)aControlTarget
-                             levelComponents:(MZLevelComponents *)aLevelComponents
                                       faceTo:(MZFaceToType)aFaceTo
                            previousDirection:(CGPoint)aPreviousDirection;
 -(id)initWithControlTarget:(NSObject<MZFaceToControlProtocol> *)aControlTarget
-           levelComponents:(MZLevelComponents *)aLevelComponents
                     faceTo:(MZFaceToType)aFaceTo
          previousDirection:(CGPoint)aPreviousDirection;
 -(void)update;

@@ -121,9 +121,8 @@
         [self removeChild: layer cleanup: false];
     }
     [layersDictionary release];
-    
-    [levelComponents release];
-//    [[MZLevelComponents sharedInstance] removeFromLevel];
+
+    [[MZLevelComponents sharedInstance] removeFromLevel];
 }
 
 -(void)switchSceneTo:(MZSceneType)sceneType
@@ -162,19 +161,17 @@
 }
 
 -(void)_initLevelComponentsWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary levelName:(NSString *)aLevelName
-{        
-    levelComponents = [[MZLevelComponents alloc] initWithLevelSettingDictionary: levelSettingDictionary
-                                                                      levelName: aLevelName
-                                                                  gamePlayScene: self];
+{
+    [[MZLevelComponents sharedInstance] setLevelWithName: aLevelName settingDictionary: levelSettingDictionary playScene: self];
 
-    for( NSNumber *typeKey in [layersDictionary allKeys] )
+    // 有東西必須在取得 LevelComponents 之後進行, 如何修正????
+    for( MZGamePlaySceneLayerBase *layer in [layersDictionary allValues] )
     {
-        MZGamePlaySceneLayerBase *layer = [layersDictionary objectForKey: typeKey];
-        layer.levelComponentsRef = levelComponents;        
+        [layer _initAfterGetLevelComponents];
     }
-        
+
     MZGamePlayLayer *playLayer = (MZGamePlayLayer *)[self layerByType: kMZGamePlayLayerType_PlayLayer];
-    [playLayer setControlWithPlayer: levelComponents.player];
+    [playLayer setControlWithPlayer: [MZLevelComponents sharedInstance].player];
 }
 
 -(void)_initScheduleAndDispatcher
@@ -195,7 +192,7 @@
 {
     [[MZTime sharedInstance] updateWithDeltaTime: deltaTime];
         
-    [levelComponents update];
+    [[MZLevelComponents sharedInstance] update];
     for( MZGamePlaySceneLayerBase *layer in [layersDictionary allValues] )
     {
         [layer update];

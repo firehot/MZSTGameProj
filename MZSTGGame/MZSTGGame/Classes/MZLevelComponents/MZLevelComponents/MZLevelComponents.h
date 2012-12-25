@@ -20,10 +20,7 @@
 
 +(MZLevelComponents *)sharedInstance;
 
-//-(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictionary
-//                          levelName:(NSString *)aLevelName
-//                      gamePlayScene:(MZGamePlayScene *)aGamePlayScene;
--(void)setWithLevelName:(NSString *)aLevelName levelSettingDictionary:(NSDictionary *)aLevelSettingDictionary playScene:(MZGamePlayScene *)aPlayScene;
+-(void)setLevelWithName:(NSString *)aName settingDictionary:(NSDictionary *)aSettingDictionary playScene:(MZGamePlayScene *)aPlayScene;
 -(void)removeFromLevel;
 -(void)update;
 

@@ -28,19 +28,15 @@
 
 #pragma mark - init and dealloc
 
--(id)initWithAttackSetting:(MZAttackSetting *)aSetting 
-             controlTarget:(MZGameObject *)aControlTarget
-          levelComponenets:(MZLevelComponents *)aLevelComponenets
+-(id)initWithAttackSetting:(MZAttackSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
 {
     MZAssert( aSetting, @"aSetting is nil" );
     MZAssert( aControlTarget, @"aControlTarget is nil" );
-    MZAssert( aLevelComponenets, @"aLevelComponenets is nil" );
 
     if( ( self = [super init] ) )
     {
         settingRef = aSetting;
         controlTargetRef = aControlTarget;
-        levelComponentsRef = aLevelComponenets;
         
         currentAdditionalDegree = 0;
         movingVectorToTarget = CGPointZero;
@@ -53,7 +49,6 @@
 {
     settingRef = nil;
     controlTargetRef = nil;
-    levelComponentsRef = nil;
     
     [super dealloc];
 }
@@ -79,7 +74,7 @@
     switch( targetType )
     {
         case kMZTargetType_Player:
-            return levelComponentsRef.player.position;
+            return [MZLevelComponents sharedInstance].player.position;
             
 //        case kMZTargetType_ReferenceTarget:
 //            return referenceTarget.position;

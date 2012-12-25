@@ -17,12 +17,8 @@
     MZMotionSetting *setting;
 }
 
-+(MZMotion_Base *)motionWithWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                              controlTarget:(MZGameObject *)aControlTarget
-                              motionSetting:(MZMotionSetting *)aMotionSetting;
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents 
-                controlTarget:(MZGameObject *)aControlTarget 
-                motionSetting:(MZMotionSetting *)aMotionSetting;
++(MZMotion_Base *)motionWithControlTarget:(MZGameObject *)aControlTarget motionSetting:(MZMotionSetting *)aMotionSetting;
+-(id)initWithControlTarget:(MZGameObject *)aControlTarget motionSetting:(MZMotionSetting *)aMotionSetting;
 
 @property (nonatomic, readonly) bool isUsingPreviousMovingVector;
 @property (nonatomic, readonly) CGPoint currentMovingVector;

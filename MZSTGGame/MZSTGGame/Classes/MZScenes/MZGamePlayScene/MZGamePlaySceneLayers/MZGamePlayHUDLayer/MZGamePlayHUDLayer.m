@@ -21,17 +21,6 @@
 
 #pragma mark - properties
 
--(void)setLevelComponentsRef:(MZLevelComponents *)aLevelComponentsRef
-{
-    levelComponentsRef = aLevelComponentsRef;
-    
-    if( [gamePlayHUDComponenetsDictionary objectForKey: [NSNumber numberWithInt: kMZGamePlayHUD_Editor]] != nil )
-    {
-        MZGamePlayHUD_Editor *editor = [gamePlayHUDComponenetsDictionary objectForKey: [NSNumber numberWithInt: kMZGamePlayHUD_Editor]];
-        [editor setEventOccurFlagsAfterGetLevelComponenet];
-    }
-}
-
 -(NSNumber *)layerTypeInNSNumber
 {
     return [NSNumber numberWithInt: kMZGamePlayLayerType_HUDLayer];
@@ -71,6 +60,17 @@
 -(void)_initWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary
 {
     [self _initHUDComponenets];
+}
+
+-(void)_initAfterGetLevelComponents
+{
+    [super _initAfterGetLevelComponents];
+
+    if( [gamePlayHUDComponenetsDictionary objectForKey: [NSNumber numberWithInt: kMZGamePlayHUD_Editor]] != nil )
+    {
+        MZGamePlayHUD_Editor *editor = [gamePlayHUDComponenetsDictionary objectForKey: [NSNumber numberWithInt: kMZGamePlayHUD_Editor]];
+        [editor setEventOccurFlagsAfterGetLevelComponenet];
+    }
 }
 
 @end

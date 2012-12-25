@@ -6,7 +6,6 @@
 @implementation MZGamePlaySceneLayerBase
 
 @synthesize layerTypeInNSNumber;
-@synthesize levelComponentsRef;
 
 #pragma mark - init
 
@@ -33,7 +32,6 @@
 -(void)dealloc
 {
     parentSceneRef = nil;
-    levelComponentsRef = nil;
     
     [super dealloc];
 }
@@ -44,12 +42,6 @@
 {
     MZAssert( false, @"override me" );
     return nil;
-}
-
--(void)setLevelComponentsRef:(MZLevelComponents *)aLevelComponents
-{
-    levelComponentsRef = aLevelComponents;
-    [self _initAfterGetLevelComponents];
 }
 
 #pragma mark - methods

@@ -9,11 +9,7 @@
     MZGamePlayBackgroundLayer *parentLayerRef;
 }
 
-+(MZBgFeatureControl_Base *)controlWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-                                      settingDictionary:(NSDictionary *)aSettingDictionary
-                                            parentLayer:(MZGamePlayBackgroundLayer *)aParentLayer;
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents
-            settingDictionary:(NSDictionary *)aSettingDictionary
-                  parentLayer:(MZGamePlayBackgroundLayer *)aParentLayer;
++(MZBgFeatureControl_Base *)controlWithSettingDictionary:(NSDictionary *)aSettingDictionary parentLayer:(MZGamePlayBackgroundLayer *)aParentLayer;
+-(id)initWithWithSettingDictionary:(NSDictionary *)aSettingDictionary parentLayer:(MZGamePlayBackgroundLayer *)aParentLayer;
 
 @end

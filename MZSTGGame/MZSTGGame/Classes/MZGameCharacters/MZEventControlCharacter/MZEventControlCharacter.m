@@ -8,9 +8,9 @@
 
 #pragma mark - init and dealloc
 
-+(MZEventControlCharacter *)characterWithLevelComponenets:(MZLevelComponents *)aLevelComponents
++(MZEventControlCharacter *)character
 {
-    return [[[self alloc] initWithLevelComponenets: aLevelComponents] autorelease];
+    return [[[self alloc] init] autorelease];
 }
 
 -(void)dealloc

@@ -79,7 +79,7 @@
 
     int index = arc4random() % [objectNamesArray count];
 
-    MZGameObject *object = [MZGameObject gameObjectWithLevelComponenets: levelComponentsRef];
+    MZGameObject *object = [MZGameObject gameObject];
     [object setSpriteFromPool: spritesPool characterType: kMZCharacterType_Background];
     float posX = (float)( 150 + ( arc4random() % 200 ) );
     float posY = (float)( [objectsArray count]*100 );

@@ -4,16 +4,12 @@
 #import "MZTypeDefine.h"
 
 @class MZGamePlaySceneLayerBase;
-@class MZLevelComponents;
 
 @interface MZGamePlayScene : CCScene
 {
-    float defaultEyeZ;
-    
-    NSMutableDictionary *layersDictionary;
-    MZLevelComponents *levelComponents;
-
     bool isPause;
+    float defaultEyeZ;
+    NSMutableDictionary *layersDictionary;
 }
 
 -(MZGamePlaySceneLayerBase *)layerByType:(MZGamePlayLayerType)layerType;

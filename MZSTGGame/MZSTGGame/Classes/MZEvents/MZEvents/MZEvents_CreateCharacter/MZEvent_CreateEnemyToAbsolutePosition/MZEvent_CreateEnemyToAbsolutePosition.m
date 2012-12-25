@@ -43,8 +43,7 @@
     MZAssert( [dictionary objectForKey: @"AbsolutePosition"], @"AbsolutePosition is nil" );
     
     absolutePosition = CGPointFromString( [dictionary objectForKey: @"AbsolutePosition"] );
-    createEnemy = [[MZEvent_CreateEnemy alloc] initWithLevelComponents: levelComponentsRef
-                                                          nsDictionary: dictionary];
+    createEnemy = [[MZEvent_CreateEnemy alloc] initWithDictionary: dictionary];
 }
 
 @end

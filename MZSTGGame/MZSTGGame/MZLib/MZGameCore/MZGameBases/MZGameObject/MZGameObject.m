@@ -42,14 +42,14 @@
 @synthesize collisionColor;
 @synthesize collision;
 
-+(MZGameObject *)gameObjectWithLevelComponenets:(MZLevelComponents *)aLevelComponents
++(MZGameObject *)gameObject
 {
-    return [[[self alloc] initWithLevelComponenets: aLevelComponents] autorelease];
+    return [[[self alloc] init] autorelease];
 }
 
--(id)initWithLevelComponenets:(MZLevelComponents *)aLevelComponents
+-(id)init
 {
-    self = [super initWithLevelComponenets: aLevelComponents];
+    self = [super init];
     return self;
 }
 

@@ -17,7 +17,7 @@
     MZCharacterSetting *setting;
 }
 
-+(MZCharacter *)characterWithLevelComponenets:(MZLevelComponents *)aLevelComponents;
++(MZCharacter *)character;
 -(void)setSetting:(MZCharacterSetting *)aSetting characterType:(MZCharacterType)aCharacterType;
 -(void)applyDynamicSetting;
 -(void)setSpawnWithParentCharacter:(MZCharacter *)aParentCharacter spawnPosition:(CGPoint)aSpawnPosition;

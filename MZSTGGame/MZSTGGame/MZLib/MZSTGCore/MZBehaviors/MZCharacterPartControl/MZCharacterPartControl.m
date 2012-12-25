@@ -31,15 +31,12 @@
 #pragma mark - override
 
 +(MZCharacterPartControl *)characterControlPartWithSetting:(MZCharacterPartControlSetting *)aSetting
-                                          levelComponenets:(MZLevelComponents *)aLevelComponents
                                              characterPart:(MZCharacterPart *)aCharacterPart
 {
-    return [[[self alloc] initWithSetting: aSetting levelComponenets: aLevelComponents characterPart: aCharacterPart] autorelease];
+    return [[[self alloc] initWithSetting: aSetting characterPart: aCharacterPart] autorelease];
 }
 
--(id)initWithSetting:(MZCharacterPartControlSetting *)aSetting
-    levelComponenets:(MZLevelComponents *)aLevelComponents
-       characterPart:(MZCharacterPart *)aCharacterPart
+-(id)initWithSetting:(MZCharacterPartControlSetting *)aSetting characterPart:(MZCharacterPart *)aCharacterPart
 {
     MZAssert( aSetting, @"aSetting is nil" );
     MZAssert( aCharacterPart, @"aCharacterPart is nil" );
@@ -47,7 +44,7 @@
     setting = [aSetting retain];
     characterPartRef = aCharacterPart;
     
-    self = [super initWithLevelComponenets: aLevelComponents controlTarget: aCharacterPart];
+    self = [super initWithTarget: aCharacterPart];
     
     disableAttack = false;
     
@@ -103,8 +100,8 @@
 
 -(CGPoint)targetPosition
 {
-    // 暫時的方法 ... 
-    return levelComponentsRef.player.position;
+    // 暫時的方法 ...
+    return [MZLevelComponents sharedInstance].player.position;
 }
 
 @end
@@ -170,7 +167,6 @@
 -(void)_initFaceToControl
 {
     faceToControl = [[MZFaceToControl alloc] initWithControlTarget: self
-                                                   levelComponents: levelComponentsRef
                                                             faceTo: setting.faceTo
                                                  previousDirection: mzp( 0, -1 )];
 }

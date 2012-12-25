@@ -13,12 +13,10 @@
     NSMutableDictionary *playerControlCharactersSettingDictionary;
     NSMutableDictionary *enemiesSettingDictionary;
     NSMutableDictionary *bulletsSettingDictionary;
-    MZLevelComponents *levelComponentsRef;
 }
 
 +(MZCharactersFactory *)sharedCharactersFactory;
--(void)setOnLevelWithComponemts:(MZLevelComponents *)aLevelComponents;
--(void)removeFromLevel;
+-(void)removeFromLevel; // can not remove now ... 
 -(void)addSettingWithCharacterType:(MZCharacterType)characterType settingDictionary:(NSDictionary *)settingDictionary;
 -(void)addSettingWithCharacterType:(MZCharacterType)characterType fromPlistFile:(NSString *)plistFileName;
 -(MZCharacter *)getCharacterByType:(MZCharacterType)characterType settingName:(NSString *)settingName;
