@@ -46,6 +46,27 @@
 
 #pragma mark - methods
 
+-(int)addSpritesPool:(MZCCSpritesPool *)spritesPool key:(int)key
+{
+    if( spritesPoolByActorTypeDictionary == nil )
+        spritesPoolByActorTypeDictionary = [[NSMutableDictionary alloc] initWithCapacity: 0];
+    
+    [spritesPoolByActorTypeDictionary setObject: spritesPool forKey: [NSNumber numberWithInt: key]];
+    
+    return [[spritesPoolByActorTypeDictionary allValues] count];
+}
+
+-(MZCCSpritesPool *)getSpritesPoolByKey:(int)key
+{
+    if( spritesPoolByActorTypeDictionary == nil )
+        return nil;
+    
+    NSNumber *nsKey = [NSNumber numberWithInt: key];
+    MZAssert( [spritesPoolByActorTypeDictionary objectForKey: nsKey], @"Key=%d, not exist", key );
+    
+    return spritesPoolByActorTypeDictionary[[NSNumber numberWithInt: key]];
+}
+
 -(void)pause
 {
 
@@ -63,7 +84,7 @@
 
 -(void)beforeRelease
 {
-
+    [spritesPoolByActorTypeDictionary release]; // is safe??? maybe character not remove LOL
 }
 
 @end

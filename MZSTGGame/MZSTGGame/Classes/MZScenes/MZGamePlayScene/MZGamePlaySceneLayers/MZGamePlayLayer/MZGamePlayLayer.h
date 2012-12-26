@@ -20,9 +20,7 @@ typedef enum
 @class MZCCSpritesPool;
 
 @interface MZGamePlayLayer : MZGamePlaySceneLayerBase
-{
-    NSDictionary *spritesPoolByActorTypeDictionary;
-    
+{    
     MZTouchesControlPlayer *touchesControlPlayer;
     CCDrawNode *referenceLines;
     
@@ -31,8 +29,6 @@ typedef enum
 }
 
 -(void)setControlWithPlayer:(MZPlayerControlCharacter *)player;
-
-@property (nonatomic, readonly) NSDictionary *spritesPoolByActorTypeDictionary;
 
 @end
 

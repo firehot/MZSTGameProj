@@ -28,8 +28,6 @@
 
 @implementation MZGamePlayLayer
 
-@synthesize spritesPoolByActorTypeDictionary;
-
 #pragma mark - init and dealloc
 
 #pragma mark - CCStandardTouchDelegate
@@ -80,10 +78,11 @@
 
 -(void)beforeRelease
 {
-    [spritesPoolByActorTypeDictionary release]; // safe??? character not remove????
     [self removeChild: referenceLines cleanup: false]; [referenceLines release];
     [touchesControlPlayer release];
     [self _removeScheduleAndRemoveDispatcher];
+    
+    [super beforeRelease];
 }
 
 #pragma mark - methods
@@ -176,20 +175,20 @@
     [self __test_init_spritesPool];
     
     [self __randomAssignGameObjectWithFrameName: @"Playermale_Normal0001.png"
-                                    spritesPool: spritesPoolByActorTypeDictionary[[NSNumber numberWithInt: kMZGamePlayLayerActorType_Player]]
+                                    spritesPool: [self getSpritesPoolByKey: kMZGamePlayLayerActorType_Player]
                                          number: 100];
     
 
     [self __randomAssignGameObjectWithFrameName: @"bullet_01_normal0001.png"
-                                    spritesPool: spritesPoolByActorTypeDictionary[[NSNumber numberWithInt: kMZGamePlayLayerActorType_PlayerBullet]]
+                                    spritesPool: [self getSpritesPoolByKey: kMZGamePlayLayerActorType_PlayerBullet]
                                          number: 100];
     
     [self __randomAssignGameObjectWithFrameName: @"bullet_22_0001.png"
-                                    spritesPool: spritesPoolByActorTypeDictionary[[NSNumber numberWithInt: kMZGamePlayLayerActorType_EnemyBullet]]
+                                    spritesPool: [self getSpritesPoolByKey: kMZGamePlayLayerActorType_EnemyBullet]
                                          number: 20];
     
     [self __randomAssignGameObjectWithFrameName: @"Ika_normal0001.png"
-                                    spritesPool: spritesPoolByActorTypeDictionary[[NSNumber numberWithInt: kMZGamePlayLayerActorType_Enemy]]
+                                    spritesPool: [self getSpritesPoolByKey: kMZGamePlayLayerActorType_Enemy]
                                          number: 50];
 }
 
@@ -197,23 +196,17 @@
 {
     ccBlendFunc blend = (ccBlendFunc){ [MZGLHelper defaultBlendFuncSrc], [MZGLHelper defaultBlendFuncDest] };
     
-    spritesPoolByActorTypeDictionary = @{
+    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]enemies_atlas.png" layer: self number: 100 blendFunc: blend]
+                     key: kMZGamePlayLayerActorType_Enemy];
     
-    [NSNumber numberWithInt: kMZGamePlayLayerActorType_Enemy] :
-    [MZCCSpritesPool poolWithTextureName: @"[test]enemies_atlas.png" layer: self number: 100 blendFunc: blend],
-    
-    [NSNumber numberWithInt: kMZGamePlayLayerActorType_Player] :
-    [MZCCSpritesPool poolWithTextureName: @"player_male.pvr.ccz" layer: self number: 100 blendFunc: blend],
-    
-    [NSNumber numberWithInt: kMZGamePlayLayerActorType_PlayerBullet] :
-    [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend],
-    
-    [NSNumber numberWithInt: kMZGamePlayLayerActorType_EnemyBullet] :
-    [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend],
-    
-    };
-    
-    [spritesPoolByActorTypeDictionary retain];
+    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"player_male.pvr.ccz" layer: self number: 100 blendFunc: blend]
+                     key: kMZGamePlayLayerActorType_Player];
+
+    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend]
+                     key: kMZGamePlayLayerActorType_PlayerBullet];
+
+    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend]
+                     key: kMZGamePlayLayerActorType_EnemyBullet];
 }
 
 -(void)__randomAssignGameObjectWithFrameName:(NSString *)frameName spritesPool:(MZCCSpritesPool *)spritesPool number:(int)number
