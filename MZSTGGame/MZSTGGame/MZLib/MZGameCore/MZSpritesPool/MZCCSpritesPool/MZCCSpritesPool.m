@@ -1,16 +1,16 @@
-#import "MZSpritesPool.h"
+#import "MZCCSpritesPool.h"
 #import "MZGameCoreHeader.h"
 #import "MZUtilitiesHeader.h"
 #import "cocos2d.h"
 
-@interface MZSpritesPool (Private)
+@interface MZCCSpritesPool (Private)
 -(bool)_isSpriteActive:(CCSprite *)sprite;
 -(void)_setSpriteInactive:(CCSprite *)sprite;
 @end
 
 #pragma mark
 
-@implementation MZSpritesPool
+@implementation MZCCSpritesPool
 
 #pragma mark - init and dealloc
 
@@ -97,7 +97,7 @@
 
 #pragma mark
 
-@implementation MZSpritesPool (Private)
+@implementation MZCCSpritesPool (Private)
 
 -(bool)_isSpriteActive:(CCSprite *)sprite
 {

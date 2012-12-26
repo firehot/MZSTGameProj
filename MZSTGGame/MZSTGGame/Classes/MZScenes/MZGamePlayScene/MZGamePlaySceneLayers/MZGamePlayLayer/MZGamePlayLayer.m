@@ -12,7 +12,10 @@
 #import "MZAnimationHeader.h"
 
 // test
+#import "MZCCSpritesPool.h"
 #import "MZGameObject.h"
+#import "MZGLHelper.h"
+#import "MZMath.h"
 
 @interface MZGamePlayLayer (Private)
 -(void)_initReferenceLines;
@@ -165,12 +168,22 @@
 
 @implementation MZGamePlayLayer (Test)
 
+MZCCSpritesPool *spritesPool;
+
 -(void)__test_init
 {
-    MZGameObject *go = [[MZGameObject alloc] init];
-    [go setSprite: [CCSprite node] parentLayer: self depth: 100];
-    [go setFrameWithFrameName: @"Playermale_Normal0001.png"];
-    go.position = mzp( 160, 240 );
+    ccBlendFunc blend = (ccBlendFunc){ [MZGLHelper defaultBlendFuncSrc], [MZGLHelper defaultBlendFuncDest] };
+    spritesPool = [[MZCCSpritesPool alloc] initWithTextureName: @"[test]enemies_atlas.png" layer: self number: 100 blendFunc: blend];
+    
+    for( int i = 0; i < 50; i++ )
+    {
+        MZGameObject *go = [[MZGameObject alloc] init];
+        [go setSpritesFromPool: spritesPool];
+        
+        [go setFrameWithFrameName: @"Bow_normal0001.png"];
+        go.position = mzp( [MZMath randomIntInRangeMin: 0 max: 320], [MZMath randomIntInRangeMin: 0 max: 480] );
+        go.rotation = [MZMath randomIntInRangeMin: 0 max: 360];
+    }
 }
 
 @end

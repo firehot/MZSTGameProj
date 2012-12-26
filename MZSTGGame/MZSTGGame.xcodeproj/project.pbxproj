@@ -34,7 +34,6 @@
 		D3712510162FE57B0095CFFA /* CooperStd.png in Resources */ = {isa = PBXBuildFile; fileRef = D371250A162FE57B0095CFFA /* CooperStd.png */; };
 		D3712511162FE57B0095CFFA /* MZArial-64.fnt in Resources */ = {isa = PBXBuildFile; fileRef = D371250B162FE57B0095CFFA /* MZArial-64.fnt */; };
 		D3712512162FE57B0095CFFA /* MZArial-64.png in Resources */ = {isa = PBXBuildFile; fileRef = D371250C162FE57B0095CFFA /* MZArial-64.png */; };
-		D3806F04168AA5A000B94DB0 /* MZSpritesPool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3806F03168AA5A000B94DB0 /* MZSpritesPool.m */; };
 		D381F3A2162BA02900F81E68 /* MZBgEventsControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D381F3A1162BA02900F81E68 /* MZBgEventsControl.m */; };
 		D381F3A9162BB72700F81E68 /* MZBgFeatureControl_Base.m in Sources */ = {isa = PBXBuildFile; fileRef = D381F3A8162BB72700F81E68 /* MZBgFeatureControl_Base.m */; };
 		D381F3AC162BB79400F81E68 /* MZBgFeatureControl_RepeatTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = D381F3AB162BB79400F81E68 /* MZBgFeatureControl_RepeatTexture.m */; };
@@ -190,6 +189,7 @@
 		D3964F8A1670359B00D54340 /* LICENSE_cocos2d.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3964F1C1670359B00D54340 /* LICENSE_cocos2d.txt */; };
 		D3964F8B1670359B00D54340 /* LICENSE_CocosDenshion.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3964F1D1670359B00D54340 /* LICENSE_CocosDenshion.txt */; };
 		D3964F8C1670359B00D54340 /* LICENSE_Kazmath.txt in Resources */ = {isa = PBXBuildFile; fileRef = D3964F1E1670359B00D54340 /* LICENSE_Kazmath.txt */; };
+		D3A3FCC1168ACF03006AC760 /* MZCCSpritesPool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A3FCC0168ACF03006AC760 /* MZCCSpritesPool.m */; };
 		D3ABB701165335E5001A6372 /* MZEffect_Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ABB700165335E5001A6372 /* MZEffect_Animation.m */; };
 		D3AF4DB815F7374B00A1A231 /* MZLoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF4DB715F7374B00A1A231 /* MZLoadingScene.m */; };
 		D3AF4DBC15F7384D00A1A231 /* MZReleaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF4DBB15F7384D00A1A231 /* MZReleaseScene.m */; };
@@ -319,7 +319,6 @@
 		DF30EC27160A1581006966A9 /* MZFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = DF30EC21160A1581006966A9 /* MZFrame.m */; };
 		DF30EC28160A1581006966A9 /* MZFramesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF30EC24160A1581006966A9 /* MZFramesManager.m */; };
 		DF30EC2C160A1753006966A9 /* MZAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = DF30EC2B160A1753006966A9 /* MZAnimation.m */; };
-		DF30EC31160A1D3E006966A9 /* MZCCSpritesPool.m in Sources */ = {isa = PBXBuildFile; fileRef = DF30EC30160A1D3E006966A9 /* MZCCSpritesPool.m */; };
 		DF30EC3A160A1DE7006966A9 /* MZGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DF30EC38160A1DE7006966A9 /* MZGameObject.m */; };
 		DF48CD9D160A8EA000EB1FD3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF48CD9C160A8EA000EB1FD3 /* Default-568h@2x.png */; };
 		DF74324E168882F900865738 /* MZCollision.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74324D168882F900865738 /* MZCollision.m */; };
@@ -384,8 +383,6 @@
 		D371250A162FE57B0095CFFA /* CooperStd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CooperStd.png; sourceTree = "<group>"; };
 		D371250B162FE57B0095CFFA /* MZArial-64.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MZArial-64.fnt"; sourceTree = "<group>"; };
 		D371250C162FE57B0095CFFA /* MZArial-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MZArial-64.png"; sourceTree = "<group>"; };
-		D3806F02168AA5A000B94DB0 /* MZSpritesPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZSpritesPool.h; sourceTree = "<group>"; };
-		D3806F03168AA5A000B94DB0 /* MZSpritesPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZSpritesPool.m; sourceTree = "<group>"; };
 		D381F3A0162BA02900F81E68 /* MZBgEventsControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZBgEventsControl.h; sourceTree = "<group>"; };
 		D381F3A1162BA02900F81E68 /* MZBgEventsControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZBgEventsControl.m; sourceTree = "<group>"; };
 		D381F3A6162BB70C00F81E68 /* MZBgFeatureControlHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZBgFeatureControlHeader.h; sourceTree = "<group>"; };
@@ -725,6 +722,8 @@
 		D3964F1C1670359B00D54340 /* LICENSE_cocos2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_cocos2d.txt; sourceTree = "<group>"; };
 		D3964F1D1670359B00D54340 /* LICENSE_CocosDenshion.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_CocosDenshion.txt; sourceTree = "<group>"; };
 		D3964F1E1670359B00D54340 /* LICENSE_Kazmath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_Kazmath.txt; sourceTree = "<group>"; };
+		D3A3FCBF168ACF03006AC760 /* MZCCSpritesPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCCSpritesPool.h; sourceTree = "<group>"; };
+		D3A3FCC0168ACF03006AC760 /* MZCCSpritesPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCCSpritesPool.m; sourceTree = "<group>"; };
 		D3ABB6FF165335E5001A6372 /* MZEffect_Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEffect_Animation.h; sourceTree = "<group>"; };
 		D3ABB700165335E5001A6372 /* MZEffect_Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEffect_Animation.m; sourceTree = "<group>"; };
 		D3AF4DB315F72F2600A1A231 /* MZSceneTypeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZSceneTypeDefine.h; sourceTree = "<group>"; };
@@ -929,8 +928,6 @@
 		DF30EC2A160A1753006966A9 /* MZAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAnimation.h; sourceTree = "<group>"; };
 		DF30EC2B160A1753006966A9 /* MZAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAnimation.m; sourceTree = "<group>"; };
 		DF30EC2D160A1CD8006966A9 /* MZGameCoreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZGameCoreHeader.h; sourceTree = "<group>"; };
-		DF30EC2F160A1D3E006966A9 /* MZCCSpritesPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCCSpritesPool.h; sourceTree = "<group>"; };
-		DF30EC30160A1D3E006966A9 /* MZCCSpritesPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCCSpritesPool.m; sourceTree = "<group>"; };
 		DF30EC37160A1DE7006966A9 /* MZGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGameObject.h; sourceTree = "<group>"; };
 		DF30EC38160A1DE7006966A9 /* MZGameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZGameObject.m; sourceTree = "<group>"; };
 		DF48CD9C160A8EA000EB1FD3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -1200,16 +1197,7 @@
 		D3806EFF168AA57D00B94DB0 /* MZSpritesPool */ = {
 			isa = PBXGroup;
 			children = (
-				D3806F00168AA57E00B94DB0 /* MZSpritesPool */,
-			);
-			path = MZSpritesPool;
-			sourceTree = "<group>";
-		};
-		D3806F00168AA57E00B94DB0 /* MZSpritesPool */ = {
-			isa = PBXGroup;
-			children = (
-				D3806F02168AA5A000B94DB0 /* MZSpritesPool.h */,
-				D3806F03168AA5A000B94DB0 /* MZSpritesPool.m */,
+				D3A3FCBE168ACF03006AC760 /* MZCCSpritesPool */,
 			);
 			path = MZSpritesPool;
 			sourceTree = "<group>";
@@ -2061,6 +2049,15 @@
 				D3964F111670359B00D54340 /* matrix.c */,
 			);
 			path = GL;
+			sourceTree = "<group>";
+		};
+		D3A3FCBE168ACF03006AC760 /* MZCCSpritesPool */ = {
+			isa = PBXGroup;
+			children = (
+				D3A3FCBF168ACF03006AC760 /* MZCCSpritesPool.h */,
+				D3A3FCC0168ACF03006AC760 /* MZCCSpritesPool.m */,
+			);
+			path = MZCCSpritesPool;
 			sourceTree = "<group>";
 		};
 		D3ABB6FD165335D3001A6372 /* MZEffect_Animation */ = {
@@ -3047,7 +3044,6 @@
 				D3253566161D7EDA0036F7F3 /* MZTime */,
 				DF30EC32160A1DE6006966A9 /* MZGameBases */,
 				DFB45118160FCE5B005530CB /* MZFaceToControl */,
-				DF30EC2E160A1D3E006966A9 /* MZCCSpritesPool */,
 				DF30EC15160A1581006966A9 /* MZAnimationsAndFrames */,
 			);
 			path = MZGameCore;
@@ -3115,15 +3111,6 @@
 				DF30EC2B160A1753006966A9 /* MZAnimation.m */,
 			);
 			path = MZAnimation;
-			sourceTree = "<group>";
-		};
-		DF30EC2E160A1D3E006966A9 /* MZCCSpritesPool */ = {
-			isa = PBXGroup;
-			children = (
-				DF30EC2F160A1D3E006966A9 /* MZCCSpritesPool.h */,
-				DF30EC30160A1D3E006966A9 /* MZCCSpritesPool.m */,
-			);
-			path = MZCCSpritesPool;
 			sourceTree = "<group>";
 		};
 		DF30EC32160A1DE6006966A9 /* MZGameBases */ = {
@@ -3453,7 +3440,6 @@
 				DF30EC27160A1581006966A9 /* MZFrame.m in Sources */,
 				DF30EC28160A1581006966A9 /* MZFramesManager.m in Sources */,
 				DF30EC2C160A1753006966A9 /* MZAnimation.m in Sources */,
-				DF30EC31160A1D3E006966A9 /* MZCCSpritesPool.m in Sources */,
 				DF30EC3A160A1DE7006966A9 /* MZGameObject.m in Sources */,
 				DFB4511B160FCE5B005530CB /* MZFaceToControl.m in Sources */,
 				D3253569161D7EDA0036F7F3 /* MZTime.m in Sources */,
@@ -3617,7 +3603,7 @@
 				D3964F891670359B00D54340 /* vec4.c in Sources */,
 				DF74324E168882F900865738 /* MZCollision.m in Sources */,
 				DF74325C1688A42D00865738 /* MZAttackSetting.m in Sources */,
-				D3806F04168AA5A000B94DB0 /* MZSpritesPool.m in Sources */,
+				D3A3FCC1168ACF03006AC760 /* MZCCSpritesPool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,7 +5,7 @@
 @class CCSpriteBatchNode;
 @class CCSprite;
 
-@interface MZSpritesPool : NSObject
+@interface MZCCSpritesPool : NSObject
 {
     int number;
     ccBlendFunc blendFunc;

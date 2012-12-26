@@ -4,4 +4,3 @@
 #import "MZEventsExecutor.h"
 #import "MZScenario.h"
 #import "MZGameCharactersHeader.h"
-#import "MZCCSpritesPool.h"

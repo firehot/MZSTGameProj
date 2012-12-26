@@ -34,6 +34,12 @@
     return true;
 }
 
++(int)randomIntInRangeMin:(int)min max:(int)max
+{
+    int length = max - min;
+    return min + ( arc4random()%length );
+}
+
 +(float)radiansToDegree:(float)radians
 {
 	return radians * 180 / M_PI;

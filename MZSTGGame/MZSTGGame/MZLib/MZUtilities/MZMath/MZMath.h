@@ -2,9 +2,12 @@
 #import "MZFormula.h"
 
 @interface MZMath : NSObject
+
 +(bool)isPoint0:(CGPoint)p0 innerTriangleWithTopPoint1:(CGPoint)p1 point2:(CGPoint)p2 point3:(CGPoint)p3;
 +(bool)isPoint:(CGPoint)point inCircle:(CGPoint)center radius:(float)radius;
 +(bool)isPointValid:(CGPoint)point;
+
++(int)randomIntInRangeMin:(int)min max:(int)max;
 
 +(float)radiansToDegree:(float)radians;
 +(float)degreesFromRadians:(float)radians;
@@ -27,4 +30,5 @@
 +(CGPoint)unitVectorFromVector1:(CGPoint)v1 mapToDegrees:(float)degrees;
 +(CGPoint)unitVectorFromDegrees:(float)degrees;
 +(CGPoint)unitVectorFromRadians:(float)radians;
+
 @end

@@ -30,7 +30,7 @@
 -(void)setPropertiesWithDictionary:(NSDictionary *)propertiesDictionary;
 
 // sprite
--(void)setSpriteFromPool:(MZCCSpritesPool *)aSpritesPool characterType:(MZCharacterType)type;
+-(void)setSpritesFromPool:(MZCCSpritesPool *)aSpritesPool;
 -(void)setSprite:(CCSprite *)aSprite parentLayer:(CCLayer *)aParentLayer depth:(int)aDepth;
 -(void)releaseSprite;
 

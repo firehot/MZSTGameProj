@@ -10,6 +10,7 @@
 #import "MZTypeDefine.h"
 #import "MZLogMacro.h"
 #import "MZCCUtilitiesHeader.h"
+#import "MZCCSpritesPool.h"
 #import "MZGLHelper.h"
 #import "CCSprite.h"
 
@@ -243,15 +244,15 @@
     [self setBlendFunc: (ccBlendFunc){ blendFuncSrc_, blendFuncDest_ }];
 }
 
--(void)setSpriteFromPool:(MZCCSpritesPool *)aSpritesPool characterType:(MZCharacterType)type
+-(void)setSpritesFromPool:(MZCCSpritesPool *)aSpritesPool
 {
-    MZAssert( spriteRef == nil, @"spriteRef is not nil, please remove it first" );
-    MZAssert( spritesPoolRef == nil, @"spritesPoolRef is not nil, please remove it first" );
-    
     MZAssert( aSpritesPool, @"aSpritesPool is nil" );
     
+    MZAssert( spritesPoolRef == nil, @"spritesPoolRef is not nil, please remove it first" );
+    MZAssert( spriteRef == nil, @"spriteRef is not nil, please remove it first" );
+
     spritesPoolRef = aSpritesPool;
-    spriteRef = [spritesPoolRef getSpriteByType: type];
+    spriteRef = [spritesPoolRef getSprite];
 }
 
 -(void)setSprite:(CCSprite *)aSprite parentLayer:(CCLayer *)aParentLayer depth:(int)aDepth
