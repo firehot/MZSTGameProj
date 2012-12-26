@@ -2266,10 +2266,10 @@
 		D3B48E0514D93D73004FC4D7 /* MZEvents */ = {
 			isa = PBXGroup;
 			children = (
+				D3B48E1B14D93D73004FC4D7 /* MZEventsHeader.h */,
 				DF9F51E7150DDE8F00698E26 /* MZEventsFactory */,
 				D3B48E0614D93D73004FC4D7 /* MZEvents */,
 				D3B48E1814D93D73004FC4D7 /* MZEventsExecutor */,
-				D3B48E1B14D93D73004FC4D7 /* MZEventsHeader.h */,
 			);
 			path = MZEvents;
 			sourceTree = "<group>";
@@ -2360,12 +2360,12 @@
 		D3B48E2314D93D73004FC4D7 /* MZGameCharacters */ = {
 			isa = PBXGroup;
 			children = (
+				D3B48E3314D93D73004FC4D7 /* MZGameCharactersHeader.h */,
 				D3B48E2414D93D73004FC4D7 /* MZCharactersFactory */,
 				D3B48E2714D93D73004FC4D7 /* MZCharacterTypeString */,
 				D3B48E2A14D93D73004FC4D7 /* MZEnemy */,
 				D3B48E2D14D93D73004FC4D7 /* MZEnemyBullet */,
 				D3B48E3014D93D73004FC4D7 /* MZEventControlCharacter */,
-				D3B48E3314D93D73004FC4D7 /* MZGameCharactersHeader.h */,
 				D3B48E3414D93D73004FC4D7 /* MZPlayerBullet */,
 				D3B48E3714D93D73004FC4D7 /* MZPlayerControlCharacter */,
 			);

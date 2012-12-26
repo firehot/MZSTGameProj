@@ -90,7 +90,7 @@ static MZFramesManager *sharedInstance_ = nil;
 -(CCTexture2D *)textureByName:(NSString *)textureName
 {
     CCTexture2D *texture = [[CCTextureCache sharedTextureCache] textureForKey: textureName];
-    MZAssert( texture, @"texture(%@) is nil", textureName );
+    MZAssert( texture, @"texture(%@) not found", textureName );
     
     return texture;
 }

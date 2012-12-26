@@ -16,6 +16,7 @@
     CCLayer *layerRef;
 }
 
++(MZCCSpritesPool *)poolWithTextureName:(NSString *)aTextureName layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc;
 -(id)initWithTextureName:(NSString *)aTextureName layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc;
 
 -(CCSprite *)getSprite;

@@ -14,6 +14,11 @@
 
 #pragma mark - init and dealloc
 
++(MZCCSpritesPool *)poolWithTextureName:(NSString *)aTextureName layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc
+{
+    return [[[self alloc] initWithTextureName: aTextureName layer: aLayer number: aNumber blendFunc: aBlendFunc] autorelease];
+}
+
 -(id)initWithTextureName:(NSString *)aTextureName layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc
 {
     MZAssert( aTextureName, @"aTextureName is nil" );
@@ -81,7 +86,7 @@
         }
     }
     
-    MZAssert( false, @"can not found invaild sprite" );
+    MZAssert( false, @"can not found invaild sprite, max=%d", number );
     return nil;
 }
 

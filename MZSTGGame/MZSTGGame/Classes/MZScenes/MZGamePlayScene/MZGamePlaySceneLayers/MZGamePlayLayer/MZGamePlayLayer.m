@@ -28,6 +28,8 @@
 
 @implementation MZGamePlayLayer
 
+@synthesize spritesPoolByActorTypeDictionary;
+
 #pragma mark - init and dealloc
 
 #pragma mark - CCStandardTouchDelegate
@@ -78,6 +80,7 @@
 
 -(void)beforeRelease
 {
+    [spritesPoolByActorTypeDictionary release]; // safe??? character not remove????
     [self removeChild: referenceLines cleanup: false]; [referenceLines release];
     [touchesControlPlayer release];
     [self _removeScheduleAndRemoveDispatcher];
@@ -168,19 +171,59 @@
 
 @implementation MZGamePlayLayer (Test)
 
-MZCCSpritesPool *spritesPool;
-
 -(void)__test_init
 {
-    ccBlendFunc blend = (ccBlendFunc){ [MZGLHelper defaultBlendFuncSrc], [MZGLHelper defaultBlendFuncDest] };
-    spritesPool = [[MZCCSpritesPool alloc] initWithTextureName: @"[test]enemies_atlas.png" layer: self number: 100 blendFunc: blend];
+    [self __test_init_spritesPool];
     
-    for( int i = 0; i < 50; i++ )
+    [self __randomAssignGameObjectWithFrameName: @"Playermale_Normal0001.png"
+                                    spritesPool: spritesPoolByActorTypeDictionary[[NSNumber numberWithInt: kMZGamePlayLayerActorType_Player]]
+                                         number: 100];
+    
+
+    [self __randomAssignGameObjectWithFrameName: @"bullet_01_normal0001.png"
+                                    spritesPool: spritesPoolByActorTypeDictionary[[NSNumber numberWithInt: kMZGamePlayLayerActorType_PlayerBullet]]
+                                         number: 100];
+    
+    [self __randomAssignGameObjectWithFrameName: @"bullet_22_0001.png"
+                                    spritesPool: spritesPoolByActorTypeDictionary[[NSNumber numberWithInt: kMZGamePlayLayerActorType_EnemyBullet]]
+                                         number: 20];
+    
+    [self __randomAssignGameObjectWithFrameName: @"Ika_normal0001.png"
+                                    spritesPool: spritesPoolByActorTypeDictionary[[NSNumber numberWithInt: kMZGamePlayLayerActorType_Enemy]]
+                                         number: 50];
+}
+
+-(void)__test_init_spritesPool
+{
+    ccBlendFunc blend = (ccBlendFunc){ [MZGLHelper defaultBlendFuncSrc], [MZGLHelper defaultBlendFuncDest] };
+    
+    spritesPoolByActorTypeDictionary = @{
+    
+    [NSNumber numberWithInt: kMZGamePlayLayerActorType_Enemy] :
+    [MZCCSpritesPool poolWithTextureName: @"[test]enemies_atlas.png" layer: self number: 100 blendFunc: blend],
+    
+    [NSNumber numberWithInt: kMZGamePlayLayerActorType_Player] :
+    [MZCCSpritesPool poolWithTextureName: @"player_male.pvr.ccz" layer: self number: 100 blendFunc: blend],
+    
+    [NSNumber numberWithInt: kMZGamePlayLayerActorType_PlayerBullet] :
+    [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend],
+    
+    [NSNumber numberWithInt: kMZGamePlayLayerActorType_EnemyBullet] :
+    [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend],
+    
+    };
+    
+    [spritesPoolByActorTypeDictionary retain];
+}
+
+-(void)__randomAssignGameObjectWithFrameName:(NSString *)frameName spritesPool:(MZCCSpritesPool *)spritesPool number:(int)number
+{
+    for( int i = 0; i < number; i++ )
     {
         MZGameObject *go = [[MZGameObject alloc] init];
         [go setSpritesFromPool: spritesPool];
         
-        [go setFrameWithFrameName: @"Bow_normal0001.png"];
+        [go setFrameWithFrameName: frameName];
         go.position = mzp( [MZMath randomIntInRangeMin: 0 max: 320], [MZMath randomIntInRangeMin: 0 max: 480] );
         go.rotation = [MZMath randomIntInRangeMin: 0 max: 360];
     }

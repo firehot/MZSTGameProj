@@ -7,8 +7,8 @@
     MZGamePlayScene *parentSceneRef;
 }
 
-+(MZGamePlaySceneLayerBase *)layerWithLevelSettingDictionary:(NSDictionary *)aLevelSettingNSDictioanry parentScene:(MZGamePlayScene *)aParentScene;
--(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingNSDictioanry parentScene:(MZGamePlayScene *)aParentScene;
++(MZGamePlaySceneLayerBase *)layerWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictioanry parentScene:(MZGamePlayScene *)aParentScene;
+-(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictioanry parentScene:(MZGamePlayScene *)aParentScene;
 
 -(void)pause;
 -(void)resume;

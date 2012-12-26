@@ -9,14 +9,14 @@
 
 #pragma mark - init
 
-+(MZGamePlaySceneLayerBase *)layerWithLevelSettingDictionary:(NSDictionary *)aLevelSettingNSDictioanry parentScene:(MZGamePlayScene *)aParentScene
++(MZGamePlaySceneLayerBase *)layerWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictioanry parentScene:(MZGamePlayScene *)aParentScene
 {
-    return [[[self alloc] initWithLevelSettingDictionary: aLevelSettingNSDictioanry parentScene: aParentScene] autorelease];
+    return [[[self alloc] initWithLevelSettingDictionary: aLevelSettingDictioanry parentScene: aParentScene] autorelease];
 }
 
--(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingNSDictioanry parentScene:(MZGamePlayScene *)aParentScene
+-(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictioanry parentScene:(MZGamePlayScene *)aParentScene
 {
-    MZAssert( aLevelSettingNSDictioanry, @"aLevelSettingNSDictioanry is nil" );
+    MZAssert( aLevelSettingDictioanry, @"aLevelSettingNSDictioanry is nil" );
     MZAssert( aParentScene, @"aParentScene is nil" );
     
     self = [super init];
@@ -24,7 +24,7 @@
     parentSceneRef = aParentScene;
 
     [self _initValues];
-    [self _initWithLevelSettingDictionary: aLevelSettingNSDictioanry];
+    [self _initWithLevelSettingDictionary: aLevelSettingDictioanry];
     
     return self;
 }
