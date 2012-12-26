@@ -14,6 +14,7 @@
 @interface MZGameObject : MZBehavior_Base <MZCollisionProtocol>
 {
 @private
+    int depth;
     ccBlendFunc tempBlendFunc;
     CGPoint position;
     
@@ -30,7 +31,7 @@
 
 // sprite
 -(void)setSpriteFromPool:(MZCCSpritesPool *)aSpritesPool characterType:(MZCharacterType)type;
--(void)setSprite:(CCSprite *)aSprite parentLayer:(CCLayer *)aParentLayer;
+-(void)setSprite:(CCSprite *)aSprite parentLayer:(CCLayer *)aParentLayer depth:(int)aDepth;
 -(void)releaseSprite;
 
 //

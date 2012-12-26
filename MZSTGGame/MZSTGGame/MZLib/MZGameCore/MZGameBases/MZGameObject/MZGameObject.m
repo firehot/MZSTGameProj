@@ -19,8 +19,6 @@
 
 @implementation MZGameObject
 
-#pragma mark - init and dealloc
-
 @synthesize visible;
 @synthesize flipX;
 @synthesize flipY;
@@ -42,6 +40,8 @@
 @synthesize collisionColor;
 @synthesize collision;
 
+#pragma mark - init and dealloc
+
 +(MZGameObject *)gameObject
 {
     return [[[self alloc] init] autorelease];
@@ -50,6 +50,7 @@
 -(id)init
 {
     self = [super init];
+    depth = -1;
     return self;
 }
 
@@ -79,7 +80,6 @@
 
 -(GLubyte)opacity
 {
-//    return spriteRef.opacity;
     return opacity;
 }
 
@@ -254,7 +254,7 @@
     spriteRef = [spritesPoolRef getSpriteByType: type];
 }
 
--(void)setSprite:(CCSprite *)aSprite parentLayer:(CCLayer *)aParentLayer
+-(void)setSprite:(CCSprite *)aSprite parentLayer:(CCLayer *)aParentLayer depth:(int)aDepth
 {
     MZAssert( spriteRef == nil, @"spriteRef is not nil, please remove it first" );
     MZAssert( spriteParentLayerRef == nil, @"spriteParentLayerRef is not nil, please remove it first" );
@@ -264,10 +264,14 @@
     
     spriteParentLayerRef = aParentLayer;
     spriteRef = aSprite;
+    depth = aDepth;
     
     if( [[spriteParentLayerRef children] containsObject: spriteRef] == false )
     {
-        [spriteParentLayerRef addChild: spriteRef];
+        if( depth <= 0 )
+            [spriteParentLayerRef addChild: spriteRef];
+        else
+            [spriteParentLayerRef addChild: spriteRef z: depth];
     }
 }
 
@@ -288,6 +292,7 @@
         {
             [spriteParentLayerRef removeChild: spriteRef cleanup: false];
             spriteParentLayerRef = nil;
+            depth = -1;
         }
         
         spriteRef = nil;

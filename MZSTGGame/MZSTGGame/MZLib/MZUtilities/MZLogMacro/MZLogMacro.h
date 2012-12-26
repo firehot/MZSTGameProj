@@ -14,3 +14,10 @@
 #else
 #define MZAssert(condition, desc, ...)
 #endif
+
+
+#ifdef DEBUG
+#define MZAssertSingleton( singletonClass ) MZAssert( singletonClass == nil, @"I am singleton pattern!!!!, you suck to init me twice" )
+#else
+#define MZAssertSingleton( singletonClass )
+#endif

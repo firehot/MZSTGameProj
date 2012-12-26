@@ -15,8 +15,8 @@
     NSMutableDictionary *bulletsSettingDictionary;
 }
 
-+(MZCharactersFactory *)sharedCharactersFactory;
--(void)removeFromLevel; // can not remove now ... 
++(MZCharactersFactory *)sharedInstace;
+-(void)removeFromLevel; // can not remove now ...
 -(void)addSettingWithCharacterType:(MZCharacterType)characterType settingDictionary:(NSDictionary *)settingDictionary;
 -(void)addSettingWithCharacterType:(MZCharacterType)characterType fromPlistFile:(NSString *)plistFileName;
 -(MZCharacter *)getCharacterByType:(MZCharacterType)characterType settingName:(NSString *)settingName;

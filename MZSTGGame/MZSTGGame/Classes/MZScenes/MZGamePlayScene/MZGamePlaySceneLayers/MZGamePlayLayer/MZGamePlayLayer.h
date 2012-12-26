@@ -21,3 +21,8 @@
 -(void)setControlWithPlayer:(MZPlayerControlCharacter *)player;
 
 @end
+
+
+@interface MZGamePlayLayer (Test)
+-(void)__test_init;
+@end

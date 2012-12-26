@@ -34,10 +34,10 @@
 
     [MZLevelResourcesLoader levelResourcesLoaderWithLevelSettingNSDicitonary: levelSettingDictioanry];
 
-//    [self _initLayersWithLevelSettingDictionary: levelSettingDictioanry];
+    [self _initLayersWithLevelSettingDictionary: levelSettingDictioanry];
 //    [self _initLevelComponentsWithLevelSettingDictionary: levelSettingDictioanry levelName: @"new_ver_test"];
 //    [self _initScheduleAndDispatcher];
-
+    
     defaultEyeZ = -1;
 
     [[MZTime sharedInstance] reset];
@@ -146,18 +146,18 @@
 
 -(void)_initLayersWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary
 {
-    MZGamePlaySceneLayerBase *background = [MZGamePlayBackgroundLayer layerWithLevelSettingDictionary: levelSettingDictionary parentScene: self];
+//    MZGamePlaySceneLayerBase *background = [MZGamePlayBackgroundLayer layerWithLevelSettingDictionary: levelSettingDictionary parentScene: self];
     MZGamePlaySceneLayerBase *play = [MZGamePlayLayer layerWithLevelSettingDictionary: levelSettingDictionary parentScene: self];
-    MZGamePlaySceneLayerBase *hud = [MZGamePlayHUDLayer layerWithLevelSettingDictionary: levelSettingDictionary parentScene: self];
+//    MZGamePlaySceneLayerBase *hud = [MZGamePlayHUDLayer layerWithLevelSettingDictionary: levelSettingDictionary parentScene: self];
     
     layersDictionary = [[NSMutableDictionary alloc] initWithCapacity: 0];
-    [layersDictionary setObject: background forKey: background.layerTypeInNSNumber];
+//    [layersDictionary setObject: background forKey: background.layerTypeInNSNumber];
     [layersDictionary setObject: play forKey: play.layerTypeInNSNumber];
-    [layersDictionary setObject: hud forKey: hud.layerTypeInNSNumber];
+//    [layersDictionary setObject: hud forKey: hud.layerTypeInNSNumber];
     
-    [self addChild: background];
+//    [self addChild: background];
     [self addChild: play];
-    [self addChild: hud];
+//    [self addChild: hud];
 }
 
 -(void)_initLevelComponentsWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary levelName:(NSString *)aLevelName

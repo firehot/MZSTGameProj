@@ -218,7 +218,6 @@
 -(void)_setCharacterPartsByDictionary:(NSDictionary *)settingDictionary
 {
     if( settingDictionary == nil ) return;
-    if( [settingDictionary isKindOfClass: [NSDictionary class]] == false ) return;
     
     for( NSString *partName in [settingDictionary allKeys] )
     {

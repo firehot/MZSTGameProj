@@ -11,6 +11,9 @@
 
 #import "MZAnimationHeader.h"
 
+// test
+#import "MZGameObject.h"
+
 @interface MZGamePlayLayer (Private)
 -(void)_initReferenceLines;
 
@@ -98,6 +101,8 @@
     [super _initValues];
     [self _initReferenceLines];
     [self _addScheduleAndDispatcher];
+    
+    [self __test_init];
 }
 
 -(void)_initWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary
@@ -152,6 +157,20 @@
 -(void)_removeScheduleAndRemoveDispatcher
 {
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate: self];
+}
+
+@end
+
+#pragma mark
+
+@implementation MZGamePlayLayer (Test)
+
+-(void)__test_init
+{
+    MZGameObject *go = [[MZGameObject alloc] init];
+    [go setSprite: [CCSprite node] parentLayer: self depth: 100];
+    [go setFrameWithFrameName: @"Playermale_Normal0001.png"];
+    go.position = mzp( 160, 240 );
 }
 
 @end

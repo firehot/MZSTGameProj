@@ -34,6 +34,7 @@
 		D3712510162FE57B0095CFFA /* CooperStd.png in Resources */ = {isa = PBXBuildFile; fileRef = D371250A162FE57B0095CFFA /* CooperStd.png */; };
 		D3712511162FE57B0095CFFA /* MZArial-64.fnt in Resources */ = {isa = PBXBuildFile; fileRef = D371250B162FE57B0095CFFA /* MZArial-64.fnt */; };
 		D3712512162FE57B0095CFFA /* MZArial-64.png in Resources */ = {isa = PBXBuildFile; fileRef = D371250C162FE57B0095CFFA /* MZArial-64.png */; };
+		D3806F04168AA5A000B94DB0 /* MZSpritesPool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3806F03168AA5A000B94DB0 /* MZSpritesPool.m */; };
 		D381F3A2162BA02900F81E68 /* MZBgEventsControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D381F3A1162BA02900F81E68 /* MZBgEventsControl.m */; };
 		D381F3A9162BB72700F81E68 /* MZBgFeatureControl_Base.m in Sources */ = {isa = PBXBuildFile; fileRef = D381F3A8162BB72700F81E68 /* MZBgFeatureControl_Base.m */; };
 		D381F3AC162BB79400F81E68 /* MZBgFeatureControl_RepeatTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = D381F3AB162BB79400F81E68 /* MZBgFeatureControl_RepeatTexture.m */; };
@@ -383,6 +384,8 @@
 		D371250A162FE57B0095CFFA /* CooperStd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CooperStd.png; sourceTree = "<group>"; };
 		D371250B162FE57B0095CFFA /* MZArial-64.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MZArial-64.fnt"; sourceTree = "<group>"; };
 		D371250C162FE57B0095CFFA /* MZArial-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MZArial-64.png"; sourceTree = "<group>"; };
+		D3806F02168AA5A000B94DB0 /* MZSpritesPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZSpritesPool.h; sourceTree = "<group>"; };
+		D3806F03168AA5A000B94DB0 /* MZSpritesPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZSpritesPool.m; sourceTree = "<group>"; };
 		D381F3A0162BA02900F81E68 /* MZBgEventsControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZBgEventsControl.h; sourceTree = "<group>"; };
 		D381F3A1162BA02900F81E68 /* MZBgEventsControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZBgEventsControl.m; sourceTree = "<group>"; };
 		D381F3A6162BB70C00F81E68 /* MZBgFeatureControlHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZBgFeatureControlHeader.h; sourceTree = "<group>"; };
@@ -1192,6 +1195,23 @@
 				D391560F16425F6E0011F3D6 /* new_ver_test_bgevents.plist */,
 			);
 			path = Levels;
+			sourceTree = "<group>";
+		};
+		D3806EFF168AA57D00B94DB0 /* MZSpritesPool */ = {
+			isa = PBXGroup;
+			children = (
+				D3806F00168AA57E00B94DB0 /* MZSpritesPool */,
+			);
+			path = MZSpritesPool;
+			sourceTree = "<group>";
+		};
+		D3806F00168AA57E00B94DB0 /* MZSpritesPool */ = {
+			isa = PBXGroup;
+			children = (
+				D3806F02168AA5A000B94DB0 /* MZSpritesPool.h */,
+				D3806F03168AA5A000B94DB0 /* MZSpritesPool.m */,
+			);
+			path = MZSpritesPool;
 			sourceTree = "<group>";
 		};
 		D381F39E162BA01900F81E68 /* MZBgEventsControl */ = {
@@ -3019,6 +3039,7 @@
 			isa = PBXGroup;
 			children = (
 				DF30EC2D160A1CD8006966A9 /* MZGameCoreHeader.h */,
+				D3806EFF168AA57D00B94DB0 /* MZSpritesPool */,
 				DF74324B168882F900865738 /* MZCollision */,
 				D3E1A7C6164BAF17005E52B2 /* MZEffect */,
 				D391556E16423C4C0011F3D6 /* MZGameSetting */,
@@ -3596,6 +3617,7 @@
 				D3964F891670359B00D54340 /* vec4.c in Sources */,
 				DF74324E168882F900865738 /* MZCollision.m in Sources */,
 				DF74325C1688A42D00865738 /* MZAttackSetting.m in Sources */,
+				D3806F04168AA5A000B94DB0 /* MZSpritesPool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

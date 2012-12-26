@@ -22,7 +22,7 @@ static MZCharactersFactory *sharedCharactersFactory_ = nil;
 
 #pragma mark - init and dealloc
 
-+(MZCharactersFactory *)sharedCharactersFactory
++(MZCharactersFactory *)sharedInstace
 {
     if( sharedCharactersFactory_ == nil )
         sharedCharactersFactory_ = [[MZCharactersFactory alloc] init];
@@ -32,7 +32,7 @@ static MZCharactersFactory *sharedCharactersFactory_ = nil;
 
 -(id)init
 {    
-    MZAssert( sharedCharactersFactory_ == nil, @"signleton class, can not be init twice" );
+    MZAssertSingleton( sharedCharactersFactory_ );
     self = [super init];
     return self;
 }

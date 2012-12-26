@@ -34,10 +34,10 @@
         [self _loadSystemResources];
         [self _loadTexturesFromSpriteSheetNamesArray: [aLevelSettingNSDicitonary objectForKey: @"textures"]];
         [self _loadSpriteSheetsFromSpriteSheetNamesArray: [aLevelSettingNSDicitonary objectForKey: @"spriteSheets"]];
-        [self _loadAnimationsSettingsFromAnimationsSettingFileNamesArray: [aLevelSettingNSDicitonary objectForKey: @"animations"]];
-        [self _loadPlayerSettingsFromPlayerSettingNamesArray: [aLevelSettingNSDicitonary objectForKey: @"players"]];
-        [self _loadEnemySettingsFromPlayerSettingNamesArray: [aLevelSettingNSDicitonary objectForKey: @"enemies"]];
-        [self _loadBulletSettingsFromBulletSettingNamesArray: [aLevelSettingNSDicitonary objectForKey: @"bullets"]];
+//        [self _loadAnimationsSettingsFromAnimationsSettingFileNamesArray: [aLevelSettingNSDicitonary objectForKey: @"animations"]];
+//        [self _loadPlayerSettingsFromPlayerSettingNamesArray: [aLevelSettingNSDicitonary objectForKey: @"players"]];
+//        [self _loadEnemySettingsFromPlayerSettingNamesArray: [aLevelSettingNSDicitonary objectForKey: @"enemies"]];
+//        [self _loadBulletSettingsFromBulletSettingNamesArray: [aLevelSettingNSDicitonary objectForKey: @"bullets"]];
     }
     
     return self;
@@ -113,7 +113,7 @@
     if( [MZGameSetting sharedInstance].debug.showLoadingStates )
         MZLog( @"" );
     
-    MZCharactersFactory *charactersFactory = [MZCharactersFactory sharedCharactersFactory];
+    MZCharactersFactory *charactersFactory = [MZCharactersFactory sharedInstace];
     
     for( NSString *settingName in playerSettingNamesArray )
         [charactersFactory addSettingWithCharacterType: kMZCharacterType_Player fromPlistFile: settingName];
@@ -123,7 +123,7 @@
 {
     MZAssert( enemySettingNamesArray != nil, @"enemySettingNamesArray is nil" );
         
-    MZCharactersFactory *charactersFactory = [MZCharactersFactory sharedCharactersFactory];
+    MZCharactersFactory *charactersFactory = [MZCharactersFactory sharedInstace];
     
     for( NSString *settingName in enemySettingNamesArray )
     {
