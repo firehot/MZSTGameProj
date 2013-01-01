@@ -17,15 +17,29 @@
 
 #pragma mark - init and dealloc
 
-+(MZCharacterPartSetting *)characterPartSettingWithDictionary:(NSDictionary *)aDictionary name:(NSString *)aName
++(MZCharacterPartSetting *)setting
+{
+    return [[[self alloc] init] autorelease];
+}
+
++(MZCharacterPartSetting *)settingWithDictionary:(NSDictionary *)aDictionary name:(NSString *)aName
 {
     return [[[self alloc] initWithDictionary: aDictionary name: aName] autorelease];
+}
+
+-(id)init
+{
+    self = [super init];
+    blendFuncSrc = [MZGLHelper defaultBlendFuncSrc];
+    blendFuncDest = [MZGLHelper defaultBlendFuncDest];
+    scale = 1;
+    color = ccc3( 255, 255, 255 );
+    return self;
 }
 
 -(id)initWithDictionary:(NSDictionary *)aDictionary name:(NSString *)aName
 {
     self = [super init];
-    if( self == nil ) return nil;
     
     name = [aName retain];
     

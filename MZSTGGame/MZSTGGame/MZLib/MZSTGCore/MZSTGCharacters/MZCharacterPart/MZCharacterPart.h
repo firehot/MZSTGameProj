@@ -4,16 +4,19 @@
 #import "MZAttack_Base.h"
 
 @class MZCharacterPartSetting;
+@class MZCharacter;
 
-@class MZLevelComponents;
-
-@interface MZCharacterPart : MZGameObject <MZCharacterPartDelegate, MZAttackDelegate>
+@interface MZCharacterPart : MZGameObject <MZCharacterPartControlDelegate, MZAttackDelegate>
 {
+    MZCharacter *parentCharacterRef;
+
     MZCharacterPartSetting *setting;
 }
 
-+(MZCharacterPart *)characterPartWithSetting:(MZCharacterPartSetting *)aSetting parentCharacterType:(MZCharacterType)aParentCharacterType;
--(id)initWithSetting:(MZCharacterPartSetting *)aSetting parentCharacterType:(MZCharacterType)aParentCharacterType;
-@property (nonatomic, readonly) MZCharacterType parentCharacterType;
++(MZCharacterPart *)part;
+
+@property (nonatomic, readwrite, retain) MZCharacterPartSetting *setting;
+@property (nonatomic, readwrite, assign) MZCharacter *parentCharacterRef;
+@property (nonatomic, readonly) MZCharacterType characterType;
 @end
 

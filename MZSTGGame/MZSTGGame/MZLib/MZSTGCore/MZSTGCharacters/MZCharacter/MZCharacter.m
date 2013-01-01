@@ -7,6 +7,7 @@
 #import "MZCharacterDynamicSetting.h"
 #import "MZSTGGameHelper.h"
 #import "MZQueue.h"
+#import "MZCCSpritesPool.h"
 
 @interface MZCharacter (Private)
 -(void)_setValuesBySetting;
@@ -26,7 +27,9 @@
 @synthesize currentHealthPoint;
 @synthesize spawnPosition;
 @synthesize characterType;
+@synthesize partSpritesPoolRef;
 @synthesize currentMovingVector;
+@synthesize setting;
 @synthesize characterDynamicSetting;
 @synthesize spawnParentCharacterRef;
 @synthesize leaderCharacterRef;
@@ -40,7 +43,8 @@
 }
 
 -(void)dealloc
-{    
+{
+    [partsDictionary release];
     [currentMode release];
     [modeSettingsQueue release];
     [setting release];
@@ -49,6 +53,7 @@
     spawnParentCharacterRef = nil;
     spawnParentCharacterPartRef = nil;
     leaderCharacterRef = nil;
+    partSpritesPoolRef = nil;
 
     [super dealloc];
 }
@@ -82,7 +87,38 @@
     return currentMode.currentMotion.currentMovingVector;
 }
 
+-(void)setSetting:(MZCharacterSetting *)aSetting
+{
+    if( setting == aSetting ) return;
+    if( setting != nil ) [setting release];
+
+    setting = [aSetting retain];
+}
+
+-(MZCharacterSetting *)setting
+{
+    if( setting == nil ) setting = [[MZCharacterSetting alloc] init];
+    return setting;
+}
+
 #pragma mark - methods
+
+-(MZCharacterPart *)addPartWithName:(NSString *)aName
+{
+    MZAssert( characterType != kMZCharacterType_Unknow, @"must set characterType first" );
+    MZAssert( partSpritesPoolRef != nil, @"must set partSpritesPoolRef first" );
+
+    MZCharacterPart *part = [MZCharacterPart part];
+    [part setSpritesFromPool: partSpritesPoolRef];
+    part.parentRef = self;
+
+    if( partsDictionary == nil ) partsDictionary = [[NSMutableDictionary alloc] initWithCapacity: 1];
+
+    [partsDictionary setObject: part forKey: aName];
+    [self addChild: part name: aName];
+
+    return  part;
+}
 
 -(void)setSetting:(MZCharacterSetting *)aSetting characterType:(MZCharacterType)aCharacterType
 {

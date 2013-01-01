@@ -14,6 +14,9 @@
 // test
 #import "MZCCSpritesPool.h"
 #import "MZGameObject.h"
+#import "MZCharacterPart.h"
+#import "MZCharacter.h"
+#import "MZCharacterPartSetting.h"
 #import "MZGLHelper.h"
 #import "MZMath.h"
 
@@ -81,6 +84,8 @@
     [self removeChild: referenceLines cleanup: false]; [referenceLines release];
     [touchesControlPlayer release];
     [self _removeScheduleAndRemoveDispatcher];
+
+    [self __test_release];
     
     [super beforeRelease];
 }
@@ -173,23 +178,8 @@
 -(void)__test_init
 {
     [self __test_init_spritesPool];
-    
-    [self __randomAssignGameObjectWithFrameName: @"Playermale_Normal0001.png"
-                                    spritesPool: [self getSpritesPoolByKey: kMZGamePlayLayerActorType_Player]
-                                         number: 100];
-    
-
-    [self __randomAssignGameObjectWithFrameName: @"bullet_01_normal0001.png"
-                                    spritesPool: [self getSpritesPoolByKey: kMZGamePlayLayerActorType_PlayerBullet]
-                                         number: 100];
-    
-    [self __randomAssignGameObjectWithFrameName: @"bullet_22_0001.png"
-                                    spritesPool: [self getSpritesPoolByKey: kMZGamePlayLayerActorType_EnemyBullet]
-                                         number: 20];
-    
-    [self __randomAssignGameObjectWithFrameName: @"Ika_normal0001.png"
-                                    spritesPool: [self getSpritesPoolByKey: kMZGamePlayLayerActorType_Enemy]
-                                         number: 50];
+//    [self __test_characterPart];
+    [self __test_character];
 }
 
 -(void)__test_init_spritesPool
@@ -198,7 +188,7 @@
     
     [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]enemies_atlas.png" layer: self number: 100 blendFunc: blend]
                      key: kMZGamePlayLayerActorType_Enemy];
-    
+
     [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"player_male.pvr.ccz" layer: self number: 100 blendFunc: blend]
                      key: kMZGamePlayLayerActorType_Player];
 
@@ -220,6 +210,66 @@
         go.position = mzp( [MZMath randomIntInRangeMin: 0 max: 320], [MZMath randomIntInRangeMin: 0 max: 480] );
         go.rotation = [MZMath randomIntInRangeMin: 0 max: 360];
     }
+}
+
+-(void)__test_random_sprites
+{
+    [self __randomAssignGameObjectWithFrameName: @"Playermale_Normal0001.png"
+                                    spritesPool: [self spritesPoolByKey: kMZGamePlayLayerActorType_Player]
+                                         number: 100];
+
+
+    [self __randomAssignGameObjectWithFrameName: @"bullet_01_normal0001.png"
+                                    spritesPool: [self spritesPoolByKey: kMZGamePlayLayerActorType_PlayerBullet]
+                                         number: 100];
+
+    [self __randomAssignGameObjectWithFrameName: @"bullet_22_0001.png"
+                                    spritesPool: [self spritesPoolByKey: kMZGamePlayLayerActorType_EnemyBullet]
+                                         number: 20];
+
+    [self __randomAssignGameObjectWithFrameName: @"Ika_normal0001.png"
+                                    spritesPool: [self spritesPoolByKey: kMZGamePlayLayerActorType_Enemy]
+                                         number: 50];
+
+}
+
+-(void)__test_characterPart
+{
+    part = [MZCharacterPart part];
+    [part retain];
+    [part setSpritesFromPool: [self spritesPoolByKey: kMZGamePlayLayerActorType_Player]];
+    part.setting.name = @"test";
+    part.setting.frameName = @"Playermale_Normal0001.png";
+    
+    [part enable];
+
+    part.position = mzp( 160, 240 );
+}
+
+-(void)__test_character
+{
+    // working
+    testCharacter = [[MZCharacter alloc] init];
+    testCharacter.characterType = kMZCharacterType_Enemy;
+    testCharacter.partSpritesPoolRef = [self spritesPoolByKey: kMZGamePlayLayerActorType_Enemy];
+
+    MZCharacterPart *p = [testCharacter addPartWithName: @"testPart"];
+    p.setting.frameName = @"Ika_normal0001.png";
+    p.position = mzp( 0, 10 );
+
+    MZCharacterPart *p2 = [testCharacter addPartWithName: @"testPart02"];
+    p2.setting.frameName = @"Ika_normal0002.png";
+    p2.position = mzp( 0, -10 );
+    p2.color = ccc3( 255, 0, 0 );
+
+    testCharacter.position = mzp( 160, 240 );
+    [testCharacter enable];
+}
+
+-(void)__test_release
+{
+    [part release];
+    [testCharacter release];
 }
 
 @end

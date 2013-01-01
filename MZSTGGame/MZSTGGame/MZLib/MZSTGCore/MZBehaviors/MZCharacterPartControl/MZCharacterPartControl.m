@@ -30,13 +30,13 @@
 
 #pragma mark - override
 
-+(MZCharacterPartControl *)characterPartControlWithDelegate:(id<MZCharacterPartDelegate>)aDelegate
++(MZCharacterPartControl *)characterPartControlWithDelegate:(id<MZCharacterPartControlDelegate>)aDelegate
                                                     setting:(MZCharacterPartControlSetting *)aSetting;
 {
     return [[[self alloc] initWithDelegate: aDelegate setting: aSetting] autorelease];
 }
 
--(id)initWithDelegate:(id<MZCharacterPartDelegate>)aDelegate
+-(id)initWithDelegate:(id<MZCharacterPartControlDelegate>)aDelegate
               setting:(MZCharacterPartControlSetting *)aSetting;
 {
     setting = [aSetting retain];

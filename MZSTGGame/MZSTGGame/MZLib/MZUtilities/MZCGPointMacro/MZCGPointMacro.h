@@ -1,4 +1,5 @@
 #define mzInvaildPoint CGPointMake( -9999, -9999 )
+#define mzpZero CGPointZero
 
 typedef struct
 {

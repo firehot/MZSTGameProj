@@ -13,11 +13,17 @@
 @implementation MZCharacterSetting
 
 @synthesize healthPoint;
+@synthesize characterType;
 @synthesize name;
 @synthesize characterPartSettingsDictionary;
 @synthesize modeSettings;
 
 #pragma mark - init and dealloc
+
++(MZCharacterSetting *)setting
+{
+    return [[[self alloc] init] autorelease];
+}
 
 +(MZCharacterSetting *)settingWithDictionary:(NSDictionary *)nsDictionary
 {
@@ -31,6 +37,7 @@
     self = [super init];
     
     healthPoint = [[nsDictionary objectForKey: @"healthPoint"] intValue];
+//    characterType = ??? // not yet
     name = [[nsDictionary objectForKey: @"name"] retain];
     [self _initCharacterPartSettingsWithDictionary: [nsDictionary objectForKey: @"parts"]];
     [self _initModesWithNSArray: [nsDictionary objectForKey: @"modes"]];
@@ -66,7 +73,7 @@
     {
         NSDictionary *partDictionary = [dictionary objectForKey: partName];
         
-        MZCharacterPartSetting *characterPartSetting = [MZCharacterPartSetting characterPartSettingWithDictionary: partDictionary name: partName];
+        MZCharacterPartSetting *characterPartSetting = [MZCharacterPartSetting settingWithDictionary: partDictionary name: partName];
         [characterPartSettingsDictionary setObject: characterPartSetting forKey: partName];
     }
 }

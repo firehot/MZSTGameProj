@@ -139,7 +139,7 @@
     NSDictionary *defaultBulletsDefinesDictionary = [MZFileHelper plistContentFromBundleWithName: DEFAULT_BULLETS_DEFINE_FILE_NAME];
     MZAssert( defaultBulletsDefinesDictionary, @"Can not load default bullets define file(%@)", DEFAULT_BULLETS_DEFINE_FILE_NAME );
 
-    MZCharactersFactory *charactersFactory = [MZCharactersFactory sharedCharactersFactory];
+    MZCharactersFactory *charactersFactory = [MZCharactersFactory sharedInstace];
     
     if( [MZGameSetting sharedInstance].debug.showLoadingStates )
         MZLog( @"Load bullets define from default file(%@)", DEFAULT_BULLETS_DEFINE_FILE_NAME );

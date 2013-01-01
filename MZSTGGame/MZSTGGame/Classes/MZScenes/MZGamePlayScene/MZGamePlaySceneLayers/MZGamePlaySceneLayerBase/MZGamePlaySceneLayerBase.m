@@ -56,7 +56,7 @@
     return [[spritesPoolByActorTypeDictionary allValues] count];
 }
 
--(MZCCSpritesPool *)getSpritesPoolByKey:(int)key
+-(MZCCSpritesPool *)spritesPoolByKey:(int)key
 {
     if( spritesPoolByActorTypeDictionary == nil )
         return nil;

@@ -17,30 +17,23 @@
 
 @implementation MZCharacterPart
 
-@synthesize parentCharacterType;
+@synthesize setting;
+@synthesize parentCharacterRef;
+@synthesize characterType;
 
 #pragma mark - init and dealloc
 
-+(MZCharacterPart *)characterPartWithSetting:(MZCharacterPartSetting *)aSetting parentCharacterType:(MZCharacterType)aParentCharacterType
++(MZCharacterPart *)part
 {
-    return [[[self alloc] initWithSetting: aSetting parentCharacterType: aParentCharacterType] autorelease];
-}
-
--(id)initWithSetting:(MZCharacterPartSetting *)aSetting parentCharacterType:(MZCharacterType)aParentCharacterType
-{
-    MZAssert( aSetting, @"aSetting is nil" );
-    
-    setting = [aSetting retain];
-    parentCharacterType = aParentCharacterType;
-    
-    self = [super init];
-    return self;
+    return [[[self alloc] init] autorelease];
 }
 
 -(void)dealloc
 {    
-    [self releaseSprite];
     [setting release];
+
+    parentCharacterRef = nil;
+    
     [super dealloc];
 }
 
@@ -51,7 +44,49 @@
     return ((MZGameObject *)parentRef).currentMovingVector;
 }
 
-#pragma mark - methods
+-(void)setParentRef:(MZBehavior_Base *)aParent
+{
+    MZAssert( [aParent isKindOfClass: [MZCharacter class]], @"must be MZCharacter class" );
+
+    [super setParentRef: aParent];
+    parentCharacterRef = (MZCharacter *)aParent;
+}
+
+#pragma mark - properties
+
+-(void)setSetting:(MZCharacterPartSetting *)aSetting
+{
+    MZAssert( self.hasSprite, @"must assign sprite first" );
+    if( setting == aSetting ) return;
+    if( setting != nil ) [setting release];
+
+    setting = [aSetting retain];
+    self.position = setting.relativePosition;
+    self.scale = setting.scale;
+    self.color = setting.color;
+
+    [self _setCollisionBySetting];
+}
+
+-(MZCharacterPartSetting *)setting
+{
+    if( setting == nil )
+        setting = [[MZCharacterPartSetting alloc] init];
+
+    return setting;
+}
+
+-(void)setParentCharacterRef:(MZCharacter *)aParentCharacter
+{
+    self.parentRef = aParentCharacter;
+}
+
+-(MZCharacterType)characterType
+{
+    return parentCharacterRef.characterType;
+}
+
+#pragma mark - override
 
 -(void)enable
 {
@@ -67,24 +102,7 @@
 #pragma mark
 
 @implementation MZCharacterPart (Protected)
-
 #pragma mark - override
-
--(void)_initValues
-{
-    [super _initValues];
-    
-    MZAssert( setting != nil, @"Setting is nil" );
-    
-    [self setSpriteFromPool: [MZLevelComponents sharedInstance].spritesPool characterType: parentCharacterType];
-    
-    self.position = setting.relativePosition;
-    self.scale = setting.scale;
-    self.color = setting.color;
-    
-    [self _setCollisionBySetting];
-}
-
 @end
 
 #pragma mark

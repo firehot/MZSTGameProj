@@ -18,6 +18,8 @@ typedef enum
 // wew are test
 @class MZCCCameraControl;
 @class MZCCSpritesPool;
+@class MZCharacterPart;
+@class MZCharacter;
 
 @interface MZGamePlayLayer : MZGamePlaySceneLayerBase
 {    
@@ -26,6 +28,8 @@ typedef enum
     
     // 以下是測試用的
     MZCCCameraControl *cameraControl;
+    MZCharacterPart *part;
+    MZCharacter *testCharacter;
 }
 
 -(void)setControlWithPlayer:(MZPlayerControlCharacter *)player;
@@ -36,5 +40,9 @@ typedef enum
 @interface MZGamePlayLayer (Test)
 -(void)__test_init;
 -(void)__test_init_spritesPool;
+-(void)__test_random_sprites;
 -(void)__randomAssignGameObjectWithFrameName:(NSString *)frameName spritesPool:(MZCCSpritesPool *)spritesPool number:(int)number;
+-(void)__test_characterPart;
+-(void)__test_character;
+-(void)__test_release;
 @end

@@ -15,7 +15,7 @@
 -(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictioanry parentScene:(MZGamePlayScene *)aParentScene;
 
 -(int)addSpritesPool:(MZCCSpritesPool *)spritesPool key:(int)key;
--(MZCCSpritesPool *)getSpritesPoolByKey:(int)key;
+-(MZCCSpritesPool *)spritesPoolByKey:(int)key;
 
 -(void)pause;
 -(void)resume;

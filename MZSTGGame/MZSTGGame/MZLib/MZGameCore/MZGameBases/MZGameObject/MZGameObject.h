@@ -57,6 +57,7 @@
 -(CCAction *)runAction:(CCAction *)action;
 -(void)stopAllActions;
 
+@property (nonatomic, readwrite) bool hasSprite;
 @property (nonatomic, readwrite) bool visible;
 @property (nonatomic, readwrite) bool flipX;
 @property (nonatomic, readwrite) bool flipY;

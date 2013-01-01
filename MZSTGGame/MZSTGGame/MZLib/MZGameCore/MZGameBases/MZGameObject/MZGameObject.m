@@ -20,6 +20,7 @@
 
 @implementation MZGameObject
 
+@synthesize hasSprite;
 @synthesize visible;
 @synthesize flipX;
 @synthesize flipY;
@@ -72,6 +73,11 @@
 }
 
 #pragma mark - properties
+
+-(bool)hasSprite
+{
+    return ( spriteRef != nil );
+}
 
 -(void)setOpacity:(GLubyte)aOpacity
 {

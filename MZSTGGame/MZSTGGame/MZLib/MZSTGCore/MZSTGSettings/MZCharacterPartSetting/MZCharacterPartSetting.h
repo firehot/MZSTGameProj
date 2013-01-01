@@ -6,18 +6,19 @@
 
 }
 
-+(MZCharacterPartSetting *)characterPartSettingWithDictionary:(NSDictionary *)aDictionary name:(NSString *)aName;
++(MZCharacterPartSetting *)setting;
++(MZCharacterPartSetting *)settingWithDictionary:(NSDictionary *)aDictionary name:(NSString *)aName;
 -(id)initWithDictionary:(NSDictionary *)aDictionary name:(NSString *)aName;
 
-@property (nonatomic, readonly) GLenum blendFuncSrc;
-@property (nonatomic, readonly) GLenum blendFuncDest;
-@property (nonatomic, readonly) float scale;
-@property (nonatomic, readonly) CGPoint relativePosition;
-@property (nonatomic, readonly) ccColor3B color;
-@property (nonatomic, readonly) NSString *name;
-@property (nonatomic, readonly) NSString *frameName;
-@property (nonatomic, readonly) NSString *animationName;
-@property (nonatomic, readonly) NSMutableArray *collisions;
+@property (nonatomic, readwrite) GLenum blendFuncSrc;
+@property (nonatomic, readwrite) GLenum blendFuncDest;
+@property (nonatomic, readwrite) float scale;
+@property (nonatomic, readwrite) CGPoint relativePosition;
+@property (nonatomic, readwrite) ccColor3B color;
+@property (nonatomic, readwrite, retain) NSString *name;
+@property (nonatomic, readwrite, retain) NSString *frameName;
+@property (nonatomic, readwrite, retain) NSString *animationName;
+@property (nonatomic, readwrite, retain) NSMutableArray *collisions;
 
 @end
  
