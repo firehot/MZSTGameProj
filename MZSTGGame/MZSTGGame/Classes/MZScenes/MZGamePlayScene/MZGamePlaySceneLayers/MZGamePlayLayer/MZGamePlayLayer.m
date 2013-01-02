@@ -183,6 +183,7 @@
 //    [self __test_characterPart];
 //    [self __test_character];
     [self __test_init_player];
+    [self __test_init_enemy];
 }
 
 -(void)__test_init_spritesPool
@@ -283,6 +284,22 @@
     [testPlayer enable];
     
     [self setControlWithPlayer: testPlayer];
+}
+
+-(void)__test_init_enemy
+{
+    // working
+    testEnemy = [MZEnemy enemy];
+    [testEnemy retain];
+    testEnemy.partSpritesPoolRef = [self spritesPoolByKey: kMZGamePlayLayerActorType_Enemy];
+
+    MZCharacterPart *p = [testEnemy addPartWithName: @"p"];
+    p.setting.frameName = @"Ika_normal0001.png";
+
+    testEnemy.position = mzp( 160, 400 );
+    testEnemy.rotation = -90;
+
+    [testEnemy enable];
 }
 
 -(void)__test_update

@@ -3,6 +3,5 @@
 #import "MZCharacterTypeStrings.h"
 #import "MZPlayer.h"
 #import "MZPlayerBullet.h"
-#import "MZEventControlCharacter.h"
 #import "MZEnemy.h"
 #import "MZEnemyBullet.h"

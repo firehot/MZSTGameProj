@@ -1,6 +1,4 @@
-#import "MZEventControlCharacter.h"
+#import "MZCharacter.h"
 
-@class MZCharacterPart;
-
-@interface MZEnemyBullet : MZEventControlCharacter
+@interface MZEnemyBullet : MZCharacter
 @end

@@ -122,7 +122,7 @@ static MZCharacterTypeStrings *sharedMZCharacterTypeStrings_ = nil;
         case kMZCharacterType_PlayerBullet:
         case kMZCharacterType_EnemyBullet:
         case kMZCharacterType_Background:
-            return @"MZEventControlCharacterSetting";
+            return @"MZEnemySetting";
         default:
             return @"Unknow";
     }  

@@ -1,20 +1,20 @@
-#import "MZEventControlCharacterSetting.h"
+#import "MZEnemySetting.h"
 #import "MZMotionSetting.h"
 #import "MZAttackSetting.h"
 
-@interface MZEventControlCharacterSetting (Private)
+@interface MZEnemySetting (Private)
 -(void)_setMotionsWithNSArray:(NSArray *)motionsSettingNSArray;
 -(void)_setAttacksWithNSArray:(NSArray *)nsArray; // delete
 @end
 
 #pragma mark
 
-@implementation MZEventControlCharacterSetting
+@implementation MZEnemySetting
 
 @synthesize motionSettings;
 @synthesize attackSettings;
 
-+(MZEventControlCharacterSetting *)settingWithDictionary:(NSDictionary *)settingDictionary
++(MZEnemySetting *)settingWithDictionary:(NSDictionary *)settingDictionary
 {
     return [[[self alloc] initWithDictionary: settingDictionary] autorelease];
 }
@@ -40,7 +40,7 @@
 
 @end
 
-@implementation MZEventControlCharacterSetting (Private)
+@implementation MZEnemySetting (Private)
 
 -(void)_setMotionsWithNSArray:(NSArray *)nsArray
 {

@@ -1,12 +1,12 @@
 #import <Foundation/Foundation.h>
 #import "MZCharacterSetting.h"
 
-@interface MZEventControlCharacterSetting : MZCharacterSetting
+@interface MZEnemySetting : MZCharacterSetting
 {
 
 }
 
-+(MZEventControlCharacterSetting *)settingWithDictionary:(NSDictionary *)settingDictionary;
++(MZEnemySetting *)settingWithDictionary:(NSDictionary *)settingDictionary;
 
 @property(nonatomic, readonly) NSMutableArray *motionSettings; // delete
 @property(nonatomic, readonly) NSMutableArray *attackSettings; // delete

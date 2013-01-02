@@ -1,4 +1,4 @@
-#import "MZEventControlCharacter.h"
+#import "MZCharacter.h"
 
-@interface MZPlayerBullet : MZEventControlCharacter
+@interface MZPlayerBullet : MZCharacter
 @end

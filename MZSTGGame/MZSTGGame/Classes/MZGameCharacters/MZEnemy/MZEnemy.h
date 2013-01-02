@@ -1,4 +1,5 @@
-#import "MZEventControlCharacter.h"
+#import "MZCharacter.h"
 
-@interface MZEnemy : MZEventControlCharacter
+@interface MZEnemy : MZCharacter
++(MZEnemy *)enemy;
 @end

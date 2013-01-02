@@ -120,17 +120,6 @@
     return  part;
 }
 
--(void)setSetting:(MZCharacterSetting *)aSetting characterType:(MZCharacterType)aCharacterType
-{
-    setting = [aSetting retain];
-    self.characterType = aCharacterType;
-    
-    [self _setValuesBySetting];
-    [self _setDynamicSetting];
-    [self _setCharacterPartsByDictionary: setting.characterPartSettingsDictionary];
-    [self _setModesWithSettingsArray: setting.modeSettings];
-}
-
 -(void)applyDynamicSetting
 {
     isUsingDynamicSetting = true;

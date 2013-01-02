@@ -22,6 +22,7 @@ typedef enum
 @class MZCharacterPart;
 @class MZCharacter;
 @class MZPlayer;
+@class MZEnemy;
 
 @interface MZGamePlayLayer : MZGamePlaySceneLayerBase <MZTouchSpaceDelegate>
 {    
@@ -33,6 +34,7 @@ typedef enum
     MZCharacterPart *part;
     MZCharacter *testCharacter;
     MZPlayer *testPlayer;
+    MZEnemy *testEnemy;
 }
 
 -(void)setControlWithPlayer:(MZPlayer *)player;
@@ -48,6 +50,7 @@ typedef enum
 -(void)__test_characterPart;
 -(void)__test_character;
 -(void)__test_init_player;
+-(void)__test_init_enemy;
 -(void)__test_update;
 -(void)__test_release;
 @end

@@ -8,7 +8,7 @@
 #import "MZLogMacro.h"
 
 @interface MZEvent_CreateEnemyToAbsolutePosition (Private)
--(void)_checkMotionSettingCheckWithEnemy:(MZEventControlCharacter *)enemy;
+-(void)_checkMotionSettingCheckWithEnemy:(MZEnemy *)enemy;
 @end
 
 @implementation MZEvent_CreateEnemyToAbsolutePosition
@@ -54,7 +54,7 @@
 
 #pragma mark - methods
 
--(void)_checkMotionSettingCheckWithEnemy:(MZEventControlCharacter *)enemy
+-(void)_checkMotionSettingCheckWithEnemy:(MZEnemy *)enemy
 {
     MZAssert( [((MZMotionSetting *)[enemy getMotionSettingWithIndex: 0]).motionType isEqualToString: @"LinearToTarget"], 
               @"motionType must be LinearToTarget(your value is %@)", 

@@ -23,7 +23,6 @@
 -(MZCharacterPart *)addPartWithName:(NSString *)aName;
 
 // 以下未動刀 wwww
--(void)setSetting:(MZCharacterSetting *)aSetting characterType:(MZCharacterType)aCharacterType; // delete
 -(void)applyDynamicSetting;
 -(void)setSpawnWithParentCharacter:(MZCharacter *)aParentCharacter spawnPosition:(CGPoint)aSpawnPosition;
 -(void)setSpawnWithaParentCharacterPart:(MZCharacterPart *)aParentCharacterPart spawnPosition:(CGPoint)aSpawnPosition;

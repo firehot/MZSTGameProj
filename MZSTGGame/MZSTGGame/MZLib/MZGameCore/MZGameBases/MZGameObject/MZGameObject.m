@@ -162,10 +162,12 @@
 }
 
 -(void)setRotation:(float)aRotation 
-{ 
-    if( spriteRef ) spriteRef.rotation = aRotation;
+{
+    rotation = aRotation;
+
+    if( spriteRef ) spriteRef.rotation = rotation;
     for( MZGameObject *child in [childrenDictionary allValues] )
-        child.rotation = aRotation;
+        child.rotation = -rotation;
 }
 
 -(float)rotation

@@ -113,7 +113,7 @@
     [[MZLevelComponents sharedInstance].charactersActionManager addCharacterWithType: [self _getBulletType] character: bullet];
 }
 
--(void)_setBulletLeader:(MZEventControlCharacter *)bulletLeader
+-(void)_setBulletLeader:(MZEnemy *)bulletLeader
 {
     bulletLeader.isLeader = true;
     currentBulletLeaderRef = bulletLeader;
@@ -164,7 +164,7 @@
 
 -(MZEventControlCharacter *)_getBullet
 {
-    MZEventControlCharacter *bullet = (MZEventControlCharacter *)
+    MZEnemyBullet *bullet = (MZEnemyBullet *)
     [[MZCharactersFactory sharedCharactersFactory] getCharacterByType: [self _getBulletType]
                                                           settingName: setting.bulletSettingName];
     
