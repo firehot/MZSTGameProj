@@ -1,12 +1,12 @@
 #import "MZUserControlPlayerStyleBase.h"
-#import "MZPlayerControlCharacter.h"
+#import "MZPlayer.h"
 #import "MZLogMacro.h"
 
 @implementation MZUserControlPlayerStyleBase
 
 #pragma mark - init and dealloc
 
--(id)initWithPlayerCharacter:(MZPlayerControlCharacter *)aPlayerControlCharacter
+-(id)initWithPlayerCharacter:(MZPlayer *)aPlayerControlCharacter
 {
     MZAssert( aPlayerControlCharacter, @"aPlayerControlCharacter is nil" );
     self = [super init];

@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "MZTypeDefine.h"
 
-@class MZPlayerControlCharacter;
+@class MZPlayer;
 @class MZCharactersActionParamters;
 
 @interface MZCharactersActionControl : NSObject
@@ -10,7 +10,7 @@
     NSMutableArray *activePlayerBulletsRef;
     NSMutableArray *activeEnemyBulletsRef;
     MZCharactersActionParamters *charactersActionParamters;
-    MZPlayerControlCharacter *playerRef;
+    MZPlayer *playerRef;
 }
 
 -(id)initWithParamters:(MZCharactersActionParamters *)aParamters;

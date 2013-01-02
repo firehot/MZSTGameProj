@@ -19,6 +19,7 @@
 #import "MZCharacterPartSetting.h"
 #import "MZGLHelper.h"
 #import "MZMath.h"
+#import "MZSTGCharactersHeader.h"
 
 @interface MZGamePlayLayer (Private)
 -(void)_initReferenceLines;
@@ -77,6 +78,7 @@
 -(void)update
 {
     [super update];
+    [self __test_update];
 }
 
 -(void)beforeRelease
@@ -92,10 +94,10 @@
 
 #pragma mark - methods
 
--(void)setControlWithPlayer:(MZPlayerControlCharacter *)player
+-(void)setControlWithPlayer:(MZPlayer *)player
 {
     MZAssert( player, @"player is nil" );
-    touchesControlPlayer = [[MZTouchesControlPlayer alloc] initWithPlayerControlCharacter: player gamePlayLayerRef: self];
+    touchesControlPlayer = [[MZTouchesControlPlayer alloc] initWithPlayerTouch: player touchSpace: self];
 }
 
 @end
@@ -179,7 +181,8 @@
 {
     [self __test_init_spritesPool];
 //    [self __test_characterPart];
-    [self __test_character];
+//    [self __test_character];
+    [self __test_init_player];
 }
 
 -(void)__test_init_spritesPool
@@ -266,10 +269,32 @@
     [testCharacter enable];
 }
 
+-(void)__test_init_player
+{
+    testPlayer = [MZPlayer player];
+    [testPlayer retain];
+    testPlayer.partSpritesPoolRef = [self spritesPoolByKey: kMZGamePlayLayerActorType_Player];
+    
+    MZCharacterPart *p = [testPlayer addPartWithName: @"p"];
+    p.setting.frameName = @"Playermale_Normal0001.png";
+//    [p setFrameWithFrameName: @"Playermale_Normal0001.png"];
+    
+    testPlayer.position = mzp( 160, 240 );
+    [testPlayer enable];
+    
+    [self setControlWithPlayer: testPlayer];
+}
+
+-(void)__test_update
+{
+    if( testPlayer ) [testPlayer update];
+}
+
 -(void)__test_release
 {
-    [part release];
-    [testCharacter release];
+    [MZObjectHelper releaseObject: &part];
+    [MZObjectHelper releaseObject: &testCharacter];
+    [MZObjectHelper releaseObject: &testPlayer];
 }
 
 @end

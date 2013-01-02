@@ -1,4 +1,5 @@
 #import "MZGamePlaySceneLayerBase.h"
+#import "MZTouchesControlPlayer.h"
 #import "MZTypeDefine.h"
 
 typedef enum
@@ -10,7 +11,7 @@ typedef enum
     
 }MZGamePlayLayerActorType;
 
-@class MZPlayerControlCharacter;
+@class MZPlayer;
 @class MZTouchesControlPlayer;
 @class MZLevelComponents;
 @class CCDrawNode;
@@ -20,8 +21,9 @@ typedef enum
 @class MZCCSpritesPool;
 @class MZCharacterPart;
 @class MZCharacter;
+@class MZPlayer;
 
-@interface MZGamePlayLayer : MZGamePlaySceneLayerBase
+@interface MZGamePlayLayer : MZGamePlaySceneLayerBase <MZTouchSpaceDelegate>
 {    
     MZTouchesControlPlayer *touchesControlPlayer;
     CCDrawNode *referenceLines;
@@ -30,9 +32,10 @@ typedef enum
     MZCCCameraControl *cameraControl;
     MZCharacterPart *part;
     MZCharacter *testCharacter;
+    MZPlayer *testPlayer;
 }
 
--(void)setControlWithPlayer:(MZPlayerControlCharacter *)player;
+-(void)setControlWithPlayer:(MZPlayer *)player;
 
 @end
 
@@ -44,5 +47,7 @@ typedef enum
 -(void)__randomAssignGameObjectWithFrameName:(NSString *)frameName spritesPool:(MZCCSpritesPool *)spritesPool number:(int)number;
 -(void)__test_characterPart;
 -(void)__test_character;
+-(void)__test_init_player;
+-(void)__test_update;
 -(void)__test_release;
 @end

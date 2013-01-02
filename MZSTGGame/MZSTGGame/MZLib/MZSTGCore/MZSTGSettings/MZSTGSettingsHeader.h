@@ -1,6 +1,6 @@
 #import "MZCharacterPartSetting.h"
 #import "MZCharacterSetting.h"
-#import "MZPlayerControlCharacterSetting.h"
+#import "MZPlayerSetting.h"
 #import "MZEventControlCharacterSetting.h"
 #import "MZModeSetting.h"
 #import "MZCharacterPartControlSetting.h"

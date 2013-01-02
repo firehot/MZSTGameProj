@@ -1,5 +1,5 @@
 #import "MZCharactersActionParamters.h"
-#import "MZPlayerControlCharacter.h"
+#import "MZPlayer.h"
 #import "MZLogMacro.h"
 
 @implementation MZCharactersActionParamters

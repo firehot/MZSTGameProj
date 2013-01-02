@@ -1,14 +1,14 @@
 #import <Foundation/Foundation.h>
 #import "MZTypeDefine.h"
 
-@class MZPlayerControlCharacter;
+@class MZPlayer;
 
 @interface MZUserControlPlayerStyleBase : NSObject
 {
-    MZPlayerControlCharacter *playerControlCharacterRef;
+    MZPlayer *playerControlCharacterRef;
 }
 
--(id)initWithPlayerCharacter:(MZPlayerControlCharacter *)aPlayerControlCharacter;
+-(id)initWithPlayerCharacter:(MZPlayer *)aPlayerControlCharacter;
 -(void)touchBeganWithPosition:(CGPoint)touchPosition;
 -(void)touchMovedWithPosition:(CGPoint)touchPosition;
 -(void)touchEndedWithPosition:(CGPoint)touchPosition;

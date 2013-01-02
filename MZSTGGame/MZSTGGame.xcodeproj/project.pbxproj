@@ -17,6 +17,10 @@
 		D328B672162BF97D00EC16AA /* [test]side_bg_horizon.png in Resources */ = {isa = PBXBuildFile; fileRef = D328B670162BF97D00EC16AA /* [test]side_bg_horizon.png */; };
 		D328B673162BF97D00EC16AA /* [test]side_bg_verticaln.png in Resources */ = {isa = PBXBuildFile; fileRef = D328B671162BF97D00EC16AA /* [test]side_bg_verticaln.png */; };
 		D328B678162C09F700EC16AA /* MZBgFeatureControl_Nebula.m in Sources */ = {isa = PBXBuildFile; fileRef = D328B677162C09F700EC16AA /* MZBgFeatureControl_Nebula.m */; };
+		D32D9E361693D7700027F920 /* MZPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D9E2C1693D7700027F920 /* MZPlayer.m */; };
+		D32D9E371693D7700027F920 /* MZUserControlPlayerStyle_RelativeMove.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D9E311693D7700027F920 /* MZUserControlPlayerStyle_RelativeMove.m */; };
+		D32D9E381693D7700027F920 /* MZUserControlPlayerStyleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D9E341693D7700027F920 /* MZUserControlPlayerStyleBase.m */; };
+		D32D9E3D1693D8370027F920 /* MZPlayerSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D32D9E3C1693D8370027F920 /* MZPlayerSetting.m */; };
 		D342B79E15F078360025FDA5 /* MZGamePlayHUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D342B79D15F078360025FDA5 /* MZGamePlayHUDLayer.m */; };
 		D342B7AE15F0786C0025FDA5 /* MZGamePlayHUD_Base.m in Sources */ = {isa = PBXBuildFile; fileRef = D342B7A515F0786C0025FDA5 /* MZGamePlayHUD_Base.m */; };
 		D342B7B515F07ABE0025FDA5 /* MZGamePlayHUD_Buttons.m in Sources */ = {isa = PBXBuildFile; fileRef = D342B7B415F07ABE0025FDA5 /* MZGamePlayHUD_Buttons.m */; };
@@ -75,7 +79,6 @@
 		D391560B16424E8C0011F3D6 /* MZEventControlCharacterSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155FC16424E8C0011F3D6 /* MZEventControlCharacterSetting.m */; };
 		D391560C16424E8C0011F3D6 /* MZModeSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155FF16424E8C0011F3D6 /* MZModeSetting.m */; };
 		D391560D16424E8C0011F3D6 /* MZMotionSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D391560216424E8C0011F3D6 /* MZMotionSetting.m */; };
-		D391560E16424E8C0011F3D6 /* MZPlayerControlCharacterSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D391560516424E8C0011F3D6 /* MZPlayerControlCharacterSetting.m */; };
 		D391561016425F6E0011F3D6 /* new_ver_test_bgevents.plist in Resources */ = {isa = PBXBuildFile; fileRef = D391560F16425F6E0011F3D6 /* new_ver_test_bgevents.plist */; };
 		D3938AC31532DF2A0022E708 /* MZMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = D3938ABF1532DF2A0022E708 /* MZMusic.m */; };
 		D3938AC41532DF2A0022E708 /* MZSound.m in Sources */ = {isa = PBXBuildFile; fileRef = D3938AC21532DF2A0022E708 /* MZSound.m */; };
@@ -232,9 +235,6 @@
 		D3B48F1014D93D73004FC4D7 /* MZEnemyBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E2F14D93D73004FC4D7 /* MZEnemyBullet.m */; };
 		D3B48F1114D93D73004FC4D7 /* MZEventControlCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E3214D93D73004FC4D7 /* MZEventControlCharacter.m */; };
 		D3B48F1214D93D73004FC4D7 /* MZPlayerBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E3614D93D73004FC4D7 /* MZPlayerBullet.m */; };
-		D3B48F1314D93D73004FC4D7 /* MZPlayerControlCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E3914D93D73004FC4D7 /* MZPlayerControlCharacter.m */; };
-		D3B48F1414D93D73004FC4D7 /* MZUserControlPlayerStyle_RelativeMove.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E3E14D93D73004FC4D7 /* MZUserControlPlayerStyle_RelativeMove.m */; };
-		D3B48F1514D93D73004FC4D7 /* MZUserControlPlayerStyleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E4114D93D73004FC4D7 /* MZUserControlPlayerStyleBase.m */; };
 		D3B48F1614D93D73004FC4D7 /* MZCharactersActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E4614D93D73004FC4D7 /* MZCharactersActionManager.m */; };
 		D3B48F1714D93D73004FC4D7 /* MZCharactersActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E4A14D93D73004FC4D7 /* MZCharactersActionControl.m */; };
 		D3B48F1814D93D73004FC4D7 /* MZCharactersActionParamters.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E4E14D93D73004FC4D7 /* MZCharactersActionParamters.m */; };
@@ -356,6 +356,15 @@
 		D328B671162BF97D00EC16AA /* [test]side_bg_verticaln.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[test]side_bg_verticaln.png"; sourceTree = "<group>"; };
 		D328B676162C09F700EC16AA /* MZBgFeatureControl_Nebula.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZBgFeatureControl_Nebula.h; sourceTree = "<group>"; };
 		D328B677162C09F700EC16AA /* MZBgFeatureControl_Nebula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZBgFeatureControl_Nebula.m; sourceTree = "<group>"; };
+		D32D9E2B1693D7700027F920 /* MZPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayer.h; sourceTree = "<group>"; };
+		D32D9E2C1693D7700027F920 /* MZPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayer.m; sourceTree = "<group>"; };
+		D32D9E301693D7700027F920 /* MZUserControlPlayerStyle_RelativeMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZUserControlPlayerStyle_RelativeMove.h; sourceTree = "<group>"; };
+		D32D9E311693D7700027F920 /* MZUserControlPlayerStyle_RelativeMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZUserControlPlayerStyle_RelativeMove.m; sourceTree = "<group>"; };
+		D32D9E331693D7700027F920 /* MZUserControlPlayerStyleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZUserControlPlayerStyleBase.h; sourceTree = "<group>"; };
+		D32D9E341693D7700027F920 /* MZUserControlPlayerStyleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZUserControlPlayerStyleBase.m; sourceTree = "<group>"; };
+		D32D9E351693D7700027F920 /* MZUserControlPlayerStyleHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZUserControlPlayerStyleHeader.h; sourceTree = "<group>"; };
+		D32D9E3B1693D8370027F920 /* MZPlayerSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerSetting.h; sourceTree = "<group>"; };
+		D32D9E3C1693D8370027F920 /* MZPlayerSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerSetting.m; sourceTree = "<group>"; };
 		D342B79C15F078360025FDA5 /* MZGamePlayHUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGamePlayHUDLayer.h; sourceTree = "<group>"; };
 		D342B79D15F078360025FDA5 /* MZGamePlayHUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZGamePlayHUDLayer.m; sourceTree = "<group>"; };
 		D342B7A415F0786C0025FDA5 /* MZGamePlayHUD_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGamePlayHUD_Base.h; sourceTree = "<group>"; };
@@ -471,8 +480,6 @@
 		D39155FF16424E8C0011F3D6 /* MZModeSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZModeSetting.m; sourceTree = "<group>"; };
 		D391560116424E8C0011F3D6 /* MZMotionSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotionSetting.h; sourceTree = "<group>"; };
 		D391560216424E8C0011F3D6 /* MZMotionSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotionSetting.m; sourceTree = "<group>"; };
-		D391560416424E8C0011F3D6 /* MZPlayerControlCharacterSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerControlCharacterSetting.h; sourceTree = "<group>"; };
-		D391560516424E8C0011F3D6 /* MZPlayerControlCharacterSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerControlCharacterSetting.m; sourceTree = "<group>"; };
 		D391560616424E8C0011F3D6 /* MZSTGSettingsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZSTGSettingsHeader.h; sourceTree = "<group>"; };
 		D391560F16425F6E0011F3D6 /* new_ver_test_bgevents.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = new_ver_test_bgevents.plist; sourceTree = "<group>"; };
 		D3938ABE1532DF2A0022E708 /* MZMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMusic.h; sourceTree = "<group>"; };
@@ -796,13 +803,6 @@
 		D3B48E3314D93D73004FC4D7 /* MZGameCharactersHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGameCharactersHeader.h; sourceTree = "<group>"; };
 		D3B48E3514D93D73004FC4D7 /* MZPlayerBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerBullet.h; sourceTree = "<group>"; };
 		D3B48E3614D93D73004FC4D7 /* MZPlayerBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerBullet.m; sourceTree = "<group>"; };
-		D3B48E3814D93D73004FC4D7 /* MZPlayerControlCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerControlCharacter.h; sourceTree = "<group>"; };
-		D3B48E3914D93D73004FC4D7 /* MZPlayerControlCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerControlCharacter.m; sourceTree = "<group>"; };
-		D3B48E3D14D93D73004FC4D7 /* MZUserControlPlayerStyle_RelativeMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZUserControlPlayerStyle_RelativeMove.h; sourceTree = "<group>"; };
-		D3B48E3E14D93D73004FC4D7 /* MZUserControlPlayerStyle_RelativeMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZUserControlPlayerStyle_RelativeMove.m; sourceTree = "<group>"; };
-		D3B48E4014D93D73004FC4D7 /* MZUserControlPlayerStyleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZUserControlPlayerStyleBase.h; sourceTree = "<group>"; };
-		D3B48E4114D93D73004FC4D7 /* MZUserControlPlayerStyleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZUserControlPlayerStyleBase.m; sourceTree = "<group>"; };
-		D3B48E4214D93D73004FC4D7 /* MZUserControlPlayerStyleHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZUserControlPlayerStyleHeader.h; sourceTree = "<group>"; };
 		D3B48E4514D93D73004FC4D7 /* MZCharactersActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharactersActionManager.h; sourceTree = "<group>"; };
 		D3B48E4614D93D73004FC4D7 /* MZCharactersActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharactersActionManager.m; sourceTree = "<group>"; };
 		D3B48E4914D93D73004FC4D7 /* MZCharactersActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharactersActionControl.h; sourceTree = "<group>"; };
@@ -1083,6 +1083,61 @@
 				D328B677162C09F700EC16AA /* MZBgFeatureControl_Nebula.m */,
 			);
 			path = MZBgFeatureControl_Nebula;
+			sourceTree = "<group>";
+		};
+		D32D9E2A1693D7700027F920 /* MZPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				D32D9E2B1693D7700027F920 /* MZPlayer.h */,
+				D32D9E2C1693D7700027F920 /* MZPlayer.m */,
+				D32D9E2D1693D7700027F920 /* MZUserControlPlayerStyles */,
+			);
+			path = MZPlayer;
+			sourceTree = "<group>";
+		};
+		D32D9E2D1693D7700027F920 /* MZUserControlPlayerStyles */ = {
+			isa = PBXGroup;
+			children = (
+				D32D9E2E1693D7700027F920 /* MZUserControlPlayerStyle_ApproachingTo */,
+				D32D9E2F1693D7700027F920 /* MZUserControlPlayerStyle_RelativeMove */,
+				D32D9E321693D7700027F920 /* MZUserControlPlayerStyleBase */,
+				D32D9E351693D7700027F920 /* MZUserControlPlayerStyleHeader.h */,
+			);
+			path = MZUserControlPlayerStyles;
+			sourceTree = "<group>";
+		};
+		D32D9E2E1693D7700027F920 /* MZUserControlPlayerStyle_ApproachingTo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MZUserControlPlayerStyle_ApproachingTo;
+			sourceTree = "<group>";
+		};
+		D32D9E2F1693D7700027F920 /* MZUserControlPlayerStyle_RelativeMove */ = {
+			isa = PBXGroup;
+			children = (
+				D32D9E301693D7700027F920 /* MZUserControlPlayerStyle_RelativeMove.h */,
+				D32D9E311693D7700027F920 /* MZUserControlPlayerStyle_RelativeMove.m */,
+			);
+			path = MZUserControlPlayerStyle_RelativeMove;
+			sourceTree = "<group>";
+		};
+		D32D9E321693D7700027F920 /* MZUserControlPlayerStyleBase */ = {
+			isa = PBXGroup;
+			children = (
+				D32D9E331693D7700027F920 /* MZUserControlPlayerStyleBase.h */,
+				D32D9E341693D7700027F920 /* MZUserControlPlayerStyleBase.m */,
+			);
+			path = MZUserControlPlayerStyleBase;
+			sourceTree = "<group>";
+		};
+		D32D9E3A1693D8370027F920 /* MZPlayerSetting */ = {
+			isa = PBXGroup;
+			children = (
+				D32D9E3B1693D8370027F920 /* MZPlayerSetting.h */,
+				D32D9E3C1693D8370027F920 /* MZPlayerSetting.m */,
+			);
+			path = MZPlayerSetting;
 			sourceTree = "<group>";
 		};
 		D342B79F15F0786C0025FDA5 /* MZGamePlayHUDs */ = {
@@ -1618,7 +1673,7 @@
 				D39155FA16424E8C0011F3D6 /* MZEventControlCharacterSetting */,
 				D39155FD16424E8C0011F3D6 /* MZModeSetting */,
 				D391560016424E8C0011F3D6 /* MZMotionSetting */,
-				D391560316424E8C0011F3D6 /* MZPlayerControlCharacterSetting */,
+				D32D9E3A1693D8370027F920 /* MZPlayerSetting */,
 				D391560616424E8C0011F3D6 /* MZSTGSettingsHeader.h */,
 			);
 			path = MZSTGSettings;
@@ -1676,15 +1731,6 @@
 				D391560216424E8C0011F3D6 /* MZMotionSetting.m */,
 			);
 			path = MZMotionSetting;
-			sourceTree = "<group>";
-		};
-		D391560316424E8C0011F3D6 /* MZPlayerControlCharacterSetting */ = {
-			isa = PBXGroup;
-			children = (
-				D391560416424E8C0011F3D6 /* MZPlayerControlCharacterSetting.h */,
-				D391560516424E8C0011F3D6 /* MZPlayerControlCharacterSetting.m */,
-			);
-			path = MZPlayerControlCharacterSetting;
 			sourceTree = "<group>";
 		};
 		D3938ABD1532DF2A0022E708 /* MZMusic */ = {
@@ -2367,7 +2413,7 @@
 				D3B48E2D14D93D73004FC4D7 /* MZEnemyBullet */,
 				D3B48E3014D93D73004FC4D7 /* MZEventControlCharacter */,
 				D3B48E3414D93D73004FC4D7 /* MZPlayerBullet */,
-				D3B48E3714D93D73004FC4D7 /* MZPlayerControlCharacter */,
+				D32D9E2A1693D7700027F920 /* MZPlayer */,
 			);
 			path = MZGameCharacters;
 			sourceTree = "<group>";
@@ -2424,52 +2470,6 @@
 				D3B48E3614D93D73004FC4D7 /* MZPlayerBullet.m */,
 			);
 			path = MZPlayerBullet;
-			sourceTree = "<group>";
-		};
-		D3B48E3714D93D73004FC4D7 /* MZPlayerControlCharacter */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E3814D93D73004FC4D7 /* MZPlayerControlCharacter.h */,
-				D3B48E3914D93D73004FC4D7 /* MZPlayerControlCharacter.m */,
-				D3B48E3A14D93D73004FC4D7 /* MZUserControlPlayerStyles */,
-			);
-			path = MZPlayerControlCharacter;
-			sourceTree = "<group>";
-		};
-		D3B48E3A14D93D73004FC4D7 /* MZUserControlPlayerStyles */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E3B14D93D73004FC4D7 /* MZUserControlPlayerStyle_ApproachingTo */,
-				D3B48E3C14D93D73004FC4D7 /* MZUserControlPlayerStyle_RelativeMove */,
-				D3B48E3F14D93D73004FC4D7 /* MZUserControlPlayerStyleBase */,
-				D3B48E4214D93D73004FC4D7 /* MZUserControlPlayerStyleHeader.h */,
-			);
-			path = MZUserControlPlayerStyles;
-			sourceTree = "<group>";
-		};
-		D3B48E3B14D93D73004FC4D7 /* MZUserControlPlayerStyle_ApproachingTo */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MZUserControlPlayerStyle_ApproachingTo;
-			sourceTree = "<group>";
-		};
-		D3B48E3C14D93D73004FC4D7 /* MZUserControlPlayerStyle_RelativeMove */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E3D14D93D73004FC4D7 /* MZUserControlPlayerStyle_RelativeMove.h */,
-				D3B48E3E14D93D73004FC4D7 /* MZUserControlPlayerStyle_RelativeMove.m */,
-			);
-			path = MZUserControlPlayerStyle_RelativeMove;
-			sourceTree = "<group>";
-		};
-		D3B48E3F14D93D73004FC4D7 /* MZUserControlPlayerStyleBase */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E4014D93D73004FC4D7 /* MZUserControlPlayerStyleBase.h */,
-				D3B48E4114D93D73004FC4D7 /* MZUserControlPlayerStyleBase.m */,
-			);
-			path = MZUserControlPlayerStyleBase;
 			sourceTree = "<group>";
 		};
 		D3B48E4314D93D73004FC4D7 /* MZGamePlayComponenets */ = {
@@ -3394,9 +3394,6 @@
 				D3B48F1014D93D73004FC4D7 /* MZEnemyBullet.m in Sources */,
 				D3B48F1114D93D73004FC4D7 /* MZEventControlCharacter.m in Sources */,
 				D3B48F1214D93D73004FC4D7 /* MZPlayerBullet.m in Sources */,
-				D3B48F1314D93D73004FC4D7 /* MZPlayerControlCharacter.m in Sources */,
-				D3B48F1414D93D73004FC4D7 /* MZUserControlPlayerStyle_RelativeMove.m in Sources */,
-				D3B48F1514D93D73004FC4D7 /* MZUserControlPlayerStyleBase.m in Sources */,
 				D3B48F1614D93D73004FC4D7 /* MZCharactersActionManager.m in Sources */,
 				D3B48F1714D93D73004FC4D7 /* MZCharactersActionControl.m in Sources */,
 				D3B48F1814D93D73004FC4D7 /* MZCharactersActionParamters.m in Sources */,
@@ -3490,7 +3487,6 @@
 				D391560B16424E8C0011F3D6 /* MZEventControlCharacterSetting.m in Sources */,
 				D391560C16424E8C0011F3D6 /* MZModeSetting.m in Sources */,
 				D391560D16424E8C0011F3D6 /* MZMotionSetting.m in Sources */,
-				D391560E16424E8C0011F3D6 /* MZPlayerControlCharacterSetting.m in Sources */,
 				D31301941643740D007515C3 /* MZGamePlayHUD_Panel.m in Sources */,
 				D3540A3E16489EE800E352BE /* MZConvert.m in Sources */,
 				D3E1A7CB164BAF17005E52B2 /* MZEffectsManager.m in Sources */,
@@ -3604,6 +3600,10 @@
 				DF74324E168882F900865738 /* MZCollision.m in Sources */,
 				DF74325C1688A42D00865738 /* MZAttackSetting.m in Sources */,
 				D3A3FCC1168ACF03006AC760 /* MZCCSpritesPool.m in Sources */,
+				D32D9E361693D7700027F920 /* MZPlayer.m in Sources */,
+				D32D9E371693D7700027F920 /* MZUserControlPlayerStyle_RelativeMove.m in Sources */,
+				D32D9E381693D7700027F920 /* MZUserControlPlayerStyleBase.m in Sources */,
+				D32D9E3D1693D8370027F920 /* MZPlayerSetting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

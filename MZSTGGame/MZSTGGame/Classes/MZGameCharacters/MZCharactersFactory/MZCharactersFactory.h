@@ -4,7 +4,7 @@
 @class MZLevelComponents;
 @class MZCharacter;
 @class MZCharacterSetting;
-@class MZPlayerControlCharacter;
+@class MZPlayer;
 @class MZEventControlCharacter;
 @class MZColor;
 

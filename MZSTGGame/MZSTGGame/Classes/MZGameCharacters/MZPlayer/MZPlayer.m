@@ -1,35 +1,47 @@
-#import "MZPlayerControlCharacter.h"
-#import "MZPlayerControlCharacterSetting.h"
+#import "MZPlayer.h"
+#import "MZPlayerSetting.h"
 #import "MZUserControlPlayerStyleHeader.h"
 #import "MZObjectHelper.h"
 #import "MZGameSettingsHeader.h"
+#import "MZLogMacro.h"
 
-@implementation MZPlayerControlCharacter
+@implementation MZPlayer
 
 #pragma mark - init and dealloc
 
-+(MZPlayerControlCharacter *)character
++(MZPlayer *)player
 {
     return [[[self alloc] init] autorelease];
 }
 
 -(void)dealloc
 {
-    [playerControlCharacterSetting release];
+    [playerSetting release];
     [userControlPlayerStyle release];
     
     [super dealloc];
 }
 
-#pragma mark - override
+#pragma mark - properties (override)
 
--(void)setSetting:(MZPlayerControlCharacterSetting *)aSetting
+-(void)setSetting:(MZCharacterSetting *)aSetting
 {
-    [super setSetting: aSetting characterType: kMZCharacterType_Player];
-    playerControlCharacterSetting = [(MZPlayerControlCharacterSetting *)setting retain];
+    MZAssert( [aSetting isKindOfClass: [MZPlayerSetting class]], @"aSetting is not MZPlayerSetting class" );
+    
+    if( playerSetting == aSetting ) return;
+    if( playerSetting != nil ) [playerSetting release];
+    
+    playerSetting = (MZPlayerSetting *)aSetting;
+    [playerSetting retain];
+}
+                     
+-(MZPlayerSetting *)setting
+{
+    if( playerSetting == nil ) playerSetting = [[MZPlayerSetting alloc] init];
+    return playerSetting;
 }
 
-#pragma mark - methods
+#pragma mark - MZPlayerTouchDelegate
 
 -(void)touchBeganWithPosition:(CGPoint)touchPosition
 {
@@ -48,11 +60,14 @@
     self.disableAttack = true;
 }
 
+#pragma mark - methods
+
+
 @end
 
 #pragma mark
 
-@implementation MZPlayerControlCharacter (Protected)
+@implementation MZPlayer (Protected)
 
 #pragma mark - override
 
@@ -61,6 +76,7 @@
     [super _initValues];
     userControlPlayerStyle = [[MZUserControlPlayerStyle_RelativeMove alloc] initWithPlayerCharacter: self];
     self.disableAttack = true;
+    self.characterType = kMZCharacterType_Player;
 }
 
 -(void)_update

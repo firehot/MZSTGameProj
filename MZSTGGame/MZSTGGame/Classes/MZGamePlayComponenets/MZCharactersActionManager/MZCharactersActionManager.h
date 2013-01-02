@@ -2,7 +2,7 @@
 #import "MZCharacterTypeStrings.h"
 
 @class MZCharacter;
-@class MZPlayerControlCharacter;
+@class MZPlayer;
 @class MZEventControlCharacter;
 @class MZPlayerActionControl;
 @class MZPlayerBulletsActionControl;

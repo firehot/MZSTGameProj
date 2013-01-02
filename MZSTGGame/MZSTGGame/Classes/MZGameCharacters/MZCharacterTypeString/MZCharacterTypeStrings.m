@@ -22,7 +22,7 @@ static MZCharacterTypeStrings *sharedMZCharacterTypeStrings_ = nil;
 {
     if( (self = [super init]) )
     {
-        player = @"MZPlayerControlCharacter";
+        player = @"MZPlayer";
         [player retain];
         
         enemy = @"MZEventControlCharacter";
@@ -97,7 +97,7 @@ static MZCharacterTypeStrings *sharedMZCharacterTypeStrings_ = nil;
     switch( type )
     {
         case kMZCharacterType_Player:
-            return @"MZPlayerControlCharacter";
+            return @"MZPlayer";
         case kMZCharacterType_Enemy:
             return @"MZEnemy";
         case kMZCharacterType_PlayerBullet:
@@ -117,7 +117,7 @@ static MZCharacterTypeStrings *sharedMZCharacterTypeStrings_ = nil;
     switch( type )
     {
         case kMZCharacterType_Player:
-            return @"MZPlayerControlCharacterSetting";
+            return @"MZPlayerSetting";
         case kMZCharacterType_Enemy:
         case kMZCharacterType_PlayerBullet:
         case kMZCharacterType_EnemyBullet:

@@ -216,6 +216,7 @@
     isLeader = false;
     isUsingDynamicSetting = false;
     disableAttack = false;
+    characterType = kMZCharacterType_None;
 }
 
 -(void)_checkActiveCondition
@@ -259,7 +260,9 @@
     {
         MZCharacterPartSetting *partSetting = [settingDictionary objectForKey: partName];
         
-        MZCharacterPart *characterPart = [MZCharacterPart characterPartWithSetting: partSetting parentCharacterType: self.characterType];
+        MZCharacterPart *characterPart = [MZCharacterPart part];
+        characterPart.parentCharacterRef = self;
+        characterPart.setting = partSetting;
         [self addChild: characterPart name: partSetting.name];
     }
 }

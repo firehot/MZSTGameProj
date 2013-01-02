@@ -265,7 +265,7 @@ static MZLevelComponents *_sharedLevelComponents = nil;
 
 -(void)_initPlayer
 {
-    player = (MZPlayerControlCharacter *)
+    player = (MZPlayer *)
     [[MZCharactersFactory sharedCharactersFactory] getCharacterByType: kMZCharacterType_Player
                                                           settingName: @"PlayerOne"];
     player.position = CGPointMake( 160, 70 );

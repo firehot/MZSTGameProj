@@ -7,7 +7,7 @@
 @class MZCharactersActionManager;
 @class MZEventsExecutor;
 @class MZScenario;
-@class MZPlayerControlCharacter;
+@class MZPlayer;
 @class MZCCSpritesPool;
 @class MZEventMetadata;
 @class MZEffectsManager;
@@ -29,7 +29,7 @@
 @property (nonatomic, readonly) MZEventsExecutor *eventsExecutor;
 @property (nonatomic, readonly) MZScenario *scenario; // 暫時用不到 ...
 @property (nonatomic, readonly) MZEffectsManager *effectsManager; // 暫時用不到 ...
-@property (nonatomic, readonly) MZPlayerControlCharacter *player;
+@property (nonatomic, readonly) MZPlayer *player;
 @property (nonatomic, readonly) MZCCSpritesPool *spritesPool;
 
 

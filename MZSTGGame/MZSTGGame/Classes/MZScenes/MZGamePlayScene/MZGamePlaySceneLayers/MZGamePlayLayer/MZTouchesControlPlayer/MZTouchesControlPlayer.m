@@ -1,6 +1,7 @@
 #import "MZTouchesControlPlayer.h"
-#import "MZPlayerControlCharacter.h"
+#import "MZPlayer.h"
 #import "MZGamePlayLayer.h"
+#import "MZLogMacro.h"
 
 @implementation MZTouchesControlPlayer
 
@@ -8,23 +9,25 @@
 
 #pragma mark - init and dealloc
 
--(id)initWithPlayerControlCharacter:(MZPlayerControlCharacter *)aPlayerControlCharacter gamePlayLayerRef:(MZGamePlayLayer *)aGamePlayLayer
+-(id)initWithPlayerTouch:(id<MZPlayerTouchDelegate>)aPlayerTouch touchSpace:(id<MZTouchSpaceDelegate>)aTouchSpace
 {
-    if( ( self = [super init] ) )
-    {
-        playerControlCharacterRef = aPlayerControlCharacter;
-        gamePlayLayerRef = aGamePlayLayer;
-        
-        touchesCount = 0;
-    }
+    MZAssert( aPlayerTouch != nil, @"aPlayerTouchDelegate is nil" );
+    MZAssert( aTouchSpace != nil, @"aTouchSpaceDelegate is nil" );
+    
+    self = [super init];
+    
+    playerTouchDelegate = aPlayerTouch;
+    touchSpaceDelegate = aTouchSpace;
+    
+    touchesCount = 0;
     
     return self;
 }
 
 -(void)dealloc
 {
-    playerControlCharacterRef = nil;
-    gamePlayLayerRef = nil;
+    playerTouchDelegate = nil;
+    touchSpaceDelegate = nil;
     [super dealloc];
 }
 
@@ -39,8 +42,8 @@
     
     UITouch *touch = [touches anyObject];
     
-    CGPoint convertedLocation = [gamePlayLayerRef convertTouchToNodeSpace: touch];
-    [playerControlCharacterRef touchBeganWithPosition: convertedLocation];    
+    CGPoint convertedLocation = [touchSpaceDelegate convertTouchToNodeSpace: touch];
+    [playerTouchDelegate touchBeganWithPosition: convertedLocation];    
 }
 
 -(void)touchesMoved:(NSSet *)touches event:(UIEvent *)event
@@ -50,16 +53,15 @@
     
     UITouch *touch = [touches anyObject];
     
-    CGPoint convertedLocation = [gamePlayLayerRef convertTouchToNodeSpace: touch];
-    [playerControlCharacterRef touchMovedWithPosition: convertedLocation];
+    CGPoint convertedLocation = [touchSpaceDelegate convertTouchToNodeSpace: touch];
+    [playerTouchDelegate touchMovedWithPosition: convertedLocation];
 }
 
 -(void)touchesEnded:(NSSet *)touches event:(UIEvent *)event
 {    
     touchesCount = [[event allTouches] count];
     
-    if( touchesCount > 2 )
-        return;
+    if( touchesCount > 2 ) return;
     
     [self _doValidTouchesEnded: touches event: event];
 }
@@ -80,8 +82,8 @@
 -(void)_doPlayerTouchesAllEnded:(NSSet *)touches event:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
-    CGPoint convertedLocation = [gamePlayLayerRef convertTouchToNodeSpace: touch];
-    [playerControlCharacterRef touchEndedWithPosition: convertedLocation];
+    CGPoint convertedLocation = [touchSpaceDelegate convertTouchToNodeSpace: touch];
+    [playerTouchDelegate touchEndedWithPosition: convertedLocation];
     
     touchesCount = 0;
 }
@@ -93,8 +95,8 @@
     if( activeTouch == nil )
         return;
         
-    CGPoint convertedLocation = [gamePlayLayerRef convertTouchToNodeSpace: activeTouch];
-    [playerControlCharacterRef touchBeganWithPosition: convertedLocation];
+    CGPoint convertedLocation = [touchSpaceDelegate convertTouchToNodeSpace: activeTouch];
+    [playerTouchDelegate touchBeganWithPosition: convertedLocation];
     
     touchesCount = 1;
 }

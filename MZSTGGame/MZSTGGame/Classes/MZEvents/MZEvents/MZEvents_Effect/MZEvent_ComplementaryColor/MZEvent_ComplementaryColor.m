@@ -1,7 +1,7 @@
 #import "MZEvent_ComplementaryColor.h"
 #import "MZLevelComponents.h"
 #import "MZGamePlayLayer.h"
-#import "MZPlayerControlCharacter.h"
+#import "MZPlayer.h"
 
 @implementation MZEvent_ComplementaryColor
 

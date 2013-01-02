@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class MZPlayerControlCharacter;
+@class MZPlayer;
 
 @interface MZCharactersActionParamters : NSObject
 
@@ -10,6 +10,6 @@
 @property (nonatomic, assign) NSMutableArray *activeEnemiesRef;
 @property (nonatomic, assign) NSMutableArray *activeEnemyBulletsRef;
 @property (nonatomic, assign) NSMutableArray *activePlayerBulletsRef;
-@property (nonatomic, assign) MZPlayerControlCharacter *playerRef;
+@property (nonatomic, assign) MZPlayer *playerRef;
 
 @end

@@ -1,4 +1,5 @@
 #import "MZCharacter.h"
+#import "MZPlayer.h"
 #import "MZCharacterPart.h"
 #import "MZCharacterCollisionColor.h"
 #import "MZCharacterDynamicSetting.h"

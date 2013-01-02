@@ -1,5 +1,5 @@
 #import "MZUserControlPlayerStyle_RelativeMove.h"
-#import "MZPlayerControlCharacter.h"
+#import "MZPlayer.h"
 #import "MZGameSettingsHeader.h"
 #import "MZCCDisplayHelper.h"
 #import "MZCGPointMacro.h"
@@ -31,8 +31,7 @@
 
 -(void)updateMove
 {
-    if( !updateMove )
-        return;
+    if( !updateMove ) return;
     
     CGPoint moveDistance = mzpSub( touchPositionAtMove, touchPositionAtBegin );
     CGPoint nextPosition = mzpAdd( characterPositionAtBeginTouch, moveDistance );
