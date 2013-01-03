@@ -16,6 +16,7 @@
 
 @interface MZGameObject (Private)
 -(bool)_isSpriteFrameInnerScreen;
+-(MZFramesManager *)_framesManager;
 @end
 
 @implementation MZGameObject
@@ -357,9 +358,7 @@
 {
     MZAssert( spriteRef, @"spriteRef is nil" );
     
-//    MZFrame *frameControl = [[MZFramesManager sharedInstance] frameByName: frameName];
-    // working issue
-    MZFrame *frameControl = [((MZGamePlayLayer_Base *)spriteRef.batchNode.parent).framesManager frameByName: frameName];
+    MZFrame *frameControl = [[self _framesManager] frameByName: frameName];
     MZAssert( frameControl, @"FrameControl(%@) is nil", frameName );
     
     frameSize = frameControl.frameSize;
@@ -457,6 +456,12 @@
         return false;
     
     return true;
+}
+
+-(MZFramesManager *)_framesManager
+{
+    MZAssert( spritesPoolRef != nil, @"not support this type, please wait" );
+    return spritesPoolRef.framesManager;
 }
 
 @end

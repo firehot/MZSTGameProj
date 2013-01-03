@@ -12,14 +12,26 @@
 
 @implementation MZCCSpritesPool
 
+@synthesize framesManager = framesManagerRef;
+
 #pragma mark - init and dealloc
 
-+(MZCCSpritesPool *)poolWithTexture:(CCTexture2D *)aTexture layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc
++(MZCCSpritesPool *)poolWithTexture:(CCTexture2D *)aTexture
+                      framesManager:(MZFramesManager *)aFramesManager
+                              layer:(CCLayer *)aLayer
+                             number:(int)aNumber
+                          blendFunc:(ccBlendFunc)aBlendFunc
+
 {
-    return [[[self alloc] initWithTexture: aTexture layer: aLayer number: aNumber blendFunc: aBlendFunc] autorelease];
+    return [[[self alloc] initWithTexture: aTexture framesManager: aFramesManager layer: aLayer number: aNumber blendFunc: aBlendFunc] autorelease];
 }
 
--(id)initWithTexture:(CCTexture2D *)aTexture layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc
+-(id)initWithTexture:(CCTexture2D *)aTexture
+       framesManager:(MZFramesManager *)aFramesManager
+               layer:(CCLayer *)aLayer
+              number:(int)aNumber
+           blendFunc:(ccBlendFunc)aBlendFunc
+
 {
     MZAssert( aTexture != nil, @"aTexture is nil" );
     MZAssert( aLayer != nil, @"aLayer is nil" );
@@ -27,6 +39,7 @@
     self = [super init];
     
     number = aNumber;
+    framesManagerRef = aFramesManager;
     blendFunc = aBlendFunc;
     layerRef = aLayer;
     
@@ -58,6 +71,7 @@
     [spriteBatchNode release];
     
     layerRef = nil;
+    framesManagerRef = nil;
     
     [super dealloc];
 }

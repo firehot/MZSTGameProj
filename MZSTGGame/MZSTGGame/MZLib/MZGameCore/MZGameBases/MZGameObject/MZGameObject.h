@@ -83,7 +83,3 @@
 
 @interface MZGameObject (Protected)
 @end
-
-/*
- 更名候選: MZCCSpriteObject
- */

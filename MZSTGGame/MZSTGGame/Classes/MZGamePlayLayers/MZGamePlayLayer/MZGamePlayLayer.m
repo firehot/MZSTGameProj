@@ -153,22 +153,13 @@
     for( int i = 0; i < 4; i++ )
     {
         CCTexture2D *texture = [self.framesManager textureByName: textureName[i]];
-        MZCCSpritesPool *pool = [MZCCSpritesPool poolWithTexture: texture layer: self number: numbers[i] blendFunc: blend];
+        MZCCSpritesPool *pool = [MZCCSpritesPool poolWithTexture: texture
+                                                   framesManager: self.framesManager
+                                                           layer: self
+                                                          number: numbers[i] blendFunc: blend];
         
         [self addSpritesPool: pool key: [keys[i] intValue]];
     }
-    
-//    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]enemies_atlas.png" layer: self number: 100 blendFunc: blend]
-//                     key: kMZGamePlayLayerActorType_Enemy];
-//    
-//    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"player_male.pvr.ccz" layer: self number: 100 blendFunc: blend]
-//                     key: kMZGamePlayLayerActorType_Player];
-//    
-//    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend]
-//                     key: kMZGamePlayLayerActorType_PlayerBullet];
-//    
-//    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend]
-//                     key: kMZGamePlayLayerActorType_EnemyBullet];
 }
 
 -(void)_initReferenceLines
