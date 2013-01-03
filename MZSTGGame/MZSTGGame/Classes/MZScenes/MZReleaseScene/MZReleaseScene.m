@@ -2,7 +2,7 @@
 #import "MZUtilitiesHeader.h"
 #import "MZFramesManager.h"
 #import "MZAnimationsManager.h"
-#import "MZCCScenesFactory.h"
+#import "MZScenesFactory.h"
 #import "MZGameSettingsHeader.h"
 #import "MZLogMacro.h"
 #import "cocos2d.h"
@@ -87,7 +87,7 @@
     
     MZLog( @"Go to Loading scene" );
     
-    [[CCDirector sharedDirector] replaceScene: [[MZCCScenesFactory sharedScenesFactory] sceneWithType: kMZSceneType_Loading]];
+    [[CCDirector sharedDirector] replaceScene: [[MZScenesFactory sharedInstance] sceneWithType: kMZSceneType_Loading]];
 }
 
 @end

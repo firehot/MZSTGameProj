@@ -1,6 +1,6 @@
 #import "MZScenesFlowController.h"
 #import "MZLogMacro.h"
-#import "MZCCScenesFactory.h"
+#import "MZScenesFactory.h"
 #import "cocos2d.h"
 
 @implementation MZScenesFlowController
@@ -40,7 +40,7 @@ MZScenesFlowController *sharedScenesFlowController_ = nil;
 -(void)fastSwitchToScene:(MZSceneType)sceneType
 {
     nextScene = sceneType;
-    [[CCDirector sharedDirector] replaceScene: [[MZCCScenesFactory sharedScenesFactory] sceneWithType: kMZSceneType_Release]];
+    [[CCDirector sharedDirector] replaceScene: [[MZScenesFactory sharedInstance] sceneWithType: kMZSceneType_Release]];
 }
 
 @end

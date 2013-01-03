@@ -62,7 +62,7 @@
 {
     zoom = aZoom;
 
-    for( MZGamePlaySceneLayerBase *layer in [layersDictionary allValues] )
+    for( MZGamePlayLayer_Base *layer in [layersDictionary allValues] )
     {
         if( [layer class] == [MZGamePlayHUDLayer class] )
             continue;
@@ -79,7 +79,7 @@
 
 #pragma mark - methods
 
--(MZGamePlaySceneLayerBase *)layerByType:(MZGamePlayLayerType)layerType
+-(MZGamePlayLayer_Base *)layerByType:(MZGamePlayLayerType)layerType
 {
     NSNumber *nsType = [NSNumber numberWithInt: layerType];
     MZAssert( [layersDictionary objectForKey: nsType], @"Layer of this type not exist" );
@@ -90,10 +90,7 @@
 -(void)pause
 {
     if( isPause ) return;
-    for( MZGamePlaySceneLayerBase *layer in [layersDictionary allValues] )
-    {
-        [layer pause];
-    }
+    for( MZGamePlayLayer_Base *layer in [layersDictionary allValues] ) [layer pause];
     [self pauseSchedulerAndActions];
     isPause = true;
 }
@@ -101,10 +98,7 @@
 -(void)resume
 {
     if( !isPause ) return;
-    for( MZGamePlaySceneLayerBase *layer in [layersDictionary allValues] )
-    {
-        [layer resume];
-    }
+    for( MZGamePlayLayer_Base *layer in [layersDictionary allValues] ) [layer resume];
     [self resumeSchedulerAndActions];
     isPause = false;
 }
@@ -115,11 +109,12 @@
     
     for( NSNumber *layerType in [layersDictionary allKeys] )
     {
-        MZGamePlaySceneLayerBase *layer = [layersDictionary objectForKey: layerType];
+        MZGamePlayLayer_Base *layer = [layersDictionary objectForKey: layerType];
         
         [layer beforeRelease];
         [self removeChild: layer cleanup: false];
     }
+    
     [layersDictionary release];
 
     [[MZLevelComponents sharedInstance] removeFromLevel];
@@ -129,11 +124,6 @@
 {
     [self releaseAll];
     [[MZScenesFlowController sharedScenesFlowController] fastSwitchToScene: sceneType];
-}
-
--(MZGamePlayLayer *)layerWithType:(MZGamePlayLayerType)layerType
-{
-    return [layersDictionary objectForKey: [NSNumber numberWithInt: layerType]];
 }
 
 @end
@@ -147,7 +137,7 @@
 -(void)_initLayersWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary
 {
 //    MZGamePlaySceneLayerBase *background = [MZGamePlayBackgroundLayer layerWithLevelSettingDictionary: levelSettingDictionary parentScene: self];
-    MZGamePlaySceneLayerBase *play = [MZGamePlayLayer layerWithLevelSettingDictionary: levelSettingDictionary parentScene: self];
+    MZGamePlayLayer_Base *play = [MZGamePlayLayer layerWithLevelSettingDictionary: levelSettingDictionary parentScene: self];
 //    MZGamePlaySceneLayerBase *hud = [MZGamePlayHUDLayer layerWithLevelSettingDictionary: levelSettingDictionary parentScene: self];
     
     layersDictionary = [[NSMutableDictionary alloc] initWithCapacity: 0];
@@ -165,7 +155,7 @@
     [[MZLevelComponents sharedInstance] setLevelWithName: aLevelName settingDictionary: levelSettingDictionary playScene: self];
 
     // 有東西必須在取得 LevelComponents 之後進行, 如何修正????
-    for( MZGamePlaySceneLayerBase *layer in [layersDictionary allValues] )
+    for( MZGamePlayLayer_Base *layer in [layersDictionary allValues] )
     {
         [layer _initAfterGetLevelComponents];
     }
@@ -193,7 +183,7 @@
     [[MZTime sharedInstance] updateWithDeltaTime: deltaTime];
         
     [[MZLevelComponents sharedInstance] update];
-    for( MZGamePlaySceneLayerBase *layer in [layersDictionary allValues] )
+    for( MZGamePlayLayer_Base *layer in [layersDictionary allValues] )
     {
         [layer update];
     }

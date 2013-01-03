@@ -3,8 +3,8 @@
 
 @class CCScene;
 
-@interface MZCCScenesFactory : NSObject
-+(MZCCScenesFactory *)sharedScenesFactory;
+@interface MZScenesFactory : NSObject
++(MZScenesFactory *)sharedInstance;
 
 -(CCScene *)sceneWithType:(MZSceneType)sceneType;
 

@@ -1,17 +1,17 @@
-#import "MZCCScenesFactory.h"
+#import "MZScenesFactory.h"
 #import "MZScenesHeader.h"
 #import "CCScene.h"
 
-@implementation MZCCScenesFactory
+@implementation MZScenesFactory
 
-MZCCScenesFactory *sharedScenesFactory_ = nil;
+MZScenesFactory *sharedScenesFactory_ = nil;
 
 #pragma mark - init and dealloc
 
-+(MZCCScenesFactory *)sharedScenesFactory
++(MZScenesFactory *)sharedInstance
 {
     if( sharedScenesFactory_ == nil )
-        sharedScenesFactory_ = [[MZCCScenesFactory alloc] init];
+        sharedScenesFactory_ = [[MZScenesFactory alloc] init];
     
     return sharedScenesFactory_;
 }

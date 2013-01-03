@@ -3,7 +3,7 @@
 @class MZGamePlayScene;
 @class MZCCSpritesPool;
 
-@interface MZGamePlaySceneLayerBase : CCLayer
+@interface MZGamePlayLayer_Base : CCLayer
 {
 @private
     NSMutableDictionary *spritesPoolByActorTypeDictionary;
@@ -11,7 +11,7 @@
     MZGamePlayScene *parentSceneRef;
 }
 
-+(MZGamePlaySceneLayerBase *)layerWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictioanry parentScene:(MZGamePlayScene *)aParentScene;
++(MZGamePlayLayer_Base *)layerWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictioanry parentScene:(MZGamePlayScene *)aParentScene;
 -(id)initWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictioanry parentScene:(MZGamePlayScene *)aParentScene;
 
 -(int)addSpritesPool:(MZCCSpritesPool *)spritesPool key:(int)key;
@@ -28,7 +28,7 @@
 
 @end
 
-@interface MZGamePlaySceneLayerBase (Protected)
+@interface MZGamePlayLayer_Base (Protected)
 -(void)_initValues;
 -(void)_initWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary;
 -(void)_initAfterGetLevelComponents;

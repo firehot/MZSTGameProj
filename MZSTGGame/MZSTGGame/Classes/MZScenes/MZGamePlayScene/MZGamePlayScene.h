@@ -3,7 +3,7 @@
 #import "MZScenesHeader.h"
 #import "MZTypeDefine.h"
 
-@class MZGamePlaySceneLayerBase;
+@class MZGamePlayLayer_Base;
 
 @interface MZGamePlayScene : CCScene
 {
@@ -12,15 +12,13 @@
     NSMutableDictionary *layersDictionary;
 }
 
--(MZGamePlaySceneLayerBase *)layerByType:(MZGamePlayLayerType)layerType;
+-(MZGamePlayLayer_Base *)layerByType:(MZGamePlayLayerType)layerType;
 
 -(void)pause;
 -(void)resume;
 
 -(void)releaseAll;
 -(void)switchSceneTo:(MZSceneType)sceneType;
-
--(MZGamePlayLayer *)layerWithType:(MZGamePlayLayerType)layerType;
 
 @property (nonatomic, readonly) bool isPause;
 @property (nonatomic, readwrite) float timeScale;

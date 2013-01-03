@@ -2,7 +2,7 @@
 #import "MZSTGSettingsHeader.h"
 #import "MZSceneTypeDefine.h"
 #import "MZScenesHeader.h"
-#import "MZCCScenesFactory.h"
+#import "MZScenesFactory.h"
 #import "MZLogMacro.h"
 #import "cocos2d.h"
 
@@ -60,7 +60,7 @@
     MZSceneType nextScene = [MZScenesFlowController sharedScenesFlowController].nextScene;
     CCDirector *directior = [CCDirector sharedDirector];
     
-    CCScene *scene = [[MZCCScenesFactory sharedScenesFactory] sceneWithType: nextScene];
+    CCScene *scene = [[MZScenesFactory sharedInstance] sceneWithType: nextScene];
     [directior replaceScene: scene];
     
 //    [CCTransitionTurnOffTiles transitionWithDuration: 0.5f scene: scene]

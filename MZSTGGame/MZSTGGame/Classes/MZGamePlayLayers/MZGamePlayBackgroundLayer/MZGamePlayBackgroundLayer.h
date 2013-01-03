@@ -1,9 +1,9 @@
-#import "MZGamePlaySceneLayerBase.h"
+#import "MZGamePlayLayer_Base.h"
 
 @class MZBgEventsControl;
 @class MZEventMetadata;
 
-@interface MZGamePlayBackgroundLayer : MZGamePlaySceneLayerBase
+@interface MZGamePlayBackgroundLayer : MZGamePlayLayer_Base
 {
     float deltaMovemnetEveryUpdate;
     CGPoint center;

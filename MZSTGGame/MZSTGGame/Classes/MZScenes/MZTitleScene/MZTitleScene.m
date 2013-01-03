@@ -1,5 +1,5 @@
 #import "MZTitleScene.h"
-#import "MZCCScenesFactory.h"
+#import "MZScenesFactory.h"
 #import "MZScenesHeader.h"
 #import "MZFramesManager.h"
 #import "MZCCDisplayHelper.h"

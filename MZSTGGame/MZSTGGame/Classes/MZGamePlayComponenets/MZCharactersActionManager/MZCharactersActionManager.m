@@ -36,7 +36,6 @@
     [enemiesActionControl release];
     [enemyBulletsActionControl release];
      
-    // 檢討區[到底還需不需要 release 呢?]
     for( MZBehavior_Base *playerBullet in activePlayerBullets )
         [playerBullet disable];
     [activePlayerBullets release];
@@ -94,7 +93,7 @@
 
 @implementation MZCharactersActionManager (Private)
 
-#pragma mark - init (private)
+#pragma mark - init
 
 -(void)_initActiveCharactersArray
 {
@@ -118,7 +117,7 @@
     enemyBulletsActionControl = [[MZEnemyBulletsActionControl alloc] initWithParamters: charactersActionParamters];
 }
 
-#pragma mark - methods (private)
+#pragma mark - methods
 
 -(void)_updateActiveCharacters
 { 

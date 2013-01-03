@@ -1,4 +1,4 @@
-#import "MZGamePlaySceneLayerBase.h"
+#import "MZGamePlayLayer_Base.h"
 #import "MZTouchesControlPlayer.h"
 #import "MZTypeDefine.h"
 
@@ -24,7 +24,7 @@ typedef enum
 @class MZPlayer;
 @class MZEnemy;
 
-@interface MZGamePlayLayer : MZGamePlaySceneLayerBase <MZTouchSpaceDelegate>
+@interface MZGamePlayLayer : MZGamePlayLayer_Base <MZTouchSpaceDelegate>
 {    
     MZTouchesControlPlayer *touchesControlPlayer;
     CCDrawNode *referenceLines;

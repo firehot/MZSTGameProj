@@ -1,9 +1,9 @@
-#import "MZGamePlaySceneLayerBase.h"
+#import "MZGamePlayLayer_Base.h"
 #import "MZGamePlayHUDsHeader.h"
 
 @class MZGamePlayHUD_Base;
 
-@interface MZGamePlayHUDLayer : MZGamePlaySceneLayerBase
+@interface MZGamePlayHUDLayer : MZGamePlayLayer_Base
 {
     NSMutableDictionary *gamePlayHUDComponenetsDictionary;
 }

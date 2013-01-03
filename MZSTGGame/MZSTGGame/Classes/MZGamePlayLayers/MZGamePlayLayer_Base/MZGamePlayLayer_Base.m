@@ -1,15 +1,15 @@
-#import "MZGamePlaySceneLayerBase.h"
+#import "MZGamePlayLayer_Base.h"
 #import "MZGamePlayScene.h"
 #import "MZLevelComponents.h"
 #import "MZUtilitiesHeader.h"
 
-@implementation MZGamePlaySceneLayerBase
+@implementation MZGamePlayLayer_Base
 
 @synthesize layerTypeInNSNumber;
 
 #pragma mark - init
 
-+(MZGamePlaySceneLayerBase *)layerWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictioanry parentScene:(MZGamePlayScene *)aParentScene
++(MZGamePlayLayer_Base *)layerWithLevelSettingDictionary:(NSDictionary *)aLevelSettingDictioanry parentScene:(MZGamePlayScene *)aParentScene
 {
     return [[[self alloc] initWithLevelSettingDictionary: aLevelSettingDictioanry parentScene: aParentScene] autorelease];
 }
@@ -91,7 +91,7 @@
 
 #pragma mark
 
-@implementation MZGamePlaySceneLayerBase (Protected)
+@implementation MZGamePlayLayer_Base (Protected)
 
 #pragma mark - methods
 
