@@ -15,23 +15,23 @@
 
 @implementation MZFramesManager
 
-static MZFramesManager *sharedInstance_ = nil;
+//static MZFramesManager *sharedInstance_ = nil;
 
 #pragma mark - init and dealloc
 
-+(MZFramesManager *)sharedInstance
-{
-    if( sharedInstance_ == nil )
-        sharedInstance_ = [[MZFramesManager alloc] init];
-    return sharedInstance_;
-}
+//+(MZFramesManager *)sharedInstance
+//{
+//    if( sharedInstance_ == nil )
+//        sharedInstance_ = [[MZFramesManager alloc] init];
+//    return sharedInstance_;
+//}
 
 -(void)dealloc
 {
-    if( framesByNameDictionary != nil ) { [framesByNameDictionary release]; framesByNameDictionary = nil; }
-    
-    [sharedInstance_ release];
-    sharedInstance_ = nil;
+    [MZObjectHelper releaseAndSetNilToObject: &framesByNameDictionary];
+        
+//    [sharedInstance_ release];
+//    sharedInstance_ = nil;
     
     [super dealloc];
 }

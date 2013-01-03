@@ -357,7 +357,9 @@
 {
     MZAssert( spriteRef, @"spriteRef is nil" );
     
-    MZFrame *frameControl = [[MZFramesManager sharedInstance] frameByName: frameName];
+//    MZFrame *frameControl = [[MZFramesManager sharedInstance] frameByName: frameName];
+    // working issue
+    MZFrame *frameControl = [((MZGamePlayLayer_Base *)spriteRef.batchNode.parent).framesManager frameByName: frameName];
     MZAssert( frameControl, @"FrameControl(%@) is nil", frameName );
     
     frameSize = frameControl.frameSize;

@@ -22,6 +22,7 @@
 #import "MZSTGCharactersHeader.h"
 
 @interface MZGamePlayLayer (Private)
+-(void)_initSpritesPool;
 -(void)_initReferenceLines;
 
 -(void)_addScheduleAndDispatcher;
@@ -113,6 +114,12 @@
     [super _initValues];
     [self _initReferenceLines];
     [self _addScheduleAndDispatcher];
+
+    [self.framesManager addSpriteSheetWithFileName: @"player_male.plist"];
+    [self.framesManager addSpriteSheetWithFileName: @"[test]bullets_atlas.plist"];
+    [self.framesManager addSpriteSheetWithFileName: @"[test]enemies_atlas.plist"];
+    
+    [self _initSpritesPool];
     
     [self __test_init];
 }
@@ -128,7 +135,41 @@
 
 @implementation MZGamePlayLayer (Private)
 
-#pragma mark - methods
+#pragma - init
+
+-(void)_initSpritesPool
+{
+    ccBlendFunc blend = (ccBlendFunc){ [MZGLHelper defaultBlendFuncSrc], [MZGLHelper defaultBlendFuncDest] };
+    
+    NSString *textureName[] = { @"[test]enemies_atlas.png", @"player_male.pvr.ccz", @"[test]bullets_atlas.png", @"[test]bullets_atlas.png" };
+    int numbers[] = { 100, 100, 100, 100 };
+    NSArray *keys = @[
+    @(kMZGamePlayLayerActorType_Enemy),
+    @(kMZGamePlayLayerActorType_Player),
+    @(kMZGamePlayLayerActorType_PlayerBullet),
+    @(kMZGamePlayLayerActorType_EnemyBullet)
+    ];
+    
+    for( int i = 0; i < 4; i++ )
+    {
+        CCTexture2D *texture = [self.framesManager textureByName: textureName[i]];
+        MZCCSpritesPool *pool = [MZCCSpritesPool poolWithTexture: texture layer: self number: numbers[i] blendFunc: blend];
+        
+        [self addSpritesPool: pool key: [keys[i] intValue]];
+    }
+    
+//    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]enemies_atlas.png" layer: self number: 100 blendFunc: blend]
+//                     key: kMZGamePlayLayerActorType_Enemy];
+//    
+//    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"player_male.pvr.ccz" layer: self number: 100 blendFunc: blend]
+//                     key: kMZGamePlayLayerActorType_Player];
+//    
+//    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend]
+//                     key: kMZGamePlayLayerActorType_PlayerBullet];
+//    
+//    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend]
+//                     key: kMZGamePlayLayerActorType_EnemyBullet];
+}
 
 -(void)_initReferenceLines
 {
@@ -161,6 +202,8 @@
     [self addChild: referenceLines];
 }
 
+#pragma mark - methods
+
 -(void)_addScheduleAndDispatcher
 {
     [[[CCDirector sharedDirector] touchDispatcher] addStandardDelegate: self priority: 10];
@@ -179,28 +222,10 @@
 
 -(void)__test_init
 {
-    [self __test_init_spritesPool];
 //    [self __test_characterPart];
 //    [self __test_character];
     [self __test_init_player];
     [self __test_init_enemy];
-}
-
--(void)__test_init_spritesPool
-{
-    ccBlendFunc blend = (ccBlendFunc){ [MZGLHelper defaultBlendFuncSrc], [MZGLHelper defaultBlendFuncDest] };
-    
-    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]enemies_atlas.png" layer: self number: 100 blendFunc: blend]
-                     key: kMZGamePlayLayerActorType_Enemy];
-
-    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"player_male.pvr.ccz" layer: self number: 100 blendFunc: blend]
-                     key: kMZGamePlayLayerActorType_Player];
-
-    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend]
-                     key: kMZGamePlayLayerActorType_PlayerBullet];
-
-    [self addSpritesPool: [MZCCSpritesPool poolWithTextureName: @"[test]bullets_atlas.png" layer: self number: 100 blendFunc: blend]
-                     key: kMZGamePlayLayerActorType_EnemyBullet];
 }
 
 -(void)__randomAssignGameObjectWithFrameName:(NSString *)frameName spritesPool:(MZCCSpritesPool *)spritesPool number:(int)number
@@ -252,7 +277,6 @@
 
 -(void)__test_character
 {
-    // working
     testCharacter = [[MZCharacter alloc] init];
     testCharacter.characterType = kMZCharacterType_Enemy;
     testCharacter.partSpritesPoolRef = [self spritesPoolByKey: kMZGamePlayLayerActorType_Enemy];
@@ -288,7 +312,6 @@
 
 -(void)__test_init_enemy
 {
-    // working
     testEnemy = [MZEnemy enemy];
     [testEnemy retain];
     testEnemy.partSpritesPoolRef = [self spritesPoolByKey: kMZGamePlayLayerActorType_Enemy];

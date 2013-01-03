@@ -2,10 +2,12 @@
 #import "MZGamePlayScene.h"
 #import "MZLevelComponents.h"
 #import "MZUtilitiesHeader.h"
+#import "MZGameCoreHeader.h"
 
 @implementation MZGamePlayLayer_Base
 
 @synthesize layerTypeInNSNumber;
+@synthesize framesManager;
 
 #pragma mark - init
 
@@ -85,6 +87,9 @@
 -(void)beforeRelease
 {
     [spritesPoolByActorTypeDictionary release]; // is safe??? maybe character not remove LOL
+    
+    [framesManager releaseAllFrames];
+    [framesManager release];
 }
 
 @end
@@ -97,7 +102,7 @@
 
 -(void)_initValues
 {
-
+    framesManager = [[MZFramesManager alloc] init];
 }
 
 -(void)_initWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary

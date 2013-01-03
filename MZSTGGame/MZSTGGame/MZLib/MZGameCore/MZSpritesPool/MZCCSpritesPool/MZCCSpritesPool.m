@@ -14,27 +14,23 @@
 
 #pragma mark - init and dealloc
 
-+(MZCCSpritesPool *)poolWithTextureName:(NSString *)aTextureName layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc
++(MZCCSpritesPool *)poolWithTexture:(CCTexture2D *)aTexture layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc
 {
-    return [[[self alloc] initWithTextureName: aTextureName layer: aLayer number: aNumber blendFunc: aBlendFunc] autorelease];
+    return [[[self alloc] initWithTexture: aTexture layer: aLayer number: aNumber blendFunc: aBlendFunc] autorelease];
 }
 
--(id)initWithTextureName:(NSString *)aTextureName layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc
+-(id)initWithTexture:(CCTexture2D *)aTexture layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc
 {
-    MZAssert( aTextureName, @"aTextureName is nil" );
-    MZAssert( aLayer, @"aLayer is nil" );
+    MZAssert( aTexture != nil, @"aTexture is nil" );
+    MZAssert( aLayer != nil, @"aLayer is nil" );
     
     self = [super init];
     
     number = aNumber;
     blendFunc = aBlendFunc;
-    textureName = aTextureName;
-    [textureName retain];
     layerRef = aLayer;
     
-    CCTexture2D *texture = [[MZFramesManager sharedInstance] textureByName: textureName];
-    MZAssert( texture != nil, @"texture can't found(%@)", textureName );
-    
+    CCTexture2D *texture = aTexture;
     spriteBatchNode = [CCSpriteBatchNode batchNodeWithTexture: texture capacity: number];
     [spriteBatchNode retain];
     spriteBatchNode.blendFunc = blendFunc;
@@ -60,8 +56,6 @@
     [spritesList release];
     [layerRef removeChild: spriteBatchNode];
     [spriteBatchNode release];
-    
-    [textureName release];
     
     layerRef = nil;
     

@@ -6,7 +6,7 @@
     NSMutableDictionary *framesByNameDictionary;
 }
 
-+(MZFramesManager *)sharedInstance;
+//+(MZFramesManager *)sharedInstance;
 
 -(void)addFrameWithFrameName:(NSString *)frameName;
 -(void)addSpriteSheetWithFileName:(NSString *)spriteSheetFileName;

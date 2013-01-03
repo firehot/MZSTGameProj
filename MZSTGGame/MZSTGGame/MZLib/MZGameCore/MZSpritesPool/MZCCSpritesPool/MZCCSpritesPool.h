@@ -4,20 +4,20 @@
 @class CCLayer;
 @class CCSpriteBatchNode;
 @class CCSprite;
+@class CCTexture2D;
 
 @interface MZCCSpritesPool : NSObject
 {
     int number;
     ccBlendFunc blendFunc;
-    NSString *textureName;
     NSMutableArray *spritesList;
     CCSpriteBatchNode *spriteBatchNode;
     
     CCLayer *layerRef;
 }
 
-+(MZCCSpritesPool *)poolWithTextureName:(NSString *)aTextureName layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc;
--(id)initWithTextureName:(NSString *)aTextureName layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc;
++(MZCCSpritesPool *)poolWithTexture:(CCTexture2D *)aTexture layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc;
+-(id)initWithTexture:(CCTexture2D *)aTexture layer:(CCLayer *)aLayer number:(int)aNumber blendFunc:(ccBlendFunc)aBlendFunc;
 
 -(CCSprite *)getSprite;
 -(void)returnSprite:(CCSprite *)sprite;

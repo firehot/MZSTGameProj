@@ -32,7 +32,7 @@
     NSDictionary *levelSettingDictioanry = [MZFileHelper plistContentFromBundleWithName: settingName];
     MZAssert( levelSettingDictioanry != nil, @"levelSettingDictioanry(%@) is nil", settingName );
 
-    [MZLevelResourcesLoader levelResourcesLoaderWithLevelSettingNSDicitonary: levelSettingDictioanry];
+//    [MZLevelResourcesLoader levelResourcesLoaderWithLevelSettingNSDicitonary: levelSettingDictioanry];
 
     [self _initLayersWithLevelSettingDictionary: levelSettingDictioanry];
 //    [self _initLevelComponentsWithLevelSettingDictionary: levelSettingDictioanry levelName: @"new_ver_test"];

@@ -70,8 +70,8 @@
         MZLog( @"MemUsage: %0.2fMB(pre-release)", memUsagePreAllRemove );
     
     [[MZAnimationsManager sharedInstance] releaseAllAnimations];
-    [[MZFramesManager sharedInstance] releaseAllFrames];
-	[CCLabelBMFont purgeCachedData];	
+//    [[MZFramesManager sharedInstance] releaseAllFrames]; // need test ... 
+	[CCLabelBMFont purgeCachedData];
     [[CCTextureCache sharedTextureCache] removeAllTextures];    
     [[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
     

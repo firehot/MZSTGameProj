@@ -44,7 +44,6 @@ typedef enum
 
 @interface MZGamePlayLayer (Test)
 -(void)__test_init;
--(void)__test_init_spritesPool;
 -(void)__test_random_sprites;
 -(void)__randomAssignGameObjectWithFrameName:(NSString *)frameName spritesPool:(MZCCSpritesPool *)spritesPool number:(int)number;
 -(void)__test_characterPart;

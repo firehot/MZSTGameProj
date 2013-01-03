@@ -34,7 +34,8 @@
 {
     self = [super init];
 
-    [[MZFramesManager sharedInstance] addFrameWithFrameName: @"TestPic.png"];
+    framesManager = [[MZFramesManager alloc] init];
+    [framesManager addFrameWithFrameName: @"TestPic.png"];
     
     CCLabelTTF *lbl = [CCLabelTTF labelWithString: @"Title" fontName: @"Arial" fontSize: 50];
     lbl.position = [[MZCCDisplayHelper sharedInstance] realPositionFromStandard: mzp( 160, 240 )];
@@ -59,6 +60,14 @@
     [self addChild: menu];
     
     return self;
+}
+
+-(void)dealloc
+{
+    [framesManager releaseAllFrames];
+    [framesManager release];
+    
+    [super dealloc];
 }
 
 @end
