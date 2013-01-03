@@ -60,9 +60,8 @@ static MZAnimationsManager *_sharedAnimationsManager = nil;
     
     for( NSString *animationName in [animationsSettingDcitionary allKeys] )
     {   
-        if( [MZGameSetting sharedInstance].debug.showLoadingStates )
-            MZLog( @"Add animation(%@)", animationName );
-        
+        MZLodingLog( 2, @"Add animation(%@)", animationName );
+
         NSDictionary *animationSettingDictionary = [animationsSettingDcitionary objectForKey: animationName];
         MZAssert( animationSettingDictionary, @"animationSettingDictionary is nil with name (%@)", animationName );
         
@@ -72,8 +71,7 @@ static MZAnimationsManager *_sharedAnimationsManager = nil;
 
 -(void)addAnimationWithNSDictionary:(NSDictionary *)nsDictionary name:(NSString *)name
 {
-    if( [MZGameSetting sharedInstance].debug.showLoadingStates )
-        MZLog( @"Add animation(%@)", [nsDictionary objectForKey: @"Name"] );
+    MZLodingLog( 2, @"Add animation(%@)", [nsDictionary objectForKey: @"Name"] );
     
     int start = [[nsDictionary objectForKey: @"Start"] intValue];
     int end = [[nsDictionary objectForKey: @"End"] intValue];

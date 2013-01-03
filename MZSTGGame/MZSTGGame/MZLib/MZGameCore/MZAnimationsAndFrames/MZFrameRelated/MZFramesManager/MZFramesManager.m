@@ -40,9 +40,7 @@
 
 -(void)addFrameWithFrameName:(NSString *)frameName
 {
-    if( [MZGameSetting sharedInstance].debug.showLoadingStates )
-        MZLog( @"add %@", frameName );
-    
+    MZLodingLog( 1, @"%@", frameName );
     MZAssert( [framesByNameDictionary objectForKey: frameName] == nil, @"Duplicate frmaeName name(%@)", frameName );
     
     CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage: frameName];
@@ -55,9 +53,8 @@
 
 -(void)addSpriteSheetWithFileName:(NSString *)spriteSheetFileName
 {
-    if( [MZGameSetting sharedInstance].debug.showLoadingStates )
-        MZLog( @"load %@", spriteSheetFileName );
-    
+    MZLodingLog( 1, @"%@", spriteSheetFileName );
+
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: spriteSheetFileName];
     
     NSDictionary *spriteSheetPlist = [MZFileHelper plistContentFromBundleWithName: spriteSheetFileName];
@@ -110,6 +107,8 @@
     
     MZFrame *frame = [MZFrame frameControlWithFrameName: frameName];
     [framesByNameDictionary setObject: frame forKey: frameName];
+
+    MZLodingLog( 2, @"%@", frameName );
 }
 
 @end

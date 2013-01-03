@@ -942,6 +942,7 @@
 		DF9166021514C9340094C96A /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-ipadhd.png"; path = "Resources/fps_images-ipadhd.png"; sourceTree = "<group>"; };
 		DF9F51E9150DDE9C00698E26 /* MZEventsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEventsFactory.h; sourceTree = "<group>"; };
 		DF9F51EA150DDE9C00698E26 /* MZEventsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEventsFactory.m; sourceTree = "<group>"; };
+		DFA7EA001695F39F008A87D0 /* MZGameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZGameConfig.h; sourceTree = "<group>"; };
 		DFB45119160FCE5B005530CB /* MZFaceToControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFaceToControl.h; sourceTree = "<group>"; };
 		DFB4511A160FCE5B005530CB /* MZFaceToControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFaceToControl.m; sourceTree = "<group>"; };
 		DFB4511C160FD1A7005530CB /* MZFaceToControlProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZFaceToControlProtocol.h; sourceTree = "<group>"; };
@@ -3052,6 +3053,7 @@
 			isa = PBXGroup;
 			children = (
 				DF30EC2D160A1CD8006966A9 /* MZGameCoreHeader.h */,
+				DFA7EA001695F39F008A87D0 /* MZGameConfig.h */,
 				D3806EFF168AA57D00B94DB0 /* MZSpritesPool */,
 				DF74324B168882F900865738 /* MZCollision */,
 				D3E1A7C6164BAF17005E52B2 /* MZEffect */,

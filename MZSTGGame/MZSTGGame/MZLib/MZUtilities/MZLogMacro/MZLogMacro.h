@@ -1,4 +1,13 @@
+#import "MZGameConfig.h"
+
 #define MZLog( desc, ... ) NSLog( @"%s: %@", __FUNCTION__, [NSString stringWithFormat:( desc ), ##__VA_ARGS__] )
+
+#ifdef DEBUG
+#define MZLodingLog( level, desc, ... ) \
+if( MZ_LOG_LOADING_STATE >= level ) MZLog( desc, ##__VA_ARGS__ )
+#else
+#define MZAssert(condition, desc, ...)
+#endif
 
 #ifdef DEBUG
 #define MZAssert(condition, desc, ...) \
