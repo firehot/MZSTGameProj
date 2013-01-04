@@ -1,6 +1,7 @@
 #import "MZGamePlayLayer_Base.h"
 #import "MZTouchesControlPlayer.h"
 #import "MZTypeDefine.h"
+#import "MZCharactersFactory.h"
 
 typedef enum
 {
@@ -11,10 +12,10 @@ typedef enum
     
 }MZGamePlayLayerActorType;
 
+@class CCDrawNode;
 @class MZPlayer;
 @class MZTouchesControlPlayer;
 @class MZLevelComponents;
-@class CCDrawNode;
 
 // wew are test
 @class MZCCCameraControl;
@@ -24,9 +25,10 @@ typedef enum
 @class MZPlayer;
 @class MZEnemy;
 
-@interface MZGamePlayLayer : MZGamePlayLayer_Base <MZTouchSpaceDelegate>
+@interface MZGamePlayLayer : MZGamePlayLayer_Base <MZTouchSpaceDelegate, MZSpritesPoolSupport>
 {    
     MZTouchesControlPlayer *touchesControlPlayer;
+    MZCharactersFactory *charactersFactory;
     CCDrawNode *referenceLines;
     
     // 以下是測試用的
@@ -38,6 +40,8 @@ typedef enum
 }
 
 -(void)setControlWithPlayer:(MZPlayer *)player;
+
+@property (nonatomic, readonly) MZCharactersFactory *charactersFactory;
 
 @end
 

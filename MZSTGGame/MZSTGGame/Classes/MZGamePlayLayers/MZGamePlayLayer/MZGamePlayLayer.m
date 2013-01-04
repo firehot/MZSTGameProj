@@ -33,7 +33,16 @@
 
 @implementation MZGamePlayLayer
 
+@synthesize charactersFactory;
+
 #pragma mark - init and dealloc
+
+#pragma mark - properties
+
+-(NSNumber *)layerTypeInNSNumber
+{
+    return [NSNumber numberWithInt: kMZGamePlayLayerType_PlayLayer];
+}
 
 #pragma mark - CCStandardTouchDelegate
 
@@ -52,11 +61,30 @@
     [touchesControlPlayer touchesEnded: touches event: event];
 }
 
-#pragma mark - properties
+#pragma mark - MZSpritesPoolSupport
 
--(NSNumber *)layerTypeInNSNumber
+-(MZCCSpritesPool *)spritesPoolByCharacterType:(MZCharacterType)characterType
 {
-    return [NSNumber numberWithInt: kMZGamePlayLayerType_PlayLayer];
+    switch( characterType )
+    {
+        case kMZCharacterType_Player:
+            return [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Player];
+
+        case kMZCharacterType_PlayerBullet:
+            return [self spritesPoolByActorKey: kMZGamePlayLayerActorType_PlayerBullet];
+
+        case kMZCharacterType_Enemy:
+            return [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Enemy];
+
+        case kMZCharacterType_EnemyBullet:
+            return [self spritesPoolByActorKey: kMZGamePlayLayerActorType_EnemyBullet];
+
+        default:
+            break;
+    }
+
+    MZAssert( false, @"not supprt characterType" );
+    return nil;
 }
 
 #pragma mark - override
@@ -85,7 +113,10 @@
 -(void)beforeRelease
 {
     [self removeChild: referenceLines cleanup: false]; [referenceLines release];
+
+    [charactersFactory release];
     [touchesControlPlayer release];
+
     [self _removeScheduleAndRemoveDispatcher];
 
     [self __test_release];
@@ -120,6 +151,7 @@
     [self.framesManager addSpriteSheetWithFileName: @"[test]enemies_atlas.plist"];
     
     [self _initSpritesPool];
+    charactersFactory = [[MZCharactersFactory alloc] initWithSpritePoolSupport: self];
     
     [self __test_init];
 }
@@ -235,20 +267,20 @@
 -(void)__test_random_sprites
 {
     [self __randomAssignGameObjectWithFrameName: @"Playermale_Normal0001.png"
-                                    spritesPool: [self spritesPoolByKey: kMZGamePlayLayerActorType_Player]
+                                    spritesPool: [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Player]
                                          number: 100];
 
 
     [self __randomAssignGameObjectWithFrameName: @"bullet_01_normal0001.png"
-                                    spritesPool: [self spritesPoolByKey: kMZGamePlayLayerActorType_PlayerBullet]
+                                    spritesPool: [self spritesPoolByActorKey: kMZGamePlayLayerActorType_PlayerBullet]
                                          number: 100];
 
     [self __randomAssignGameObjectWithFrameName: @"bullet_22_0001.png"
-                                    spritesPool: [self spritesPoolByKey: kMZGamePlayLayerActorType_EnemyBullet]
+                                    spritesPool: [self spritesPoolByActorKey: kMZGamePlayLayerActorType_EnemyBullet]
                                          number: 20];
 
     [self __randomAssignGameObjectWithFrameName: @"Ika_normal0001.png"
-                                    spritesPool: [self spritesPoolByKey: kMZGamePlayLayerActorType_Enemy]
+                                    spritesPool: [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Enemy]
                                          number: 50];
 
 }
@@ -257,7 +289,7 @@
 {
     part = [MZCharacterPart part];
     [part retain];
-    [part setSpritesFromPool: [self spritesPoolByKey: kMZGamePlayLayerActorType_Player]];
+    [part setSpritesFromPool: [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Player]];
     part.setting.name = @"test";
     part.setting.frameName = @"Playermale_Normal0001.png";
     
@@ -270,7 +302,7 @@
 {
     testCharacter = [[MZCharacter alloc] init];
     testCharacter.characterType = kMZCharacterType_Enemy;
-    testCharacter.partSpritesPoolRef = [self spritesPoolByKey: kMZGamePlayLayerActorType_Enemy];
+    testCharacter.partSpritesPoolRef = [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Enemy];
 
     MZCharacterPart *p = [testCharacter addPartWithName: @"testPart"];
     p.setting.frameName = @"Ika_normal0001.png";
@@ -287,28 +319,22 @@
 
 -(void)__test_init_player
 {
-    testPlayer = [MZPlayer player];
+    testPlayer = (MZPlayer *)[charactersFactory getByType: kMZCharacterType_Player name: nil];
     [testPlayer retain];
-    testPlayer.partSpritesPoolRef = [self spritesPoolByKey: kMZGamePlayLayerActorType_Player];
-    
-    MZCharacterPart *p = [testPlayer addPartWithName: @"p"];
-    p.setting.frameName = @"Playermale_Normal0001.png";
-//    [p setFrameWithFrameName: @"Playermale_Normal0001.png"];
-    
+    [self setControlWithPlayer: testPlayer];
+
     testPlayer.position = mzp( 160, 240 );
     [testPlayer enable];
-    
-    [self setControlWithPlayer: testPlayer];
 }
 
 -(void)__test_init_enemy
 {
-    testEnemy = [MZEnemy enemy];
+    testEnemy = (MZEnemy *)[charactersFactory getByType: kMZCharacterType_Enemy name: nil];
     [testEnemy retain];
-    testEnemy.partSpritesPoolRef = [self spritesPoolByKey: kMZGamePlayLayerActorType_Enemy];
-
-    MZCharacterPart *p = [testEnemy addPartWithName: @"p"];
-    p.setting.frameName = @"Ika_normal0001.png";
+//    testEnemy.partSpritesPoolRef = [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Enemy];
+//
+//    MZCharacterPart *p = [testEnemy addPartWithName: @"p"];
+//    p.setting.frameName = @"Ika_normal0001.png";
 
     testEnemy.position = mzp( 160, 400 );
     testEnemy.rotation = -90;

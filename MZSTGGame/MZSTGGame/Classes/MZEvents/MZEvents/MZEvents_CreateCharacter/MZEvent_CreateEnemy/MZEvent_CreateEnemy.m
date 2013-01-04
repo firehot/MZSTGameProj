@@ -22,8 +22,8 @@
 {
     [super enable];
     
-    MZEnemy *enemy = (MZEnemy *)[[MZCharactersFactory sharedInstace] getCharacterByType: kMZCharacterType_Enemy
-                                                                            settingName: enemyName];
+    MZEnemy *enemy /*= (MZEnemy *)[[MZCharactersFactory sharedInstace] getCharacterByType: kMZCharacterType_Enemy
+                                                                            settingName: enemyName]*/;
     MZAssert( enemy != nil, @"Can't create enemy(%@)", enemyName );
     enemy.position = position;
     

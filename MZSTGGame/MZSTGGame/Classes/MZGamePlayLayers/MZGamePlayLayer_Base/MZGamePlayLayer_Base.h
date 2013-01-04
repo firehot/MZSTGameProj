@@ -18,7 +18,7 @@
 
 // sprites pool
 -(int)addSpritesPool:(MZCCSpritesPool *)spritesPool key:(int)key;
--(MZCCSpritesPool *)spritesPoolByKey:(int)key;
+-(MZCCSpritesPool *)spritesPoolByActorKey:(int)key;
 
 // control
 -(void)pause;

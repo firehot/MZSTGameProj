@@ -1,23 +1,39 @@
 #import <Foundation/Foundation.h>
 #import "MZCharacterTypeStrings.h"
 
+@class MZCCSpritesPool;
+// 以下 ... 呃
 @class MZLevelComponents;
 @class MZCharacter;
 @class MZCharacterSetting;
-@class MZPlayer;
 @class MZEventControlCharacter;
 @class MZColor;
 
+// test
+@class MZPlayer;
+@class MZEnemy;
+
+@protocol MZSpritesPoolSupport <NSObject>
+-(MZCCSpritesPool *)spritesPoolByCharacterType:(MZCharacterType)characterType;
+@end
+
 @interface MZCharactersFactory : NSObject 
-{    
+{
+    id<MZSpritesPoolSupport> spritesPoolSupportRef;
+
+    // 以下是即將完蛋的清單
     NSMutableDictionary *playerControlCharactersSettingDictionary;
     NSMutableDictionary *enemiesSettingDictionary;
     NSMutableDictionary *bulletsSettingDictionary;
 }
 
-+(MZCharactersFactory *)sharedInstace;
--(void)removeFromLevel; // can not remove now ...
--(void)addSettingWithCharacterType:(MZCharacterType)characterType settingDictionary:(NSDictionary *)settingDictionary;
--(void)addSettingWithCharacterType:(MZCharacterType)characterType fromPlistFile:(NSString *)plistFileName;
--(MZCharacter *)getCharacterByType:(MZCharacterType)characterType settingName:(NSString *)settingName;
+-(id)initWithSpritePoolSupport:(id<MZSpritesPoolSupport>)aSpritesPoolSupport;
+
+-(MZCharacter *)getByType:(MZCharacterType)type name:(NSString *)name;
+
+@end
+
+@interface MZCharactersFactory (Test)
+-(MZPlayer *)__test_player;
+-(MZEnemy *)__test_enemy;
 @end

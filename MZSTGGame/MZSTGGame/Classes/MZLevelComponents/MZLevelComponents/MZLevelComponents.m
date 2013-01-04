@@ -15,9 +15,7 @@ static MZLevelComponents *_sharedLevelComponents = nil;
 @interface MZLevelComponents (Private)
 -(void)_initMemberComponentsWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary;
 -(void)_initEventsMetadatasArray;
--(void)_initSpritePool;
 -(void)_initEffectManager;
--(void)_initPlayer;
 
 -(void)_updateGame;
 @end
@@ -32,7 +30,6 @@ static MZLevelComponents *_sharedLevelComponents = nil;
 @synthesize scenario;
 @synthesize effectsManager;
 @synthesize player;
-@synthesize spritesPool;
 @synthesize eventDefinesDictionary;
 @synthesize eventsFileName;
 @synthesize eventMetadatasArray;
@@ -56,10 +53,9 @@ static MZLevelComponents *_sharedLevelComponents = nil;
 
 -(void)dealloc
 {
-    [[MZCharactersFactory sharedCharactersFactory] removeFromLevel];
-
     [_sharedLevelComponents release];
-    _sharedLevelComponents = NULL;
+    _sharedLevelComponents = nil;
+    
     [super dealloc];
 }
 
@@ -98,7 +94,6 @@ static MZLevelComponents *_sharedLevelComponents = nil;
     [MZObjectHelper releaseAndSetNilToObject: &effectsManager];
     [MZObjectHelper releaseAndSetNilToObject: &player];
     [MZObjectHelper releaseAndSetNilToObject: &levelName];
-    [MZObjectHelper releaseAndSetNilToObject: &spritesPool];
     [MZObjectHelper releaseAndSetNilToObject: &eventDefinesDictionary];
 
     gamePlaySceneRef = nil;
@@ -178,8 +173,6 @@ static MZLevelComponents *_sharedLevelComponents = nil;
 -(void)_initMemberComponentsWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary
 {    
     [self _initEventsMetadatasArray];
-    [self _initSpritePool];
-    [self _initPlayer];
     
     charactersActionManager = [[MZCharactersActionManager alloc] init];
     
@@ -213,64 +206,9 @@ static MZLevelComponents *_sharedLevelComponents = nil;
     }
 }
 
--(void)_initSpritePool
-{
-    NSDictionary *batchNodeSettingsDictionary =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-     [MZCCSpritesPool __testBatchNodeSettingWithNumber: 10 textureName: @"ColorRect4x4_White.png"  usingBlend: false],
-     [NSNumber numberWithInt: kMZCharacterType_None],
-     
-     [MZCCSpritesPool __testBatchNodeSettingWithNumber: 10 textureName: @"player_male.pvr.ccz" usingBlend: false],
-     [NSNumber numberWithInt: kMZCharacterType_Player],
-     
-     [MZCCSpritesPool __testBatchNodeSettingWithNumber: 100 textureName: @"[test]enemies_atlas.png" usingBlend: false],
-     [NSNumber numberWithInt: kMZCharacterType_Enemy],
-     
-     [MZCCSpritesPool __testBatchNodeSettingWithNumber: 100 textureName: @"explosion.png" usingBlend: true],
-     [NSNumber numberWithInt: kMZCharacterType_Effect],
-     
-     [MZCCSpritesPool __testBatchNodeSettingWithNumber: 500 textureName: @"[test]bullets_atlas.png" usingBlend: true],
-     [NSNumber numberWithInt: kMZCharacterType_PlayerBullet],
-     
-     [MZCCSpritesPool __testBatchNodeSettingWithNumber: 500 textureName: @"[test]bullets_atlas.png" usingBlend: false],
-     [NSNumber numberWithInt: kMZCharacterType_EnemyBullet],
-     
-     [MZCCSpritesPool __testBatchNodeSettingWithNumber: 100 textureName: @"TestPic.png" usingBlend: false],
-     [NSNumber numberWithInt: kMZCharacterType_EventFlag],
-     
-     nil];
-    
-    NSArray *addOrder = [NSArray arrayWithObjects:
-                         [NSNumber numberWithInt: kMZCharacterType_None],
-                         [NSNumber numberWithInt: kMZCharacterType_Enemy],
-                         [NSNumber numberWithInt: kMZCharacterType_Player],
-                         [NSNumber numberWithInt: kMZCharacterType_Effect],
-                         [NSNumber numberWithInt: kMZCharacterType_PlayerBullet],
-                         [NSNumber numberWithInt: kMZCharacterType_EnemyBullet],
-                         [NSNumber numberWithInt: kMZCharacterType_EventFlag],
-                         nil];
-    
-    NSDictionary *poolSettingDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           batchNodeSettingsDictionary, @"BatchNodeSetting",
-                                           addOrder, @"AddOrder",
-                                           nil];
-    
-    spritesPool = [[MZCCSpritesPool alloc] initWithPoolSettingDictionary: poolSettingDictionary layer: self.gamePlayLayer];
-}
-
 -(void)_initEffectManager
 {
     effectsManager = [[MZEffectsManager alloc] init];
-}
-
--(void)_initPlayer
-{
-    player = (MZPlayer *)
-    [[MZCharactersFactory sharedCharactersFactory] getCharacterByType: kMZCharacterType_Player
-                                                          settingName: @"PlayerOne"];
-    player.position = CGPointMake( 160, 70 );
-    [player retain];
-    [player enable];
 }
 
 -(void)_updateGame

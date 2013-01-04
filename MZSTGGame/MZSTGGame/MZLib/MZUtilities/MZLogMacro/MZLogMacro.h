@@ -6,8 +6,16 @@
 #define MZLodingLog( level, desc, ... ) \
 if( MZ_LOG_LOADING_STATE >= level ) MZLog( desc, ##__VA_ARGS__ )
 #else
-#define MZAssert(condition, desc, ...)
+#define MZLodingLog(condition, desc, ...)
 #endif
+
+#ifdef DEBUG
+#define MZCharacterCreateLog( level, desc, ... ) \
+if( MZ_LOG_CHARACTER_CREATE != 0 && ( MZ_LOG_CHARACTER_CREATE == level || MZ_LOG_CHARACTER_CREATE == 3 ) ) MZLog( desc, ##__VA_ARGS__ )
+#else
+#define MZCharacterCreateLog(condition, desc, ...)
+#endif
+
 
 #ifdef DEBUG
 #define MZAssert(condition, desc, ...) \

@@ -8,166 +8,87 @@
 #import "MZCharacterCollisionColor.h"
 #import "MZColor.h"
 #import "MZObjectHelper.h"
+#import "MZCCSpritesPool.h"
 
 @interface MZCharactersFactory (Private)
--(int)_getZOrderByType:(MZCharacterType)type;
--(NSMutableDictionary *)_getCharactersSettingDictionaryByCharacterType:(MZCharacterType)charType;
 @end
 
 #pragma mark
 
 @implementation MZCharactersFactory
 
-static MZCharactersFactory *sharedCharactersFactory_ = nil;
-
 #pragma mark - init and dealloc
 
-+(MZCharactersFactory *)sharedInstace
+-(id)initWithSpritePoolSupport:(id<MZSpritesPoolSupport>)aSpritesPoolSupport
 {
-    if( sharedCharactersFactory_ == nil )
-        sharedCharactersFactory_ = [[MZCharactersFactory alloc] init];
-    
-    return sharedCharactersFactory_;
-}
+    MZAssert( aSpritesPoolSupport != nil, @"aSpritesPoolSupport is nil");
+    spritesPoolSupportRef = aSpritesPoolSupport;
 
--(id)init
-{    
-    MZAssertSingleton( sharedCharactersFactory_ );
     self = [super init];
     return self;
 }
 
 -(void)dealloc
-{    
-    [sharedCharactersFactory_ release];
-    sharedCharactersFactory_ = nil;
-    
+{
+    spritesPoolSupportRef = nil;    
     [super dealloc];
 }
 
 #pragma mark - methods
 
--(void)removeFromLevel
+-(MZCharacter *)getByType:(MZCharacterType)type name:(NSString *)name
 {
-    [MZObjectHelper releaseAndSetNilToObject: &playerControlCharactersSettingDictionary];
-    [MZObjectHelper releaseAndSetNilToObject: &enemiesSettingDictionary];
-    [MZObjectHelper releaseAndSetNilToObject: &bulletsSettingDictionary];
-}
+    MZAssert( spritesPoolSupportRef != nil, @"spritesPoolSupport is nil");
 
--(void)addSettingWithCharacterType:(MZCharacterType)characterType settingDictionary:(NSDictionary *)settingDictionary
-{
-    MZAssert( settingDictionary != nil, 
-             @"setting is nil (Type=%@)",
-             [[MZCharacterTypeStrings sharedCharacterTypeStrings] getCharacterTypeDescByType: characterType] );
-    
-    NSString *characterSettingClassName = [[MZCharacterTypeStrings sharedCharacterTypeStrings] getCharacterSettingClassNameByType: characterType];
-        
-    MZCharacterSetting *targetSetting = [NSClassFromString( characterSettingClassName ) settingWithDictionary: settingDictionary];
-    MZAssert( targetSetting != nil, @"Can not create target setting" );
-    
-    NSMutableDictionary *targetDictionary = [self _getCharactersSettingDictionaryByCharacterType: characterType];
-    
-    [targetDictionary setObject: targetSetting forKey: targetSetting.name];    
-}
+    // temp support
+    switch( type )
+    {
+        case kMZCharacterType_Player:
+            MZCharacterCreateLog( 1, @"Create Player(%@)", (name != nil)? name : @"" );
+            return [self __test_player];
 
--(void)addSettingWithCharacterType:(MZCharacterType)characterType fromPlistFile:(NSString *)plistFileName
-{
-    NSDictionary *settingDictionary = [MZFileHelper plistContentFromBundleWithName: plistFileName];
-    MZAssert( settingDictionary != nil, @"setting is nil (Type=%@)", 
-             [[MZCharacterTypeStrings sharedCharacterTypeStrings] getCharacterTypeDescByType: characterType] );
-    
-    [self addSettingWithCharacterType: characterType settingDictionary: settingDictionary];
-}
+        case kMZCharacterType_Enemy:
+            MZCharacterCreateLog( 2, @"Create Enemy(%@)", (name != nil)? name : @"" );
+            return [self __test_enemy];
 
--(MZCharacter *)getCharacterByType:(MZCharacterType)characterType settingName:(NSString *)settingName
-{    
-    NSMutableDictionary *targetSettingDictionary = [self _getCharactersSettingDictionaryByCharacterType: characterType];
-    MZColor *collisionColor = [[MZCharacterCollisionColor sharedCharacterCollisionColor] getCollisionColorByType: characterType];
-    
-    MZAssert( targetSettingDictionary != nil && collisionColor != nil, 
-             @"targetSettingDictionary or collisionColor is nil(Type=%@)",
-             [[MZCharacterTypeStrings sharedCharacterTypeStrings] getCharacterTypeDescByType: characterType] );
-    
-    MZCharacterSetting *targetSetting = [targetSettingDictionary objectForKey: settingName];
-    
-    MZAssert( targetSetting != nil, @"Setting(%@) is nil", settingName );
-    
-    NSString *className = [[MZCharacterTypeStrings sharedCharacterTypeStrings] getCharacterClassNameByType: characterType];
-    
-    MZCharacter *targetCharacter = [NSClassFromString( className ) character];
-    
-    targetCharacter.collisionColor = collisionColor;
-    
-    [targetCharacter setSetting: targetSetting characterType: characterType];
-    
-    if( [MZGameSetting sharedInstance].debug.showCharacterSpawnInfo )
-        MZLog( @"create character(%@)", targetSetting.name );
-    
-    targetCharacter.visible = true;
-    
-    return targetCharacter;
+        case kMZCharacterType_PlayerBullet:
+        case kMZCharacterType_EnemyBullet:
+        default:
+            return nil;
+    }
 }
 
 @end
 
 @implementation MZCharactersFactory (Private)
-
 #pragma  mark - methods
+@end
 
--(int)_getZOrderByType:(MZCharacterType)type
+@implementation MZCharactersFactory (Test)
+
+-(MZPlayer *)__test_player
 {
-    MZGameSetting_GamePlay *play = [MZGameSetting sharedInstance].gamePlay;
-    
-    switch( type ) 
-    {
-        case kMZCharacterType_Player:
-            return play.zIndexOfPlayer;
-            
-        case kMZCharacterType_Enemy:
-            return play.zIndexOfEnemies;
-            
-        case kMZCharacterType_PlayerBullet:
-            return play.zIndexOfPlayerBullets;
-            
-        case kMZCharacterType_EnemyBullet:
-            return play.zIndexOfEnemyBullets;
-            
-        default:
-            break;
-    }
-    
-    MZAssert( false, @"unknow type to set z-order" );
-    return -999;
+    MZPlayer *testPlayer = [MZPlayer player];
+    testPlayer.partSpritesPoolRef = [spritesPoolSupportRef spritesPoolByCharacterType: kMZCharacterType_Player];
+
+    MZCharacterPart *p = [testPlayer addPartWithName: @"p"];
+    p.setting.frameName = @"Playermale_Normal0001.png";
+
+    testPlayer.position = mzp( 160, 240 );
+    [testPlayer enable];
+
+    return testPlayer;
 }
 
--(NSMutableDictionary *)_getCharactersSettingDictionaryByCharacterType:(MZCharacterType)charType
+-(MZEnemy *)__test_enemy
 {
-    switch( charType )
-    {
-        case kMZCharacterType_Player:
-            if( playerControlCharactersSettingDictionary == nil )
-                playerControlCharactersSettingDictionary = [[NSMutableDictionary alloc] initWithCapacity: 1];
-            return playerControlCharactersSettingDictionary;
-            
-        case kMZCharacterType_Enemy:
-            if( enemiesSettingDictionary == nil )
-                enemiesSettingDictionary = [[NSMutableDictionary alloc] initWithCapacity: 1];
-            return enemiesSettingDictionary;
-            
-        case kMZCharacterType_PlayerBullet:
-        case kMZCharacterType_EnemyBullet:
-            if( bulletsSettingDictionary == nil )
-                bulletsSettingDictionary = [[NSMutableDictionary alloc] initWithCapacity: 1];
-            return bulletsSettingDictionary;
-            
-        default:
-            break;
-    }
-    
-    MZAssert( false, @"Can not fount Dictionary for Char Type(%@)",
-             [[MZCharacterTypeStrings sharedCharacterTypeStrings] getCharacterTypeDescByType: charType] );
-    
-    return nil;
+    MZEnemy *testEnemy = [MZEnemy enemy];
+    testEnemy.partSpritesPoolRef = [spritesPoolSupportRef spritesPoolByCharacterType: kMZCharacterType_Enemy];
+
+    MZCharacterPart *p = [testEnemy addPartWithName: @"p"];
+    p.setting.frameName = @"Ika_normal0001.png";
+
+    return testEnemy;
 }
 
 @end
