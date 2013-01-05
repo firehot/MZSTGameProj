@@ -11,37 +11,34 @@
 
 @implementation MZCharactersActionControl
 
+@synthesize player;
+@synthesize activeEnemies;
+@synthesize activePlayerBullets;
+@synthesize activeEnemyBullets;
+
 #pragma mark - init and dealloc
 
 -(id)initWithParamters:(MZCharactersActionParamters *)aParamters
 {
+    MZAssert( aParamters, @"aParamters is nil" );
+    charactersActionParamters = [aParamters retain];
+    
     self = [super init];
-    
-    if( self )
-    {
-        MZAssert( aParamters, @"aParamters is nil" );
-        charactersActionParamters = [aParamters retain];
-        
-        activeEnemiesRef = charactersActionParamters.activeEnemiesRef;
-        activePlayerBulletsRef = charactersActionParamters.activePlayerBulletsRef;
-        activeEnemyBulletsRef = charactersActionParamters.activeEnemyBulletsRef;
-        playerRef = charactersActionParamters.playerRef;
-    }
-    
     return self;
 }
 
 -(void)dealloc
 {
     [charactersActionParamters release];
-    
-    activeEnemiesRef = nil;
-    activePlayerBulletsRef = nil;
-    activeEnemyBulletsRef = nil;
-    playerRef = nil;
-
     [super dealloc];
 }
+
+#pragma mark - properties
+
+-(MZPlayer *)player { return charactersActionParamters.player; }
+-(NSMutableArray *)activePlayerBullets { return charactersActionParamters.activePlayerBullets; }
+-(NSMutableArray *)activeEnemies { return charactersActionParamters.activeEnemies; }
+-(NSMutableArray *)activeEnemyBullets { return charactersActionParamters.activeEnemyBullets; }
 
 #pragma mark - methods
 

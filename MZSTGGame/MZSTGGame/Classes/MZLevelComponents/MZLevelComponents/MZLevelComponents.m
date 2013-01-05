@@ -88,7 +88,6 @@ static MZLevelComponents *_sharedLevelComponents = nil;
 -(void)removeFromLevel
 {
     [MZObjectHelper releaseAndSetNilToObject: &eventMetadatasArray];
-    [MZObjectHelper releaseAndSetNilToObject: &charactersActionManager];
     [MZObjectHelper releaseAndSetNilToObject: &eventsExecutor];
     [MZObjectHelper releaseAndSetNilToObject: &scenario];
     [MZObjectHelper releaseAndSetNilToObject: &effectsManager];
@@ -96,6 +95,7 @@ static MZLevelComponents *_sharedLevelComponents = nil;
     [MZObjectHelper releaseAndSetNilToObject: &levelName];
     [MZObjectHelper releaseAndSetNilToObject: &eventDefinesDictionary];
 
+    charactersActionManager = nil;
     gamePlaySceneRef = nil;
 }
 
@@ -174,8 +174,6 @@ static MZLevelComponents *_sharedLevelComponents = nil;
 {    
     [self _initEventsMetadatasArray];
     
-    charactersActionManager = [[MZCharactersActionManager alloc] init];
-    
     eventsExecutor = [[MZEventsExecutor alloc] init];
     
     eventDefinesDictionary = [[levelSettingDictionary objectForKey: @"eventsDefine"] retain];
@@ -215,7 +213,6 @@ static MZLevelComponents *_sharedLevelComponents = nil;
 {
     [scenario update];
     [eventsExecutor update];
-    [charactersActionManager update];
 }
 
 @end

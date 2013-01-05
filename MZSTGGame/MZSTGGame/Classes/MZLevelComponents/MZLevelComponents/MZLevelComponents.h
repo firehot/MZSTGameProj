@@ -24,7 +24,7 @@
 -(void)update;
 
 @property (nonatomic, readonly) MZGamePlayLayer *gamePlayLayer;
-@property (nonatomic, readonly) MZCharactersActionManager *charactersActionManager;
+@property (nonatomic, readonly) MZCharactersActionManager *charactersActionManager; // will Ref or return gamePlayLayer directly
 @property (nonatomic, readonly) MZEventsExecutor *eventsExecutor;
 @property (nonatomic, readonly) MZScenario *scenario; // 暫時用不到 ...
 @property (nonatomic, readonly) MZEffectsManager *effectsManager; // 暫時用不到 ...

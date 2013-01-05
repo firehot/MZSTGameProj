@@ -6,24 +6,24 @@
 
 -(void)drawCollision
 {            
-    for( MZCharacter *playerBullet in activePlayerBulletsRef )
+    for( MZCharacter *playerBullet in self.activePlayerBullets )
         [playerBullet drawCollision];
 }
 
 
 -(void)update
 {
-    if( activePlayerBulletsRef != nil )
+    if( self.activePlayerBullets != nil )
     {
-        for( MZPlayerBullet *playerBullet in activePlayerBulletsRef )
+        for( MZPlayerBullet *playerBullet in self.activePlayerBullets )
         {
             [playerBullet update];
             
-            for( MZEnemy *enemy in activeEnemiesRef )
+            for( MZEnemy *enemy in self.activeEnemies )
             {
                 if( [playerBullet isCollisionWithOtherCharacter: enemy] )
                 {
-                    enemy.currentHealthPoint -= playerBullet.characterDynamicSetting.strength;
+                    enemy.currentHealthPoint -= playerBullet.characterDynamicSetting.strength; // take damage function
                     [playerBullet disable];
                 }
             }
@@ -33,7 +33,7 @@
 
 -(void)removeInactiveCharacters
 {
-    [self _removeInactiveCharactersFromActiveCharactersArray: activePlayerBulletsRef];
+    [self _removeInactiveCharactersFromActiveCharactersArray: self.activePlayerBullets];
 }
 
 @end

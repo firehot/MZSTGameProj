@@ -10,19 +10,19 @@
 
 -(void)drawCollision
 {            
-    for( MZCharacter *enemy in activeEnemiesRef )
+    for( MZCharacter *enemy in self.activeEnemies )
         [enemy drawCollision];
 }
 
 -(void)update
 {
-    if( activeEnemiesRef != nil )   
+    if( self.activeEnemies != nil )   
     {                
-        for( MZEventControlCharacter *enemy in activeEnemiesRef )
+        for( MZEventControlCharacter *enemy in self.activeEnemies )
         {
             [enemy update];
             
-            if( [enemy isCollisionWithOtherCharacter: playerRef] )
+            if( [enemy isCollisionWithOtherCharacter: self.player] )
                 [enemy disable];
         }
     }
@@ -30,7 +30,7 @@
 
 -(void)removeInactiveCharacters
 {
-    [self _removeInactiveCharactersFromActiveCharactersArray: activeEnemiesRef];
+    [self _removeInactiveCharactersFromActiveCharactersArray: self.activeEnemies];
 }
 
 @end

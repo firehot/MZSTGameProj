@@ -48,6 +48,13 @@
 		D3712510162FE57B0095CFFA /* CooperStd.png in Resources */ = {isa = PBXBuildFile; fileRef = D371250A162FE57B0095CFFA /* CooperStd.png */; };
 		D3712511162FE57B0095CFFA /* MZArial-64.fnt in Resources */ = {isa = PBXBuildFile; fileRef = D371250B162FE57B0095CFFA /* MZArial-64.fnt */; };
 		D3712512162FE57B0095CFFA /* MZArial-64.png in Resources */ = {isa = PBXBuildFile; fileRef = D371250C162FE57B0095CFFA /* MZArial-64.png */; };
+		D37F70671697C16E00B662EA /* MZCharactersActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F70521697C16E00B662EA /* MZCharactersActionManager.m */; };
+		D37F70681697C16E00B662EA /* MZCharactersActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F70561697C16E00B662EA /* MZCharactersActionControl.m */; };
+		D37F70691697C16E00B662EA /* MZCharactersActionParamters.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F705A1697C16E00B662EA /* MZCharactersActionParamters.m */; };
+		D37F706A1697C16E00B662EA /* MZEnemiesActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F705D1697C16E00B662EA /* MZEnemiesActionControl.m */; };
+		D37F706B1697C16E00B662EA /* MZEnemyBulletsActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F70601697C16E00B662EA /* MZEnemyBulletsActionControl.m */; };
+		D37F706C1697C16E00B662EA /* MZPlayerActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F70631697C16E00B662EA /* MZPlayerActionControl.m */; };
+		D37F706D1697C16E00B662EA /* MZPlayerBulletsActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D37F70661697C16E00B662EA /* MZPlayerBulletsActionControl.m */; };
 		D381F3AF162BDAF400F81E68 /* [test]aibg_single-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D381F3AD162BDAF300F81E68 /* [test]aibg_single-hd.png */; };
 		D381F3B0162BDAF400F81E68 /* [test]aibg_single.png in Resources */ = {isa = PBXBuildFile; fileRef = D381F3AE162BDAF300F81E68 /* [test]aibg_single.png */; };
 		D391556D164227620011F3D6 /* MZColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D391556C164227620011F3D6 /* MZColor.m */; };
@@ -239,13 +246,6 @@
 		D3B48F0F14D93D73004FC4D7 /* MZEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E2C14D93D73004FC4D7 /* MZEnemy.m */; };
 		D3B48F1014D93D73004FC4D7 /* MZEnemyBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E2F14D93D73004FC4D7 /* MZEnemyBullet.m */; };
 		D3B48F1214D93D73004FC4D7 /* MZPlayerBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E3614D93D73004FC4D7 /* MZPlayerBullet.m */; };
-		D3B48F1614D93D73004FC4D7 /* MZCharactersActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E4614D93D73004FC4D7 /* MZCharactersActionManager.m */; };
-		D3B48F1714D93D73004FC4D7 /* MZCharactersActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E4A14D93D73004FC4D7 /* MZCharactersActionControl.m */; };
-		D3B48F1814D93D73004FC4D7 /* MZCharactersActionParamters.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E4E14D93D73004FC4D7 /* MZCharactersActionParamters.m */; };
-		D3B48F1914D93D73004FC4D7 /* MZEnemiesActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E5114D93D73004FC4D7 /* MZEnemiesActionControl.m */; };
-		D3B48F1A14D93D73004FC4D7 /* MZEnemyBulletsActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E5414D93D73004FC4D7 /* MZEnemyBulletsActionControl.m */; };
-		D3B48F1B14D93D73004FC4D7 /* MZPlayerActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E5714D93D73004FC4D7 /* MZPlayerActionControl.m */; };
-		D3B48F1C14D93D73004FC4D7 /* MZPlayerBulletsActionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E5A14D93D73004FC4D7 /* MZPlayerBulletsActionControl.m */; };
 		D3B48F1E14D93D73004FC4D7 /* MZScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E6014D93D73004FC4D7 /* MZScenario.m */; };
 		D3B48F2E14D93D73004FC4D7 /* MZScenesFlowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E9714D93D73004FC4D7 /* MZScenesFlowController.m */; };
 		D3B48F3014D93D73004FC4D7 /* MZAccelerometerState.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E9F14D93D73004FC4D7 /* MZAccelerometerState.m */; };
@@ -413,6 +413,21 @@
 		D371250A162FE57B0095CFFA /* CooperStd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CooperStd.png; sourceTree = "<group>"; };
 		D371250B162FE57B0095CFFA /* MZArial-64.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MZArial-64.fnt"; sourceTree = "<group>"; };
 		D371250C162FE57B0095CFFA /* MZArial-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MZArial-64.png"; sourceTree = "<group>"; };
+		D37F70511697C16E00B662EA /* MZCharactersActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharactersActionManager.h; sourceTree = "<group>"; };
+		D37F70521697C16E00B662EA /* MZCharactersActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharactersActionManager.m; sourceTree = "<group>"; };
+		D37F70551697C16E00B662EA /* MZCharactersActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharactersActionControl.h; sourceTree = "<group>"; };
+		D37F70561697C16E00B662EA /* MZCharactersActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharactersActionControl.m; sourceTree = "<group>"; };
+		D37F70571697C16E00B662EA /* MZCharactersActionControlHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharactersActionControlHeader.h; sourceTree = "<group>"; };
+		D37F70591697C16E00B662EA /* MZCharactersActionParamters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharactersActionParamters.h; sourceTree = "<group>"; };
+		D37F705A1697C16E00B662EA /* MZCharactersActionParamters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharactersActionParamters.m; sourceTree = "<group>"; };
+		D37F705C1697C16E00B662EA /* MZEnemiesActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEnemiesActionControl.h; sourceTree = "<group>"; };
+		D37F705D1697C16E00B662EA /* MZEnemiesActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEnemiesActionControl.m; sourceTree = "<group>"; };
+		D37F705F1697C16E00B662EA /* MZEnemyBulletsActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEnemyBulletsActionControl.h; sourceTree = "<group>"; };
+		D37F70601697C16E00B662EA /* MZEnemyBulletsActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEnemyBulletsActionControl.m; sourceTree = "<group>"; };
+		D37F70621697C16E00B662EA /* MZPlayerActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerActionControl.h; sourceTree = "<group>"; };
+		D37F70631697C16E00B662EA /* MZPlayerActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerActionControl.m; sourceTree = "<group>"; };
+		D37F70651697C16E00B662EA /* MZPlayerBulletsActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerBulletsActionControl.h; sourceTree = "<group>"; };
+		D37F70661697C16E00B662EA /* MZPlayerBulletsActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerBulletsActionControl.m; sourceTree = "<group>"; };
 		D381F3AD162BDAF300F81E68 /* [test]aibg_single-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[test]aibg_single-hd.png"; sourceTree = "<group>"; };
 		D381F3AE162BDAF300F81E68 /* [test]aibg_single.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[test]aibg_single.png"; sourceTree = "<group>"; };
 		D39155691642263F0011F3D6 /* MZSTGCoreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZSTGCoreHeader.h; sourceTree = "<group>"; };
@@ -811,21 +826,6 @@
 		D3B48E3314D93D73004FC4D7 /* MZGameCharactersHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGameCharactersHeader.h; sourceTree = "<group>"; };
 		D3B48E3514D93D73004FC4D7 /* MZPlayerBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerBullet.h; sourceTree = "<group>"; };
 		D3B48E3614D93D73004FC4D7 /* MZPlayerBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerBullet.m; sourceTree = "<group>"; };
-		D3B48E4514D93D73004FC4D7 /* MZCharactersActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharactersActionManager.h; sourceTree = "<group>"; };
-		D3B48E4614D93D73004FC4D7 /* MZCharactersActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharactersActionManager.m; sourceTree = "<group>"; };
-		D3B48E4914D93D73004FC4D7 /* MZCharactersActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharactersActionControl.h; sourceTree = "<group>"; };
-		D3B48E4A14D93D73004FC4D7 /* MZCharactersActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharactersActionControl.m; sourceTree = "<group>"; };
-		D3B48E4B14D93D73004FC4D7 /* MZCharactersActionControlHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharactersActionControlHeader.h; sourceTree = "<group>"; };
-		D3B48E4D14D93D73004FC4D7 /* MZCharactersActionParamters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharactersActionParamters.h; sourceTree = "<group>"; };
-		D3B48E4E14D93D73004FC4D7 /* MZCharactersActionParamters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharactersActionParamters.m; sourceTree = "<group>"; };
-		D3B48E5014D93D73004FC4D7 /* MZEnemiesActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEnemiesActionControl.h; sourceTree = "<group>"; };
-		D3B48E5114D93D73004FC4D7 /* MZEnemiesActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEnemiesActionControl.m; sourceTree = "<group>"; };
-		D3B48E5314D93D73004FC4D7 /* MZEnemyBulletsActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEnemyBulletsActionControl.h; sourceTree = "<group>"; };
-		D3B48E5414D93D73004FC4D7 /* MZEnemyBulletsActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEnemyBulletsActionControl.m; sourceTree = "<group>"; };
-		D3B48E5614D93D73004FC4D7 /* MZPlayerActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerActionControl.h; sourceTree = "<group>"; };
-		D3B48E5714D93D73004FC4D7 /* MZPlayerActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerActionControl.m; sourceTree = "<group>"; };
-		D3B48E5914D93D73004FC4D7 /* MZPlayerBulletsActionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerBulletsActionControl.h; sourceTree = "<group>"; };
-		D3B48E5A14D93D73004FC4D7 /* MZPlayerBulletsActionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerBulletsActionControl.m; sourceTree = "<group>"; };
 		D3B48E5F14D93D73004FC4D7 /* MZScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZScenario.h; sourceTree = "<group>"; };
 		D3B48E6014D93D73004FC4D7 /* MZScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZScenario.m; sourceTree = "<group>"; };
 		D3B48E9614D93D73004FC4D7 /* MZScenesFlowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZScenesFlowController.h; sourceTree = "<group>"; };
@@ -1339,6 +1339,84 @@
 				D391560F16425F6E0011F3D6 /* new_ver_test_bgevents.plist */,
 			);
 			path = Levels;
+			sourceTree = "<group>";
+		};
+		D37F70501697C16E00B662EA /* MZCharactersActionManager */ = {
+			isa = PBXGroup;
+			children = (
+				D37F70511697C16E00B662EA /* MZCharactersActionManager.h */,
+				D37F70521697C16E00B662EA /* MZCharactersActionManager.m */,
+				D37F70531697C16E00B662EA /* MZCharactersActions */,
+			);
+			path = MZCharactersActionManager;
+			sourceTree = "<group>";
+		};
+		D37F70531697C16E00B662EA /* MZCharactersActions */ = {
+			isa = PBXGroup;
+			children = (
+				D37F70541697C16E00B662EA /* MZCharactersActionControl */,
+				D37F70571697C16E00B662EA /* MZCharactersActionControlHeader.h */,
+				D37F70581697C16E00B662EA /* MZCharactersActionParamters */,
+				D37F705B1697C16E00B662EA /* MZEnemiesActionControl */,
+				D37F705E1697C16E00B662EA /* MZEnemyBulletsActionControl */,
+				D37F70611697C16E00B662EA /* MZPlayerActionControl */,
+				D37F70641697C16E00B662EA /* MZPlayerBulletsActionControl */,
+			);
+			path = MZCharactersActions;
+			sourceTree = "<group>";
+		};
+		D37F70541697C16E00B662EA /* MZCharactersActionControl */ = {
+			isa = PBXGroup;
+			children = (
+				D37F70551697C16E00B662EA /* MZCharactersActionControl.h */,
+				D37F70561697C16E00B662EA /* MZCharactersActionControl.m */,
+			);
+			path = MZCharactersActionControl;
+			sourceTree = "<group>";
+		};
+		D37F70581697C16E00B662EA /* MZCharactersActionParamters */ = {
+			isa = PBXGroup;
+			children = (
+				D37F70591697C16E00B662EA /* MZCharactersActionParamters.h */,
+				D37F705A1697C16E00B662EA /* MZCharactersActionParamters.m */,
+			);
+			path = MZCharactersActionParamters;
+			sourceTree = "<group>";
+		};
+		D37F705B1697C16E00B662EA /* MZEnemiesActionControl */ = {
+			isa = PBXGroup;
+			children = (
+				D37F705C1697C16E00B662EA /* MZEnemiesActionControl.h */,
+				D37F705D1697C16E00B662EA /* MZEnemiesActionControl.m */,
+			);
+			path = MZEnemiesActionControl;
+			sourceTree = "<group>";
+		};
+		D37F705E1697C16E00B662EA /* MZEnemyBulletsActionControl */ = {
+			isa = PBXGroup;
+			children = (
+				D37F705F1697C16E00B662EA /* MZEnemyBulletsActionControl.h */,
+				D37F70601697C16E00B662EA /* MZEnemyBulletsActionControl.m */,
+			);
+			path = MZEnemyBulletsActionControl;
+			sourceTree = "<group>";
+		};
+		D37F70611697C16E00B662EA /* MZPlayerActionControl */ = {
+			isa = PBXGroup;
+			children = (
+				D37F70621697C16E00B662EA /* MZPlayerActionControl.h */,
+				D37F70631697C16E00B662EA /* MZPlayerActionControl.m */,
+			);
+			path = MZPlayerActionControl;
+			sourceTree = "<group>";
+		};
+		D37F70641697C16E00B662EA /* MZPlayerBulletsActionControl */ = {
+			isa = PBXGroup;
+			children = (
+				D37F70651697C16E00B662EA /* MZPlayerBulletsActionControl.h */,
+				D37F70661697C16E00B662EA /* MZPlayerBulletsActionControl.m */,
+			);
+			path = MZPlayerBulletsActionControl;
 			sourceTree = "<group>";
 		};
 		D3806EFF168AA57D00B94DB0 /* MZSpritesPool */ = {
@@ -2258,6 +2336,7 @@
 			children = (
 				D3B48D6614D93D73004FC4D7 /* AppDelegate */,
 				D3B48DCC14D93D73004FC4D7 /* MZCCCameraControl */,
+				D37F70501697C16E00B662EA /* MZCharactersActionManager */,
 				D3B48E0114D93D73004FC4D7 /* MZCommonHeaders */,
 				D3B48E0514D93D73004FC4D7 /* MZEvents */,
 				D3B48E2314D93D73004FC4D7 /* MZGameCharacters */,
@@ -2500,88 +2579,9 @@
 		D3B48E4314D93D73004FC4D7 /* MZGamePlayComponenets */ = {
 			isa = PBXGroup;
 			children = (
-				D3B48E4414D93D73004FC4D7 /* MZCharactersActionManager */,
-				D3B48E4714D93D73004FC4D7 /* MZCharactersActions */,
 				D3B48E5E14D93D73004FC4D7 /* MZScenario */,
 			);
 			path = MZGamePlayComponenets;
-			sourceTree = "<group>";
-		};
-		D3B48E4414D93D73004FC4D7 /* MZCharactersActionManager */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E4514D93D73004FC4D7 /* MZCharactersActionManager.h */,
-				D3B48E4614D93D73004FC4D7 /* MZCharactersActionManager.m */,
-			);
-			path = MZCharactersActionManager;
-			sourceTree = "<group>";
-		};
-		D3B48E4714D93D73004FC4D7 /* MZCharactersActions */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E4814D93D73004FC4D7 /* MZCharactersActionControl */,
-				D3B48E4B14D93D73004FC4D7 /* MZCharactersActionControlHeader.h */,
-				D3B48E4C14D93D73004FC4D7 /* MZCharactersActionParamters */,
-				D3B48E4F14D93D73004FC4D7 /* MZEnemiesActionControl */,
-				D3B48E5214D93D73004FC4D7 /* MZEnemyBulletsActionControl */,
-				D3B48E5514D93D73004FC4D7 /* MZPlayerActionControl */,
-				D3B48E5814D93D73004FC4D7 /* MZPlayerBulletsActionControl */,
-			);
-			path = MZCharactersActions;
-			sourceTree = "<group>";
-		};
-		D3B48E4814D93D73004FC4D7 /* MZCharactersActionControl */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E4914D93D73004FC4D7 /* MZCharactersActionControl.h */,
-				D3B48E4A14D93D73004FC4D7 /* MZCharactersActionControl.m */,
-			);
-			path = MZCharactersActionControl;
-			sourceTree = "<group>";
-		};
-		D3B48E4C14D93D73004FC4D7 /* MZCharactersActionParamters */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E4D14D93D73004FC4D7 /* MZCharactersActionParamters.h */,
-				D3B48E4E14D93D73004FC4D7 /* MZCharactersActionParamters.m */,
-			);
-			path = MZCharactersActionParamters;
-			sourceTree = "<group>";
-		};
-		D3B48E4F14D93D73004FC4D7 /* MZEnemiesActionControl */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E5014D93D73004FC4D7 /* MZEnemiesActionControl.h */,
-				D3B48E5114D93D73004FC4D7 /* MZEnemiesActionControl.m */,
-			);
-			path = MZEnemiesActionControl;
-			sourceTree = "<group>";
-		};
-		D3B48E5214D93D73004FC4D7 /* MZEnemyBulletsActionControl */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E5314D93D73004FC4D7 /* MZEnemyBulletsActionControl.h */,
-				D3B48E5414D93D73004FC4D7 /* MZEnemyBulletsActionControl.m */,
-			);
-			path = MZEnemyBulletsActionControl;
-			sourceTree = "<group>";
-		};
-		D3B48E5514D93D73004FC4D7 /* MZPlayerActionControl */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E5614D93D73004FC4D7 /* MZPlayerActionControl.h */,
-				D3B48E5714D93D73004FC4D7 /* MZPlayerActionControl.m */,
-			);
-			path = MZPlayerActionControl;
-			sourceTree = "<group>";
-		};
-		D3B48E5814D93D73004FC4D7 /* MZPlayerBulletsActionControl */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E5914D93D73004FC4D7 /* MZPlayerBulletsActionControl.h */,
-				D3B48E5A14D93D73004FC4D7 /* MZPlayerBulletsActionControl.m */,
-			);
-			path = MZPlayerBulletsActionControl;
 			sourceTree = "<group>";
 		};
 		D3B48E5E14D93D73004FC4D7 /* MZScenario */ = {
@@ -3381,13 +3381,6 @@
 				D3B48F0F14D93D73004FC4D7 /* MZEnemy.m in Sources */,
 				D3B48F1014D93D73004FC4D7 /* MZEnemyBullet.m in Sources */,
 				D3B48F1214D93D73004FC4D7 /* MZPlayerBullet.m in Sources */,
-				D3B48F1614D93D73004FC4D7 /* MZCharactersActionManager.m in Sources */,
-				D3B48F1714D93D73004FC4D7 /* MZCharactersActionControl.m in Sources */,
-				D3B48F1814D93D73004FC4D7 /* MZCharactersActionParamters.m in Sources */,
-				D3B48F1914D93D73004FC4D7 /* MZEnemiesActionControl.m in Sources */,
-				D3B48F1A14D93D73004FC4D7 /* MZEnemyBulletsActionControl.m in Sources */,
-				D3B48F1B14D93D73004FC4D7 /* MZPlayerActionControl.m in Sources */,
-				D3B48F1C14D93D73004FC4D7 /* MZPlayerBulletsActionControl.m in Sources */,
 				D3B48F1E14D93D73004FC4D7 /* MZScenario.m in Sources */,
 				D3B48F2E14D93D73004FC4D7 /* MZScenesFlowController.m in Sources */,
 				D3B48F3014D93D73004FC4D7 /* MZAccelerometerState.m in Sources */,
@@ -3592,6 +3585,13 @@
 				D30CFB4A169526630040EBDB /* MZGamePlayLayer.m in Sources */,
 				D30CFB4B169526630040EBDB /* MZTouchesControlPlayer.m in Sources */,
 				D30CFB4C169526630040EBDB /* MZGamePlayLayer_Base.m in Sources */,
+				D37F70671697C16E00B662EA /* MZCharactersActionManager.m in Sources */,
+				D37F70681697C16E00B662EA /* MZCharactersActionControl.m in Sources */,
+				D37F70691697C16E00B662EA /* MZCharactersActionParamters.m in Sources */,
+				D37F706A1697C16E00B662EA /* MZEnemiesActionControl.m in Sources */,
+				D37F706B1697C16E00B662EA /* MZEnemyBulletsActionControl.m in Sources */,
+				D37F706C1697C16E00B662EA /* MZPlayerActionControl.m in Sources */,
+				D37F706D1697C16E00B662EA /* MZPlayerBulletsActionControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

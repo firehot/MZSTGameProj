@@ -1,9 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "MZCharacterTypeStrings.h"
+#import "MZTypeDefine.h"
 
 @class MZCharacter;
-@class MZPlayer;
-@class MZEventControlCharacter;
 @class MZPlayerActionControl;
 @class MZPlayerBulletsActionControl;
 @class MZEnemiesActionControl;
@@ -11,6 +9,7 @@
 
 @interface MZCharactersActionManager : NSObject 
 {
+    NSMutableArray *activePlayers;
     NSMutableArray *activeEnemies;
     NSMutableArray *activeEnemyBullets;
     NSMutableArray *activePlayerBullets;
@@ -20,7 +19,7 @@
     MZEnemyBulletsActionControl *enemyBulletsActionControl;
 }
 
--(void)addCharacterWithType:(MZCharacterType)characterType character:(MZCharacter *)character;
+-(void)addWithType:(MZCharacterType)characterType character:(MZCharacter *)character;
 -(void)draw;
 -(void)update;
 -(void)clearAllWithType:(MZCharacterType)type;

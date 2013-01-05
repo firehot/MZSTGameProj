@@ -11,7 +11,7 @@ static MZCharacterTypeStrings *sharedMZCharacterTypeStrings_ = nil;
 
 #pragma mark - init and dealloc
 
-+(MZCharacterTypeStrings *)sharedCharacterTypeStrings
++(MZCharacterTypeStrings *)sharedInstance
 {
     if( sharedMZCharacterTypeStrings_ == nil )
         sharedMZCharacterTypeStrings_ = [[MZCharacterTypeStrings alloc] init];

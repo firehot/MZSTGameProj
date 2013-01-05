@@ -46,7 +46,7 @@ MZCharacterCollisionColor *sharedCharacterCollisionColor_ = nil;
         default: break;
     }
     
-    MZAssert( false, @"Unknoww type(%@)", [[MZCharacterTypeStrings sharedCharacterTypeStrings] getCharacterTypeDescByType: type] );
+    MZAssert( false, @"Unknoww type(%@)", [[MZCharacterTypeStrings sharedInstance] getCharacterTypeDescByType: type] );
     return nil;
 }
 

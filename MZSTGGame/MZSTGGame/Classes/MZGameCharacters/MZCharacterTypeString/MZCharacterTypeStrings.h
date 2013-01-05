@@ -3,7 +3,7 @@
 
 @interface MZCharacterTypeStrings : NSObject
 
-+(MZCharacterTypeStrings *)sharedCharacterTypeStrings;
++(MZCharacterTypeStrings *)sharedInstance;
 -(MZCharacterType)getMZCharacterTypeEnumByString:(NSString *)string;
 -(NSString *)getCharacterTypeDescByType:(MZCharacterType)type;
 -(NSString *)getCharacterClassNameByType:(MZCharacterType)type;

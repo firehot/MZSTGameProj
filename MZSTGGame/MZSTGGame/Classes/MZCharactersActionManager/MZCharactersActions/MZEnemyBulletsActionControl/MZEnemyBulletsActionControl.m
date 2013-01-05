@@ -7,19 +7,19 @@
 
 -(void)drawCollision
 {            
-    for( MZCharacter *enemyBullet in activeEnemyBulletsRef )
+    for( MZCharacter *enemyBullet in self.activeEnemyBullets )
         [enemyBullet drawCollision];
 }
 
 -(void)update
 {
-    if( activeEnemyBulletsRef != nil )
+    if( self.activeEnemyBullets != nil )
     {        
-        for( MZEventControlCharacter *enemyBullet in activeEnemyBulletsRef )
+        for( MZEventControlCharacter *enemyBullet in self.activeEnemyBullets )
         {
             [enemyBullet update];
             
-            if( [enemyBullet isCollisionWithOtherCharacter: playerRef] )
+            if( [enemyBullet isCollisionWithOtherCharacter: self.player] )
                 [enemyBullet disable];
         }
     }
@@ -27,7 +27,7 @@
 
 -(void)removeInactiveCharacters
 {
-    [self _removeInactiveCharactersFromActiveCharactersArray: activeEnemyBulletsRef];
+    [self _removeInactiveCharactersFromActiveCharactersArray: self.activeEnemyBullets];
 }
 
 @end

@@ -15,6 +15,7 @@ typedef enum
 @class CCDrawNode;
 @class MZPlayer;
 @class MZTouchesControlPlayer;
+@class MZCharactersActionManager;
 @class MZLevelComponents;
 
 // wew are test
@@ -22,29 +23,29 @@ typedef enum
 @class MZCCSpritesPool;
 @class MZCharacterPart;
 @class MZCharacter;
-@class MZPlayer;
+//@class MZPlayer;
 @class MZEnemy;
 
 @interface MZGamePlayLayer : MZGamePlayLayer_Base <MZTouchSpaceDelegate, MZSpritesPoolSupport>
 {    
     MZTouchesControlPlayer *touchesControlPlayer;
     MZCharactersFactory *charactersFactory;
+    MZCharactersActionManager *charactersActionManager;
     CCDrawNode *referenceLines;
     
     // 以下是測試用的
     MZCCCameraControl *cameraControl;
     MZCharacterPart *part;
     MZCharacter *testCharacter;
-    MZPlayer *testPlayer;
+//    MZPlayer *testPlayer;
     MZEnemy *testEnemy;
 }
 
--(void)setControlWithPlayer:(MZPlayer *)player;
+-(void)setControlByUserTouchDelegate:(id<MZPlayerTouchDelegate>)touchDelegate;
 
 @property (nonatomic, readonly) MZCharactersFactory *charactersFactory;
 
 @end
-
 
 @interface MZGamePlayLayer (Test)
 -(void)__test_init;
@@ -57,3 +58,7 @@ typedef enum
 -(void)__test_update;
 -(void)__test_release;
 @end
+
+/*
+ 尚缺 Animation 的資源載入 ...
+ */

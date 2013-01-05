@@ -8,3 +8,14 @@
 #ifndef MZ_LOG_CHARACTER_CREATE
 #define MZ_LOG_CHARACTER_CREATE 0
 #endif
+
+// 0: disable, more than 0: level
+#ifndef MZ_LOG_EVENT
+#define MZ_LOG_EVENT 0
+#endif
+
+// 0: disable
+#ifndef MZ_LOG_CHARACTER_NUMBERS
+#define MZ_LOG_CHARACTER_NUMBERS 0
+#endif
+

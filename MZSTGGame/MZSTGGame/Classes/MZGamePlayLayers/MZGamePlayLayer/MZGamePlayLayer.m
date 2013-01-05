@@ -8,6 +8,7 @@
 #import "MZGamePlayLayersHeader.h"
 #import "MZGamePlayScene.h"
 #import "cocos2d.h"
+#import "MZCharactersActionManager.h"
 
 #import "MZAnimationHeader.h"
 
@@ -91,7 +92,7 @@
 
 -(void)draw
 {
-
+    [charactersActionManager draw];
 }
 
 -(void)pause
@@ -107,6 +108,9 @@
 -(void)update
 {
     [super update];
+    
+    [charactersActionManager update];
+    
     [self __test_update];
 }
 
@@ -115,7 +119,9 @@
     [self removeChild: referenceLines cleanup: false]; [referenceLines release];
 
     [charactersFactory release];
+    [charactersActionManager release];
     [touchesControlPlayer release];
+    
 
     [self _removeScheduleAndRemoveDispatcher];
 
@@ -126,10 +132,10 @@
 
 #pragma mark - methods
 
--(void)setControlWithPlayer:(MZPlayer *)player
+-(void)setControlByUserTouchDelegate:(id<MZPlayerTouchDelegate>)touchDelegate
 {
-    MZAssert( player, @"player is nil" );
-    touchesControlPlayer = [[MZTouchesControlPlayer alloc] initWithPlayerTouch: player touchSpace: self];
+    MZAssert( touchDelegate, @"touchDelegate is nil" );
+    touchesControlPlayer = [[MZTouchesControlPlayer alloc] initWithPlayerTouch: touchDelegate touchSpace: self];
 }
 
 @end
@@ -151,7 +157,9 @@
     [self.framesManager addSpriteSheetWithFileName: @"[test]enemies_atlas.plist"];
     
     [self _initSpritesPool];
+    
     charactersFactory = [[MZCharactersFactory alloc] initWithSpritePoolSupport: self];
+    charactersActionManager = [[MZCharactersActionManager alloc] init];
     
     [self __test_init];
 }
@@ -319,12 +327,12 @@
 
 -(void)__test_init_player
 {
-    testPlayer = (MZPlayer *)[charactersFactory getByType: kMZCharacterType_Player name: nil];
-    [testPlayer retain];
-    [self setControlWithPlayer: testPlayer];
+    MZCharacter *testPlayer = [charactersFactory getByType: kMZCharacterType_Player name: nil];
+    [self setControlByUserTouchDelegate: (MZPlayer *)testPlayer];
+    
+    [charactersActionManager addWithType: kMZCharacterType_Player character: testPlayer];
 
     testPlayer.position = mzp( 160, 240 );
-    [testPlayer enable];
 }
 
 -(void)__test_init_enemy
@@ -344,14 +352,14 @@
 
 -(void)__test_update
 {
-    if( testPlayer ) [testPlayer update];
+//    if( testPlayer ) [testPlayer update];
 }
 
 -(void)__test_release
 {
     [MZObjectHelper releaseObject: &part];
     [MZObjectHelper releaseObject: &testCharacter];
-    [MZObjectHelper releaseObject: &testPlayer];
+//    [MZObjectHelper releaseObject: &testPlayer];
 }
 
 @end

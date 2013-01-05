@@ -4,7 +4,9 @@
 #import "MZCharactersActionControlHeader.h"
 #import "MZSTGGameHelper.h"
 #import "MZLevelComponentsHeader.h"
+#import "MZCharacterTypeStrings.h"
 #import "MZLogMacro.h"
+#import "MZGameConfig.h"
 
 @interface MZCharactersActionManager (Private)
 -(void)_initActiveCharactersArray;
@@ -53,14 +55,15 @@
 
 #pragma mark - methods
 
--(void)addCharacterWithType:(MZCharacterType)characterType character:(MZCharacter *)character
+-(void)addWithType:(MZCharacterType)characterType character:(MZCharacter *)character
 {
     NSMutableArray *targetActiveCharactersArray = [self _getActiveCharactersArrayByCharacterType: characterType];
     MZAssert( targetActiveCharactersArray != nil, 
              @"targetActiveCharactersArray is nil(type=%@)",
-             [[MZCharacterTypeStrings sharedCharacterTypeStrings] getCharacterTypeDescByType: characterType] );
+             [[MZCharacterTypeStrings sharedInstance] getCharacterTypeDescByType: characterType] );
     
     [targetActiveCharactersArray addObject: character];
+    [character enable];
 }
 
 -(void)draw
@@ -97,6 +100,7 @@
 
 -(void)_initActiveCharactersArray
 {
+    activePlayers = [[NSMutableArray alloc] initWithCapacity: 1];
     activeEnemies = [[NSMutableArray alloc] initWithCapacity: 1];
     activeEnemyBullets = [[NSMutableArray alloc] initWithCapacity: 1];
     activePlayerBullets = [[NSMutableArray alloc] initWithCapacity: 1];
@@ -105,10 +109,10 @@
 -(void)_initCharactersActionControls
 {
     MZCharactersActionParamters *charactersActionParamters = [MZCharactersActionParamters charactersActionParamters];
-    charactersActionParamters.playerRef = [MZLevelComponents sharedInstance].player;
-    charactersActionParamters.activePlayerBulletsRef = activePlayerBullets;
-    charactersActionParamters.activeEnemiesRef = activeEnemies;
-    charactersActionParamters.activeEnemyBulletsRef = activeEnemyBullets;
+    charactersActionParamters.activePlayers = activePlayers;
+    charactersActionParamters.activePlayerBullets = activePlayerBullets;
+    charactersActionParamters.activeEnemies = activeEnemies;
+    charactersActionParamters.activeEnemyBullets = activeEnemyBullets;
     [charactersActionParamters checkCompleteness];
     
     playerActionControl = [[MZPlayerActionControl alloc] initWithParamters: charactersActionParamters];
@@ -131,20 +135,19 @@
 
 -(void)_updateDebugInfo
 {
-    if( [MZGameSetting sharedInstance].debug.showCharactersNumber )
-    {
-        int numberOfPlayer = 1;
-        int numberOfEnemies = [activeEnemies count];
-        int numberOfPlayerBullets = [activePlayerBullets count];
-        int numberOfEnemyBullets = [activeEnemyBullets count];
-        
-        NSLog( @"%@: Info P:%d, E:%d, PB:%d, EB:%d", 
-               self, 
-               numberOfPlayer,
-               numberOfEnemies,
-               numberOfPlayerBullets,
-               numberOfEnemyBullets );
-    }
+#if MZ_LOG_CHARACTER_NUMBERS
+    int numberOfPlayer = 1;
+    int numberOfEnemies = [activeEnemies count];
+    int numberOfPlayerBullets = [activePlayerBullets count];
+    int numberOfEnemyBullets = [activeEnemyBullets count];
+    
+    MZLog( @"%@: Info P:%d, E:%d, PB:%d, EB:%d",
+          self,
+          numberOfPlayer,
+          numberOfEnemies,
+          numberOfPlayerBullets,
+          numberOfEnemyBullets );
+#endif
 }
 
 -(void)_removeInactiveCharacters
@@ -158,6 +161,11 @@
 {
     switch( charType )
     {
+        case kMZCharacterType_Player:
+            if( activePlayers == nil )
+                activePlayers = [[NSMutableArray alloc] initWithCapacity: 1];
+            return activePlayers;
+            
         case kMZCharacterType_PlayerBullet:
             if( activePlayerBullets == nil )
                 activePlayerBullets = [[NSMutableArray alloc] initWithCapacity: 1];
@@ -179,7 +187,7 @@
     
     MZAssert( false, 
              @"Can not found Array for Char Type(%@)",
-             [[MZCharacterTypeStrings sharedCharacterTypeStrings] getCharacterTypeDescByType: charType] );
+             [[MZCharacterTypeStrings sharedInstance] getCharacterTypeDescByType: charType] );
     
     return nil;
 }

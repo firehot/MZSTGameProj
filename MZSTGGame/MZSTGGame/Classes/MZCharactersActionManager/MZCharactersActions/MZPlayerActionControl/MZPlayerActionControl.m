@@ -7,12 +7,12 @@
 
 -(void)drawCollision
 {
-    [playerRef drawCollision];
+    [self.player drawCollision];
 }
 
 -(void)update
 {
-    [playerRef update];
+    [self.player update];
 }
 
 @end
