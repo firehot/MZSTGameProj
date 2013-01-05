@@ -22,7 +22,7 @@
 -(CGPoint)lastMovingVector
 {
     currentMovingVector = [MZMath unitVectorFromDegrees: currentTheta - 90];
-    currentMovingVector = [MZMath unitVectorFromVector: currentMovingVector];
+    currentMovingVector = [MZMath unitVectorFromVector: currentMovingVector]; // 多餘的啦 ...
     
     return currentMovingVector;
 }
@@ -62,7 +62,7 @@
     [super _updateMotion];
     
     currentTheta += setting.angularVelocity*[MZTime sharedInstance].deltaTime;
-    currentRadians += setting.additionalRadians*[MZTime sharedInstance].deltaTime;
+    currentRadians += setting.additionalRadians*[MZTime sharedInstance].deltaTime; /* 參考名稱 variationOfRadians */
     
     float x = [self _center].x + currentRadians*cos( [MZMath degreesToRadians: currentTheta] );
     float y = [self _center].y + currentRadians*sin( [MZMath degreesToRadians: currentTheta] );
