@@ -40,11 +40,6 @@
 
 #pragma mark - properites
 
--(float)lifeTimeCount
-{
-    return [MZTime sharedInstance].totalTime - timeAtEnable;
-}
-
 #pragma mark - methods
 
 -(void)setPropertiesWithDictionary:(NSDictionary *)propertiesDictionary
@@ -68,10 +63,14 @@
     return [childrenDictionary objectForKey: childName];
 }
 
+-(void)reset
+{
+    lifeTimeCount = 0;
+}
+
 -(void)enable
 {
     isActive = true;
-    timeAtEnable = [MZTime sharedInstance].totalTime;
     
     for( MZBehavior_Base *child in [childrenDictionary allValues] )
         [child enable];

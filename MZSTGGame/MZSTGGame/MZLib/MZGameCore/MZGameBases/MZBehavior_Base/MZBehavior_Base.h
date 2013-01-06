@@ -4,7 +4,6 @@
 @interface MZBehavior_Base : NSObject
 {
 @private
-    float timeAtEnable;
     float lifeTimeCount;
 @protected
     NSMutableDictionary *childrenDictionary;
@@ -18,6 +17,7 @@
 -(void)addChild:(MZBehavior_Base *)child name:(NSString *)name;
 -(MZBehavior_Base *)getChildWithName:(NSString *)childName;
 
+-(void)reset;
 -(void)enable;
 -(void)disable;
 

@@ -13,7 +13,11 @@
 -(id)objectForKey:(id)key;
 
 -(bool)containKey:(id)key;
+-(int)indexOfObject:(id)object;
 
 @property (nonatomic, readonly) int count;
+@property (nonatomic, readonly) NSMutableArray *array;
+@property (nonatomic, readonly) NSMutableDictionary *dictionary;
+
 
 @end

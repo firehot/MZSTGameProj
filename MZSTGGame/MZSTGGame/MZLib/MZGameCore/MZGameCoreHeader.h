@@ -17,3 +17,5 @@
 #import "MZGameSettingsHeader.h"
 
 #import "MZEffectHeader.h"
+
+#import "MZControlUpdate.h"

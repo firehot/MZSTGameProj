@@ -1,11 +1,11 @@
 #import "MZCharacter.h"
 #import "MZMovesHeader.h"
 
-@class MZMove_Base;
+@class MZControlUpdate;
 
 @interface MZEnemy : MZCharacter <MZMoveDelegate>
 {
-    MZMove_Base *testMove;
+    MZControlUpdate *moveControlUpdate;
 }
 
 +(MZEnemy *)enemy;

@@ -328,6 +328,7 @@
 		DFA7EA3116997362008A87D0 /* MZRemoveOutOfScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA2716997362008A87D0 /* MZRemoveOutOfScreen.m */; };
 		DFA7EA36169975B2008A87D0 /* MZDictionaryArray.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA35169975B2008A87D0 /* MZDictionaryArray.m */; };
 		DFA7EA3A16998969008A87D0 /* MZMove_Linear.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA3916998969008A87D0 /* MZMove_Linear.m */; };
+		DFA7EA3F1699A946008A87D0 /* MZControlUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA3E1699A946008A87D0 /* MZControlUpdate.m */; };
 		DFB4511B160FCE5B005530CB /* MZFaceToControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB4511A160FCE5B005530CB /* MZFaceToControl.m */; };
 		DFBD764E162C666900E26BD4 /* [test]bg_cloud-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DFBD764C162C666800E26BD4 /* [test]bg_cloud-hd.png */; };
 		DFBD764F162C666900E26BD4 /* [test]bg_cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = DFBD764D162C666900E26BD4 /* [test]bg_cloud.png */; };
@@ -947,6 +948,8 @@
 		DFA7EA3816998969008A87D0 /* MZMove_Linear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMove_Linear.h; sourceTree = "<group>"; };
 		DFA7EA3916998969008A87D0 /* MZMove_Linear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMove_Linear.m; sourceTree = "<group>"; };
 		DFA7EA3B16998C31008A87D0 /* MZMovesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZMovesHeader.h; sourceTree = "<group>"; };
+		DFA7EA3D1699A946008A87D0 /* MZControlUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZControlUpdate.h; sourceTree = "<group>"; };
+		DFA7EA3E1699A946008A87D0 /* MZControlUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZControlUpdate.m; sourceTree = "<group>"; };
 		DFB45119160FCE5B005530CB /* MZFaceToControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFaceToControl.h; sourceTree = "<group>"; };
 		DFB4511A160FCE5B005530CB /* MZFaceToControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFaceToControl.m; sourceTree = "<group>"; };
 		DFB4511C160FD1A7005530CB /* MZFaceToControlProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZFaceToControlProtocol.h; sourceTree = "<group>"; };
@@ -2942,6 +2945,7 @@
 			children = (
 				DF30EC2D160A1CD8006966A9 /* MZGameCoreHeader.h */,
 				DFA7EA001695F39F008A87D0 /* MZGameConfig.h */,
+				DFA7EA3C1699A937008A87D0 /* MZControlUpdate */,
 				D3806EFF168AA57D00B94DB0 /* MZSpritesPool */,
 				DF74324B168882F900865738 /* MZCollision */,
 				D3E1A7C6164BAF17005E52B2 /* MZEffect */,
@@ -3198,6 +3202,15 @@
 				DFA7EA3916998969008A87D0 /* MZMove_Linear.m */,
 			);
 			path = MZMove_Linear;
+			sourceTree = "<group>";
+		};
+		DFA7EA3C1699A937008A87D0 /* MZControlUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA3D1699A946008A87D0 /* MZControlUpdate.h */,
+				DFA7EA3E1699A946008A87D0 /* MZControlUpdate.m */,
+			);
+			path = MZControlUpdate;
 			sourceTree = "<group>";
 		};
 		DFB45118160FCE5B005530CB /* MZFaceToControl */ = {
@@ -3608,6 +3621,7 @@
 				DFA7EA3116997362008A87D0 /* MZRemoveOutOfScreen.m in Sources */,
 				DFA7EA36169975B2008A87D0 /* MZDictionaryArray.m in Sources */,
 				DFA7EA3A16998969008A87D0 /* MZMove_Linear.m in Sources */,
+				DFA7EA3F1699A946008A87D0 /* MZControlUpdate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

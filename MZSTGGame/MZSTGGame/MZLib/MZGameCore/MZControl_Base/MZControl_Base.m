@@ -5,6 +5,8 @@
 
 @implementation MZControl_Base
 
+@synthesize isRunOnce;
+
 #pragma mark - init and dealloc
 
 +(MZControl_Base *)controlWithDelegate:(id<MZControlDelegate>)aControlDelegate
@@ -17,6 +19,7 @@
     self = [super init];
 
     controlDelegate = aControlDelegate;
+    isRunOnce = false;
     
     return self;
 }

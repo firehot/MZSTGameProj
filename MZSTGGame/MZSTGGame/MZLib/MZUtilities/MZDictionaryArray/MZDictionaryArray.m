@@ -4,6 +4,8 @@
 @implementation MZDictionaryArray
 
 @synthesize count;
+@synthesize array;
+@synthesize dictionary;
 
 #pragma mark - init and dealloc
 
@@ -60,6 +62,12 @@
 -(bool)containKey:(id)key
 {
     return ( dictionary != nil )? [[dictionary allKeys] containsObject: key] : false;
+}
+
+-(int)indexOfObject:(id)object
+{
+    if( array == nil || [array count] ) return -1;
+    return [array indexOfObject: object];
 }
 
 @end
