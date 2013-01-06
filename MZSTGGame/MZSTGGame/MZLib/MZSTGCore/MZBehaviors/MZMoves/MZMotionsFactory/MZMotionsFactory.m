@@ -28,16 +28,16 @@ MZMotionsFactory *sharedMZMotionsFactory_ = nil;
 
 #pragma mark - methods
 
--(MZMotion_Base *)getMotionBySetting:(MZMotionSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
+-(MZMove_Base *)getMotionBySetting:(MZMotionSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
 {
     NSString *motionClassName = [NSString stringWithFormat: @"MZMotion_%@", aSetting.motionType];
-    MZMotion_Base *motion = [NSClassFromString( motionClassName ) motionWithControlTarget: aControlTarget motionSetting: aSetting];
+    MZMove_Base *motion = [NSClassFromString( motionClassName ) motionWithControlTarget: aControlTarget motionSetting: aSetting];
     MZAssert( motion != nil, @"Create motion fail, class name=(%@)", motionClassName );
     
     return motion;
 }
 
--(MZMotion_Base *)getReferenceToLeaderLinearMotionWithSetting:(MZMotionSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
+-(MZMove_Base *)getReferenceToLeaderLinearMotionWithSetting:(MZMotionSetting *)aSetting controlTarget:(MZGameObject *)aControlTarget
 {
     NSMutableDictionary *nsDictionary = [NSMutableDictionary dictionaryWithDictionary: [aSetting getOriginalNSDictionary]];
     [nsDictionary setObject: @"Linear" forKey: @"MotionType"];

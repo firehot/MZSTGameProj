@@ -73,16 +73,6 @@
 		D39155CE1642422A0011F3D6 /* MZAttackTargetHelpKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D391559D1642422A0011F3D6 /* MZAttackTargetHelpKit.m */; };
 		D39155CF1642422A0011F3D6 /* MZCharacterPartControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155A11642422A0011F3D6 /* MZCharacterPartControl.m */; };
 		D39155D01642422A0011F3D6 /* MZMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155A41642422A0011F3D6 /* MZMode.m */; };
-		D39155D11642422A0011F3D6 /* MZMotion_AccelerationXY.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155A81642422A0011F3D6 /* MZMotion_AccelerationXY.m */; };
-		D39155D21642422A0011F3D6 /* MZMotion_Base.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155AB1642422A0011F3D6 /* MZMotion_Base.m */; };
-		D39155D31642422A0011F3D6 /* MZMotion_EllipseRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155AE1642422A0011F3D6 /* MZMotion_EllipseRotation.m */; };
-		D39155D41642422A0011F3D6 /* MZMotion_Idle.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155B11642422A0011F3D6 /* MZMotion_Idle.m */; };
-		D39155D51642422A0011F3D6 /* MZMotion_Linear.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155B41642422A0011F3D6 /* MZMotion_Linear.m */; };
-		D39155D61642422A0011F3D6 /* MZMotion_LinearToTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155B71642422A0011F3D6 /* MZMotion_LinearToTarget.m */; };
-		D39155D71642422A0011F3D6 /* MZMotion_Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155BA1642422A0011F3D6 /* MZMotion_Rotation.m */; };
-		D39155D81642422A0011F3D6 /* MZMotionsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155BD1642422A0011F3D6 /* MZMotionsFactory.m */; };
-		D39155D91642422A0011F3D6 /* MZRemoveControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155C21642422A0011F3D6 /* MZRemoveControl.m */; };
-		D39155DA1642422A0011F3D6 /* MZRemoveOutOfScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155C61642422A0011F3D6 /* MZRemoveOutOfScreen.m */; };
 		D39155E916424C150011F3D6 /* MZCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155DE16424C150011F3D6 /* MZCharacter.m */; };
 		D39155EA16424C150011F3D6 /* MZCharacterCollisionColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155E116424C150011F3D6 /* MZCharacterCollisionColor.m */; };
 		D39155EB16424C150011F3D6 /* MZCharacterDynamicSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155E416424C150011F3D6 /* MZCharacterDynamicSetting.m */; };
@@ -327,6 +317,17 @@
 		DF74325C1688A42D00865738 /* MZAttackSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74325B1688A42D00865738 /* MZAttackSetting.m */; };
 		DF9166031514C9340094C96A /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DF9166021514C9340094C96A /* fps_images-ipadhd.png */; };
 		DF9F51EB150DDE9C00698E26 /* MZEventsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9F51EA150DDE9C00698E26 /* MZEventsFactory.m */; };
+		DFA7EA2816997362008A87D0 /* MZMotion_AccelerationXY.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA0916997362008A87D0 /* MZMotion_AccelerationXY.m */; };
+		DFA7EA2916997362008A87D0 /* MZMotion_EllipseRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA0C16997362008A87D0 /* MZMotion_EllipseRotation.m */; };
+		DFA7EA2A16997362008A87D0 /* MZMotion_Idle.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA0F16997362008A87D0 /* MZMotion_Idle.m */; };
+		DFA7EA2C16997362008A87D0 /* MZMotion_LinearToTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA1516997362008A87D0 /* MZMotion_LinearToTarget.m */; };
+		DFA7EA2D16997362008A87D0 /* MZMotion_Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA1816997362008A87D0 /* MZMotion_Rotation.m */; };
+		DFA7EA2E16997362008A87D0 /* MZMotionsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA1B16997362008A87D0 /* MZMotionsFactory.m */; };
+		DFA7EA2F16997362008A87D0 /* MZMove_Base.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA1F16997362008A87D0 /* MZMove_Base.m */; };
+		DFA7EA3016997362008A87D0 /* MZRemoveControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA2316997362008A87D0 /* MZRemoveControl.m */; };
+		DFA7EA3116997362008A87D0 /* MZRemoveOutOfScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA2716997362008A87D0 /* MZRemoveOutOfScreen.m */; };
+		DFA7EA36169975B2008A87D0 /* MZDictionaryArray.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA35169975B2008A87D0 /* MZDictionaryArray.m */; };
+		DFA7EA3A16998969008A87D0 /* MZMove_Linear.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA3916998969008A87D0 /* MZMove_Linear.m */; };
 		DFB4511B160FCE5B005530CB /* MZFaceToControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB4511A160FCE5B005530CB /* MZFaceToControl.m */; };
 		DFBD764E162C666900E26BD4 /* [test]bg_cloud-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DFBD764C162C666800E26BD4 /* [test]bg_cloud-hd.png */; };
 		DFBD764F162C666900E26BD4 /* [test]bg_cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = DFBD764D162C666900E26BD4 /* [test]bg_cloud.png */; };
@@ -466,28 +467,6 @@
 		D39155A11642422A0011F3D6 /* MZCharacterPartControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacterPartControl.m; sourceTree = "<group>"; };
 		D39155A31642422A0011F3D6 /* MZMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMode.h; sourceTree = "<group>"; };
 		D39155A41642422A0011F3D6 /* MZMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMode.m; sourceTree = "<group>"; };
-		D39155A71642422A0011F3D6 /* MZMotion_AccelerationXY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_AccelerationXY.h; sourceTree = "<group>"; };
-		D39155A81642422A0011F3D6 /* MZMotion_AccelerationXY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_AccelerationXY.m; sourceTree = "<group>"; };
-		D39155AA1642422A0011F3D6 /* MZMotion_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_Base.h; sourceTree = "<group>"; };
-		D39155AB1642422A0011F3D6 /* MZMotion_Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_Base.m; sourceTree = "<group>"; };
-		D39155AD1642422A0011F3D6 /* MZMotion_EllipseRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_EllipseRotation.h; sourceTree = "<group>"; };
-		D39155AE1642422A0011F3D6 /* MZMotion_EllipseRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_EllipseRotation.m; sourceTree = "<group>"; };
-		D39155B01642422A0011F3D6 /* MZMotion_Idle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_Idle.h; sourceTree = "<group>"; };
-		D39155B11642422A0011F3D6 /* MZMotion_Idle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_Idle.m; sourceTree = "<group>"; };
-		D39155B31642422A0011F3D6 /* MZMotion_Linear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_Linear.h; sourceTree = "<group>"; };
-		D39155B41642422A0011F3D6 /* MZMotion_Linear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_Linear.m; sourceTree = "<group>"; };
-		D39155B61642422A0011F3D6 /* MZMotion_LinearToTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_LinearToTarget.h; sourceTree = "<group>"; };
-		D39155B71642422A0011F3D6 /* MZMotion_LinearToTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_LinearToTarget.m; sourceTree = "<group>"; };
-		D39155B91642422A0011F3D6 /* MZMotion_Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_Rotation.h; sourceTree = "<group>"; };
-		D39155BA1642422A0011F3D6 /* MZMotion_Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_Rotation.m; sourceTree = "<group>"; };
-		D39155BC1642422A0011F3D6 /* MZMotionsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotionsFactory.h; sourceTree = "<group>"; };
-		D39155BD1642422A0011F3D6 /* MZMotionsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotionsFactory.m; sourceTree = "<group>"; };
-		D39155BE1642422A0011F3D6 /* MZMotionsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotionsHeader.h; sourceTree = "<group>"; };
-		D39155C11642422A0011F3D6 /* MZRemoveControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZRemoveControl.h; sourceTree = "<group>"; };
-		D39155C21642422A0011F3D6 /* MZRemoveControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZRemoveControl.m; sourceTree = "<group>"; };
-		D39155C31642422A0011F3D6 /* MZRemoveControlsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZRemoveControlsHeader.h; sourceTree = "<group>"; };
-		D39155C51642422A0011F3D6 /* MZRemoveOutOfScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZRemoveOutOfScreen.h; sourceTree = "<group>"; };
-		D39155C61642422A0011F3D6 /* MZRemoveOutOfScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZRemoveOutOfScreen.m; sourceTree = "<group>"; };
 		D39155DD16424C150011F3D6 /* MZCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharacter.h; sourceTree = "<group>"; };
 		D39155DE16424C150011F3D6 /* MZCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacter.m; sourceTree = "<group>"; };
 		D39155E016424C150011F3D6 /* MZCharacterCollisionColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharacterCollisionColor.h; sourceTree = "<group>"; };
@@ -943,6 +922,31 @@
 		DF9F51E9150DDE9C00698E26 /* MZEventsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEventsFactory.h; sourceTree = "<group>"; };
 		DF9F51EA150DDE9C00698E26 /* MZEventsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEventsFactory.m; sourceTree = "<group>"; };
 		DFA7EA001695F39F008A87D0 /* MZGameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZGameConfig.h; sourceTree = "<group>"; };
+		DFA7EA0816997362008A87D0 /* MZMotion_AccelerationXY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_AccelerationXY.h; sourceTree = "<group>"; };
+		DFA7EA0916997362008A87D0 /* MZMotion_AccelerationXY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_AccelerationXY.m; sourceTree = "<group>"; };
+		DFA7EA0B16997362008A87D0 /* MZMotion_EllipseRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_EllipseRotation.h; sourceTree = "<group>"; };
+		DFA7EA0C16997362008A87D0 /* MZMotion_EllipseRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_EllipseRotation.m; sourceTree = "<group>"; };
+		DFA7EA0E16997362008A87D0 /* MZMotion_Idle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_Idle.h; sourceTree = "<group>"; };
+		DFA7EA0F16997362008A87D0 /* MZMotion_Idle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_Idle.m; sourceTree = "<group>"; };
+		DFA7EA1416997362008A87D0 /* MZMotion_LinearToTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_LinearToTarget.h; sourceTree = "<group>"; };
+		DFA7EA1516997362008A87D0 /* MZMotion_LinearToTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_LinearToTarget.m; sourceTree = "<group>"; };
+		DFA7EA1716997362008A87D0 /* MZMotion_Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotion_Rotation.h; sourceTree = "<group>"; };
+		DFA7EA1816997362008A87D0 /* MZMotion_Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotion_Rotation.m; sourceTree = "<group>"; };
+		DFA7EA1A16997362008A87D0 /* MZMotionsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotionsFactory.h; sourceTree = "<group>"; };
+		DFA7EA1B16997362008A87D0 /* MZMotionsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotionsFactory.m; sourceTree = "<group>"; };
+		DFA7EA1C16997362008A87D0 /* MZMotionsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotionsHeader.h; sourceTree = "<group>"; };
+		DFA7EA1E16997362008A87D0 /* MZMove_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMove_Base.h; sourceTree = "<group>"; };
+		DFA7EA1F16997362008A87D0 /* MZMove_Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMove_Base.m; sourceTree = "<group>"; };
+		DFA7EA2216997362008A87D0 /* MZRemoveControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZRemoveControl.h; sourceTree = "<group>"; };
+		DFA7EA2316997362008A87D0 /* MZRemoveControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZRemoveControl.m; sourceTree = "<group>"; };
+		DFA7EA2416997362008A87D0 /* MZRemoveControlsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZRemoveControlsHeader.h; sourceTree = "<group>"; };
+		DFA7EA2616997362008A87D0 /* MZRemoveOutOfScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZRemoveOutOfScreen.h; sourceTree = "<group>"; };
+		DFA7EA2716997362008A87D0 /* MZRemoveOutOfScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZRemoveOutOfScreen.m; sourceTree = "<group>"; };
+		DFA7EA34169975B2008A87D0 /* MZDictionaryArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZDictionaryArray.h; sourceTree = "<group>"; };
+		DFA7EA35169975B2008A87D0 /* MZDictionaryArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZDictionaryArray.m; sourceTree = "<group>"; };
+		DFA7EA3816998969008A87D0 /* MZMove_Linear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMove_Linear.h; sourceTree = "<group>"; };
+		DFA7EA3916998969008A87D0 /* MZMove_Linear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMove_Linear.m; sourceTree = "<group>"; };
+		DFA7EA3B16998C31008A87D0 /* MZMovesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZMovesHeader.h; sourceTree = "<group>"; };
 		DFB45119160FCE5B005530CB /* MZFaceToControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFaceToControl.h; sourceTree = "<group>"; };
 		DFB4511A160FCE5B005530CB /* MZFaceToControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFaceToControl.m; sourceTree = "<group>"; };
 		DFB4511C160FD1A7005530CB /* MZFaceToControlProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZFaceToControlProtocol.h; sourceTree = "<group>"; };
@@ -1518,7 +1522,7 @@
 				D391559E1642422A0011F3D6 /* MZBehaviorsHeader.h */,
 				D391559F1642422A0011F3D6 /* MZCharacterPartControl */,
 				D39155A21642422A0011F3D6 /* MZMode */,
-				D39155A51642422A0011F3D6 /* MZMotions */,
+				DFA7EA0616997361008A87D0 /* MZMoves */,
 			);
 			path = MZBehaviors;
 			sourceTree = "<group>";
@@ -1628,123 +1632,6 @@
 				D39155A41642422A0011F3D6 /* MZMode.m */,
 			);
 			path = MZMode;
-			sourceTree = "<group>";
-		};
-		D39155A51642422A0011F3D6 /* MZMotions */ = {
-			isa = PBXGroup;
-			children = (
-				D39155A61642422A0011F3D6 /* MZMotion_AccelerationXY */,
-				D39155A91642422A0011F3D6 /* MZMotion_Base */,
-				D39155AC1642422A0011F3D6 /* MZMotion_EllipseRotation */,
-				D39155AF1642422A0011F3D6 /* MZMotion_Idle */,
-				D39155B21642422A0011F3D6 /* MZMotion_Linear */,
-				D39155B51642422A0011F3D6 /* MZMotion_LinearToTarget */,
-				D39155B81642422A0011F3D6 /* MZMotion_Rotation */,
-				D39155BB1642422A0011F3D6 /* MZMotionsFactory */,
-				D39155BE1642422A0011F3D6 /* MZMotionsHeader.h */,
-				D39155BF1642422A0011F3D6 /* MZRemoveControls */,
-			);
-			path = MZMotions;
-			sourceTree = "<group>";
-		};
-		D39155A61642422A0011F3D6 /* MZMotion_AccelerationXY */ = {
-			isa = PBXGroup;
-			children = (
-				D39155A71642422A0011F3D6 /* MZMotion_AccelerationXY.h */,
-				D39155A81642422A0011F3D6 /* MZMotion_AccelerationXY.m */,
-			);
-			path = MZMotion_AccelerationXY;
-			sourceTree = "<group>";
-		};
-		D39155A91642422A0011F3D6 /* MZMotion_Base */ = {
-			isa = PBXGroup;
-			children = (
-				D39155AA1642422A0011F3D6 /* MZMotion_Base.h */,
-				D39155AB1642422A0011F3D6 /* MZMotion_Base.m */,
-			);
-			path = MZMotion_Base;
-			sourceTree = "<group>";
-		};
-		D39155AC1642422A0011F3D6 /* MZMotion_EllipseRotation */ = {
-			isa = PBXGroup;
-			children = (
-				D39155AD1642422A0011F3D6 /* MZMotion_EllipseRotation.h */,
-				D39155AE1642422A0011F3D6 /* MZMotion_EllipseRotation.m */,
-			);
-			path = MZMotion_EllipseRotation;
-			sourceTree = "<group>";
-		};
-		D39155AF1642422A0011F3D6 /* MZMotion_Idle */ = {
-			isa = PBXGroup;
-			children = (
-				D39155B01642422A0011F3D6 /* MZMotion_Idle.h */,
-				D39155B11642422A0011F3D6 /* MZMotion_Idle.m */,
-			);
-			path = MZMotion_Idle;
-			sourceTree = "<group>";
-		};
-		D39155B21642422A0011F3D6 /* MZMotion_Linear */ = {
-			isa = PBXGroup;
-			children = (
-				D39155B31642422A0011F3D6 /* MZMotion_Linear.h */,
-				D39155B41642422A0011F3D6 /* MZMotion_Linear.m */,
-			);
-			path = MZMotion_Linear;
-			sourceTree = "<group>";
-		};
-		D39155B51642422A0011F3D6 /* MZMotion_LinearToTarget */ = {
-			isa = PBXGroup;
-			children = (
-				D39155B61642422A0011F3D6 /* MZMotion_LinearToTarget.h */,
-				D39155B71642422A0011F3D6 /* MZMotion_LinearToTarget.m */,
-			);
-			path = MZMotion_LinearToTarget;
-			sourceTree = "<group>";
-		};
-		D39155B81642422A0011F3D6 /* MZMotion_Rotation */ = {
-			isa = PBXGroup;
-			children = (
-				D39155B91642422A0011F3D6 /* MZMotion_Rotation.h */,
-				D39155BA1642422A0011F3D6 /* MZMotion_Rotation.m */,
-			);
-			path = MZMotion_Rotation;
-			sourceTree = "<group>";
-		};
-		D39155BB1642422A0011F3D6 /* MZMotionsFactory */ = {
-			isa = PBXGroup;
-			children = (
-				D39155BC1642422A0011F3D6 /* MZMotionsFactory.h */,
-				D39155BD1642422A0011F3D6 /* MZMotionsFactory.m */,
-			);
-			path = MZMotionsFactory;
-			sourceTree = "<group>";
-		};
-		D39155BF1642422A0011F3D6 /* MZRemoveControls */ = {
-			isa = PBXGroup;
-			children = (
-				D39155C01642422A0011F3D6 /* MZRemoveControl */,
-				D39155C31642422A0011F3D6 /* MZRemoveControlsHeader.h */,
-				D39155C41642422A0011F3D6 /* MZRemoveOutOfScreen */,
-			);
-			path = MZRemoveControls;
-			sourceTree = "<group>";
-		};
-		D39155C01642422A0011F3D6 /* MZRemoveControl */ = {
-			isa = PBXGroup;
-			children = (
-				D39155C11642422A0011F3D6 /* MZRemoveControl.h */,
-				D39155C21642422A0011F3D6 /* MZRemoveControl.m */,
-			);
-			path = MZRemoveControl;
-			sourceTree = "<group>";
-		};
-		D39155C41642422A0011F3D6 /* MZRemoveOutOfScreen */ = {
-			isa = PBXGroup;
-			children = (
-				D39155C51642422A0011F3D6 /* MZRemoveOutOfScreen.h */,
-				D39155C61642422A0011F3D6 /* MZRemoveOutOfScreen.m */,
-			);
-			path = MZRemoveOutOfScreen;
 			sourceTree = "<group>";
 		};
 		D39155DB16424C150011F3D6 /* MZSTGCharacters */ = {
@@ -2708,6 +2595,7 @@
 				D3BA742B1500B71E00A8E6ED /* MZObjectHelper */,
 				D3BA742E1500B71E00A8E6ED /* MZQueue */,
 				D3540A3B16489EE800E352BE /* MZConvert */,
+				DFA7EA33169975A0008A87D0 /* MZDictionaryArray */,
 				D3BA74311500B71E00A8E6ED /* MZUtilitiesHeader.h */,
 			);
 			path = MZUtilities;
@@ -3185,6 +3073,133 @@
 			path = MZEventsFactory;
 			sourceTree = "<group>";
 		};
+		DFA7EA0616997361008A87D0 /* MZMoves */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA0716997362008A87D0 /* MZMotion_AccelerationXY */,
+				DFA7EA0A16997362008A87D0 /* MZMotion_EllipseRotation */,
+				DFA7EA0D16997362008A87D0 /* MZMotion_Idle */,
+				DFA7EA1316997362008A87D0 /* MZMotion_LinearToTarget */,
+				DFA7EA1616997362008A87D0 /* MZMotion_Rotation */,
+				DFA7EA1916997362008A87D0 /* MZMotionsFactory */,
+				DFA7EA1C16997362008A87D0 /* MZMotionsHeader.h */,
+				DFA7EA3716998967008A87D0 /* MZMove_Linear */,
+				DFA7EA1D16997362008A87D0 /* MZMove_Base */,
+				DFA7EA2016997362008A87D0 /* MZRemoveControls */,
+				DFA7EA3B16998C31008A87D0 /* MZMovesHeader.h */,
+			);
+			path = MZMoves;
+			sourceTree = "<group>";
+		};
+		DFA7EA0716997362008A87D0 /* MZMotion_AccelerationXY */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA0816997362008A87D0 /* MZMotion_AccelerationXY.h */,
+				DFA7EA0916997362008A87D0 /* MZMotion_AccelerationXY.m */,
+			);
+			path = MZMotion_AccelerationXY;
+			sourceTree = "<group>";
+		};
+		DFA7EA0A16997362008A87D0 /* MZMotion_EllipseRotation */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA0B16997362008A87D0 /* MZMotion_EllipseRotation.h */,
+				DFA7EA0C16997362008A87D0 /* MZMotion_EllipseRotation.m */,
+			);
+			path = MZMotion_EllipseRotation;
+			sourceTree = "<group>";
+		};
+		DFA7EA0D16997362008A87D0 /* MZMotion_Idle */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA0E16997362008A87D0 /* MZMotion_Idle.h */,
+				DFA7EA0F16997362008A87D0 /* MZMotion_Idle.m */,
+			);
+			path = MZMotion_Idle;
+			sourceTree = "<group>";
+		};
+		DFA7EA1316997362008A87D0 /* MZMotion_LinearToTarget */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA1416997362008A87D0 /* MZMotion_LinearToTarget.h */,
+				DFA7EA1516997362008A87D0 /* MZMotion_LinearToTarget.m */,
+			);
+			path = MZMotion_LinearToTarget;
+			sourceTree = "<group>";
+		};
+		DFA7EA1616997362008A87D0 /* MZMotion_Rotation */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA1716997362008A87D0 /* MZMotion_Rotation.h */,
+				DFA7EA1816997362008A87D0 /* MZMotion_Rotation.m */,
+			);
+			path = MZMotion_Rotation;
+			sourceTree = "<group>";
+		};
+		DFA7EA1916997362008A87D0 /* MZMotionsFactory */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA1A16997362008A87D0 /* MZMotionsFactory.h */,
+				DFA7EA1B16997362008A87D0 /* MZMotionsFactory.m */,
+			);
+			path = MZMotionsFactory;
+			sourceTree = "<group>";
+		};
+		DFA7EA1D16997362008A87D0 /* MZMove_Base */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA1E16997362008A87D0 /* MZMove_Base.h */,
+				DFA7EA1F16997362008A87D0 /* MZMove_Base.m */,
+			);
+			path = MZMove_Base;
+			sourceTree = "<group>";
+		};
+		DFA7EA2016997362008A87D0 /* MZRemoveControls */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA2116997362008A87D0 /* MZRemoveControl */,
+				DFA7EA2416997362008A87D0 /* MZRemoveControlsHeader.h */,
+				DFA7EA2516997362008A87D0 /* MZRemoveOutOfScreen */,
+			);
+			path = MZRemoveControls;
+			sourceTree = "<group>";
+		};
+		DFA7EA2116997362008A87D0 /* MZRemoveControl */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA2216997362008A87D0 /* MZRemoveControl.h */,
+				DFA7EA2316997362008A87D0 /* MZRemoveControl.m */,
+			);
+			path = MZRemoveControl;
+			sourceTree = "<group>";
+		};
+		DFA7EA2516997362008A87D0 /* MZRemoveOutOfScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA2616997362008A87D0 /* MZRemoveOutOfScreen.h */,
+				DFA7EA2716997362008A87D0 /* MZRemoveOutOfScreen.m */,
+			);
+			path = MZRemoveOutOfScreen;
+			sourceTree = "<group>";
+		};
+		DFA7EA33169975A0008A87D0 /* MZDictionaryArray */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA34169975B2008A87D0 /* MZDictionaryArray.h */,
+				DFA7EA35169975B2008A87D0 /* MZDictionaryArray.m */,
+			);
+			path = MZDictionaryArray;
+			sourceTree = "<group>";
+		};
+		DFA7EA3716998967008A87D0 /* MZMove_Linear */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA3816998969008A87D0 /* MZMove_Linear.h */,
+				DFA7EA3916998969008A87D0 /* MZMove_Linear.m */,
+			);
+			path = MZMove_Linear;
+			sourceTree = "<group>";
+		};
 		DFB45118160FCE5B005530CB /* MZFaceToControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -3431,16 +3446,6 @@
 				D39155CE1642422A0011F3D6 /* MZAttackTargetHelpKit.m in Sources */,
 				D39155CF1642422A0011F3D6 /* MZCharacterPartControl.m in Sources */,
 				D39155D01642422A0011F3D6 /* MZMode.m in Sources */,
-				D39155D11642422A0011F3D6 /* MZMotion_AccelerationXY.m in Sources */,
-				D39155D21642422A0011F3D6 /* MZMotion_Base.m in Sources */,
-				D39155D31642422A0011F3D6 /* MZMotion_EllipseRotation.m in Sources */,
-				D39155D41642422A0011F3D6 /* MZMotion_Idle.m in Sources */,
-				D39155D51642422A0011F3D6 /* MZMotion_Linear.m in Sources */,
-				D39155D61642422A0011F3D6 /* MZMotion_LinearToTarget.m in Sources */,
-				D39155D71642422A0011F3D6 /* MZMotion_Rotation.m in Sources */,
-				D39155D81642422A0011F3D6 /* MZMotionsFactory.m in Sources */,
-				D39155D91642422A0011F3D6 /* MZRemoveControl.m in Sources */,
-				D39155DA1642422A0011F3D6 /* MZRemoveOutOfScreen.m in Sources */,
 				D39155E916424C150011F3D6 /* MZCharacter.m in Sources */,
 				D39155EA16424C150011F3D6 /* MZCharacterCollisionColor.m in Sources */,
 				D39155EB16424C150011F3D6 /* MZCharacterDynamicSetting.m in Sources */,
@@ -3592,6 +3597,17 @@
 				D37F706B1697C16E00B662EA /* MZEnemyBulletsActionControl.m in Sources */,
 				D37F706C1697C16E00B662EA /* MZPlayerActionControl.m in Sources */,
 				D37F706D1697C16E00B662EA /* MZPlayerBulletsActionControl.m in Sources */,
+				DFA7EA2816997362008A87D0 /* MZMotion_AccelerationXY.m in Sources */,
+				DFA7EA2916997362008A87D0 /* MZMotion_EllipseRotation.m in Sources */,
+				DFA7EA2A16997362008A87D0 /* MZMotion_Idle.m in Sources */,
+				DFA7EA2C16997362008A87D0 /* MZMotion_LinearToTarget.m in Sources */,
+				DFA7EA2D16997362008A87D0 /* MZMotion_Rotation.m in Sources */,
+				DFA7EA2E16997362008A87D0 /* MZMotionsFactory.m in Sources */,
+				DFA7EA2F16997362008A87D0 /* MZMove_Base.m in Sources */,
+				DFA7EA3016997362008A87D0 /* MZRemoveControl.m in Sources */,
+				DFA7EA3116997362008A87D0 /* MZRemoveOutOfScreen.m in Sources */,
+				DFA7EA36169975B2008A87D0 /* MZDictionaryArray.m in Sources */,
+				DFA7EA3A16998969008A87D0 /* MZMove_Linear.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

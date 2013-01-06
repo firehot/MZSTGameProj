@@ -26,15 +26,15 @@
 {
     [super _initValues];
     
-    MZAssert( setting.rotatedCenterType == kMZRotatedCenterType_None, @"rotatedCenterType not support" );
+//    MZAssert( setting.rotatedCenterType == kMZRotatedCenterType_None, @"rotatedCenterType not support" );
 }
 
 -(void)_firstUpdate
 {
     [super _firstUpdate];
     
-    beginDegreeFromXAxis = [MZMath degreesFromXAxisToVector: moveDelegate.position];
-    
+//    beginDegreeFromXAxis = [MZMath degreesFromXAxisToVector: moveDelegate.position];
+
     
     
 }
@@ -43,13 +43,13 @@
 {
     [super _updateMotion];
     
-    float currentDegreeFromXAxis = beginDegreeFromXAxis + setting.angularVelocity*self.lifeTimeCount;
-    float currentRadiansFromXAxis = [MZMath degreesToRadians: currentDegreeFromXAxis];
-    
-    float nextX = [self _center].x + setting.ellipseRadiansX*cos( currentRadiansFromXAxis );
-    float nextY = [self _center].y + setting.ellipseRadiansY*sin( currentRadiansFromXAxis );
-    
-    moveDelegate.position = mzp( nextX, nextY );
+//    float currentDegreeFromXAxis = beginDegreeFromXAxis + setting.angularVelocity*self.lifeTimeCount;
+//    float currentRadiansFromXAxis = [MZMath degreesToRadians: currentDegreeFromXAxis];
+//    
+//    float nextX = [self _center].x + setting.ellipseRadiansX*cos( currentRadiansFromXAxis );
+//    float nextY = [self _center].y + setting.ellipseRadiansY*sin( currentRadiansFromXAxis );
+//    
+//    moveDelegate.position = mzp( nextX, nextY );
 }
 
 @end

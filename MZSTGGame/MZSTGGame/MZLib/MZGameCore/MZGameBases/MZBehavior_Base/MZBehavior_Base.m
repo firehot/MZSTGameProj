@@ -5,6 +5,8 @@
 
 @implementation MZBehavior_Base
 
+@synthesize duration;
+
 @synthesize isActive;
 @synthesize lifeTimeCount;
 @synthesize childrenDictionary;
@@ -108,7 +110,7 @@
 
 -(void)_initValues
 {
-
+    duration = -1;
 }
 
 -(void)_releaseValues
@@ -118,7 +120,8 @@
 
 -(void)_checkActiveCondition
 {
-
+    if( duration != -1 && lifeTimeCount > duration )
+        [self disable];
 }
 
 -(void)_firstUpdate 

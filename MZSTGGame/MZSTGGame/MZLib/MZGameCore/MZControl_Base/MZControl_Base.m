@@ -5,8 +5,6 @@
 
 @implementation MZControl_Base
 
-//@synthesize referenceTargetRef;
-
 #pragma mark - init and dealloc
 
 +(MZControl_Base *)controlWithDelegate:(id<MZControlDelegate>)aControlDelegate
@@ -25,9 +23,7 @@
 
 -(void)dealloc
 {
-//    controlTargetRef = nil;
     controlDelegate = nil;
-//    referenceTargetRef = nil;
     [super dealloc];
 }
 

@@ -1,9 +1,9 @@
-#import "MZMotion_Base.h"
+#import "MZMove_Base.h"
 
 @class MZCharacter;
 @class MZCharacterSetting;
 
-@interface MZMotion_Rotation : MZMotion_Base
+@interface MZMotion_Rotation : MZMove_Base
 {
     float currentRadians;
     float currentTheta;

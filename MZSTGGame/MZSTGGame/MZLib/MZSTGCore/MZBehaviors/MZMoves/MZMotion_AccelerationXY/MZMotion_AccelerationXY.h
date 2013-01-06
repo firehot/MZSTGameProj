@@ -1,6 +1,6 @@
-#import "MZMotion_Base.h"
+#import "MZMove_Base.h"
 
-@interface MZMotion_AccelerationXY : MZMotion_Base
+@interface MZMotion_AccelerationXY : MZMove_Base
 {
     CGPoint beginPosition;
 }

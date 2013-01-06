@@ -23,6 +23,12 @@
 
 -(void)update;
 
+#pragma mark - settings
+
+@property (nonatomic, readwrite) float duration;
+
+#pragma mark - states
+
 @property (nonatomic, readonly) bool isActive;
 @property (nonatomic, readonly) float lifeTimeCount;
 @property (nonatomic, readonly) NSMutableDictionary *childrenDictionary;

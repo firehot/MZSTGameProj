@@ -12,7 +12,7 @@
 @class MZCharacterPartControlSetting;
 @class MZCharacterPart;
 @class MZAttack_Base;
-@class MZMotion_Base;
+@class MZMove_Base;
 @class MZFaceToControl;
 
 @interface MZCharacterPartControl : MZControl_Base <MZFaceToControlProtocol>
@@ -25,7 +25,7 @@
     MZAttack_Base*currentAttack;
     
     NSMutableArray *motionsSettingsQueue;
-    MZMotion_Base *currentMotion;
+    MZMove_Base *currentMotion;
     
     MZFaceToControl *faceToControl;
 }

@@ -330,24 +330,19 @@
     MZCharacter *testPlayer = [charactersFactory getByType: kMZCharacterType_Player name: nil];
     [self setControlByUserTouchDelegate: (MZPlayer *)testPlayer];
     
-    [charactersActionManager addWithType: kMZCharacterType_Player character: testPlayer];
-
     testPlayer.position = mzp( 160, 240 );
+
+    [charactersActionManager addWithType: kMZCharacterType_Player character: testPlayer];
 }
 
 -(void)__test_init_enemy
 {
-    testEnemy = (MZEnemy *)[charactersFactory getByType: kMZCharacterType_Enemy name: nil];
-    [testEnemy retain];
-//    testEnemy.partSpritesPoolRef = [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Enemy];
-//
-//    MZCharacterPart *p = [testEnemy addPartWithName: @"p"];
-//    p.setting.frameName = @"Ika_normal0001.png";
+    MZCharacter *testEnemy = [charactersFactory getByType: kMZCharacterType_Enemy name: nil];
 
     testEnemy.position = mzp( 160, 400 );
     testEnemy.rotation = -90;
 
-    [testEnemy enable];
+    [charactersActionManager addWithType: kMZCharacterType_Enemy character: testEnemy];
 }
 
 -(void)__test_update

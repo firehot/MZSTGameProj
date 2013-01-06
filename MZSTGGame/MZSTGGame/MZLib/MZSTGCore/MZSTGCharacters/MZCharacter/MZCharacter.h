@@ -3,7 +3,7 @@
 #import "MZCharacterTypeStrings.h"
 
 @class MZCharacterPart;
-@class MZMotion_Base;
+@class MZMove_Base;
 @class MZCharacterSetting;
 @class MZMotionSetting;
 @class MZColor;

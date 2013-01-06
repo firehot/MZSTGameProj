@@ -88,6 +88,9 @@
     MZCharacterPart *p = [testEnemy addPartWithName: @"p"];
     p.setting.frameName = @"Ika_normal0001.png";
 
+
+//    [testEnemy addMo]
+
     return testEnemy;
 }
 

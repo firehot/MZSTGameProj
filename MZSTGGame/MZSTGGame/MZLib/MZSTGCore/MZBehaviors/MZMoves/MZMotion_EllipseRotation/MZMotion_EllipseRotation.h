@@ -1,8 +1,8 @@
-#import "MZMotion_Base.h"
+#import "MZMove_Base.h"
 
 @class MZCharacter;
 
-@interface MZMotion_EllipseRotation : MZMotion_Base
+@interface MZMotion_EllipseRotation : MZMove_Base
 {
     float beginDegreeFromXAxis;
 }

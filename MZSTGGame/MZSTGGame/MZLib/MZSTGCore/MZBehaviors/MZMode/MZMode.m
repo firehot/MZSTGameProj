@@ -4,12 +4,13 @@
 #import "MZModeSetting.h"
 #import "MZCharacter.h"
 #import "MZMotionSetting.h"
-#import "MZMotion_Base.h"
+#import "MZMove_Base.h"
 #import "MZMotionsFactory.h"
 #import "MZCharacterPartControlSetting.h"
 #import "MZCharacterPartControl.h"
 #import "MZSTGGameHelper.h"
 #import "MZTime.h"
+#import "MZUtilitiesHeader.h"
 #import "MZLogMacro.h"
 
 @interface MZMode (Private)
@@ -22,7 +23,7 @@
 -(void)_updateMotion;
 -(void)_updateCharacterPartControls;
 
--(MZMotion_Base *)_getNextMotionWithSetting:(MZMotionSetting *)nextMotionSetting;
+-(MZMove_Base *)_getNextMotionWithSetting:(MZMotionSetting *)nextMotionSetting;
 @end
 
 #pragma mark
@@ -49,7 +50,10 @@
     disableAttack = false;
     
     return self;
-}  
+}
+
++(MZMode *)mode
+{ return [[self init] autorelease]; }
 
 -(void)dealloc
 {
@@ -71,13 +75,25 @@
         control.disableAttack = disableAttack;
 }
 
-#pragma mark - methods
+#pragma mark - override
 
 -(void)enable
 {
     [super enable];
     [self _switchCurrentMotion];
     [self _switchCurrentCharacterPartControls];
+}
+
+#pragma mark - methods
+
+-(MZMove_Base *)addMoveWithName:(NSString *)name moveType:(MZMoveClassType)classType;
+{
+    if( movesDictionaryArray == nil) movesDictionaryArray = [[MZDictionaryArray alloc] init];;
+
+// working
+//MZMove_Base *move =
+
+//    [movesDictionaryArray ]
 }
 
 @end
@@ -220,7 +236,7 @@
     }
 }
 
--(MZMotion_Base *)_getNextMotionWithSetting:(MZMotionSetting *)nextMotionSetting
+-(MZMove_Base *)_getNextMotionWithSetting:(MZMotionSetting *)nextMotionSetting
 {
     if( nextMotionSetting.isReferenceLeader )
     {

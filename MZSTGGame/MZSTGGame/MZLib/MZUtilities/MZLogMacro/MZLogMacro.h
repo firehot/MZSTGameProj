@@ -2,6 +2,8 @@
 
 #define MZLog( desc, ... ) NSLog( @"%s: %@", __FUNCTION__, [NSString stringWithFormat:( desc ), ##__VA_ARGS__] )
 
+// 其實這些都是 Game 用 Log 的說 ... 
+
 #ifdef DEBUG
 #define MZLodingLog( level, desc, ... ) \
 if( MZ_LOG_LOADING_STATE >= level ) MZLog( desc, ##__VA_ARGS__ )
@@ -32,6 +34,11 @@ if( MZ_LOG_CHARACTER_CREATE != 0 && ( MZ_LOG_CHARACTER_CREATE == level || MZ_LOG
 #define MZAssert(condition, desc, ...)
 #endif
 
+#ifdef DEBUG
+#define MZAssertFasle( desc, ... ) MZAssert( false, desc, ##__VA_ARGS__ )
+#else
+#define MZAssertFasle( desc, ... )
+#endif
 
 #ifdef DEBUG
 #define MZAssertSingleton( singletonClass ) MZAssert( singletonClass == nil, @"I am singleton pattern!!!!, you suck to init me twice" )
