@@ -30,7 +30,9 @@
 
 +(MZMove_Base *)createWithClassType:(MZMoveClassType)classType
 {
-    return [NSClassFromString( [MZMove_Base classStringFromType: classType] ) move];
+    MZMove_Base *move = [NSClassFromString( [MZMove_Base classStringFromType: classType] ) move];
+    MZAssert( move != nil, @"Can not create move(%@)", [MZMove_Base classStringFromType: classType] );
+    return move;
 }
 
 +(MZMove_Base *)move

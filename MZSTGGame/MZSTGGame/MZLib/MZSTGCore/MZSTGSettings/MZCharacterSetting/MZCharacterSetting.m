@@ -1,11 +1,9 @@
 #import "MZCharacterSetting.h"
 #import "MZCharacterPartSetting.h"
-#import "MZModeSetting.h"
 #import "MZLogMacro.h"
 
 @interface MZCharacterSetting (Private)
 -(void)_initCharacterPartSettingsWithDictionary:(NSDictionary *)dictionary;
--(void)_initModesWithNSArray:(NSArray *)nsArray;
 @end
 
 #pragma mark
@@ -40,7 +38,6 @@
 //    characterType = ??? // not yet
     name = [[nsDictionary objectForKey: @"name"] retain];
     [self _initCharacterPartSettingsWithDictionary: [nsDictionary objectForKey: @"parts"]];
-    [self _initModesWithNSArray: [nsDictionary objectForKey: @"modes"]];
     
     return self;
 }
@@ -75,20 +72,6 @@
         
         MZCharacterPartSetting *characterPartSetting = [MZCharacterPartSetting settingWithDictionary: partDictionary name: partName];
         [characterPartSettingsDictionary setObject: characterPartSetting forKey: partName];
-    }
-}
-
--(void)_initModesWithNSArray:(NSArray *)nsArray
-{
-    if( nsArray == nil ) return;
-    
-    if( modeSettings == nil )
-        modeSettings = [[NSMutableArray alloc] initWithCapacity: 1];
-    
-    for( NSDictionary *modeNSDictionary in nsArray )
-    {
-        MZModeSetting *modeSetting = [MZModeSetting modeSettingWithNSDictionary: modeNSDictionary];
-        [modeSettings addObject: modeSetting];
     }
 }
 

@@ -2,7 +2,6 @@
 #import "MZMotionSetting.h"
 #import "MZCharacter.h"
 #import "MZMath.h"
-#import "MZCharacterDynamicSetting.h"
 #import "MZSTGGameHelper.h"
 #import "MZLevelComponentsHeader.h"
 #import "MZTime.h"

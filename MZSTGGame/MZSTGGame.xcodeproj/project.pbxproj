@@ -75,12 +75,10 @@
 		D39155D01642422A0011F3D6 /* MZMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155A41642422A0011F3D6 /* MZMode.m */; };
 		D39155E916424C150011F3D6 /* MZCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155DE16424C150011F3D6 /* MZCharacter.m */; };
 		D39155EA16424C150011F3D6 /* MZCharacterCollisionColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155E116424C150011F3D6 /* MZCharacterCollisionColor.m */; };
-		D39155EB16424C150011F3D6 /* MZCharacterDynamicSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155E416424C150011F3D6 /* MZCharacterDynamicSetting.m */; };
 		D39155EC16424C150011F3D6 /* MZCharacterPart.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155E716424C150011F3D6 /* MZCharacterPart.m */; };
 		D391560816424E8C0011F3D6 /* MZCharacterPartControlSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155F316424E8C0011F3D6 /* MZCharacterPartControlSetting.m */; };
 		D391560916424E8C0011F3D6 /* MZCharacterPartSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155F616424E8C0011F3D6 /* MZCharacterPartSetting.m */; };
 		D391560A16424E8C0011F3D6 /* MZCharacterSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155F916424E8C0011F3D6 /* MZCharacterSetting.m */; };
-		D391560C16424E8C0011F3D6 /* MZModeSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155FF16424E8C0011F3D6 /* MZModeSetting.m */; };
 		D391560D16424E8C0011F3D6 /* MZMotionSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D391560216424E8C0011F3D6 /* MZMotionSetting.m */; };
 		D391561016425F6E0011F3D6 /* new_ver_test_bgevents.plist in Resources */ = {isa = PBXBuildFile; fileRef = D391560F16425F6E0011F3D6 /* new_ver_test_bgevents.plist */; };
 		D3938AC31532DF2A0022E708 /* MZMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = D3938ABF1532DF2A0022E708 /* MZMusic.m */; };
@@ -472,8 +470,6 @@
 		D39155DE16424C150011F3D6 /* MZCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacter.m; sourceTree = "<group>"; };
 		D39155E016424C150011F3D6 /* MZCharacterCollisionColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharacterCollisionColor.h; sourceTree = "<group>"; };
 		D39155E116424C150011F3D6 /* MZCharacterCollisionColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacterCollisionColor.m; sourceTree = "<group>"; };
-		D39155E316424C150011F3D6 /* MZCharacterDynamicSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharacterDynamicSetting.h; sourceTree = "<group>"; };
-		D39155E416424C150011F3D6 /* MZCharacterDynamicSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacterDynamicSetting.m; sourceTree = "<group>"; };
 		D39155E616424C150011F3D6 /* MZCharacterPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharacterPart.h; sourceTree = "<group>"; };
 		D39155E716424C150011F3D6 /* MZCharacterPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacterPart.m; sourceTree = "<group>"; };
 		D39155E816424C150011F3D6 /* MZSTGCharactersHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZSTGCharactersHeader.h; sourceTree = "<group>"; };
@@ -483,8 +479,6 @@
 		D39155F616424E8C0011F3D6 /* MZCharacterPartSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacterPartSetting.m; sourceTree = "<group>"; };
 		D39155F816424E8C0011F3D6 /* MZCharacterSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharacterSetting.h; sourceTree = "<group>"; };
 		D39155F916424E8C0011F3D6 /* MZCharacterSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacterSetting.m; sourceTree = "<group>"; };
-		D39155FE16424E8C0011F3D6 /* MZModeSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZModeSetting.h; sourceTree = "<group>"; };
-		D39155FF16424E8C0011F3D6 /* MZModeSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZModeSetting.m; sourceTree = "<group>"; };
 		D391560116424E8C0011F3D6 /* MZMotionSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMotionSetting.h; sourceTree = "<group>"; };
 		D391560216424E8C0011F3D6 /* MZMotionSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMotionSetting.m; sourceTree = "<group>"; };
 		D391560616424E8C0011F3D6 /* MZSTGSettingsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZSTGSettingsHeader.h; sourceTree = "<group>"; };
@@ -1642,7 +1636,6 @@
 			children = (
 				D39155DC16424C150011F3D6 /* MZCharacter */,
 				D39155DF16424C150011F3D6 /* MZCharacterCollisionColor */,
-				D39155E216424C150011F3D6 /* MZCharacterDynamicSetting */,
 				D39155E516424C150011F3D6 /* MZCharacterPart */,
 				D39155E816424C150011F3D6 /* MZSTGCharactersHeader.h */,
 			);
@@ -1667,15 +1660,6 @@
 			path = MZCharacterCollisionColor;
 			sourceTree = "<group>";
 		};
-		D39155E216424C150011F3D6 /* MZCharacterDynamicSetting */ = {
-			isa = PBXGroup;
-			children = (
-				D39155E316424C150011F3D6 /* MZCharacterDynamicSetting.h */,
-				D39155E416424C150011F3D6 /* MZCharacterDynamicSetting.m */,
-			);
-			path = MZCharacterDynamicSetting;
-			sourceTree = "<group>";
-		};
 		D39155E516424C150011F3D6 /* MZCharacterPart */ = {
 			isa = PBXGroup;
 			children = (
@@ -1692,7 +1676,6 @@
 				D39155F116424E8C0011F3D6 /* MZCharacterPartControlSetting */,
 				D39155F416424E8C0011F3D6 /* MZCharacterPartSetting */,
 				D39155F716424E8C0011F3D6 /* MZCharacterSetting */,
-				D39155FD16424E8C0011F3D6 /* MZModeSetting */,
 				D391560016424E8C0011F3D6 /* MZMotionSetting */,
 				D32D9E3A1693D8370027F920 /* MZPlayerSetting */,
 				D391560616424E8C0011F3D6 /* MZSTGSettingsHeader.h */,
@@ -1725,15 +1708,6 @@
 				D39155F916424E8C0011F3D6 /* MZCharacterSetting.m */,
 			);
 			path = MZCharacterSetting;
-			sourceTree = "<group>";
-		};
-		D39155FD16424E8C0011F3D6 /* MZModeSetting */ = {
-			isa = PBXGroup;
-			children = (
-				D39155FE16424E8C0011F3D6 /* MZModeSetting.h */,
-				D39155FF16424E8C0011F3D6 /* MZModeSetting.m */,
-			);
-			path = MZModeSetting;
 			sourceTree = "<group>";
 		};
 		D391560016424E8C0011F3D6 /* MZMotionSetting */ = {
@@ -3461,12 +3435,10 @@
 				D39155D01642422A0011F3D6 /* MZMode.m in Sources */,
 				D39155E916424C150011F3D6 /* MZCharacter.m in Sources */,
 				D39155EA16424C150011F3D6 /* MZCharacterCollisionColor.m in Sources */,
-				D39155EB16424C150011F3D6 /* MZCharacterDynamicSetting.m in Sources */,
 				D39155EC16424C150011F3D6 /* MZCharacterPart.m in Sources */,
 				D391560816424E8C0011F3D6 /* MZCharacterPartControlSetting.m in Sources */,
 				D391560916424E8C0011F3D6 /* MZCharacterPartSetting.m in Sources */,
 				D391560A16424E8C0011F3D6 /* MZCharacterSetting.m in Sources */,
-				D391560C16424E8C0011F3D6 /* MZModeSetting.m in Sources */,
 				D391560D16424E8C0011F3D6 /* MZMotionSetting.m in Sources */,
 				D3540A3E16489EE800E352BE /* MZConvert.m in Sources */,
 				D3E1A7CB164BAF17005E52B2 /* MZEffectsManager.m in Sources */,

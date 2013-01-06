@@ -2,7 +2,11 @@
 #import "MZGameCoreHeader.h"
 #import "MZUtilitiesHeader.h"
 
+#import "MZMove_Base.h"
+
 @implementation MZEnemy
+
+@synthesize modeControlUpdate;
 
 #pragma mark - init and dealloc
 
@@ -13,8 +17,23 @@
 
 -(void)dealloc
 {
-    [moveControlUpdate release];
+    [modeControlUpdate release];
     [super dealloc];
+}
+
+#pragma mark - methods
+
+-(MZMode *)addModeWithName:(NSString *)name
+{
+    if( modeControlUpdate == nil )
+        modeControlUpdate = [[MZControlUpdate alloc] init];
+
+    MZMode *mode = [MZMode mode];
+    mode.modeDelegate = self;
+
+    [modeControlUpdate add: mode key: name];
+
+    return mode;
 }
 
 @end
@@ -29,30 +48,26 @@
 {
     [super _initValues];
 
-    MZMove_Base *testMove = [MZMove_Base createWithClassType: kMZMoveClass_Linear];
-    testMove.moveDelegate = self;
-    testMove.velocity = 100;
+    MZMode *mode = [self addModeWithName: @"M"];
+
+    MZMove_Base *testMove = [mode addMoveWithName: @"A" moveType: kMZMoveClass_Linear];
+    testMove.velocity = 50;
     testMove.movingVector = mzp( -0.5, -1 );
-    testMove.duration = 2;
-//    testMove.isRunOnce = true;
+    testMove.duration = 1;
 
-    MZMove_Base *testMove2= [MZMove_Base createWithClassType: kMZMoveClass_Linear];
+    MZMove_Base *testMove2 = [mode addMoveWithName: @"B" moveType: kMZMoveClass_Linear];
     testMove2.moveDelegate = self;
-    testMove2.velocity = 100;
+    testMove2.velocity = 50;
     testMove2.movingVector = mzp( 0.5, 1 );
-    testMove2.duration = 2;
-//    testMove2.isRunOnce = true;
+    testMove2.duration = 1;
 
-    moveControlUpdate = [[MZControlUpdate alloc] init];
-//    moveControlUpdate.disableUpdate = true;
-    [moveControlUpdate add: testMove key: @"1"];
-    [moveControlUpdate add: testMove2 key: @"2"];
+    [mode enable];
 }
 
 -(void)_update
 {
     [super _update];
-    [moveControlUpdate update];
+    [modeControlUpdate update];
 }
 
 @end

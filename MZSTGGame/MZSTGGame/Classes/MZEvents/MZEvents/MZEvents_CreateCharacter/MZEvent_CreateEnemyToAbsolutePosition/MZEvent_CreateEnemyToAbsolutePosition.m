@@ -3,7 +3,6 @@
 #import "MZEnemy.h"
 #import "MZMotionSetting.h"
 #import "MZSTGGameHelper.h"
-#import "MZCharacterDynamicSetting.h"
 #import "MZObjectHelper.h"
 #import "MZLogMacro.h"
 
@@ -56,15 +55,15 @@
 
 -(void)_checkMotionSettingCheckWithEnemy:(MZEnemy *)enemy
 {
-    MZAssert( [((MZMotionSetting *)[enemy getMotionSettingWithIndex: 0]).motionType isEqualToString: @"LinearToTarget"], 
-              @"motionType must be LinearToTarget(your value is %@)", 
-              ((MZMotionSetting *)[enemy getMotionSettingWithIndex: 0]).motionType );
-    
-    MZAssert( ((MZMotionSetting *)[enemy getMotionSettingWithIndex: 0]).targetType == kMZTargetType_AbsolutePosition,
-             @"targetType must be AbsolutePosition" );
-    
-    enemy.characterDynamicSetting.absolutePosition = absolutePosition;
-    [enemy applyDynamicSetting];
+//    MZAssert( [((MZMotionSetting *)[enemy getMotionSettingWithIndex: 0]).motionType isEqualToString: @"LinearToTarget"], 
+//              @"motionType must be LinearToTarget(your value is %@)", 
+//              ((MZMotionSetting *)[enemy getMotionSettingWithIndex: 0]).motionType );
+//    
+//    MZAssert( ((MZMotionSetting *)[enemy getMotionSettingWithIndex: 0]).targetType == kMZTargetType_AbsolutePosition,
+//             @"targetType must be AbsolutePosition" );
+//    
+//    enemy.characterDynamicSetting.absolutePosition = absolutePosition;
+//    [enemy applyDynamicSetting];
 }
 
 @end

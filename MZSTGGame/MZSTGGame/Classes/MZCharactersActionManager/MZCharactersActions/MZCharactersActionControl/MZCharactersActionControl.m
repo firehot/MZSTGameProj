@@ -72,9 +72,9 @@
         MZCharacter *character = [activeCharactersArray objectAtIndex: i];
         if( character.isActive == false )
         {
-            if( character.isLeader )
-                [self _setLeaderToNilWithRmoveCharacter: character activeCharactersArray: activeCharactersArray];
-            
+//            if( character.isLeader )
+//                [self _setLeaderToNilWithRmoveCharacter: character activeCharactersArray: activeCharactersArray];
+
             [character releaseSprite];
             [character disable];
             [activeCharactersArray removeObject: character];
@@ -95,9 +95,9 @@
 {
     for( MZCharacter *character in activeCharactersArray )
     {
-        if( character.leaderCharacterRef == removeCharacter )
-            character.leaderCharacterRef = nil;
-    } 
+//        if( character.leaderCharacterRef == removeCharacter )
+//            character.leaderCharacterRef = nil;
+    }
 }
 
 @end

@@ -1,45 +1,35 @@
 #import "MZControl_Base.h"
 #import "MZTypeDefine.h"
+#import "MZMove_Base.h"
 
 @class MZCharacterPart;
-@class MZModeSetting;
-@class MZMotionSetting;
-@class MZCharacter;
-@class MZDictionaryArray;
-@class MZMove_Base;
+@class MZControlUpdate;
 
-@protocol MZModeDelegate <MZControlDelegate>
--(MZCharacterPart *)getChildWithName:(NSString *)childName;
+@protocol MZModeDelegate <MZControlDelegate, MZMoveDelegate>
+-(MZCharacterPart *)getChildWithName:(NSString *)childName; // 改個名 ><"
 @end
 
 @interface MZMode : MZControl_Base
 {
     id<MZModeDelegate> modeDelegate;
 
-    MZDictionaryArray *movesDictionaryArray;
-//    MZDictionaryArray *characterPartControlsDictionaryArray;
+    MZControlUpdate *movesUpdate;
 
-    MZMove_Base *currentMove;
     NSMutableArray *currentCharacterPartControls;
-
-    // setting ... remove
-    MZModeSetting *setting;
-    NSMutableArray *characterPartControlSettingsArray;
 }
 
 +(MZMode *)mode;
 
--(MZMove_Base *)addMoveWithName:(NSString *)name;
+-(MZMove_Base *)addMoveWithName:(NSString *)name moveType:(MZMoveClassType)classType;
+-(MZMove_Base *)moveByName:(NSString *)name;
+
 // add part control
 
-// 死亡確認
-+(MZMode *)modeWithDelegate:(id<MZModeDelegate>)aDelegate setting:(MZModeSetting *)aSetting;
--(id)initWithDelegate:(id<MZModeDelegate>)aDelegate setting:(MZModeSetting *)aSetting;
-
-
-
+#pragma mark - settings
+@property (nonatomic, readwrite, assign) id<MZModeDelegate> modeDelegate;
+@property (nonatomic, readwrite) bool disableMove; 
 @property (nonatomic, readwrite) bool disableAttack;
-//@property (nonatomic, readwrite) bool disableMove;
-@property (nonatomic, readonly) NSMutableArray *motionSettingsQueue;
-@property (nonatomic, readonly) MZMove_Base *currentMotion;
+
+#pragma mark - states
+
 @end

@@ -1,6 +1,5 @@
 #import "MZPlayerBulletsActionControl.h"
 #import "MZGameCharactersHeader.h"
-#import "MZCharacterDynamicSetting.h"
 
 @implementation MZPlayerBulletsActionControl
 
@@ -23,7 +22,8 @@
             {
                 if( [playerBullet isCollisionWithOtherCharacter: enemy] )
                 {
-                    enemy.currentHealthPoint -= playerBullet.characterDynamicSetting.strength; // take damage function
+//                    enemy.currentHealthPoint -= playerBullet.characterDynamicSetting.strength; // take damage function
+                    enemy.currentHealthPoint -= 1; // temp
                     [playerBullet disable];
                 }
             }

@@ -6,7 +6,6 @@
 #import "MZUtilitiesHeader.h"
 #import "MZMotionSetting.h"
 #import "MZAttackTargetHelpKit.h"
-#import "MZCharacterDynamicSetting.h"
 #import "MZSTGGameHelper.h"
 #import "MZTime.h"
 
@@ -115,7 +114,6 @@
 
 -(void)_setBulletLeader:(MZEnemy *)bulletLeader
 {
-    bulletLeader.isLeader = true;
     currentBulletLeaderRef = bulletLeader;
 }
 
@@ -183,15 +181,15 @@
     firstMotionSetting.initVelocity += currentAdditionalVelocity;
     if( firstMotionSetting.initVelocity < 0 ) firstMotionSetting.initVelocity = 0;
     
-    bullet.characterDynamicSetting.strength = setting.strength;
-    bullet.characterDynamicSetting.faceTo = setting.faceTo;
+//    bullet.characterDynamicSetting.strength = setting.strength;
+//    bullet.characterDynamicSetting.faceTo = setting.faceTo;
     [bullet applyDynamicSetting];
     
-    if( launchCount == 1 )
-        [self _setBulletLeader: bullet];
-    else
-        bullet.leaderCharacterRef = currentBulletLeaderRef;
-    
+//    if( launchCount == 1 )
+//        [self _setBulletLeader: bullet];
+//    else
+//        bullet.leaderCharacterRef = currentBulletLeaderRef;
+
     return bullet;
 }
 

@@ -80,9 +80,9 @@
 //            return referenceTarget.position;
             
         case kMZTargetType_AbsolutePosition:
-            return ( ((MZCharacter *)controlTargetRef).isUsingDynamicSetting )?
-            ((MZCharacter *)controlTargetRef).characterDynamicSetting.absolutePosition : settingRef.assignPosition;
-            
+//            return ( ((MZCharacter *)controlTargetRef).isUsingDynamicSetting )?
+//            ((MZCharacter *)controlTargetRef).characterDynamicSetting.absolutePosition : settingRef.assignPosition;
+
 //        case kMZTargetType_AssignPositionAddParentPosition:
 //            return [self _getAssignPositionAddParentPosition];
 //            

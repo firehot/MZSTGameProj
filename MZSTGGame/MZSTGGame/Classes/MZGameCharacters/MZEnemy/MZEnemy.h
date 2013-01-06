@@ -1,12 +1,24 @@
 #import "MZCharacter.h"
 #import "MZMovesHeader.h"
+#import "MZMode.h"
 
+// test
 @class MZControlUpdate;
+//@class MZMode;
 
-@interface MZEnemy : MZCharacter <MZMoveDelegate>
+@interface MZEnemy : MZCharacter <MZMoveDelegate, MZModeDelegate>
 {
-    MZControlUpdate *moveControlUpdate;
+//    MZControlUpdate *moveControlUpdate;
+//    MZMode *mode;
+
+    MZControlUpdate *modeControlUpdate;
 }
 
 +(MZEnemy *)enemy;
+
+// temp at enemy now
+-(MZMode *)addModeWithName:(NSString *)name;
+
+@property (nonatomic, readonly) MZControlUpdate *modeControlUpdate;
+
 @end
