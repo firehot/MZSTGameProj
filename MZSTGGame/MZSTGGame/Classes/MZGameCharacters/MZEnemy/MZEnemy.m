@@ -1,6 +1,7 @@
 #import "MZEnemy.h"
 #import "MZGameCoreHeader.h"
 #import "MZUtilitiesHeader.h"
+#import "MZCharacterPart.h"
 
 #import "MZMove_Base.h"
 #import "MZCharacterPartControl.h"
@@ -20,6 +21,13 @@
 {
     [modeControlUpdate release];
     [super dealloc];
+}
+
+#pragma mark - MZModeDelegate
+
+-(id<MZCharacterPartControlDelegate>)characterPartByName:(NSString *)partName
+{
+    return (MZCharacterPart *)[self getChildWithName: partName];
 }
 
 #pragma mark - methods (override)
@@ -46,9 +54,9 @@
     pControl1.characterPartDelegate = [partsDictionary objectForKey: @"p"];
 
     MZMove_Base *testPMove = [pControl1 addMoveWithName: @"A" moveType: kMZMoveClass_Linear];
-    testPMove.velocity = 0;
-    testPMove.movingVector = mzp( -0.5, -1 );
-    testPMove.duration = 1;
+    testPMove.velocity = 50;
+    testPMove.movingVector = mzp( 0, -1 );
+    testPMove.duration = -1;
 
     MZControlUpdate *pControlUpdate = [MZControlUpdate controlUpdate];
     [pControlUpdate add: pControl1 key: @"p1"];
@@ -88,6 +96,13 @@
 {
     [super _update];
     [modeControlUpdate update];
+    ((MZCharacterPart *)[partsDictionary objectForKey: @"p"]).visible = true;
+//    MZLog( @"pos=%@, realPos=",
+//          NSStringFromCGPoint( ((MZCharacterPart *)[partsDictionary objectForKey: @"p"]).standardPosition )
+//((MZCharacterPart *)[partsDictionary objectForKey: @"p"]).rea
+//          );
+
+
 }
 
 @end

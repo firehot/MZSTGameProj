@@ -5,7 +5,7 @@
 
 @class MZCharacter;
 
-@interface MZCharacterPart : MZGameObject <MZCharacterPartControlDelegate, MZAttackDelegate>
+@interface MZCharacterPart : MZGameObject <MZCharacterPartControlDelegate>
 {
     MZCharacter *parentCharacterRef;
 }

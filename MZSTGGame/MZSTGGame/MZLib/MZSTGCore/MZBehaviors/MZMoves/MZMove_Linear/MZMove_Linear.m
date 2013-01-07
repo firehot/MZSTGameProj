@@ -28,6 +28,7 @@
 
     float movement = self.currentVelocity*[MZTime sharedInstance].deltaTime;
     CGPoint deltaMove = mzp( movement*self.currentMovingVector.x, movement*self.currentMovingVector.y );
+
     self.moveDelegate.position = mzpAdd( self.moveDelegate.position, deltaMove );
 }
 

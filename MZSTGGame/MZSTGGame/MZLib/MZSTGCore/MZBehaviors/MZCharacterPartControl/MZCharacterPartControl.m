@@ -46,6 +46,7 @@
 -(void)dealloc
 {
     [moveControlUpdate release];
+    [attackControlUpdate release];
 
     [MZSTGGameHelper destoryGameBase: &currentAttack];
 
