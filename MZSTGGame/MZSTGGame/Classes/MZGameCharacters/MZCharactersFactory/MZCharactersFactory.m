@@ -72,10 +72,9 @@
     testPlayer.partSpritesPoolRef = [spritesPoolSupportRef spritesPoolByCharacterType: kMZCharacterType_Player];
 
     MZCharacterPart *p = [testPlayer addPartWithName: @"p"];
-    p.setting.frameName = @"Playermale_Normal0001.png";
+    [p setFrameWithFrameName: @"Playermale_Normal0001.png"];
 
     testPlayer.position = mzp( 160, 240 );
-    [testPlayer enable];
 
     return testPlayer;
 }
@@ -86,10 +85,7 @@
     testEnemy.partSpritesPoolRef = [spritesPoolSupportRef spritesPoolByCharacterType: kMZCharacterType_Enemy];
 
     MZCharacterPart *p = [testEnemy addPartWithName: @"p"];
-    p.setting.frameName = @"Ika_normal0001.png";
-
-
-//    [testEnemy addMo]
+    [p setFrameWithFrameName: @"Ika_normal0001.png"];
 
     return testEnemy;
 }

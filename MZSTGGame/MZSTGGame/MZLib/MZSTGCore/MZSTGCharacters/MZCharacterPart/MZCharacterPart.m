@@ -1,5 +1,4 @@
 #import "MZCharacterPart.h"
-#import "MZCharacterPartSetting.h"
 #import "MZGamePlayLayer.h"
 #import "MZCharacter.h"
 #import "MZGameSettingsHeader.h"
@@ -17,7 +16,6 @@
 
 @implementation MZCharacterPart
 
-@synthesize setting;
 @synthesize parentCharacterRef;
 @synthesize characterType;
 
@@ -29,9 +27,7 @@
 }
 
 -(void)dealloc
-{    
-    [setting release];
-
+{
     parentCharacterRef = nil;
     
     [super dealloc];
@@ -54,28 +50,6 @@
 
 #pragma mark - properties
 
--(void)setSetting:(MZCharacterPartSetting *)aSetting
-{
-    MZAssert( self.hasSprite, @"must assign sprite first" );
-    if( setting == aSetting ) return;
-    if( setting != nil ) [setting release];
-
-    setting = [aSetting retain];
-    self.position = setting.relativePosition;
-    self.scale = setting.scale;
-    self.color = setting.color;
-
-    [self _setCollisionBySetting];
-}
-
--(MZCharacterPartSetting *)setting
-{
-    if( setting == nil )
-        setting = [[MZCharacterPartSetting alloc] init];
-
-    return setting;
-}
-
 -(void)setParentCharacterRef:(MZCharacter *)aParentCharacter
 {
     self.parentRef = aParentCharacter;
@@ -87,15 +61,6 @@
 }
 
 #pragma mark - override
-
--(void)enable
-{
-    [super enable];
-    
-    ( setting.frameName )? 
-    [self setFrameWithFrameName: setting.frameName] : 
-    [self playAnimationWithAnimationName: setting.animationName isRepeatForever: true];
-}
 
 @end
 
@@ -113,14 +78,14 @@
 
 -(void)_setCollisionBySetting
 {
-    for( MZCircle *circle in setting.collisions )
-    {
-        CGPoint center = CGPointMake( circle.center.x, circle.center.y );
-        float radius = circle.radius;
-        
-        MZCircle *collisionCircle = [MZCircle circleWithCenter: center radius: radius];
-        [self addCollisionCircle: collisionCircle];
-    }
+//    for( MZCircle *circle in setting.collisions )
+//    {
+//        CGPoint center = CGPointMake( circle.center.x, circle.center.y );
+//        float radius = circle.radius;
+//        
+//        MZCircle *collisionCircle = [MZCircle circleWithCenter: center radius: radius];
+//        [self addCollisionCircle: collisionCircle];
+//    }
 }
 
 @end

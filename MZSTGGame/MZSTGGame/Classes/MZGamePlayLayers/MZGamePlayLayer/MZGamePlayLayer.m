@@ -17,7 +17,6 @@
 #import "MZGameObject.h"
 #import "MZCharacterPart.h"
 #import "MZCharacter.h"
-#import "MZCharacterPartSetting.h"
 #import "MZGLHelper.h"
 #import "MZMath.h"
 #import "MZSTGCharactersHeader.h"
@@ -298,9 +297,9 @@
     part = [MZCharacterPart part];
     [part retain];
     [part setSpritesFromPool: [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Player]];
-    part.setting.name = @"test";
-    part.setting.frameName = @"Playermale_Normal0001.png";
-    
+//    part.setting.name = @"test";
+//    part.setting.frameName = @"Playermale_Normal0001.png";
+
     [part enable];
 
     part.position = mzp( 160, 240 );
@@ -313,11 +312,11 @@
     testCharacter.partSpritesPoolRef = [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Enemy];
 
     MZCharacterPart *p = [testCharacter addPartWithName: @"testPart"];
-    p.setting.frameName = @"Ika_normal0001.png";
+//    p.setting.frameName = @"Ika_normal0001.png";
     p.position = mzp( 0, 10 );
 
     MZCharacterPart *p2 = [testCharacter addPartWithName: @"testPart02"];
-    p2.setting.frameName = @"Ika_normal0002.png";
+//    p2.setting.frameName = @"Ika_normal0002.png";
     p2.position = mzp( 0, -10 );
     p2.color = ccc3( 255, 0, 0 );
 
@@ -342,19 +341,20 @@
     testEnemy.position = mzp( 160, 400 );
     testEnemy.rotation = -90;
 
+    [testEnemy initDefaultMode];
+
     [charactersActionManager addWithType: kMZCharacterType_Enemy character: testEnemy];
 }
 
 -(void)__test_update
 {
-//    if( testPlayer ) [testPlayer update];
+
 }
 
 -(void)__test_release
 {
     [MZObjectHelper releaseObject: &part];
     [MZObjectHelper releaseObject: &testCharacter];
-//    [MZObjectHelper releaseObject: &testPlayer];
 }
 
 @end

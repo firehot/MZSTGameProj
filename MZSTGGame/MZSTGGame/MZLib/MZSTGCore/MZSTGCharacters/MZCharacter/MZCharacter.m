@@ -68,6 +68,11 @@
     return  part;
 }
 
+-(void)initDefaultMode
+{
+    MZAssert( partsDictionary, @"partsDictionary must be ctreated first" );
+}
+
 -(bool)isCollisionWithOtherCharacter:(MZCharacter *)otherCharacter
 {   
     return [self isCollisionWithOtherGameObject: otherCharacter];

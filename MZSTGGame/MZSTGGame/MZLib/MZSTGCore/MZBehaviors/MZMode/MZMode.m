@@ -5,7 +5,6 @@
 #import "MZMotionSetting.h"
 #import "MZMove_Base.h"
 #import "MZMotionsFactory.h"
-#import "MZCharacterPartControlSetting.h"
 #import "MZCharacterPartControl.h"
 #import "MZSTGGameHelper.h"
 #import "MZTime.h"
@@ -31,6 +30,8 @@
 
 -(void)dealloc
 {
+    [movesUpdate release];
+    [characterPartControlUpdatesDictionary release];
     [currentCharacterPartControls release];
     [super dealloc];
 }
@@ -64,6 +65,15 @@
     return [movesUpdate.controlsDictionaryArray.dictionary objectForKey: name];
 }
 
+-(void)addPartControlUpdateWithPart:(MZControlUpdate *)partControlUpdate name:(NSString *)name;
+{
+    MZAssert( partControlUpdate != nil,  @"part is nil" );
+    // how to check partControlUpdate contain is not partControl???
+
+    if( characterPartControlUpdatesDictionary == nil ) characterPartControlUpdatesDictionary = [[NSMutableDictionary alloc] init];
+    [characterPartControlUpdatesDictionary  setObject: partControlUpdate forKey: name];
+}
+
 @end
 
 #pragma mark
@@ -81,6 +91,11 @@
 {
     [super _update];
     if( movesUpdate != nil ) [movesUpdate update];
+    if( characterPartControlUpdatesDictionary != nil )
+    {
+        for(MZControlUpdate *pUpdate in characterPartControlUpdatesDictionary.allValues )
+            [pUpdate update];
+    }
 }
 
 @end

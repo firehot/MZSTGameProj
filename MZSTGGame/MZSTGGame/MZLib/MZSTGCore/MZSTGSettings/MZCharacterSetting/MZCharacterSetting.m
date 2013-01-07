@@ -1,9 +1,7 @@
 #import "MZCharacterSetting.h"
-#import "MZCharacterPartSetting.h"
 #import "MZLogMacro.h"
 
 @interface MZCharacterSetting (Private)
--(void)_initCharacterPartSettingsWithDictionary:(NSDictionary *)dictionary;
 @end
 
 #pragma mark
@@ -57,22 +55,6 @@
 
 @implementation MZCharacterSetting (Private)
 
-#pragma mark - init (private)
-
--(void)_initCharacterPartSettingsWithDictionary:(NSDictionary *)dictionary
-{
-    if( dictionary == nil ) return;
-    
-    if( characterPartSettingsDictionary == nil )
-        characterPartSettingsDictionary = [[NSMutableDictionary alloc] initWithCapacity: 1];
-    
-    for( NSString *partName in [dictionary allKeys] )
-    {
-        NSDictionary *partDictionary = [dictionary objectForKey: partName];
-        
-        MZCharacterPartSetting *characterPartSetting = [MZCharacterPartSetting settingWithDictionary: partDictionary name: partName];
-        [characterPartSettingsDictionary setObject: characterPartSetting forKey: partName];
-    }
-}
+#pragma mark - init
 
 @end

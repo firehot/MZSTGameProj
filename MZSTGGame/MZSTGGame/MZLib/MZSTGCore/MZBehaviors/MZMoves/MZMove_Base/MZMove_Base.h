@@ -20,9 +20,6 @@ typedef enum
 @private
     id<MZMoveDelegate> moveDelegate;
 
-//    float currentVelocity;
-//    CGPoint currentMovingVector;
-
 @protected
 }
 

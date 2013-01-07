@@ -1,39 +1,42 @@
 #import "MZControl_Base.h"
 #import "MZTypeDefine.h"
+#import "MZMove_Base.h"
 #import "MZFaceToControlProtocol.h"
 
-@protocol MZCharacterPartControlDelegate <MZControlDelegate>
+@protocol MZCharacterPartControlDelegate <MZControlDelegate, MZMoveDelegate> /* 還有一個 attack */
+
+@required
 @property (nonatomic, readwrite) bool visible;
 @property (nonatomic, readwrite) float rotation;
 @property (nonatomic, readwrite) CGPoint standardPosition;
 @property (nonatomic, readwrite) CGPoint currentMovingVector;
+
 @end
 
-@class MZCharacterPartControlSetting;
 @class MZCharacterPart;
 @class MZAttack_Base;
 @class MZMove_Base;
 @class MZFaceToControl;
+@class MZControlUpdate;
 
 @interface MZCharacterPartControl : MZControl_Base <MZFaceToControlProtocol>
 {
     id<MZCharacterPartControlDelegate> characterPartDelegate;
-    
-    MZCharacterPartControlSetting *setting;
-    
+
+    MZControlUpdate *moveControlUpdate;
+
+    // 以下處刑
     NSMutableArray *attackSettingsQueue;
     MZAttack_Base*currentAttack;
-    
-    NSMutableArray *motionsSettingsQueue;
-    MZMove_Base *currentMotion;
-    
+        
     MZFaceToControl *faceToControl;
 }
 
-+(MZCharacterPartControl *)characterPartControlWithDelegate:(id<MZCharacterPartControlDelegate>)aDelegate
-                                                    setting:(MZCharacterPartControlSetting *)aSetting;
--(id)initWithDelegate:(id<MZCharacterPartControlDelegate>)aDelegate
-              setting:(MZCharacterPartControlSetting *)aSetting;
++(MZCharacterPartControl *)characterPartControl;
+
+-(MZMove_Base *)addMoveWithName:(NSString *)name moveType:(MZMoveClassType)classType;
 
 @property (nonatomic, readwrite) bool disableAttack;
+@property (nonatomic, readwrite, assign) id<MZCharacterPartControlDelegate> characterPartDelegate;
+
 @end

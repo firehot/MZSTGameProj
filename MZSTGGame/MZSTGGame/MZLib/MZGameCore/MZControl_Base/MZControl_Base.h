@@ -10,7 +10,7 @@
 @interface MZControl_Base : MZBehavior_Base <MZControlProtocol>
 {
 @protected
-    id controlDelegate;
+    id controlDelegate; // not complete
 }
 
 +(MZControl_Base *)controlWithDelegate:(id<MZControlDelegate>)aControlDelegate;

@@ -2,7 +2,6 @@
 #import "MZUtilitiesHeader.h"
 #import "MZSTGCharactersHeader.h"
 #import "MZGameCharactersHeader.h"
-#import "MZCharacterPartControlSetting.h"
 #import "MZAttack_Base.h"
 #import "MZAttackSetting.h"
 #import "MZAttacksFactory.h"
@@ -10,14 +9,13 @@
 #import "MZFaceToControl.h"
 #import "MZSTGGameHelper.h"
 #import "MZLevelComponentsHeader.h"
+#import "MZControlUpdate.h"
 
 @interface MZCharacterPartControl (Private)
 -(void)_initAttackSettingsQueue;
--(void)_initMotionsSettingsQueue;
 -(void)_initFaceToControl;
 
 -(void)_switchCurrentAttack;
--(void)_switchCurrentMotion;
 
 -(void)_updateAttack;
 -(void)_updateMotion;
@@ -27,35 +25,32 @@
 @implementation MZCharacterPartControl
 
 @synthesize disableAttack;
+@synthesize characterPartDelegate;
 
 #pragma mark - override
 
-+(MZCharacterPartControl *)characterPartControlWithDelegate:(id<MZCharacterPartControlDelegate>)aDelegate
-                                                    setting:(MZCharacterPartControlSetting *)aSetting;
++(MZCharacterPartControl *)characterPartControl
 {
-    return [[[self alloc] initWithDelegate: aDelegate setting: aSetting] autorelease];
+    return [[[self alloc] init] autorelease];
 }
 
--(id)initWithDelegate:(id<MZCharacterPartControlDelegate>)aDelegate
-              setting:(MZCharacterPartControlSetting *)aSetting;
+-(id)init
 {
-    setting = [aSetting retain];
-    characterPartDelegate = aDelegate;
+    self = [super init];
+
     disableAttack = false;
-    
-    self = [super initWithDelegate: aDelegate];
+
     return self;
 }
 
 -(void)dealloc
 {
+    [moveControlUpdate release];
+
     [MZSTGGameHelper destoryGameBase: &currentAttack];
-    [MZSTGGameHelper destoryGameBase: &currentMotion];
-    
-    [setting release];
+
     [faceToControl release];
     [attackSettingsQueue release];
-    [motionsSettingsQueue release];
     
     characterPartDelegate = nil;
     
@@ -100,6 +95,21 @@
     return [MZLevelComponents sharedInstance].player.position;
 }
 
+#pragma mark - methods
+
+-(MZMove_Base *)addMoveWithName:(NSString *)name moveType:(MZMoveClassType)classType
+{
+    MZAssert( characterPartDelegate != nil, @"characterPartDelegate is nil" );
+    if( moveControlUpdate == nil ) moveControlUpdate = [[MZControlUpdate alloc] init];
+
+    MZMove_Base *move = [MZMove_Base createWithClassType: classType];
+    move.moveDelegate = characterPartDelegate;
+
+    [moveControlUpdate add: move key: name];
+
+    return move;
+}
+
 @end
 
 #pragma mark - methods
@@ -113,7 +123,6 @@
     [super _initValues];
     [self _initFaceToControl];
     [self _initAttackSettingsQueue];
-    [self _initMotionsSettingsQueue];
 }
 
 -(void)_update
@@ -134,72 +143,37 @@
 
 -(void)_initAttackSettingsQueue
 {
-    if( setting.attackSettingsArray == nil ) 
-        return;
-    if( [setting.attackSettingsArray count] == 0 ) 
-        return;
-   
-    if( attackSettingsQueue == nil )
-        attackSettingsQueue = [[NSMutableArray alloc] initWithCapacity: 1];
-    
-    for( MZAttackSetting *attackSetting in setting.attackSettingsArray )
-        [attackSettingsQueue push: attackSetting];
-}
-
--(void)_initMotionsSettingsQueue
-{
-    if( setting.motionSettingsArray == nil )
-        return;
-    if( [setting.motionSettingsArray count] == 0 )
-        return;
-    
-    if( motionsSettingsQueue == nil )
-        motionsSettingsQueue = [[NSMutableArray alloc] initWithCapacity: 1];
-    
-    for( MZMotionSetting *motionSetting in setting.motionSettingsArray )
-        [motionsSettingsQueue push: motionSetting];
+//    if( attackSettingsQueue == nil )
+//        attackSettingsQueue = [[NSMutableArray alloc] initWithCapacity: 1];
+//    
+//    for( MZAttackSetting *attackSetting in setting.attackSettingsArray )
+//        [attackSettingsQueue push: attackSetting];
 }
 
 -(void)_initFaceToControl
 {
-    faceToControl = [[MZFaceToControl alloc] initWithControlTarget: self
-                                                            faceTo: setting.faceTo
-                                                 previousDirection: mzp( 0, -1 )];
+//    faceToControl = [[MZFaceToControl alloc] initWithControlTarget: self
+//                                                            faceTo: setting.faceTo
+//                                                 previousDirection: mzp( 0, -1 )];
 }
 
 #pragma mark - methods
 
 -(void)_switchCurrentAttack
 {
-    [MZSTGGameHelper destoryGameBase: &currentAttack];
-
-    if( [attackSettingsQueue peek] != nil )
-    {
-        MZAttackSetting *nextAttackSetting = (MZAttackSetting *)[attackSettingsQueue pop];
-        currentAttack = [[MZAttacksFactory sharedInstance] getAttackWithDelegate: characterPartDelegate setting: nextAttackSetting];
-
-        [currentAttack retain];
-        [currentAttack enable];
-        
-        if( !nextAttackSetting.isRunOnce )
-            [attackSettingsQueue push: nextAttackSetting];
-    }
-}
-
--(void)_switchCurrentMotion
-{
-    [MZSTGGameHelper destoryGameBase: &currentMotion];
-    
-    if( [motionsSettingsQueue peek] != nil )
-    {
-        MZMotionSetting *nextMotionSetting = [motionsSettingsQueue pop];
-        currentMotion = [[MZMotionsFactory sharedMZMotionsFactory] getMotionBySetting: nextMotionSetting controlTarget: controlDelegate];
-        [currentMotion retain];
-        [currentMotion enable];
-        
-        if( !nextMotionSetting.isRunOnce )
-            [motionsSettingsQueue push: nextMotionSetting];
-    }
+//    [MZSTGGameHelper destoryGameBase: &currentAttack];
+//
+//    if( [attackSettingsQueue peek] != nil )
+//    {
+//        MZAttackSetting *nextAttackSetting = (MZAttackSetting *)[attackSettingsQueue pop];
+//        currentAttack = [[MZAttacksFactory sharedInstance] getAttackWithDelegate: characterPartDelegate setting: nextAttackSetting];
+//
+//        [currentAttack retain];
+//        [currentAttack enable];
+//        
+//        if( !nextAttackSetting.isRunOnce )
+//            [attackSettingsQueue push: nextAttackSetting];
+//    }
 }
 
 -(void)_updateAttack
@@ -220,16 +194,7 @@
 
 -(void)_updateMotion
 {
-    if( currentMotion == nil )
-        [self _switchCurrentMotion];
-    
-    if( currentMotion != nil )
-    {
-        [currentMotion update];
-        
-        if( !currentMotion.isActive )
-            [self _switchCurrentMotion];
-    }
+    if( moveControlUpdate != nil ) [moveControlUpdate update];
 }
 
 -(void)_updateFaceTo

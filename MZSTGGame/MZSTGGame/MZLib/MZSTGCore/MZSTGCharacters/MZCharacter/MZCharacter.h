@@ -14,6 +14,8 @@
 
 -(MZCharacterPart *)addPartWithName:(NSString *)aName;
 
+-(void)initDefaultMode;
+
 -(bool)isCollisionWithOtherCharacter:(MZCharacter *)otherCharacter;
 
 #pragma mark - settings

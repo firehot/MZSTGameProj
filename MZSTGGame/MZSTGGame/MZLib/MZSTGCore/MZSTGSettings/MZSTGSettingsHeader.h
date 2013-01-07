@@ -1,5 +1,3 @@
-#import "MZCharacterPartSetting.h"
 #import "MZCharacterSetting.h"
 #import "MZPlayerSetting.h"
 #import "MZEnemySetting.h"
-#import "MZCharacterPartControlSetting.h"
