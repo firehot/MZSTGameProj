@@ -22,12 +22,6 @@
 
     MZControlUpdate *moveControlUpdate;
     MZControlUpdate *attackControlUpdate; // not yet
-
-    // 以下處刑
-    NSMutableArray *attackSettingsQueue;
-    MZAttack_Base*currentAttack;
-        
-    MZFaceToControl *faceToControl;
 }
 
 +(MZCharacterPartControl *)characterPartControl;

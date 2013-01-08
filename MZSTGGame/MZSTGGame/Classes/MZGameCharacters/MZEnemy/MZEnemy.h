@@ -4,13 +4,9 @@
 
 // test
 @class MZControlUpdate;
-//@class MZMode;
 
 @interface MZEnemy : MZCharacter <MZMoveDelegate, MZModeDelegate> // MZModeDelegate 應該要合併 MZMoveDelegate
 {
-//    MZControlUpdate *moveControlUpdate;
-//    MZMode *mode;
-
     MZControlUpdate *modeControlUpdate;
 }
 

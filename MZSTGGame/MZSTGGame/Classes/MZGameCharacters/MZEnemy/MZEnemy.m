@@ -35,7 +35,7 @@
 -(void)initDefaultMode
 {
     [super initDefaultMode];
-
+    
     MZMode *mode = [self addModeWithName: @"M"];
 
 //    MZMove_Base *testMove = [mode addMoveWithName: @"A" moveType: kMZMoveClass_Linear];
@@ -50,18 +50,21 @@
 //    testMove2.duration = 1;
 
     // part control
+    MZControlUpdate *pControlUpdate = [mode addPartControlUpdateWithName: @"puOneX"];
+    
     MZCharacterPartControl *pControl1 = [MZCharacterPartControl characterPartControl];
-    pControl1.characterPartDelegate = [partsDictionary objectForKey: @"p"];
+    pControl1.characterPartDelegate = [self.partsDictionary objectForKey: @"p"];
 
     MZMove_Base *testPMove = [pControl1 addMoveWithName: @"A" moveType: kMZMoveClass_Linear];
     testPMove.velocity = 50;
     testPMove.movingVector = mzp( 0, -1 );
     testPMove.duration = -1;
+    
+    
+//    pControlUpdate.controlBaseClass = [MZCharacterPartControl class];
+//    id ff = [pControlUpdate addTest];
 
-    MZControlUpdate *pControlUpdate = [MZControlUpdate controlUpdate];
     [pControlUpdate add: pControl1 key: @"p1"];
-
-    [mode addPartControlUpdateWithPart: pControlUpdate name: @"pUOne"];
 }
 
 #pragma mark - methods
@@ -69,9 +72,10 @@
 -(MZMode *)addModeWithName:(NSString *)name
 {
     if( modeControlUpdate == nil )
-        modeControlUpdate = [[MZControlUpdate alloc] init];
+        modeControlUpdate = [[MZControlUpdate alloc] initWithBaseClass: [MZMode class]];
 
-    MZMode *mode = [MZMode mode];
+    // test new methods here
+    MZMode *mode = [modeControlUpdate addWithKey: name];
     mode.modeDelegate = self;
 
     [modeControlUpdate add: mode key: name];
@@ -96,13 +100,10 @@
 {
     [super _update];
     [modeControlUpdate update];
-    ((MZCharacterPart *)[partsDictionary objectForKey: @"p"]).visible = true;
-//    MZLog( @"pos=%@, realPos=",
-//          NSStringFromCGPoint( ((MZCharacterPart *)[partsDictionary objectForKey: @"p"]).standardPosition )
-//((MZCharacterPart *)[partsDictionary objectForKey: @"p"]).rea
-//          );
-
-
+    
+//    NSStringFromCGAffineTransform(<#CGAffineTransform transform#>)
+//    MZLodingLog(<#level#>, <#desc, ...#>)
+//    ((MZCharacterPart *)[partsDictionary objectForKey: @"p"]).visible = true;
 }
 
 @end

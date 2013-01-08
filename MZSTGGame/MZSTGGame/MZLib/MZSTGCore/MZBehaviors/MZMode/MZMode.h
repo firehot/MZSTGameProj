@@ -27,7 +27,7 @@
 -(MZMove_Base *)moveByName:(NSString *)name;
 
 // add part control
--(void)addPartControlUpdateWithPart:(MZControlUpdate *)partControlUpdate name:(NSString *)name; // not very good
+-(MZControlUpdate *)addPartControlUpdateWithName:(NSString *)name;
 
 #pragma mark - settings
 @property (nonatomic, readwrite, assign) id<MZModeDelegate> modeDelegate;

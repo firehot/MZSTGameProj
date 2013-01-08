@@ -12,14 +12,22 @@
 
 @implementation MZControlUpdate
 
+@synthesize controlBaseClass;
 @synthesize disableUpdate;
 @synthesize currentControl = currentControlRef;
 @synthesize controlsDictionaryArray = originControlsDictionaryArray;
 
 #pragma mark - init and dealloc
 
-+(MZControlUpdate *)controlUpdate
-{ return [[[self alloc] init] autorelease]; }
++(MZControlUpdate *)controlUpdateWithBaseClass:(Class)aBaseClass
+{ return [[[self alloc] initWithBaseClass: aBaseClass] autorelease]; }
+
+-(id)initWithBaseClass:(Class)aBaseClass
+{
+    self = [super init];
+    controlBaseClass = aBaseClass;
+    return self;
+}
 
 -(void)dealloc
 {
@@ -31,9 +39,21 @@
 
 #pragma mark - methods
 
--(int)add:(id<MZControlProtocol>)control key:(id<NSCopying>)key
+-(id<MZControlProtocol>)addWithKey:(id<NSCopying>)key
+{
+    MZAssert( controlBaseClass != nil, @"why no base class?" );
+    id control = [[[controlBaseClass alloc] init] autorelease]; // <-- leak ???
+    
+    
+    return control;
+}
+
+-(id<MZControlProtocol>)add:(id<MZControlProtocol>)control key:(id<NSCopying>)key
 {
     MZAssert( control != nil, @"control is nil" );
+    MZAssert( [control isKindOfClass: controlBaseClass], @"control(class=%@) is not base on base class(class=%@)",
+             NSStringFromClass( [control class] ),
+             NSStringFromClass( [controlBaseClass class] ) );
 
     if( originControlsDictionaryArray == nil )
     {
@@ -44,7 +64,7 @@
     [originControlsDictionaryArray addObject: control key: key];
     [executingControlsArray addObject: control];
 
-    return [originControlsDictionaryArray count];
+    return control;
 }
 
 -(void)reset

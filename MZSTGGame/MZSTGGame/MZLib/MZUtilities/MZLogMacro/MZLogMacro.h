@@ -1,5 +1,12 @@
 #import "MZGameConfig.h"
 
+//NSString *NSStringFromBool(bool b)
+//{
+//    return [NSString stringWithFormat:( @"%@" ), ( b )? @"true" : @"false"];
+//}
+
+#define NSStringFromBool( boolValue ) [NSString stringWithFormat: @"%@", ( boolValue )? @"true" : @"false"]
+
 #define MZLog( desc, ... ) NSLog( @"%s: %@", __FUNCTION__, [NSString stringWithFormat:( desc ), ##__VA_ARGS__] )
 
 // 其實這些都是 Game 用 Log 的說 ... 

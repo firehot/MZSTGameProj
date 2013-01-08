@@ -54,7 +54,7 @@
     MZMove_Base *move = [MZMove_Base createWithClassType: classType];
     move.moveDelegate = modeDelegate;
 
-    if( movesUpdate == nil ) movesUpdate = [[MZControlUpdate alloc] init];
+    if( movesUpdate == nil ) movesUpdate = [[MZControlUpdate alloc] initWithBaseClass: [MZMove_Base class]];
     [movesUpdate add: move key: name];
 
     return move;
@@ -65,13 +65,17 @@
     return [movesUpdate.controlsDictionaryArray.dictionary objectForKey: name];
 }
 
--(void)addPartControlUpdateWithPart:(MZControlUpdate *)partControlUpdate name:(NSString *)name;
+-(MZControlUpdate *)addPartControlUpdateWithName:(NSString *)name
 {
-    MZAssert( partControlUpdate != nil,  @"part is nil" );
+    MZAssert( modeDelegate != nil, @"modeDelegate is nil" );
     // how to check partControlUpdate contain is not partControl???
 
     if( characterPartControlUpdatesDictionary == nil ) characterPartControlUpdatesDictionary = [[NSMutableDictionary alloc] init];
-    [characterPartControlUpdatesDictionary  setObject: partControlUpdate forKey: name];
+    
+    MZControlUpdate *partControlUpdate = [MZControlUpdate controlUpdateWithBaseClass: [MZCharacterPartControl class]];
+    [characterPartControlUpdatesDictionary setObject: partControlUpdate forKey: name];
+    
+    return partControlUpdate;
 }
 
 @end

@@ -13,21 +13,26 @@
 
 @interface MZControlUpdate : NSObject
 {
-//    MZControl_Base *currentControlRef;
+    Class controlBaseClass;
+    
     id<MZControlProtocol> currentControlRef;
 
     MZDictionaryArray *originControlsDictionaryArray;
     NSMutableArray *executingControlsArray;
 }
 
-+(MZControlUpdate *)controlUpdate;
++(MZControlUpdate *)controlUpdateWithBaseClass:(Class)aBaseClass;
+-(id)initWithBaseClass:(Class)aBaseClass;
 
--(int)add:(id<MZControlProtocol>)control key:(id<NSCopying>)key;
+-(id<MZControlProtocol>)addWithKey:(id<NSCopying>)key;
+-(id<MZControlProtocol>)add:(id<MZControlProtocol>)control key:(id<NSCopying>)key;
 
 -(void)reset; // not test
 -(void)update;
 
 @property (nonatomic, readwrite) bool disableUpdate;
+
+@property (nonatomic, readonly) Class controlBaseClass;
 @property (nonatomic, readonly) id<MZControlProtocol> currentControl;
 @property (nonatomic, readonly) MZDictionaryArray *controlsDictionaryArray;
 

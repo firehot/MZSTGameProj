@@ -12,14 +12,7 @@
 #import "MZControlUpdate.h"
 
 @interface MZCharacterPartControl (Private)
--(void)_initAttackSettingsQueue;
--(void)_initFaceToControl;
-
--(void)_switchCurrentAttack;
-
--(void)_updateAttack;
 -(void)_updateMotion;
--(void)_updateFaceTo;
 @end
 
 @implementation MZCharacterPartControl
@@ -47,15 +40,18 @@
 {
     [moveControlUpdate release];
     [attackControlUpdate release];
-
-    [MZSTGGameHelper destoryGameBase: &currentAttack];
-
-    [faceToControl release];
-    [attackSettingsQueue release];
     
     characterPartDelegate = nil;
     
     [super dealloc];
+}
+
+#pragma mark - properties
+
+-(void)setCharacterPartDelegate:(id<MZCharacterPartControlDelegate>)aCharacterPartDelegate
+{
+    characterPartDelegate = aCharacterPartDelegate;
+    self.visible = true;
 }
 
 #pragma mark - MZFaceToControlProtocol
@@ -101,7 +97,7 @@
 -(MZMove_Base *)addMoveWithName:(NSString *)name moveType:(MZMoveClassType)classType
 {
     MZAssert( characterPartDelegate != nil, @"characterPartDelegate is nil" );
-    if( moveControlUpdate == nil ) moveControlUpdate = [[MZControlUpdate alloc] init];
+    if( moveControlUpdate == nil ) moveControlUpdate = [[MZControlUpdate alloc] initWithBaseClass: [MZMove_Base class]];
 
     MZMove_Base *move = [MZMove_Base createWithClassType: classType];
     move.moveDelegate = characterPartDelegate;
@@ -119,19 +115,10 @@
 
 #pragma mark - override
 
--(void)_initValues
-{
-    [super _initValues];
-    [self _initFaceToControl];
-    [self _initAttackSettingsQueue];
-}
-
 -(void)_update
 {    
     [super _update];
-    [self _updateAttack];
     [self _updateMotion];
-    [self _updateFaceTo];
 }
 
 @end
@@ -142,66 +129,11 @@
 
 #pragma mark - init
 
--(void)_initAttackSettingsQueue
-{
-//    if( attackSettingsQueue == nil )
-//        attackSettingsQueue = [[NSMutableArray alloc] initWithCapacity: 1];
-//    
-//    for( MZAttackSetting *attackSetting in setting.attackSettingsArray )
-//        [attackSettingsQueue push: attackSetting];
-}
-
--(void)_initFaceToControl
-{
-//    faceToControl = [[MZFaceToControl alloc] initWithControlTarget: self
-//                                                            faceTo: setting.faceTo
-//                                                 previousDirection: mzp( 0, -1 )];
-}
-
 #pragma mark - methods
-
--(void)_switchCurrentAttack
-{
-//    [MZSTGGameHelper destoryGameBase: &currentAttack];
-//
-//    if( [attackSettingsQueue peek] != nil )
-//    {
-//        MZAttackSetting *nextAttackSetting = (MZAttackSetting *)[attackSettingsQueue pop];
-//        currentAttack = [[MZAttacksFactory sharedInstance] getAttackWithDelegate: characterPartDelegate setting: nextAttackSetting];
-//
-//        [currentAttack retain];
-//        [currentAttack enable];
-//        
-//        if( !nextAttackSetting.isRunOnce )
-//            [attackSettingsQueue push: nextAttackSetting];
-//    }
-}
-
--(void)_updateAttack
-{
-    if( disableAttack ) return;
-    
-    if( currentAttack == nil )
-        [self _switchCurrentAttack];
-    
-    if( currentAttack != nil )
-    {                
-        [currentAttack update];
-        
-        if( !currentAttack.isActive )
-            [self _switchCurrentAttack];
-    }
-}
 
 -(void)_updateMotion
 {
     if( moveControlUpdate != nil ) [moveControlUpdate update];
-}
-
--(void)_updateFaceTo
-{
-    [faceToControl update];
-    characterPartDelegate.visible = faceToControl.hasVaildValue;
 }
 
 @end

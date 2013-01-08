@@ -7,7 +7,7 @@
 
 @interface MZCharacter : MZGameObject
 {
-    NSMutableDictionary *partsDictionary;
+
 }
 
 +(MZCharacter *)character;
@@ -23,6 +23,8 @@
 @property (nonatomic, readwrite) MZCharacterType characterType;
 @property (nonatomic, readwrite, assign) MZCCSpritesPool *partSpritesPoolRef;
 @property (nonatomic, readwrite) bool disableAttack;
+
+@property (nonatomic, readonly) NSMutableDictionary *partsDictionary;
 
 #pragma mark - states
 

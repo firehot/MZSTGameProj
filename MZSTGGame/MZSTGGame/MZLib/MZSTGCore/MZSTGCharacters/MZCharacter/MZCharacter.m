@@ -20,6 +20,8 @@
 @synthesize partSpritesPoolRef;
 @synthesize currentMovingVector;
 
+@synthesize partsDictionary;
+
 #pragma mark - init and dealloc
 
 +(MZCharacter *)character
