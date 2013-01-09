@@ -1,11 +1,7 @@
 #import "MZAttack_Base.h"
 #import "MZLevelComponents.h"
 #import "MZGameCharactersHeader.h"
-#import "MZCharactersActionManager.h"
-#import "MZAttackSetting.h"
 #import "MZUtilitiesHeader.h"
-#import "MZAttackTargetHelpKit.h"
-#import "MZSTGGameHelper.h"
 #import "MZTime.h"
 
 @interface MZAttack_Base(Private)
@@ -25,7 +21,9 @@
 @synthesize additionalVelocityLimited;
 @synthesize maxVelocity;
 @synthesize bulletName;
+@synthesize target;
 
+@synthesize launchCount;
 @synthesize currentVelocity;
 @synthesize currentAdditionalVelocityPerLaunch;
 
@@ -43,15 +41,44 @@
 
 -(void)dealloc
 {
-    [attackTargetHelpKit release];
+    [target release];
     [super dealloc];
 }
 
-#pragma marl - properties
+#pragma mark - properties
 
 -(float)currentVelocity
 {
     return initVelocity + currentAdditionalVelocity;
+}
+
+-(void)setTarget:(MZTarget_Base *)aTarget
+{
+    if( target == aTarget ) return;
+    if( target != nil ) [target release];
+
+    target = aTarget;
+    target.targetDelegate = self;
+
+    [target retain];
+}
+
+-(MZTarget_Base *)target
+{
+    MZAssert( target != nil, @"target is nil, must set first" );
+    return target;
+}
+
+#pragma mark - MZTargetDelegate
+
+-(CGPoint)position
+{
+    return attackDelegate.standardPosition;
+}
+
+-(MZCharacterType)characterType
+{
+    return attackDelegate.characterType;
 }
 
 #pragma mark - methods (override)
@@ -59,8 +86,11 @@
 -(void)reset
 {
     [super reset];
+
     launchCount = 0;
     currentAdditionalVelocity = 0;
+
+    if( target != nil ) [target reset];
 }
 
 #pragma mark - methods
@@ -94,9 +124,6 @@
 {
     [super _initValues];
     
-//    launchCount = 0;
-//    colddownCount = 0;
-//    currentAdditionalVelocity = 0;
     [self reset];
 
 	numberOfWays = 0;
@@ -110,23 +137,20 @@
     bulletName = nil;
     
 //	public MZFaceTo.Type bulletFaceToType = MZFaceTo.Type.MovingVector;
-
-    // need re-design
-//    attackTargetHelpKit = [[MZAttackTargetHelpKit alloc] initWithAttackSetting: setting controlTarget: controlDelegate];
-}
-
--(void)_checkActiveCondition
-{
-    [super _checkActiveCondition];
-    
-//    if( !setting.isRepeatForever && self.lifeTimeCount >= setting.duration )
-//        [self disable];
 }
 
 -(void)_update
 {
+    MZAssert( target != nil, @"target is nil" );
+
     if( [self _checkColddown] )
+    {
+        [target beginOneTime];
+
         [self _launchBullets];
+
+        [target endOneTime];
+    }
 }
 
 #pragma mark - methods

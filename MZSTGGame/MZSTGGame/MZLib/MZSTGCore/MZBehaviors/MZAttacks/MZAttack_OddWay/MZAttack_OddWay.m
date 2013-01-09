@@ -1,7 +1,6 @@
 #import "MZAttack_OddWay.h"
 #import "MZAttackSetting.h"
 #import "MZMath.h"
-#import "MZAttackTargetHelpKit.h"
 #import "MZLevelComponentsHeader.h"
 #import "MZBullet.h"
 
@@ -24,10 +23,13 @@
 {
     [super _launchBullets];
     
-    CGPoint centerMovingVector = CGPointMake( 0, -1 ); // [attackTargetHelpKit getMovingVectorToTarget];
+    CGPoint centerMovingVector = self.target.currentMovingVector;
+
+
+//    CGPointMake( 0, -1 ); // [attackTargetHelpKit getMovingVectorToTarget];
     float currentDegrees = 0;
     
-    for( int i = 0; i < self.numberOfWays + ( launchCount - 1 )*self.additionalWaysPerLaunch; i++ )
+    for( int i = 0; i < self.numberOfWays + ( self.launchCount - 1 )*self.additionalWaysPerLaunch; i++ )
     {
         MZBullet *bullet = [self _getBullet];
         [self _addFirstMoveToBullet: bullet];

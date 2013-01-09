@@ -1,4 +1,5 @@
 #import "MZControl_Base.h"
+#import "MZTarget_Base.h"
 #import "MZTypeDefine.h"
 
 typedef enum
@@ -14,20 +15,15 @@ typedef enum
 @class MZCharacter;
 @class MZCharacterPart;
 @class MZBullet;
-@class MZAttackTargetHelpKit;
 
-@interface MZAttack_Base: MZControl_Base
+@interface MZAttack_Base: MZControl_Base <MZTargetDelegate>
 {
 @private
-
-@protected
     int launchCount;
     float currentAdditionalVelocity;
     mzTime colddownCount;
-
-    MZAttackTargetHelpKit *attackTargetHelpKit;
-
-
+    
+@protected
 }
 
 +(MZAttack_Base *)createWithClassType:(MZAttackClassType)classType;
@@ -50,10 +46,12 @@ typedef enum
 @property (nonatomic, readwrite) float additionalVelocityLimited;
 @property (nonatomic, readwrite) float maxVelocity;
 @property (nonatomic, readwrite, retain) NSString *bulletName;
+@property (nonatomic, readwrite, retain) MZTarget_Base *target;
 //@property (nonatomic, readwrite) MZFaceTo.Type bulletFaceToType = MZFaceTo.Type.MovingVector;
 
 #pragma mark - states
 
+@property (nonatomic, readonly) int launchCount;
 @property (nonatomic, readonly) float currentVelocity;
 @property (nonatomic, readonly) float currentAdditionalVelocityPerLaunch;
 

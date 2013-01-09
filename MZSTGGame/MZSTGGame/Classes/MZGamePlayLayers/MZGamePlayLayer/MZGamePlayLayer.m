@@ -3,12 +3,13 @@
 #import "MZGameSettingsHeader.h"
 #import "MZUtilitiesHeader.h"
 #import "MZCCUtilitiesHeader.h"
-#import "MZLevelComponents.h"
+#import "MZLevelComponentsHeader.h"
 #import "MZTime.h"
 #import "MZGamePlayLayersHeader.h"
 #import "MZGamePlayScene.h"
 #import "cocos2d.h"
 #import "MZCharactersActionManager.h"
+#import "MZPlayer.h"
 
 #import "MZAnimationHeader.h"
 
@@ -331,6 +332,7 @@
     [self setControlByUserTouchDelegate: (MZPlayer *)testPlayer];
     
     testPlayer.position = mzp( 160, 240 );
+    [MZLevelComponents sharedInstance].player = (MZPlayer *)testPlayer;
 
     [charactersActionManager addWithType: kMZCharacterType_Player character: testPlayer];
 }

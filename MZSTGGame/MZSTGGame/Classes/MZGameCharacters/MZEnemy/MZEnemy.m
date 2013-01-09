@@ -69,15 +69,17 @@
     testPMove.duration = -1;
     
     MZAttack_OddWay *attack = (MZAttack_OddWay *)[pControl1 addAttackWithName: @"A" attackType: kMZAttack_OddWay];
-    attack.initVelocity = 10;
+    attack.initVelocity = 100;
     attack.intervalDegrees = 10;
-    attack.numberOfWays = 1;
+    attack.numberOfWays = 3;
     attack.bulletName = @"";
-    attack.colddown = 0.3;
-    attack.additionalVelocityPerLaunch = 50;
-    attack.additionalVelocityLimited = 300;
-    attack.additionalWaysPerLaunch = 2;
+    attack.colddown = 0.1;
+//    attack.additionalVelocityPerLaunch = 50;
+//    attack.additionalVelocityLimited = 300;
+//    attack.additionalWaysPerLaunch = 2;
     attack.duration = 0.5f;
+    attack.target = [MZTarget_Base createWithClassType: kMZTarget_Target];
+    attack.target.calcuteEveryTime = true;
 
     [pControlUpdate add: pControl1 key: @"p1"];
 }

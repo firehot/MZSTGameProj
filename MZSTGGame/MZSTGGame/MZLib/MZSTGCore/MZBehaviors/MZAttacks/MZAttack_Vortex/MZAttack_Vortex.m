@@ -5,7 +5,6 @@
 #import "MZSTGCharactersHeader.h"
 #import "MZCharactersActionManager.h"
 #import "MZCharacterPart.h"
-#import "MZAttackTargetHelpKit.h"
 #import "MZTime.h"
 #import "MZUtilitiesHeader.h"
 
@@ -29,7 +28,7 @@
 {
     [super _firstUpdate];
     
-    initDegrees = [attackTargetHelpKit getDegreeToTarget];
+//    initDegrees = [attackTargetHelpKit getDegreeToTarget];
     resetTimeCount = 0;
     launchTimeCount = 0;
 }

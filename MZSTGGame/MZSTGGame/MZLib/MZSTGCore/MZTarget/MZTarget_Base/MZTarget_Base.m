@@ -8,6 +8,7 @@
 
 @synthesize targetDelegate;
 @synthesize calcuteEveryTime;
+@synthesize currentMovingVector;
 
 #pragma mark - init and dealloc
 
@@ -39,6 +40,18 @@
     [super dealloc];
 }
 
+#pragma mark - properties
+
+-(CGPoint)currentMovingVector
+{
+    MZAssert( targetDelegate != nil, @"targetDelegate is null" );
+
+    if( needCalcute == true )
+        movingVectorResult = [self _calculateMovingVector];
+
+    return movingVectorResult;
+}
+
 #pragma mark - methods
 
 +(NSString *)classStringFromType:(MZTargetClassType)classType
@@ -59,16 +72,6 @@
 {
     needCalcute = true;
     movingVectorResult = mzpZero;
-}
-
--(CGPoint)getMovingVector
-{
-    MZAssert( targetDelegate != nil, @"targetDelegate is null" );
-
-    if( needCalcute == true )
-        movingVectorResult = [self _calculateMovingVector];
-
-    return movingVectorResult;
 }
 
 -(void)beginOneTime
@@ -92,11 +95,10 @@
     MZAssertFasle( @"override me" );
 }
 
-// temp
+// temp, must integrate in delete's target
 -(CGPoint)_playerPosition
 {
-    return mzp( 160, 240 );
-//    return [MZLevelComponents sharedInstance].player.position;
+    return [MZLevelComponents sharedInstance].player.position;
 }
 
 @end

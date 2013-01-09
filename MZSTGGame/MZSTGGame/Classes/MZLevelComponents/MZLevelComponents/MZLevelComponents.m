@@ -85,10 +85,10 @@ static MZLevelComponents *_sharedLevelComponents = nil;
     [MZObjectHelper releaseAndSetNilToObject: &eventsExecutor];
     [MZObjectHelper releaseAndSetNilToObject: &scenario];
     [MZObjectHelper releaseAndSetNilToObject: &effectsManager];
-    [MZObjectHelper releaseAndSetNilToObject: &player];
     [MZObjectHelper releaseAndSetNilToObject: &levelName];
     [MZObjectHelper releaseAndSetNilToObject: &eventDefinesDictionary];
 
+    player = nil;
     charactersActionManager = nil;
     gamePlaySceneRef = nil;
 }

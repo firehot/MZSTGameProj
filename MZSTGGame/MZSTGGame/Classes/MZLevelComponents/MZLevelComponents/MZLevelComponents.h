@@ -28,7 +28,7 @@
 @property (nonatomic, readonly) MZEventsExecutor *eventsExecutor;
 @property (nonatomic, readonly) MZScenario *scenario; // 暫時用不到 ...
 @property (nonatomic, readonly) MZEffectsManager *effectsManager; // 暫時用不到 ...
-@property (nonatomic, readonly) MZPlayer *player;
+@property (nonatomic, readwrite, assign) MZPlayer *player;
 
 -(void)addEventMetadata:(MZEventMetadata *)eventMetadata;
 -(void)removeEventMetadata:(MZEventMetadata *)eventMetadata;

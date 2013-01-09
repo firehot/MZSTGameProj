@@ -152,6 +152,7 @@
     [MZLevelComponents sharedInstance].gamePlayLayer = (MZGamePlayLayer *)play;
 }
 
+// delete
 -(void)_initLevelComponentsWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary levelName:(NSString *)aLevelName
 {
     [[MZLevelComponents sharedInstance] setLevelWithName: aLevelName settingDictionary: levelSettingDictionary playScene: self];

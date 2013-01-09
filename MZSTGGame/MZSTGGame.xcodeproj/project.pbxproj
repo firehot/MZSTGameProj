@@ -69,7 +69,6 @@
 		D39155CB1642422A0011F3D6 /* MZAttack_OddWay.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155931642422A0011F3D6 /* MZAttack_OddWay.m */; };
 		D39155CC1642422A0011F3D6 /* MZAttack_Vortex.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155961642422A0011F3D6 /* MZAttack_Vortex.m */; };
 		D39155CD1642422A0011F3D6 /* MZAttacksFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155991642422A0011F3D6 /* MZAttacksFactory.m */; };
-		D39155CE1642422A0011F3D6 /* MZAttackTargetHelpKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D391559D1642422A0011F3D6 /* MZAttackTargetHelpKit.m */; };
 		D39155CF1642422A0011F3D6 /* MZCharacterPartControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155A11642422A0011F3D6 /* MZCharacterPartControl.m */; };
 		D39155D01642422A0011F3D6 /* MZMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155A41642422A0011F3D6 /* MZMode.m */; };
 		D39155E916424C150011F3D6 /* MZCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = D39155DE16424C150011F3D6 /* MZCharacter.m */; };
@@ -451,8 +450,6 @@
 		D39155981642422A0011F3D6 /* MZAttacksFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAttacksFactory.h; sourceTree = "<group>"; };
 		D39155991642422A0011F3D6 /* MZAttacksFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAttacksFactory.m; sourceTree = "<group>"; };
 		D391559A1642422A0011F3D6 /* MZAttacksHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAttacksHeader.h; sourceTree = "<group>"; };
-		D391559C1642422A0011F3D6 /* MZAttackTargetHelpKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAttackTargetHelpKit.h; sourceTree = "<group>"; };
-		D391559D1642422A0011F3D6 /* MZAttackTargetHelpKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAttackTargetHelpKit.m; sourceTree = "<group>"; };
 		D391559E1642422A0011F3D6 /* MZBehaviorsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZBehaviorsHeader.h; sourceTree = "<group>"; };
 		D39155A01642422A0011F3D6 /* MZCharacterPartControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCharacterPartControl.h; sourceTree = "<group>"; };
 		D39155A11642422A0011F3D6 /* MZCharacterPartControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacterPartControl.m; sourceTree = "<group>"; };
@@ -1510,7 +1507,6 @@
 				D39155941642422A0011F3D6 /* MZAttack_Vortex */,
 				D39155971642422A0011F3D6 /* MZAttacksFactory */,
 				D391559A1642422A0011F3D6 /* MZAttacksHeader.h */,
-				D391559B1642422A0011F3D6 /* MZAttackTargetHelpKit */,
 			);
 			path = MZAttacks;
 			sourceTree = "<group>";
@@ -1576,15 +1572,6 @@
 				D39155991642422A0011F3D6 /* MZAttacksFactory.m */,
 			);
 			path = MZAttacksFactory;
-			sourceTree = "<group>";
-		};
-		D391559B1642422A0011F3D6 /* MZAttackTargetHelpKit */ = {
-			isa = PBXGroup;
-			children = (
-				D391559C1642422A0011F3D6 /* MZAttackTargetHelpKit.h */,
-				D391559D1642422A0011F3D6 /* MZAttackTargetHelpKit.m */,
-			);
-			path = MZAttackTargetHelpKit;
 			sourceTree = "<group>";
 		};
 		D391559F1642422A0011F3D6 /* MZCharacterPartControl */ = {
@@ -3352,7 +3339,6 @@
 				D39155CB1642422A0011F3D6 /* MZAttack_OddWay.m in Sources */,
 				D39155CC1642422A0011F3D6 /* MZAttack_Vortex.m in Sources */,
 				D39155CD1642422A0011F3D6 /* MZAttacksFactory.m in Sources */,
-				D39155CE1642422A0011F3D6 /* MZAttackTargetHelpKit.m in Sources */,
 				D39155CF1642422A0011F3D6 /* MZCharacterPartControl.m in Sources */,
 				D39155D01642422A0011F3D6 /* MZMode.m in Sources */,
 				D39155E916424C150011F3D6 /* MZCharacter.m in Sources */,
