@@ -27,7 +27,7 @@ if( MZ_LOG_CHARACTER_CREATE != 0 && ( MZ_LOG_CHARACTER_CREATE == level || MZ_LOG
 
 
 #ifdef DEBUG
-#define MZAssert(condition, desc, ...) \
+#define MZAssert( condition, desc, ...) \
     if( !( condition ) ) \
     { \
         NSLog( @"*** Assertion failure in %s: %@", __FUNCTION__, [NSString stringWithFormat:(desc), ##__VA_ARGS__] ); \
