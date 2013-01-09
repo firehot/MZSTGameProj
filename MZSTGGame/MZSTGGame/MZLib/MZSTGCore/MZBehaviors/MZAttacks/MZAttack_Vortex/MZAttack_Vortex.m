@@ -60,29 +60,29 @@
 
 -(void)_launchWaveBullet
 {
-    MZEventControlCharacter *bullet = [self _getBullet];
-    
-    float currentDegrees = initDegrees + setting.intervalDegree*( launchCount - 1 );
-    CGPoint newMovingVector = [MZMath unitVectorFromDegrees: currentDegrees];
-    
-    MZMotionSetting *firstMotionSetting = [bullet getMotionSettingWithIndex: 0];
-    firstMotionSetting.movingVector = newMovingVector;
-    
-    [self _enableBulletAndAddToActionManager: bullet];
-    [self _updateAdditionalVelocity];
-    
-    launchTimeCount += [MZTime sharedInstance].deltaTime;
-    
-    if( launchTimeCount >= setting.timePerWave )
-    {
-        resetTimeCount = setting.restTime;
-        launchTimeCount = 0;
-        
-        if( setting.resetAtRest )
-        {
-            currentAdditionalVelocity = 0;
-        }
-    }
+//    MZEventControlCharacter *bullet = [self _getBullet];
+//    
+//    float currentDegrees = initDegrees + setting.intervalDegree*( launchCount - 1 );
+//    CGPoint newMovingVector = [MZMath unitVectorFromDegrees: currentDegrees];
+//    
+//    MZMotionSetting *firstMotionSetting = [bullet getMotionSettingWithIndex: 0];
+//    firstMotionSetting.movingVector = newMovingVector;
+//    
+//    [self _enableBulletAndAddToActionManager: bullet];
+//    [self _updateAdditionalVelocity];
+//    
+//    launchTimeCount += [MZTime sharedInstance].deltaTime;
+//    
+//    if( launchTimeCount >= setting.timePerWave )
+//    {
+//        resetTimeCount = setting.restTime;
+//        launchTimeCount = 0;
+//        
+//        if( setting.resetAtRest )
+//        {
+//            currentAdditionalVelocity = 0;
+//        }
+//    }
 }
 
 @end

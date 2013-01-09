@@ -57,6 +57,11 @@
 
 -(MZCharacterType)characterType
 {
+    // working ... ..
+    // 這裡傳回了 none
+    if( parentCharacterRef.characterType  == kMZCharacterType_None )
+        MZLog( @"E" );
+
     return parentCharacterRef.characterType;
 }
 

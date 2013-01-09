@@ -61,11 +61,6 @@ static MZLevelComponents *_sharedLevelComponents = nil;
 
 #pragma mark - properties
 
--(MZGamePlayLayer *)gamePlayLayer
-{
-    return (MZGamePlayLayer *)[gamePlaySceneRef layerByType: kMZGamePlayLayerType_PlayLayer];
-}
-
 -(NSString *)eventsFileName
 {
     return [NSString stringWithFormat: @"%@_bgevents.plist", levelName];

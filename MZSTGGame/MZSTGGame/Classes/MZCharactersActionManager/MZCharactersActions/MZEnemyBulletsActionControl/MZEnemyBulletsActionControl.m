@@ -15,7 +15,7 @@
 {
     if( self.activeEnemyBullets != nil )
     {        
-        for( MZEventControlCharacter *enemyBullet in self.activeEnemyBullets )
+        for( MZBullet *enemyBullet in self.activeEnemyBullets )
         {
             [enemyBullet update];
             

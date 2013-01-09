@@ -11,6 +11,7 @@
 +(MZFaceToType)getFaceToByNSString:(NSString *)faceToString;
 +(NSString *)getTargetTypeStringWithType:(MZTargetType)type;
 +(NSString *)getFaceToStringWithType:(MZFaceToType)faceTo;
++(NSString *)typeStringFromCharacterType:(MZCharacterType)characterType;
 @end
 
 /*

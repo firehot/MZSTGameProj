@@ -148,6 +148,8 @@
 //    [self addChild: background];
     [self addChild: play];
 //    [self addChild: hud];
+
+    [MZLevelComponents sharedInstance].gamePlayLayer = (MZGamePlayLayer *)play;
 }
 
 -(void)_initLevelComponentsWithLevelSettingDictionary:(NSDictionary *)levelSettingDictionary levelName:(NSString *)aLevelName

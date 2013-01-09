@@ -12,6 +12,7 @@
 // test
 @class MZPlayer;
 @class MZEnemy;
+@class MZBullet;
 
 @protocol MZSpritesPoolSupport <NSObject>
 -(MZCCSpritesPool *)spritesPoolByCharacterType:(MZCharacterType)characterType;
@@ -36,4 +37,5 @@
 @interface MZCharactersFactory (Test)
 -(MZPlayer *)__test_player;
 -(MZEnemy *)__test_enemy;
+-(MZBullet *)__test_enemy_bullet;
 @end

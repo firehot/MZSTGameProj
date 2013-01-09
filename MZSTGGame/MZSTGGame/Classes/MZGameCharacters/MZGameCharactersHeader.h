@@ -2,6 +2,5 @@
 #import "MZCharactersFactory.h"
 #import "MZCharacterTypeStrings.h"
 #import "MZPlayer.h"
-#import "MZPlayerBullet.h"
 #import "MZEnemy.h"
-#import "MZEnemyBullet.h"
+#import "MZBullet.h"

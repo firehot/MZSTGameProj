@@ -17,7 +17,6 @@
 
     MZControlUpdate *movesUpdate;
     NSMutableDictionary *characterPartControlUpdatesDictionary;
-
     NSMutableArray *currentCharacterPartControls;
 }
 
@@ -28,6 +27,7 @@
 
 // add part control
 -(MZControlUpdate *)addPartControlUpdateWithName:(NSString *)name;
+-(MZControlUpdate *)partControlUpdateByName:(NSString *)name;
 
 #pragma mark - settings
 @property (nonatomic, readwrite, assign) id<MZModeDelegate> modeDelegate;

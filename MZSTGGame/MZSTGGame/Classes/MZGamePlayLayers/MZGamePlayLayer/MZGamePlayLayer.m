@@ -34,6 +34,7 @@
 @implementation MZGamePlayLayer
 
 @synthesize charactersFactory;
+@synthesize charactersActionManager;
 
 #pragma mark - init and dealloc
 
@@ -181,7 +182,7 @@
     ccBlendFunc blend = (ccBlendFunc){ [MZGLHelper defaultBlendFuncSrc], [MZGLHelper defaultBlendFuncDest] };
     
     NSString *textureName[] = { @"[test]enemies_atlas.png", @"player_male.pvr.ccz", @"[test]bullets_atlas.png", @"[test]bullets_atlas.png" };
-    int numbers[] = { 100, 100, 100, 100 };
+    int numbers[] = { 100, 100, 100, 1000 };
     NSArray *keys = @[
     @(kMZGamePlayLayerActorType_Enemy),
     @(kMZGamePlayLayerActorType_Player),

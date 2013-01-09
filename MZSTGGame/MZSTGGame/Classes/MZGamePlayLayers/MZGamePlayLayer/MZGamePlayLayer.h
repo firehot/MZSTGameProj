@@ -30,7 +30,6 @@ typedef enum
 {    
     MZTouchesControlPlayer *touchesControlPlayer;
     MZCharactersFactory *charactersFactory;
-    MZCharactersActionManager *charactersActionManager;
     CCDrawNode *referenceLines;
     
     // 以下是測試用的
@@ -44,6 +43,7 @@ typedef enum
 -(void)setControlByUserTouchDelegate:(id<MZPlayerTouchDelegate>)touchDelegate;
 
 @property (nonatomic, readonly) MZCharactersFactory *charactersFactory;
+@property (nonatomic, readonly) MZCharactersActionManager *charactersActionManager;
 
 @end
 

@@ -9,6 +9,7 @@
 #import "MZColor.h"
 #import "MZObjectHelper.h"
 #import "MZCCSpritesPool.h"
+#import "MZSTGGameHelper.h"
 
 @interface MZCharactersFactory (Private)
 @end
@@ -51,8 +52,11 @@
             MZCharacterCreateLog( 2, @"Create Enemy(%@)", (name != nil)? name : @"" );
             return [self __test_enemy];
 
-        case kMZCharacterType_PlayerBullet:
         case kMZCharacterType_EnemyBullet:
+            MZCharacterCreateLog( 3, @"Create EnemyBullet(%@)", (name != nil)? name : @"" );
+            return [self __test_enemy_bullet];
+
+        case kMZCharacterType_PlayerBullet:
         default:
             return nil;
     }
@@ -88,6 +92,17 @@
     [p setFrameWithFrameName: @"Ika_normal0001.png"];
 
     return testEnemy;
+}
+
+-(MZBullet *)__test_enemy_bullet
+{
+    MZBullet *b = [MZBullet bullet];
+    b.partSpritesPoolRef = [spritesPoolSupportRef spritesPoolByCharacterType: kMZCharacterType_EnemyBullet];
+
+    MZCharacterPart *p = [b addPartWithName: @"p"];
+    [p setFrameWithFrameName: @"bullet_24_normal0001.png"];
+
+    return b;
 }
 
 @end

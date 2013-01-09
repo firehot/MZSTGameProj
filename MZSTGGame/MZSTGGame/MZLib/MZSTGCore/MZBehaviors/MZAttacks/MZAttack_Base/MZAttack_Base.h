@@ -1,49 +1,76 @@
 #import "MZControl_Base.h"
 #import "MZTypeDefine.h"
 
+typedef enum
+{
+    kMZAttack_OddWay,
+}MZAttackClassType;
+
 @protocol MZAttackDelegate <MZControlDelegate>
 @property (nonatomic, readonly) MZCharacterType characterType;
 @property (nonatomic, readonly) CGPoint standardPosition;
 @end
 
-@class MZAttackSetting;
 @class MZCharacter;
 @class MZCharacterPart;
-@class MZEventControlCharacter;
+@class MZBullet;
 @class MZAttackTargetHelpKit;
 
 @interface MZAttack_Base: MZControl_Base
 {
 @private
-    MZEventControlCharacter *currentBulletLeaderRef;
+
 @protected
     int launchCount;
     float currentAdditionalVelocity;
     mzTime colddownCount;
-    MZAttackSetting *setting;
+
     MZAttackTargetHelpKit *attackTargetHelpKit;
 
-    id<MZAttackDelegate> attackDelegate;
+
 }
 
-+(MZAttack_Base*)attackWithDelegate:(id<MZAttackDelegate>)aControlDelegate setting:(MZAttackSetting *)aSetting;
--(id)initWithDelegate:(id<MZAttackDelegate>)aControlDelegate setting:(MZAttackSetting *)aSetting;
++(MZAttack_Base *)createWithClassType:(MZAttackClassType)classType;
++(MZAttack_Base *)attack;
+
++(NSString *)classStringFromType:(MZAttackClassType)moveClassType;
+
+-(void)reset;
+
+#pragma mark - settings
+
+@property (nonatomic, readwrite, assign) id<MZAttackDelegate> attackDelegate;
+@property (nonatomic, readwrite) int numberOfWays;
+@property (nonatomic, readwrite) int additionalWaysPerLaunch;
+@property (nonatomic, readwrite) int strength;
+@property (nonatomic, readwrite) float colddown;
+@property (nonatomic, readwrite) float intervalDegrees;
+@property (nonatomic, readwrite) float initVelocity;
+@property (nonatomic, readwrite) float additionalVelocityPerLaunch;
+@property (nonatomic, readwrite) float additionalVelocityLimited;
+@property (nonatomic, readwrite) float maxVelocity;
+@property (nonatomic, readwrite, retain) NSString *bulletName;
+//@property (nonatomic, readwrite) MZFaceTo.Type bulletFaceToType = MZFaceTo.Type.MovingVector;
+
+#pragma mark - states
+
+@property (nonatomic, readonly) float currentVelocity;
+@property (nonatomic, readonly) float currentAdditionalVelocityPerLaunch;
 
 @end
 
 @interface MZAttack_Base(Protected)
--(void)_launchBullets;
 
--(void)_addMotionSettingToBullet:(MZEventControlCharacter *)bullet;
+-(void)_launchBullets;
+-(MZBullet *)_getBullet;
+-(void)_addToActionManager:(MZBullet *)bullet;
 
 -(void)_updateAdditionalVelocity;
 
--(void)_enableBulletAndAddToActionManager:(MZEventControlCharacter *)bullet;
-
--(void)_setBulletLeader:(MZEventControlCharacter *)bulletLeader;
-
--(MZEventControlCharacter *)_getCurrentBulletLeader;
 -(MZCharacterType)_getBulletType;
--(NSMutableDictionary *)_getCommonValuesNSDictionary;
--(MZEventControlCharacter *)_getBullet;
+
+//-(void)_addMotionSettingToBullet:(MZEventControlCharacter *)bullet;
+//-(void)_setBulletLeader:(MZEventControlCharacter *)bulletLeader;
+//-(MZEventControlCharacter *)_getCurrentBulletLeader;
+//-(NSMutableDictionary *)_getCommonValuesNSDictionary;
 @end

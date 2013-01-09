@@ -12,7 +12,6 @@
 #import "MZControlUpdate.h"
 
 @interface MZCharacterPartControl (Private)
--(void)_updateMotion;
 @end
 
 @implementation MZCharacterPartControl
@@ -107,6 +106,19 @@
     return move;
 }
 
+-(MZAttack_Base *)addAttackWithName:(NSString *)name attackType:(MZAttackClassType)classType
+{
+    MZAssert( characterPartDelegate != nil, @"characterPartDelegate is nil" );
+    if( attackControlUpdate == nil ) attackControlUpdate = [[MZControlUpdate alloc] initWithBaseClass: [MZAttack_Base class]];
+
+    MZAttack_Base *attack = [MZAttack_Base createWithClassType: classType];
+    attack.attackDelegate = characterPartDelegate;
+
+    [attackControlUpdate add: attack key: name];
+
+    return attack;
+}
+
 @end
 
 #pragma mark - methods
@@ -118,7 +130,8 @@
 -(void)_update
 {    
     [super _update];
-    [self _updateMotion];
+    if( moveControlUpdate != nil ) [moveControlUpdate update];
+    if( attackControlUpdate != nil ) [attackControlUpdate update];
 }
 
 @end
@@ -126,14 +139,4 @@
 #pragma mark
 
 @implementation MZCharacterPartControl (Private)
-
-#pragma mark - init
-
-#pragma mark - methods
-
--(void)_updateMotion
-{
-    if( moveControlUpdate != nil ) [moveControlUpdate update];
-}
-
 @end

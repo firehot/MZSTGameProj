@@ -39,22 +39,22 @@
 {
     [super _launchBullets];
     
-    CGPoint centerMovingVector = [attackTargetHelpKit getMovingVectorToTarget];
-    float currentDegree = setting.intervalDegree/2;
-    
-    for( int i = 0; i < setting.numberOfWays + ( launchCount - 1 )*setting.additionalWaysPerLaunch; i++ )
-    {
-        MZEventControlCharacter *bullet = [self _getBullet];   
-        
-        [self _setSideWayWithBullet: bullet 
-                              index: i
-                 centerMovingVector: centerMovingVector
-                      currentDegree: &currentDegree];
-    
-        [self _enableBulletAndAddToActionManager: bullet];
-    }
-    
-    [self _updateAdditionalVelocity];
+//    CGPoint centerMovingVector = [attackTargetHelpKit getMovingVectorToTarget];
+//    float currentDegree = setting.intervalDegree/2;
+//    
+//    for( int i = 0; i < setting.numberOfWays + ( launchCount - 1 )*setting.additionalWaysPerLaunch; i++ )
+//    {
+//        MZEventControlCharacter *bullet = [self _getBullet];   
+//        
+//        [self _setSideWayWithBullet: bullet 
+//                              index: i
+//                 centerMovingVector: centerMovingVector
+//                      currentDegree: &currentDegree];
+//    
+//        [self _enableBulletAndAddToActionManager: bullet];
+//    }
+//    
+//    [self _updateAdditionalVelocity];
 }
 
 @end
@@ -93,7 +93,7 @@
     CGPoint movingVector = [MZMath unitVectorFromVector1: centerMovingVector mapToDegrees: *currentDegree];
     firstMotionSetting.movingVector = movingVector;
     
-    *currentDegree = -*currentDegree + setting.intervalDegree;
+//    *currentDegree = -*currentDegree + setting.intervalDegree;
 }
 
 @end

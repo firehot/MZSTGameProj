@@ -1,5 +1,5 @@
 #import "MZLevelComponents.h"
-#import "MZGamePlayLayer.h"
+#import "MZGamePlayLayersHeader.h"
 #import "MZCharactersActionManager.h"
 #import "MZEventsExecutor.h"
 #import "MZScenario.h"

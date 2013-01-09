@@ -14,7 +14,7 @@
 {
     if( self.activePlayerBullets != nil )
     {
-        for( MZPlayerBullet *playerBullet in self.activePlayerBullets )
+        for( MZBullet *playerBullet in self.activePlayerBullets )
         {
             [playerBullet update];
             

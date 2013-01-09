@@ -13,7 +13,7 @@
     id controlDelegate; // not complete
 }
 
-+(MZControl_Base *)controlWithDelegate:(id<MZControlDelegate>)aControlDelegate;
++(MZControl_Base *)controlWithDelegate:(id<MZControlDelegate>)aControlDelegate; // replace to simple init
 -(id)initWithDelegate:(id<MZControlDelegate>)aControlDelegate;
 
 @property (nonatomic, readwrite) bool isRunOnce;

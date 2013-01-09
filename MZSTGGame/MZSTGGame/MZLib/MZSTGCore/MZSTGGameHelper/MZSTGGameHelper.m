@@ -158,4 +158,17 @@
     return nil;
 }
 
++(NSString *)typeStringFromCharacterType:(MZCharacterType)characterType
+{
+    switch(characterType)
+    {
+        case kMZCharacterType_Player: return @"Player";
+        case kMZCharacterType_Enemy: return @"Enemy";
+        case kMZCharacterType_PlayerBullet: return @"PlayerBullet";
+        case kMZCharacterType_EnemyBullet: return @"EnemyBullet";
+
+        default: MZAssertFasle( @"unknow type" ); return nil;
+    }
+}
+
 @end

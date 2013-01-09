@@ -4,6 +4,7 @@
 #import "MZCharacterPart.h"
 
 #import "MZMove_Base.h"
+#import "MZAttacksHeader.h"
 #import "MZCharacterPartControl.h"
 
 @implementation MZEnemy
@@ -28,6 +29,13 @@
 -(id<MZCharacterPartControlDelegate>)characterPartByName:(NSString *)partName
 {
     return (MZCharacterPart *)[self getChildWithName: partName];
+}
+
+#pragma mark - properties
+
+-(MZCharacterType)characterType
+{
+    return kMZCharacterType_Enemy;
 }
 
 #pragma mark - methods (override)
@@ -56,13 +64,20 @@
     pControl1.characterPartDelegate = [self.partsDictionary objectForKey: @"p"];
 
     MZMove_Base *testPMove = [pControl1 addMoveWithName: @"A" moveType: kMZMoveClass_Linear];
-    testPMove.velocity = 50;
+    testPMove.velocity = 0;
     testPMove.movingVector = mzp( 0, -1 );
     testPMove.duration = -1;
     
-    
-//    pControlUpdate.controlBaseClass = [MZCharacterPartControl class];
-//    id ff = [pControlUpdate addTest];
+    MZAttack_OddWay *attack = (MZAttack_OddWay *)[pControl1 addAttackWithName: @"A" attackType: kMZAttack_OddWay];
+    attack.initVelocity = 10;
+    attack.intervalDegrees = 10;
+    attack.numberOfWays = 1;
+    attack.bulletName = @"";
+    attack.colddown = 0.3;
+    attack.additionalVelocityPerLaunch = 50;
+    attack.additionalVelocityLimited = 300;
+    attack.additionalWaysPerLaunch = 2;
+    attack.duration = 0.5f;
 
     [pControlUpdate add: pControl1 key: @"p1"];
 }
@@ -100,10 +115,6 @@
 {
     [super _update];
     [modeControlUpdate update];
-    
-//    NSStringFromCGAffineTransform(<#CGAffineTransform transform#>)
-//    MZLodingLog(<#level#>, <#desc, ...#>)
-//    ((MZCharacterPart *)[partsDictionary objectForKey: @"p"]).visible = true;
 }
 
 @end

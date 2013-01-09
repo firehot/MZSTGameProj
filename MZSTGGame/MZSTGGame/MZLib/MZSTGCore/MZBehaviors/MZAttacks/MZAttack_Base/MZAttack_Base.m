@@ -15,27 +15,72 @@
 
 @implementation MZAttack_Base
 
+@synthesize attackDelegate;
+@synthesize numberOfWays;
+@synthesize additionalWaysPerLaunch;
+@synthesize strength;
+@synthesize colddown;
+@synthesize intervalDegrees;
+@synthesize initVelocity;
+@synthesize additionalVelocityPerLaunch;
+@synthesize additionalVelocityLimited;
+@synthesize maxVelocity;
+@synthesize bulletName;
+
+@synthesize currentVelocity;
+@synthesize currentAdditionalVelocityPerLaunch;
+
 #pragma mark - init and dealloc
 
-+(MZAttack_Base*)attackWithDelegate:(id<MZAttackDelegate>)aControlDelegate setting:(MZAttackSetting *)aSetting
++(MZAttack_Base *)createWithClassType:(MZAttackClassType)classType
 {
-    return [[[self alloc] initWithDelegate: aControlDelegate setting: aSetting] autorelease];
+    MZAttack_Base *attack = [NSClassFromString( [MZAttack_Base classStringFromType: classType] ) attack];
+    MZAssert( attack != nil, @"Can not create attack(%@)", [MZAttack_Base classStringFromType: classType] );
+    return attack;
 }
 
--(id)initWithDelegate:(id<MZAttackDelegate>)aControlDelegate setting:(MZAttackSetting *)aSetting
-{
-    setting = ( aSetting != nil )? [aSetting retain] : nil;
-
-    self = [super initWithDelegate: aControlDelegate];
-    attackDelegate = aControlDelegate;
-    return self;
-}
++(MZAttack_Base *)attack
+{  return [[[self alloc] init] autorelease]; }
 
 -(void)dealloc
 {
-    [setting release];
     [attackTargetHelpKit release];
     [super dealloc];
+}
+
+#pragma marl - properties
+
+-(float)currentVelocity
+{
+    return initVelocity + currentAdditionalVelocity;
+}
+
+#pragma mark - methods (override)
+
+-(void)reset
+{
+    [super reset];
+    launchCount = 0;
+    currentAdditionalVelocity = 0;
+}
+
+#pragma mark - methods
+
++(NSString *)classStringFromType:(MZAttackClassType)moveClassType
+{
+    NSString *typeString = nil;
+
+    switch( moveClassType )
+    {
+        case kMZAttack_OddWay:
+            typeString = @"OddWay";
+            break;
+        default:
+            MZAssert( false, @"Unkwno type" );
+            break;
+    }
+
+    return [NSString stringWithFormat: @"MZAttack_%@",  typeString];
 }
 
 @end
@@ -50,20 +95,33 @@
 {
     [super _initValues];
     
-    launchCount = 0;
-    colddownCount = 0;
-    currentAdditionalVelocity = 0;
+//    launchCount = 0;
+//    colddownCount = 0;
+//    currentAdditionalVelocity = 0;
+    [self reset];
+
+	numberOfWays = 0;
+    additionalWaysPerLaunch = 0;
+    strength = 1;
+    colddown = 99;
+    intervalDegrees = 0;
+    initVelocity = 0;
+    additionalVelocityPerLaunch = 0;
+    maxVelocity = -1;
+    bulletName = nil;
+    
+//	public MZFaceTo.Type bulletFaceToType = MZFaceTo.Type.MovingVector;
 
     // need re-design
-    attackTargetHelpKit = [[MZAttackTargetHelpKit alloc] initWithAttackSetting: setting controlTarget: controlDelegate];
+//    attackTargetHelpKit = [[MZAttackTargetHelpKit alloc] initWithAttackSetting: setting controlTarget: controlDelegate];
 }
 
 -(void)_checkActiveCondition
 {
     [super _checkActiveCondition];
     
-    if( !setting.isRepeatForever && self.lifeTimeCount >= setting.duration )
-        [self disable];
+//    if( !setting.isRepeatForever && self.lifeTimeCount >= setting.duration )
+//        [self disable];
 }
 
 -(void)_update
@@ -79,49 +137,36 @@
     launchCount++;
 }
 
--(void)_addMotionSettingToBullet:(MZEventControlCharacter *)bullet
-{
-    if( setting.motionSettingNsDictionariesArray != nil )
-    {
-        for( NSDictionary *nsDictionary in setting.motionSettingNsDictionariesArray )
-        {
-            MZMotionSetting *motionSetting = [MZMotionSetting motionSettingWithNSDictionary: nsDictionary];
-            NSString *modeName = [NSString stringWithFormat: @"Mode_Created_By_%@", self];
-            [bullet addMotionSetting: motionSetting modeName: modeName];
-        }
-    }
-}
-
 -(void)_updateAdditionalVelocity
 {
-    if( setting.additionalVelocity == 0 ) return;
+    if( self.additionalVelocityPerLaunch == 0 ) return;
     
-    currentAdditionalVelocity += setting.additionalVelocity;
+    currentAdditionalVelocity += self.additionalVelocityPerLaunch;
     
-    if( setting.additionalVelocityLimited != -1 )
+    if( self.additionalVelocityLimited != -1 )
     {
-        if( ( setting.additionalVelocityLimited < 0 && currentAdditionalVelocity < setting.additionalVelocityLimited ) ||
-           ( setting.additionalVelocityLimited > 0 && currentAdditionalVelocity > setting.additionalVelocityLimited ) )
-            currentAdditionalVelocity = setting.additionalVelocityLimited;
+        if( ( self.additionalVelocityLimited < 0 && currentAdditionalVelocity < self.additionalVelocityLimited ) ||
+           ( self.additionalVelocityLimited > 0 && currentAdditionalVelocity > self.additionalVelocityLimited ) )
+            currentAdditionalVelocity = self.additionalVelocityLimited;
     }
 }
 
--(void)_enableBulletAndAddToActionManager:(MZEventControlCharacter *)bullet
+-(void)_addToActionManager:(MZBullet *)bullet
 {
-    [bullet enable];
-    [[MZLevelComponents sharedInstance].charactersActionManager addCharacterWithType: [self _getBulletType] character: bullet];
+    [[MZLevelComponents sharedInstance].gamePlayLayer.charactersActionManager addWithType: [self _getBulletType] character: bullet];
 }
 
 -(void)_setBulletLeader:(MZEnemy *)bulletLeader
 {
-    currentBulletLeaderRef = bulletLeader;
+//    currentBulletLeaderRef = bulletLeader;
 }
 
--(MZEventControlCharacter *)_getCurrentBulletLeader
-{
-    MZAssert( currentBulletLeaderRef, @"currentBulletLeaderRef is nil" );
-    return currentBulletLeaderRef;
-}
+//-(MZEventControlCharacter *)_getCurrentBulletLeader
+//{
+//    MZAssert( currentBulletLeaderRef, @"currentBulletLeaderRef is nil" );
+//    return currentBulletLeaderRef;
+//    return nil;
+//}
 
 -(MZCharacterType)_getBulletType
 {
@@ -143,52 +188,15 @@
     return kMZCharacterType_None;
 }
 
--(NSMutableDictionary *)_getCommonValuesNSDictionary
+-(MZBullet *)_getBullet
 {
-    // 應該追加 name 設定
-    NSDictionary *nsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  [NSNumber numberWithInt: setting.strength], @"Strength",
-                                  [NSNumber numberWithBool: true], @"IsRepeatForever",
-                                  [NSNumber numberWithFloat: setting.colddownTime], @"Colddown",
-                                  [NSNumber numberWithFloat: setting.additionalVelocity], @"AdditionalVelocity",
-                                  [NSNumber numberWithFloat: setting.additionalVelocityLimited], @"AdditionalVelocityLimited",
-                                  [MZSTGGameHelper getFaceToStringWithType: setting.faceTo] , @"FaceTo",
-                                  setting.bulletSettingName, @"BulletName",
-                                  setting.motionSettingNsDictionariesArray, @"Motions",
-                                  nil];
-    
-    return [NSMutableDictionary dictionaryWithDictionary: nsDictionary];
-}
-
--(MZEventControlCharacter *)_getBullet
-{
-    MZEnemyBullet *bullet = (MZEnemyBullet *)
-    [[MZCharactersFactory sharedCharactersFactory] getCharacterByType: [self _getBulletType]
-                                                          settingName: setting.bulletSettingName];
-    
-    MZAssert( bullet != nil, @"bullet is nil(name=%@)", setting.bulletSettingName );
+    MZBullet *bullet = (MZBullet *)[[MZLevelComponents sharedInstance].gamePlayLayer.charactersFactory getByType: [self _getBulletType]
+                                                                                                            name: bulletName];
+    MZAssert( bullet != nil, @"bullet is nil(name=%@)", bulletName );
     
     bullet.position = [attackDelegate standardPosition];
-
-    // need fix: set bullet spawn info ...
-    [bullet setSpawnWithaParentCharacterPart: (MZCharacterPart *)attackDelegate spawnPosition: [attackDelegate standardPosition]];
-    
-    [self _addMotionSettingToBullet: bullet];
-    MZMotionSetting *firstMotionSetting = [bullet getMotionSettingWithIndex: 0];
-    
-    MZAssert( firstMotionSetting, @"firstMotionSetting is nil" );
-    
-    firstMotionSetting.initVelocity += currentAdditionalVelocity;
-    if( firstMotionSetting.initVelocity < 0 ) firstMotionSetting.initVelocity = 0;
-    
-//    bullet.characterDynamicSetting.strength = setting.strength;
-//    bullet.characterDynamicSetting.faceTo = setting.faceTo;
-    [bullet applyDynamicSetting];
-    
-//    if( launchCount == 1 )
-//        [self _setBulletLeader: bullet];
-//    else
-//        bullet.leaderCharacterRef = currentBulletLeaderRef;
+    bullet.strength = self.strength;
+    // faceto type set
 
     return bullet;
 }
@@ -207,7 +215,7 @@
     
     if( colddownCount <= 0 )
     {
-        colddownCount += setting.colddownTime;
+        colddownCount += self.colddown;
         return true;
     }
     

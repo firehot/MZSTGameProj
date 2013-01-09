@@ -61,13 +61,15 @@
 
 -(MZAttackSetting *)_getAttackSettingWithTarget:(MZCharacter *)aTarget index:(int)index
 {
-    NSMutableDictionary *nsDictionary = [self _getCommonValuesNSDictionary];
-    [nsDictionary setObject: [NSNumber numberWithInt: setting.intervalDegree] forKey: @"IntervalDegree"];
-    [nsDictionary setObject: @"Vortex" forKey: @"Type"];    
+//    NSMutableDictionary *nsDictionary = [self _getCommonValuesNSDictionary];
+//    [nsDictionary setObject: [NSNumber numberWithInt: setting.intervalDegree] forKey: @"IntervalDegree"];
+//    [nsDictionary setObject: @"Vortex" forKey: @"Type"];    
+//
+//    // working ...  我也不知道要 work 什麼 ... XD (12/05)
+//    MZAttackSetting *attackSetting = [MZAttackSetting settingWithNSDictionary: nsDictionary];
+//    return attackSetting;
 
-    // working ...  我也不知道要 work 什麼 ... XD (12/05)
-    MZAttackSetting *attackSetting = [MZAttackSetting settingWithNSDictionary: nsDictionary];
-    return attackSetting;
+    return nil; // temp
 }
 
 @end

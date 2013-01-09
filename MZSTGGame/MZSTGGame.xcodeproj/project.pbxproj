@@ -230,8 +230,6 @@
 		D3B48F0D14D93D73004FC4D7 /* MZCharactersFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E2614D93D73004FC4D7 /* MZCharactersFactory.m */; };
 		D3B48F0E14D93D73004FC4D7 /* MZCharacterTypeStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E2914D93D73004FC4D7 /* MZCharacterTypeStrings.m */; };
 		D3B48F0F14D93D73004FC4D7 /* MZEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E2C14D93D73004FC4D7 /* MZEnemy.m */; };
-		D3B48F1014D93D73004FC4D7 /* MZEnemyBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E2F14D93D73004FC4D7 /* MZEnemyBullet.m */; };
-		D3B48F1214D93D73004FC4D7 /* MZPlayerBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E3614D93D73004FC4D7 /* MZPlayerBullet.m */; };
 		D3B48F1E14D93D73004FC4D7 /* MZScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E6014D93D73004FC4D7 /* MZScenario.m */; };
 		D3B48F2E14D93D73004FC4D7 /* MZScenesFlowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E9714D93D73004FC4D7 /* MZScenesFlowController.m */; };
 		D3B48F3014D93D73004FC4D7 /* MZAccelerometerState.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B48E9F14D93D73004FC4D7 /* MZAccelerometerState.m */; };
@@ -325,6 +323,7 @@
 		DFA7EA36169975B2008A87D0 /* MZDictionaryArray.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA35169975B2008A87D0 /* MZDictionaryArray.m */; };
 		DFA7EA3A16998969008A87D0 /* MZMove_Linear.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA3916998969008A87D0 /* MZMove_Linear.m */; };
 		DFA7EA3F1699A946008A87D0 /* MZControlUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA3E1699A946008A87D0 /* MZControlUpdate.m */; };
+		DFA7EA43169C8CE7008A87D0 /* MZBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA7EA42169C8CE7008A87D0 /* MZBullet.m */; };
 		DFB4511B160FCE5B005530CB /* MZFaceToControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB4511A160FCE5B005530CB /* MZFaceToControl.m */; };
 		DFBD764E162C666900E26BD4 /* [test]bg_cloud-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DFBD764C162C666800E26BD4 /* [test]bg_cloud-hd.png */; };
 		DFBD764F162C666900E26BD4 /* [test]bg_cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = DFBD764D162C666900E26BD4 /* [test]bg_cloud.png */; };
@@ -789,11 +788,7 @@
 		D3B48E2914D93D73004FC4D7 /* MZCharacterTypeStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCharacterTypeStrings.m; sourceTree = "<group>"; };
 		D3B48E2B14D93D73004FC4D7 /* MZEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEnemy.h; sourceTree = "<group>"; };
 		D3B48E2C14D93D73004FC4D7 /* MZEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEnemy.m; sourceTree = "<group>"; };
-		D3B48E2E14D93D73004FC4D7 /* MZEnemyBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZEnemyBullet.h; sourceTree = "<group>"; };
-		D3B48E2F14D93D73004FC4D7 /* MZEnemyBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZEnemyBullet.m; sourceTree = "<group>"; };
 		D3B48E3314D93D73004FC4D7 /* MZGameCharactersHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZGameCharactersHeader.h; sourceTree = "<group>"; };
-		D3B48E3514D93D73004FC4D7 /* MZPlayerBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPlayerBullet.h; sourceTree = "<group>"; };
-		D3B48E3614D93D73004FC4D7 /* MZPlayerBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPlayerBullet.m; sourceTree = "<group>"; };
 		D3B48E5F14D93D73004FC4D7 /* MZScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZScenario.h; sourceTree = "<group>"; };
 		D3B48E6014D93D73004FC4D7 /* MZScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZScenario.m; sourceTree = "<group>"; };
 		D3B48E9614D93D73004FC4D7 /* MZScenesFlowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZScenesFlowController.h; sourceTree = "<group>"; };
@@ -938,6 +933,8 @@
 		DFA7EA3B16998C31008A87D0 /* MZMovesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZMovesHeader.h; sourceTree = "<group>"; };
 		DFA7EA3D1699A946008A87D0 /* MZControlUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZControlUpdate.h; sourceTree = "<group>"; };
 		DFA7EA3E1699A946008A87D0 /* MZControlUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZControlUpdate.m; sourceTree = "<group>"; };
+		DFA7EA41169C8CE7008A87D0 /* MZBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZBullet.h; sourceTree = "<group>"; };
+		DFA7EA42169C8CE7008A87D0 /* MZBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZBullet.m; sourceTree = "<group>"; };
 		DFB45119160FCE5B005530CB /* MZFaceToControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFaceToControl.h; sourceTree = "<group>"; };
 		DFB4511A160FCE5B005530CB /* MZFaceToControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFaceToControl.m; sourceTree = "<group>"; };
 		DFB4511C160FD1A7005530CB /* MZFaceToControlProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZFaceToControlProtocol.h; sourceTree = "<group>"; };
@@ -2362,8 +2359,7 @@
 				D3B48E2414D93D73004FC4D7 /* MZCharactersFactory */,
 				D3B48E2714D93D73004FC4D7 /* MZCharacterTypeString */,
 				D3B48E2A14D93D73004FC4D7 /* MZEnemy */,
-				D3B48E2D14D93D73004FC4D7 /* MZEnemyBullet */,
-				D3B48E3414D93D73004FC4D7 /* MZPlayerBullet */,
+				DFA7EA40169C8CE5008A87D0 /* MZBullet */,
 				D32D9E2A1693D7700027F920 /* MZPlayer */,
 			);
 			path = MZGameCharacters;
@@ -2394,24 +2390,6 @@
 				D3B48E2C14D93D73004FC4D7 /* MZEnemy.m */,
 			);
 			path = MZEnemy;
-			sourceTree = "<group>";
-		};
-		D3B48E2D14D93D73004FC4D7 /* MZEnemyBullet */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E2E14D93D73004FC4D7 /* MZEnemyBullet.h */,
-				D3B48E2F14D93D73004FC4D7 /* MZEnemyBullet.m */,
-			);
-			path = MZEnemyBullet;
-			sourceTree = "<group>";
-		};
-		D3B48E3414D93D73004FC4D7 /* MZPlayerBullet */ = {
-			isa = PBXGroup;
-			children = (
-				D3B48E3514D93D73004FC4D7 /* MZPlayerBullet.h */,
-				D3B48E3614D93D73004FC4D7 /* MZPlayerBullet.m */,
-			);
-			path = MZPlayerBullet;
 			sourceTree = "<group>";
 		};
 		D3B48E4314D93D73004FC4D7 /* MZGamePlayComponenets */ = {
@@ -3161,6 +3139,15 @@
 			path = MZControlUpdate;
 			sourceTree = "<group>";
 		};
+		DFA7EA40169C8CE5008A87D0 /* MZBullet */ = {
+			isa = PBXGroup;
+			children = (
+				DFA7EA41169C8CE7008A87D0 /* MZBullet.h */,
+				DFA7EA42169C8CE7008A87D0 /* MZBullet.m */,
+			);
+			path = MZBullet;
+			sourceTree = "<group>";
+		};
 		DFB45118160FCE5B005530CB /* MZFaceToControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -3355,8 +3342,6 @@
 				D3B48F0D14D93D73004FC4D7 /* MZCharactersFactory.m in Sources */,
 				D3B48F0E14D93D73004FC4D7 /* MZCharacterTypeStrings.m in Sources */,
 				D3B48F0F14D93D73004FC4D7 /* MZEnemy.m in Sources */,
-				D3B48F1014D93D73004FC4D7 /* MZEnemyBullet.m in Sources */,
-				D3B48F1214D93D73004FC4D7 /* MZPlayerBullet.m in Sources */,
 				D3B48F1E14D93D73004FC4D7 /* MZScenario.m in Sources */,
 				D3B48F2E14D93D73004FC4D7 /* MZScenesFlowController.m in Sources */,
 				D3B48F3014D93D73004FC4D7 /* MZAccelerometerState.m in Sources */,
@@ -3566,6 +3551,7 @@
 				DFA7EA36169975B2008A87D0 /* MZDictionaryArray.m in Sources */,
 				DFA7EA3A16998969008A87D0 /* MZMove_Linear.m in Sources */,
 				DFA7EA3F1699A946008A87D0 /* MZControlUpdate.m in Sources */,
+				DFA7EA43169C8CE7008A87D0 /* MZBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

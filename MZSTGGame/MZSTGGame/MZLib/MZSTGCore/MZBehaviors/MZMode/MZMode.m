@@ -78,6 +78,12 @@
     return partControlUpdate;
 }
 
+-(MZControlUpdate *)partControlUpdateByName:(NSString *)name
+{
+    MZAssertFasle( @"not implements" );
+    return nil;
+}
+
 @end
 
 #pragma mark
