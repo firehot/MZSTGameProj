@@ -51,6 +51,7 @@
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [touchesControlPlayer touchesBegan: touches event: event];
+    [parentSceneRef switchSceneTo: kMZSceneType_Title];
 }
 
 -(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event

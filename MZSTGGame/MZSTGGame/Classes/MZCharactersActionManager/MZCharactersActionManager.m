@@ -37,6 +37,10 @@
     [playerBulletsActionControl release];
     [enemiesActionControl release];
     [enemyBulletsActionControl release];
+
+    for( MZCharacter *player in activePlayers )
+        [player disable];
+    [activePlayers release];
      
     for( MZBehavior_Base *playerBullet in activePlayerBullets )
         [playerBullet disable];

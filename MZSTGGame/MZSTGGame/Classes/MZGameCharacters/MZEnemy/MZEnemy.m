@@ -45,6 +45,7 @@
     [super initDefaultMode];
     
     MZMode *mode = [self addModeWithName: @"M"];
+    mode.duration = 3;
 
 //    MZMove_Base *testMove = [mode addMoveWithName: @"A" moveType: kMZMoveClass_Linear];
 //    testMove.velocity = 50;
@@ -82,6 +83,15 @@
     attack.target.calcuteEveryTime = true;
 
     [pControlUpdate add: pControl1 key: @"p1"];
+
+    // mode 2
+    MZMode *mode2 = [self addModeWithName: @"mode2"];
+    mode2.duration = -1;
+
+    MZMove_Base *move2 = [mode2 addMoveWithName: @"kk" moveType: kMZMoveClass_Linear];
+    move2.duration = -1;
+    move2.movingVector = mzp( 0, 1 );
+    move2.velocity = 300;
 }
 
 #pragma mark - methods
@@ -120,3 +130,4 @@
 }
 
 @end
+
