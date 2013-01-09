@@ -4,7 +4,6 @@
 #import "MZCharactersActionManager.h"
 #import "MZAttackSetting.h"
 #import "MZUtilitiesHeader.h"
-#import "MZMotionSetting.h"
 #import "MZAttackTargetHelpKit.h"
 #import "MZSTGGameHelper.h"
 #import "MZTime.h"

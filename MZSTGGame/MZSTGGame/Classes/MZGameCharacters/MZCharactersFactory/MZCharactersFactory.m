@@ -2,7 +2,6 @@
 #import "MZSTGCharactersHeader.h"
 #import "MZLevelComponentsHeader.h"
 #import "MZGameSettingsHeader.h"
-#import "MZSTGSettingsHeader.h"
 #import "MZCharacterTypeStrings.h"
 #import "MZUtilitiesHeader.h"
 #import "MZCharacterCollisionColor.h"

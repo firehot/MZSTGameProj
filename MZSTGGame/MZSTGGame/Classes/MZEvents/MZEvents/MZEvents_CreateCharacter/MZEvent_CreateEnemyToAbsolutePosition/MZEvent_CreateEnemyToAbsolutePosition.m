@@ -1,7 +1,6 @@
 #import "MZEvent_CreateEnemyToAbsolutePosition.h"
 #import "MZEvent_CreateEnemy.h"
 #import "MZEnemy.h"
-#import "MZMotionSetting.h"
 #import "MZSTGGameHelper.h"
 #import "MZObjectHelper.h"
 #import "MZLogMacro.h"

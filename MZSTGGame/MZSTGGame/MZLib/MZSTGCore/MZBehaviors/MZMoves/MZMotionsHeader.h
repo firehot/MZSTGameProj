@@ -1,5 +1,3 @@
-#import "MZMotionSetting.h"
-#import "MZMotionsFactory.h"
 #import "MZMove_Base.h"
 #import "MZMove_Linear.h"
 #import "MZMotion_Idle.h"

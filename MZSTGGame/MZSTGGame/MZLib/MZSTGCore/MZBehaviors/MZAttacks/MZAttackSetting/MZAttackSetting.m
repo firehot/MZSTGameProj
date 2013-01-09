@@ -1,5 +1,4 @@
 #import "MZAttackSetting.h"
-#import "MZMotionSetting.h"
 #import "MZSTGGameHelper.h"
 #import "MZLogMacro.h"
 

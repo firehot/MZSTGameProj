@@ -1,5 +1,4 @@
 #import "MZLoadingScene.h"
-#import "MZSTGSettingsHeader.h"
 #import "MZSceneTypeDefine.h"
 #import "MZScenesHeader.h"
 #import "MZScenesFactory.h"

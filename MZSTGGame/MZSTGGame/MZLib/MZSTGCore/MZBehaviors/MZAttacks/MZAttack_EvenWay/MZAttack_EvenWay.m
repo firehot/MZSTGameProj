@@ -1,12 +1,10 @@
 #import "MZAttack_EvenWay.h"
 #import "MZAttackSetting.h"
-#import "MZEnemySetting.h"
 #import "MZCharactersFactory.h"
 #import "MZEnemy.h"
 #import "MZCharactersActionManager.h"
 #import "MZMath.h"
 #import "MZCharacterPart.h"
-#import "MZMotionSetting.h"
 #import "MZAttackTargetHelpKit.h"
 
 @interface MZAttack_EvenWay (Private)
@@ -78,10 +76,10 @@
               centerMovingVector:(CGPoint)centerMovingVector 
                    currentDegree:(float *)currentDegree
 {
-    MZMotionSetting *firstMotionSetting = [bullet getMotionSettingWithIndex: 0];
-    CGPoint movingVector = [MZMath unitVectorFromVector1: centerMovingVector mapToDegrees: *currentDegree];
-    firstMotionSetting.movingVector = movingVector;
-    *currentDegree = -*currentDegree;
+//    MZMotionSetting *firstMotionSetting = [bullet getMotionSettingWithIndex: 0];
+//    CGPoint movingVector = [MZMath unitVectorFromVector1: centerMovingVector mapToDegrees: *currentDegree];
+//    firstMotionSetting.movingVector = movingVector;
+//    *currentDegree = -*currentDegree;
 }
 
 -(void)_setRightSideWayWithBullet:(MZEventControlCharacter *)bullet 
@@ -89,10 +87,10 @@
                centerMovingVector:(CGPoint)centerMovingVector 
                     currentDegree:(float *)currentDegree
 {
-    MZMotionSetting *firstMotionSetting = [bullet getMotionSettingWithIndex: 0];
-    CGPoint movingVector = [MZMath unitVectorFromVector1: centerMovingVector mapToDegrees: *currentDegree];
-    firstMotionSetting.movingVector = movingVector;
-    
+//    MZMotionSetting *firstMotionSetting = [bullet getMotionSettingWithIndex: 0];
+//    CGPoint movingVector = [MZMath unitVectorFromVector1: centerMovingVector mapToDegrees: *currentDegree];
+//    firstMotionSetting.movingVector = movingVector;
+
 //    *currentDegree = -*currentDegree + setting.intervalDegree;
 }
 

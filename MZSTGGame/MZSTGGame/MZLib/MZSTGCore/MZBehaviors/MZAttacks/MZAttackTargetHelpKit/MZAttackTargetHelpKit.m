@@ -1,6 +1,5 @@
 #import "MZAttackTargetHelpKit.h"
 #import "MZAttackSetting.h"
-#import "MZMotionSetting.h"
 #import "MZGameObject.h"
 #import "MZObjectHelper.h"
 #import "MZLevelComponentsHeader.h"
@@ -232,11 +231,12 @@
 
 -(CGPoint)_getMovingVectorDependOnSetting_TypeIs_None
 {
-    NSDictionary *settingNSDictionary = [settingRef.motionSettingNsDictionariesArray objectAtIndex: 0];
-    MZMotionSetting *firstMotionSetting = [MZMotionSetting motionSettingWithNSDictionary: settingNSDictionary];
-    MZAssert( [MZMath isPointValid: firstMotionSetting.movingVector], @"firstMotionSetting.movingVector is invalid" );
-
-    return [MZMath unitVectorFromVector: firstMotionSetting.movingVector];
+//    NSDictionary *settingNSDictionary = [settingRef.motionSettingNsDictionariesArray objectAtIndex: 0];
+//    MZMotionSetting *firstMotionSetting = [MZMotionSetting motionSettingWithNSDictionary: settingNSDictionary];
+//    MZAssert( [MZMath isPointValid: firstMotionSetting.movingVector], @"firstMotionSetting.movingVector is invalid" );
+//
+//    return [MZMath unitVectorFromVector: firstMotionSetting.movingVector];
+    return CGPointZero;
 }
 
 -(CGPoint)_getMovingVectorDependOnSetting_TypeIs_AbsolutePosition

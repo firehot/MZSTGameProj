@@ -1,5 +1,4 @@
 #import "MZMotion_LinearToTarget.h"
-#import "MZMotionSetting.h"
 #import "MZCharacter.h"
 #import "MZMath.h"
 #import "MZSTGGameHelper.h"

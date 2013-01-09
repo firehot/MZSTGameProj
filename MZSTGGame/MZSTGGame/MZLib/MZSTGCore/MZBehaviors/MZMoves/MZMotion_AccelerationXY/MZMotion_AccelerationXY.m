@@ -1,6 +1,5 @@
 #import "MZMotion_AccelerationXY.h"
 #import "MZCharacter.h"
-#import "MZMotionSetting.h"
 #import "MZUtilitiesHeader.h"
 
 @implementation MZMotion_AccelerationXY

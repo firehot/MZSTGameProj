@@ -7,7 +7,6 @@
 -(MZCharacterType)getMZCharacterTypeEnumByString:(NSString *)string;
 -(NSString *)getCharacterTypeDescByType:(MZCharacterType)type;
 -(NSString *)getCharacterClassNameByType:(MZCharacterType)type;
--(NSString *)getCharacterSettingClassNameByType:(MZCharacterType)type;
 
 @property (nonatomic, readonly) NSString *player;
 @property (nonatomic, readonly) NSString *enemy;

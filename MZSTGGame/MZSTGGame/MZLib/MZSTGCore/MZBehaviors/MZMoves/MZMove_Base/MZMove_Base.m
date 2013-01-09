@@ -4,7 +4,6 @@
 #import "MZRemoveControlsHeader.h"
 #import "MZObjectHelper.h"
 #import "MZTime.h"
-#import "MZCharacterSetting.h"
 #import "MZUtilitiesHeader.h"
 
 #define TIME_TO_CHECK_REMOVE 1.0

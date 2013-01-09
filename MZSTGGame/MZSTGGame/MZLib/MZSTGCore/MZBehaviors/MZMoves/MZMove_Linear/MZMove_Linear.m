@@ -1,5 +1,4 @@
 #import "MZMove_Linear.h"
-#import "MZMotionSetting.h"
 #import "MZCharacter.h"
 #import "MZTime.h"
 #import "MZUtilitiesHeader.h"

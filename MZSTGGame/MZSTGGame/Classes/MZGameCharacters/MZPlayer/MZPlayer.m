@@ -1,5 +1,4 @@
 #import "MZPlayer.h"
-#import "MZPlayerSetting.h"
 #import "MZUserControlPlayerStyleHeader.h"
 #import "MZObjectHelper.h"
 #import "MZGameSettingsHeader.h"
@@ -16,30 +15,12 @@
 
 -(void)dealloc
 {
-    [playerSetting release];
     [userControlPlayerStyle release];
     
     [super dealloc];
 }
 
 #pragma mark - properties (override)
-
--(void)setSetting:(MZCharacterSetting *)aSetting
-{
-    MZAssert( [aSetting isKindOfClass: [MZPlayerSetting class]], @"aSetting is not MZPlayerSetting class" );
-    
-    if( playerSetting == aSetting ) return;
-    if( playerSetting != nil ) [playerSetting release];
-    
-    playerSetting = (MZPlayerSetting *)aSetting;
-    [playerSetting retain];
-}
-                     
--(MZPlayerSetting *)setting
-{
-    if( playerSetting == nil ) playerSetting = [[MZPlayerSetting alloc] init];
-    return playerSetting;
-}
 
 #pragma mark - MZPlayerTouchDelegate
 

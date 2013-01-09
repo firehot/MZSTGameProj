@@ -112,20 +112,4 @@ static MZCharacterTypeStrings *sharedMZCharacterTypeStrings_ = nil;
     }
 }
 
--(NSString *)getCharacterSettingClassNameByType:(MZCharacterType)type
-{
-    switch( type )
-    {
-        case kMZCharacterType_Player:
-            return @"MZPlayerSetting";
-        case kMZCharacterType_Enemy:
-        case kMZCharacterType_PlayerBullet:
-        case kMZCharacterType_EnemyBullet:
-        case kMZCharacterType_Background:
-            return @"MZEnemySetting";
-        default:
-            return @"Unknow";
-    }  
-}
-
 @end

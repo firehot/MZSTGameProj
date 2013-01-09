@@ -1,6 +1,5 @@
 #import "MZCharacter.h"
 #import "MZLevelComponentsHeader.h"
-#import "MZSTGSettingsHeader.h"
 #import "MZBehaviorsHeader.h"
 #import "MZColor.h"
 #import "MZUtilitiesHeader.h"
