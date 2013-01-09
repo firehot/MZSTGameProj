@@ -1,10 +1,12 @@
 #import "MZControl_Base.h"
+#import "MZTypeBaseClassFunctionsHeader.h"
 #import "MZTypeDefine.h"
 #import "Math.h"
 
 typedef enum
 {
     kMZMoveClass_Linear,
+    
 }MZMoveClassType;
 
 @class MZCharacter;
@@ -16,17 +18,8 @@ typedef enum
 @end
 
 @interface MZMove_Base : MZControl_Base
-{
-@private
-    id<MZMoveDelegate> moveDelegate;
 
-@protected
-}
-
-+(MZMove_Base *)createWithClassType:(MZMoveClassType)classType;
-+(MZMove_Base *)move;
-
-+(NSString *)classStringFromType:(MZMoveClassType)moveClassType;
+MZTypeBaseClassFunctionsHeader( MZMove_Base, move, MZMoveClassType )
 
 #pragma mark - settings
 @property (nonatomic, readwrite) float velocity;

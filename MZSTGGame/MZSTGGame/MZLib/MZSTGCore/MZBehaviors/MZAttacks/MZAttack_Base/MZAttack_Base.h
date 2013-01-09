@@ -1,10 +1,13 @@
 #import "MZControl_Base.h"
+#import "MZTypeBaseClassFunctionsHeader.h"
 #import "MZTarget_Base.h"
 #import "MZTypeDefine.h"
 
 typedef enum
 {
     kMZAttack_OddWay,
+    kMZAttack_EvenWay,
+
 }MZAttackClassType;
 
 @protocol MZAttackDelegate <MZControlDelegate>
@@ -26,10 +29,7 @@ typedef enum
 @protected
 }
 
-+(MZAttack_Base *)createWithClassType:(MZAttackClassType)classType;
-+(MZAttack_Base *)attack;
-
-+(NSString *)classStringFromType:(MZAttackClassType)moveClassType;
+MZTypeBaseClassFunctionsHeader( MZAttack_Base, attack, MZAttackClassType )
 
 -(void)reset;
 
@@ -67,8 +67,6 @@ typedef enum
 
 -(MZCharacterType)_getBulletType;
 
-//-(void)_addMotionSettingToBullet:(MZEventControlCharacter *)bullet;
-//-(void)_setBulletLeader:(MZEventControlCharacter *)bulletLeader;
-//-(MZEventControlCharacter *)_getCurrentBulletLeader;
-//-(NSMutableDictionary *)_getCommonValuesNSDictionary;
+-(void)_addFirstMoveToBullet:(MZBullet *)bullet; // 僅支援 Linear now >/////>
+
 @end

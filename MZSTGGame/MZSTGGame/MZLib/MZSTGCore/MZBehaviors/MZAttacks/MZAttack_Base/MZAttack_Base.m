@@ -1,5 +1,5 @@
 #import "MZAttack_Base.h"
-#import "MZLevelComponents.h"
+#import "MZLevelComponentsHeader.h"
 #import "MZGameCharactersHeader.h"
 #import "MZUtilitiesHeader.h"
 #import "MZTime.h"
@@ -101,9 +101,9 @@
 
     switch( moveClassType )
     {
-        case kMZAttack_OddWay:
-            typeString = @"OddWay";
-            break;
+        case kMZAttack_OddWay: typeString = @"OddWay"; break;
+        case kMZAttack_EvenWay: typeString = @"EvenWay"; break;
+
         default:
             MZAssert( false, @"Unkwno type" );
             break;
@@ -179,18 +179,6 @@
     [[MZLevelComponents sharedInstance].gamePlayLayer.charactersActionManager addWithType: [self _getBulletType] character: bullet];
 }
 
--(void)_setBulletLeader:(MZEnemy *)bulletLeader
-{
-//    currentBulletLeaderRef = bulletLeader;
-}
-
-//-(MZEventControlCharacter *)_getCurrentBulletLeader
-//{
-//    MZAssert( currentBulletLeaderRef, @"currentBulletLeaderRef is nil" );
-//    return currentBulletLeaderRef;
-//    return nil;
-//}
-
 -(MZCharacterType)_getBulletType
 {
     MZCharacterType characterType = [attackDelegate characterType];
@@ -222,6 +210,12 @@
     // faceto type set
 
     return bullet;
+}
+
+-(void)_addFirstMoveToBullet:(MZBullet *)bullet
+{
+    MZMove_Base *move = [bullet addMoveWithName: @"first" moveType: kMZMoveClass_Linear];
+    move.velocity = self.currentVelocity;
 }
 
 @end

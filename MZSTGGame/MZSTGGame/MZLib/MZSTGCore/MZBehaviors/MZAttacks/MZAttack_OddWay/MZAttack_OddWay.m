@@ -1,11 +1,8 @@
 #import "MZAttack_OddWay.h"
-#import "MZAttackSetting.h"
 #import "MZMath.h"
-#import "MZLevelComponentsHeader.h"
 #import "MZBullet.h"
 
 @interface MZAttack_OddWay (Private)
--(void)_addFirstMoveToBullet:(MZBullet *)bullet;
 @end
 
 #pragma mark
@@ -24,9 +21,6 @@
     [super _launchBullets];
     
     CGPoint centerMovingVector = self.target.currentMovingVector;
-
-
-//    CGPointMake( 0, -1 ); // [attackTargetHelpKit getMovingVectorToTarget];
     float currentDegrees = 0;
     
     for( int i = 0; i < self.numberOfWays + ( self.launchCount - 1 )*self.additionalWaysPerLaunch; i++ )
@@ -59,11 +53,5 @@
 @implementation MZAttack_OddWay (Private)
 
 #pragma mark - methods
-
--(void)_addFirstMoveToBullet:(MZBullet *)bullet
-{
-    MZMove_Base *move = [bullet addMoveWithName: @"first" moveType: kMZMoveClass_Linear];
-    move.velocity = self.currentVelocity;
-}
 
 @end
