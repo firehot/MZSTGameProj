@@ -3,8 +3,6 @@
 #import "MZSTGCharactersHeader.h"
 #import "MZGameCharactersHeader.h"
 #import "MZAttack_Base.h"
-#import "MZAttackSetting.h"
-#import "MZAttacksFactory.h"
 #import "MZMotionsHeader.h"
 #import "MZFaceToControl.h"
 #import "MZSTGGameHelper.h"

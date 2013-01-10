@@ -1,6 +1,5 @@
 #import "MZAttack_Vortex.h"
 #import "MZMath.h"
-#import "MZAttackSetting.h"
 #import "MZCharactersFactory.h"
 #import "MZSTGCharactersHeader.h"
 #import "MZCharactersActionManager.h"

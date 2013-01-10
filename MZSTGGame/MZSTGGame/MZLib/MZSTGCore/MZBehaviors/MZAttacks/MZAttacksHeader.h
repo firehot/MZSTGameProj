@@ -1,5 +1,3 @@
-#import "MZAttacksFactory.h"
-#import "MZAttackSetting.h"
 #import "MZAttack_Base.h"
 #import "MZAttack_OddWay.h"
 #import "MZAttack_EvenWay.h"

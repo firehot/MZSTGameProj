@@ -2,12 +2,10 @@
 #import "MZCharacter.h"
 #import "MZObjectHelper.h"
 #import "MZAttack_Vortex.h"
-#import "MZAttackSetting.h"
-#import "MZAttacksFactory.h"
 #import "MZLogMacro.h"
 
 @interface MZAttack_MultiVortex (Private)
--(MZAttackSetting *)_getAttackSettingWithTarget:(MZCharacter *)aTarget index:(int)index;
+//-(MZAttackSetting *)_getAttackSettingWithTarget:(MZCharacter *)aTarget index:(int)index;
 @end
 
 @implementation MZAttack_MultiVortex
@@ -59,8 +57,8 @@
 
 #pragma mark - methods
 
--(MZAttackSetting *)_getAttackSettingWithTarget:(MZCharacter *)aTarget index:(int)index
-{
+//-(MZAttackSetting *)_getAttackSettingWithTarget:(MZCharacter *)aTarget index:(int)index
+//{
 //    NSMutableDictionary *nsDictionary = [self _getCommonValuesNSDictionary];
 //    [nsDictionary setObject: [NSNumber numberWithInt: setting.intervalDegree] forKey: @"IntervalDegree"];
 //    [nsDictionary setObject: @"Vortex" forKey: @"Type"];    
@@ -68,8 +66,8 @@
 //    // working ...  我也不知道要 work 什麼 ... XD (12/05)
 //    MZAttackSetting *attackSetting = [MZAttackSetting settingWithNSDictionary: nsDictionary];
 //    return attackSetting;
-
-    return nil; // temp
-}
+//
+//    return nil; // temp
+//}
 
 @end
