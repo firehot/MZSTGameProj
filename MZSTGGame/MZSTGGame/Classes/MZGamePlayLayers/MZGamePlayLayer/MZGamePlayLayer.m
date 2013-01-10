@@ -295,38 +295,6 @@
 
 }
 
--(void)__test_characterPart
-{
-    part = [MZCharacterPart part];
-    [part retain];
-    [part setSpritesFromPool: [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Player]];
-//    part.setting.name = @"test";
-//    part.setting.frameName = @"Playermale_Normal0001.png";
-
-    [part enable];
-
-    part.position = mzp( 160, 240 );
-}
-
--(void)__test_character
-{
-    testCharacter = [[MZCharacter alloc] init];
-    testCharacter.characterType = kMZCharacterType_Enemy;
-    testCharacter.partSpritesPoolRef = [self spritesPoolByActorKey: kMZGamePlayLayerActorType_Enemy];
-
-    MZCharacterPart *p = [testCharacter addPartWithName: @"testPart"];
-//    p.setting.frameName = @"Ika_normal0001.png";
-    p.position = mzp( 0, 10 );
-
-    MZCharacterPart *p2 = [testCharacter addPartWithName: @"testPart02"];
-//    p2.setting.frameName = @"Ika_normal0002.png";
-    p2.position = mzp( 0, -10 );
-    p2.color = ccc3( 255, 0, 0 );
-
-    testCharacter.position = mzp( 160, 240 );
-    [testCharacter enable];
-}
-
 -(void)__test_init_player
 {
     MZCharacter *testPlayer = [charactersFactory getByType: kMZCharacterType_Player name: nil];
@@ -342,11 +310,11 @@
 {
     MZCharacter *testEnemy = [charactersFactory getByType: kMZCharacterType_Enemy name: nil];
 
-    testEnemy.position = mzp( 160, 400 );
+    testEnemy.position = mzp( 0, 400 );
     testEnemy.rotation = -90;
 
     [testEnemy initDefaultMode];
-
+    
     [charactersActionManager addWithType: kMZCharacterType_Enemy character: testEnemy];
 }
 
@@ -357,8 +325,7 @@
 
 -(void)__test_release
 {
-    [MZObjectHelper releaseObject: &part];
-    [MZObjectHelper releaseObject: &testCharacter];
+    
 }
 
 @end

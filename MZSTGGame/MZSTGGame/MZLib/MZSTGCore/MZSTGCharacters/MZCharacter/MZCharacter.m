@@ -102,6 +102,9 @@
     
     if( currentHealthPoint <= 0 )
         [self disable];
+
+    if( ![self isInnerScreen] )
+        [self disable];
 }
 
 -(void)_update
